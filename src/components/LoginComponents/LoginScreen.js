@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import loginUser from '../../helpers/loginUser'
+import getAuth from '../../hooks/useAuth'
 
 
-const LoginScreen = ({ setToken, isLoading }) => {
+const LoginScreen = ({ onLogin }) => {
 
     const [userData, setUserData] = useState({
         uId: '',
@@ -11,7 +11,6 @@ const LoginScreen = ({ setToken, isLoading }) => {
     })
 
     const handleUserInfoChanged = ({ target }) => {
-
 
         switch (target.name) {
 
@@ -30,29 +29,17 @@ const LoginScreen = ({ setToken, isLoading }) => {
                 })
                 break;
         }
-
     }
 
     const handleSubmit = async (e) => {
 
         e.preventDefault();
 
-        const { uId, uPassword } = userData;
-
-        const token = await loginUser({
-            uId,
-            uPassword
-        })
-        return setToken(token);
+        onLogin(userData);
     }
 
     return (
         <>
-            {
-
-                isLoading && <h5 className='title-center animate__animated animate__flash animate__slower animate__infinite'>Cargando...</h5>
-
-            }
             {
                 <div className='login-form-container'>
                     <div className='login-header'>

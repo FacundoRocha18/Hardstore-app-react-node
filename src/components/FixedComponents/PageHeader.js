@@ -1,9 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const Header = (props) => {
 
-    const { logout } = props;
+const Header = ({ token, onLogout }) => {
 
     return (
         <>
@@ -17,9 +16,11 @@ const Header = (props) => {
                         <nav>
                             <ul>
                                 <li><Link to={'/'}>Inicio</Link></li>
-                                <li><Link to={'/api/auth/'}>Login</Link></li>
-                                <Link to={'/shoppingCart'} className='show-cart btn'><span className="material-icons-outlined">shopping_cart</span></Link>
-                                <button type='submit' className='logout-btn btn' onClick={ logout }><span className="material-icons-outlined">logout</span></button>
+                                <li><Link to={'/api/auth/login'}>Login</Link></li>
+                                <Link to={'api/products/shoppingCart'} className='show-cart btn'><span className="material-icons-outlined">shopping_cart</span></Link>
+                                {
+                                    token && <button type='submit' className='logout-btn btn' onClick={ onLogout }><span className="material-icons-outlined">logout</span></button>
+                                }
                             </ul>
                         </nav>
                     </div>
