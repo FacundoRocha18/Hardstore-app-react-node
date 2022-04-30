@@ -51,11 +51,11 @@ const ProductsGrid = (props) => {
                             }
                         </div>
                     </div>
-                    <div className="alerts-container animate__animated animate__bounceInDown animate__fast" id='toast-container'>
+                    {/* <div className="alerts-container animate__animated animate__bounceInDown animate__fast" id='toast-container'>
                         {
                             result.success ? <AlertToast onClose={OnClose} info={result.info} alertClass={result.alertClass} /> : <AlertToast onClose={OnClose} info={result.errorInfo} alertClass={result.alertClass} />
                         }
-                    </div>
+                    </div> */}
                 </div>
 
             }

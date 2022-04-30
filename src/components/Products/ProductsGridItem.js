@@ -15,7 +15,7 @@ const ProductsGridItem = (props) => {
                     </div>
                     <div className="product-info">
                         <div className="product-item-title">
-                            <Link to={`/singleProduct/${id}`}><h3 id="item-title">{name}</h3></Link>
+                            <Link to={`api/products/singleProduct/${id}`}><h3 id="item-title">{name}</h3></Link>
                         </div>
                         <div className="product-info-flex">
                             <div className="product-price">

@@ -20,11 +20,22 @@ const useAuth = () => {
         window.location.reload(false);
     };
 
+    const isAuthenticated = (token) => {
+        let isAuthenticated;
+
+        return (token)
+            ?
+            (isAuthenticated = true)
+            :
+            (isAuthenticated = false)
+    }
+
     return {
         token,
+        isAuth: isAuthenticated,
         onLogin: handleLogin,
         onLogout: handleLogout,
-      };
+    };
 }
 
 export default useAuth;

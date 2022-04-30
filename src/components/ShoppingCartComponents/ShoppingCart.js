@@ -6,8 +6,7 @@ import ShoppingCartItem from './ShoppingCartItem'
 
 const ShoppingCart = (props) => {
 
-  const { cartItems, onAdd, onRemove, onDelete, onBuy, result, modalData } = props;
-  const { success, info, alertClass } = result;
+  const { cartItems, onAdd, onRemove, onDelete, onBuy } = props;
 
   const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
   const shippingPrice = itemPrice > 2000 ? 0 : 50;
@@ -96,7 +95,7 @@ const ShoppingCart = (props) => {
             }
           </div>
 
-          <div className='modal-container modal-inactive animate__animated animate__fadeIn animate__fast'>
+          {/* <div className='modal-container modal-inactive animate__animated animate__fadeIn animate__fast'>
             {
               <ModalAlert data={modalData} />
             }
@@ -106,7 +105,7 @@ const ShoppingCart = (props) => {
             {
               result.success ? <AlertToast onClose={OnClose} info={result.info} alertClass={result.alertClass} /> : <AlertToast onClose={OnClose} info={result.info} alertClass={result.alertClass} />
             }
-          </div>
+          </div> */}
         </div>
       </div>
 

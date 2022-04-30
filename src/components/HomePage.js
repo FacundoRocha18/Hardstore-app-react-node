@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import ProductsGrid from './Products/ProductsGrid'
-import ShoppingCart from './ShoppingCartComponents/ShoppingCart'
-import AlertToast from './Alerts/ToastAlert.js'
-import ModalAlert from './Alerts/ModalAlert.js'
-import useFetchProducts from '../hooks/useFetchProducts';
+
 
 const HomePage = (props) => {
 

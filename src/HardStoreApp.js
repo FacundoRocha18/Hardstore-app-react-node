@@ -1,35 +1,38 @@
-import React, { useState } from 'react';
-import useFetchProducts from './hooks/useFetchProducts'
-import Header from './components/FixedComponents/PageHeader'
-import HomePage from './components/HomePage'
-import ShoppingCart from './components/ShoppingCartComponents/ShoppingCart'
-import SingleProduct from './components/Products/SingleProduct'
-import LoginScreen from './components/LoginComponents/LoginScreen';
-import Footer from './components/FixedComponents/PageFooter'
-import useCart from './hooks/useCart'
+import React, { useState, Suspense } from 'react';
+
+/* React Router -------------------------------- */
 import {
   BrowserRouter as Router,
   Routes,
   Route
-} from 'react-router-dom'
+} from 'react-router-dom';
+
+/* Custom Hooks -------------------------------- */
+import useFetchProducts from './hooks/useFetchProducts';
+import useCart from './hooks/useCart';
 import useAuth from './hooks/useAuth';
+
+/* Components -------------------------------- */
+import Header from './components/FixedComponents/PageHeader';
+import HomePage from './components/HomePage';
+import ShoppingCart from './components/ShoppingCartComponents/ShoppingCart';
+import SingleProduct from './components/Products/SingleProduct';
+import LoginScreen from './components/LoginComponents/LoginScreen';
+import NoMatchPage from './components/NoMatchPage';
+import Footer from './components/FixedComponents/PageFooter';
+
+
 
 
 function App() {
 
   const { data: products, loading } = useFetchProducts();
+  
+  const { token, isAuth, onLogin, onLogout } = useAuth();
 
-  const [result, setResult] = useState({
-    success: false,
-    info: '',
-    alertClass: 'alert-inactive'
-  });
+  const { cartItems, onAdd, onDelete, onRemove, onBuy } = useCart()
 
-  const modalContainer = document.querySelector('.modal-container');
-
-  const { cartItems, onAdd, onDelete, onRemove, onBuy } = useCart(result, setResult, modalContainer)
-
-  const { token, onLogin, onLogout } = useAuth();
+  console.log(isAuth)
 
   const [modalData, setModalData] = useState({
     success: null,
@@ -37,59 +40,84 @@ function App() {
     total: 0
   });
 
+  const modalContainer = document.querySelector('.modal-container');
 
-  if (!token) {
+  /* if (!token) {
     return <LoginScreen
       onLogin={onLogin}
     />
-  }
-
-
+  } */
 
   return (
-    <div className="App">
-      <Router>
-      <Header
-            onLogout={onLogout}
-            token={token}
-          />
-          <Routes>
 
-            <Route exact path='/' element={
+    <div className="App">
+
+      <Router>
+
+        <Header
+          onLogout={onLogout}
+          token={token}
+        />
+
+        <Routes>
+
+          <Route exact path='/'
+            element={
               <HomePage
                 products={products}
                 loading={loading}
                 onAdd={onAdd}
-                result={result}
               />
-            } />
+            }
+          />
 
-            <Route exact path='api/products/shoppingCart' element={
+          <Route exact path='api/products/shoppingCart'
+            element={
+              (isAuth(token)) 
+              ? 
               <ShoppingCart
                 cartItems={cartItems}
                 onAdd={onAdd}
                 onRemove={onRemove}
                 onDelete={onDelete}
                 onBuy={onBuy}
-                result={result}
-                modalData={modalData}
+                modalContainer={modalContainer}
               />
-            } />
+              :
+              <LoginScreen
+                onLogin={onLogin}
+              />
+              
+            }
+          />
 
-            <Route exact path='api/products/singleProduct/:id' element={
+          <Route exact path='api/products/singleProduct/:id'
+            element={
               <SingleProduct
                 onAdd={onAdd}
                 onRemove={onRemove}
               />
-            } />
+            }
+          />
 
-            <Route exact path='/api/auth/login' element={
-              <LoginScreen />
-            } />
+          <Route exact path='/api/auth/login'
+            element={
+              <LoginScreen
+                onLogin={onLogin}
+              />
+            }
+          />
 
-            {/* <Route path="*" element={<NoMatch />} /> */}
-          </Routes>
-          <Footer />
+          <Route path="*"
+            element={
+              <NoMatchPage />
+            }
+          />
+
+        </Routes>
+
+        <Footer />
+
       </Router>
     </div >
   );
