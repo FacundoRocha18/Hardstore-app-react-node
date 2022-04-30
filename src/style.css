@@ -442,26 +442,24 @@ body {
     border-radius: .5rem;
     font-family: 'Poppins', sans-serif;
     font-weight: var(--light);
-}
-
-.header-menu nav ul li a:hover {
-    background-color: var(--primary-btn-hover-bg-color);
     transition: all .5s;
 }
 
-.header-menu .logout-btn {
+nav ul li .logout-btn {
     background-color: transparent;
     border: none;
-    padding: 1rem 1.5rem;
-    margin-left: 4rem;
+    border-radius: .5rem;
+    color: var(--body-bg-main-color);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    font-weight: var(--light);
+    letter-spacing: 1pt;
+    padding: 0.5rem 1rem;
     transition: all .5s;
 }
 
-.header-menu .logout-btn span {
-    color: var(--text-white);
-}
-
-.header-menu .logout-btn:hover {
+nav ul li a:hover,
+nav ul li .logout-btn:hover {
     background-color: var(--primary-btn-hover-bg-color);
     cursor: pointer;
 }
@@ -877,12 +875,14 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 1.5rem;
 }
 
-.success-alert {
+/* Success message */
+.green {
     background-color: var(--success-btn-bg-color);
     background: var(--success-btn-gradient);
 }
 
-.error-alert {
+/* Error message */
+.red {
     background-color: var(--critical-btn-bg-color);
     background: var(--error-btn-gradient);
 }

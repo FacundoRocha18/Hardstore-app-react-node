@@ -1,34 +1,25 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
-const AlertToast = (props) => {
+import useAlert from '../../hooks/useAlert'
 
-    const { onClose, success, info, alertClass } = props;
+const AlertToast = () => {
 
-    /* const [ isShowing, setIsShowing ] = useState(false)
+    
+    const { alertData, onClose } = useAlert;
 
-    useEffect(() => {
+    console.log(alertData)
 
-        setIsShowing(true)
-        console.log('mounted');
-        console.log(info)
-        const timeout = setTimeout(() => {
-            setIsShowing(false)
-        }, 1000)
-
-        return () => {
-            console.log('unmounted');
-            clearTimeout(timeout);
-        }
-    }, [success]) */
+    const alertColor = 'green', data = 'Producto añadido correctamente';
+    
     
     return (
         <>
-            <div className={'alert-popup ' + alertClass} id="add-success-alert" role="alert"
+            <div className={`alert-popup ${alertColor}`} id="add-success-alert" role="alert"
                 data-delay="2000">
                 <div className="alert-header">
                     <div className='text-container'>
                         <span className="material-icons-round">task_alt</span>
-                        <h4 className='title-center'>{info}</h4>
+                        <h4 className='title-center'>{data}</h4>
                     </div>
                     <div className='button-container'>
                         <button type="button" className="close-btn" aria-label="Close" onClick={onClose}>

@@ -45,7 +45,7 @@ const LoginScreen = ({ onLogin }) => {
                     <div className='login-header'>
                         <h2 className='title-center'>Inicie sesión</h2>
                     </div>
-                    <form onSubmit={handleSubmit} method='GET' autoComplete='off'>
+                    <form onSubmit={handleSubmit} autoComplete='off'>
                         <input name='username' type='text' placeholder='Ingrese su usuario' autoFocus className='mb-2' required onChange={handleUserInfoChanged}></input>
                         <input name='password' type='password' placeholder='Ingrese su contraseña' className='mb-2' required onChange={handleUserInfoChanged}></input>
                         <button type='submit' className='btn login-button' ><p>Iniciar sesión</p></button>

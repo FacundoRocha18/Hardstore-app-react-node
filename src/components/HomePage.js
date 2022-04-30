@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
+
+/* Custom Hooks -------------------------------- */
+import useAlert from '../hooks/useAlert'
+
+/* Components -------------------------------- */
 import ProductsGrid from './Products/ProductsGrid'
+import ToastAlert from './Alerts/ToastAlert'
 
 
-const HomePage = (props) => {
 
-    const { products, loading, onAdd, result } = props;
+const HomePage = ({ products, loading, onAdd }) => {
+
+    const { isShowing, setIsShowing, alertData, setAlertData } = useAlert() 
+
     
     return (
         <>
@@ -15,9 +23,13 @@ const HomePage = (props) => {
                             products={products}
                             loading={loading}
                             onAdd={onAdd}
-                            result={result}
+                            setIsShowing={setIsShowing}
+                            setAlertData={setAlertData}
                         />
-                    }                
+                    }   
+                    {
+                        (isShowing) && <ToastAlert alertData={alertData}/>
+                    }             
             </div>
         </>
     )

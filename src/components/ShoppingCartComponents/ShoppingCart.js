@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import ModalAlert from '../Alerts/ModalAlert'
 import AlertToast from '../Alerts/ToastAlert'
 import ShoppingCartItem from './ShoppingCartItem'
 
 
-const ShoppingCart = (props) => {
-
-  const { cartItems, onAdd, onRemove, onDelete, onBuy } = props;
+const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy }) => {
 
   const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
   const shippingPrice = itemPrice > 2000 ? 0 : 50;

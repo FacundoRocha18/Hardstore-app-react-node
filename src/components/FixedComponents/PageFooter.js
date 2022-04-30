@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 
-const Footer = () => {
+const Footer = ({ token, onLogout }) => {
 
     return (
         <>
@@ -15,10 +15,16 @@ const Footer = () => {
                     </div>
                     <div className="footer-menu">
                         <nav>
-                            <ul>
+                        <ul>
                                 <li><Link to={'/'}>Inicio</Link></li>
-                                <li><Link to={'/api/auth/'}>Login</Link></li>
-                                <Link to={'/shoppingCart'} className='show-cart btn'><span className="material-icons-outlined">shopping_cart</span></Link>
+                                {
+                                    !token && <li><Link to={'/api/auth/login'}>Login</Link></li>
+                                }
+                                {
+                                    token && <li><button type='submit' className='logout-btn' onClick={onLogout}>Cerrar sesión</button></li>
+                                }
+                                <Link to={'api/products/shoppingCart'} className='show-cart btn'><span className="material-icons-outlined">shopping_cart</span></Link>
+
                             </ul>
                         </nav>
                     </div>
