@@ -1011,6 +1011,11 @@ input[type=number]::-webkit-outer-spin-button {
         background-color: var(--body-bg-main-color);
     }
 
+    /* .products-wrapper {
+        display: flex;
+        justify-content: space-between;
+    } */
+
     .products-container {
         width: 100%;
         height: fit-content;
@@ -1018,7 +1023,7 @@ input[type=number]::-webkit-outer-spin-button {
 
     .products-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 3rem;
     }
 
@@ -1048,7 +1053,7 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .product-item-title h3 {
-        font-size: 2.3rem;
+        font-size: 2rem;
     }
 
     .product-info {
@@ -1083,15 +1088,34 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .product-image {
-        width: 100%;
-        height: 250px;
+        border-bottom: solid 1px var(--borders-main-color-blur);
+        height: 200px;
         margin: 0 auto;
+        width: 100%;
     }
 
     .product-image img {
         border-top-left-radius: .5rem;
         border-top-right-radius: .5rem;
         border-bottom-left-radius: 0;
+    }
+
+    /* Products Categories */
+
+    .categories-container {
+        width: fit-content;
+    }
+
+    .categories-header {
+        padding: 1rem;
+        width: 100%;
+    }
+
+    .categories-body {
+        background-color: var(--product-item-background);
+        border-radius: 1rem;
+        width: 100%;
+        padding: 2rem;
     }
 
     /* Shopping cart section */
@@ -1655,25 +1679,39 @@ input[type=number]::-webkit-outer-spin-button {
     width: 50%;
 }
 
-.login-form-container {
+.login-form-container,
+.register-form-container {
     background-color: var(--product-item-background);
     border-radius: 1rem;
     box-shadow: var(--box-shadow-1);
-    height: 80%;
+    height: fit-content;
     margin: 15rem auto;
-    padding: 2rem;
-    width: 30%;
+    padding: 4rem;
+    width: fit-content;
 }
 
-.login-form-container form {
+.register-form-container {
+    width: 45%;
+}
+
+.login-form-container form,
+.register-form-container form {
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    padding: 2rem;
+    margin: 0 auto;
+    width: 80%;
 }
 
-.login-form-container form input {
+.register-form-container form {
+    margin: 0;
+    min-width: 35rem;
+    width: auto;
+}
+
+.login-form-container form input,
+.register-form-container form input {
     background-color: var(--item-bg-main-color);
     border: none;
     border-radius: 1rem;
@@ -1681,18 +1719,72 @@ input[type=number]::-webkit-outer-spin-button {
     font-family: 'Questrial', sans-serif;
     font-size: 1.6rem;
     padding: 1rem 1rem;
+    width: 100%;
 }
 
-.login-form-container form button {
+.register-form-container form input {
+    width: auto;
+}
+
+.login-form-container form .login-button,
+.login-form-container form .register-btn {
+    align-items: center;
+    box-shadow: var(--box-shadow-1);
+    display: flex;
+    justify-content: center;
+    padding: 1rem 2rem;
+    margin: 0;
+    width: 100%;
+    transition: all .5s;
+}
+
+.login-form-container form .login-button {
     background-color: #039BE5;
     border: none;
-    box-shadow: var(--box-shadow-1);
-    padding: 1rem 2rem;
-    transition: all .5s;
+    margin: 0 auto 1rem;
+}
+
+.login-form-container form .register-btn {
+    background-color: transparent;
+    border: solid 2px #039BE5;
+}
+
+.login-form-container form .register-btn:hover {
+    border: solid 2px #0277BD;
+    cursor: pointer;
 }
 
 .login-form-container form button:hover {
     background-color: #0277BD;
     color: var(--product-item-background);
     cursor: pointer;
+}
+
+.login-buttons-container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    min-width: 35rem;
+}
+
+.login-buttons-container .password-link {
+    color: #039BE5;
+    transition: all .5s;
+}
+
+.login-buttons-container .password-link:hover {
+    color: #0277BD;
+    text-decoration: underline;
+}
+
+.register-form-container form .register-form-group {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.no-match {
+    height: 100%;
+    margin: 10rem auto;
 }

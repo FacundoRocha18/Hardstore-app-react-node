@@ -3,7 +3,7 @@ import React from 'react'
 export const NoMatchPage = () => {
 
   return (
-    <div>No Match Page</div>
+    <div className='no-match'>No Match Page</div>
   )
 }
 

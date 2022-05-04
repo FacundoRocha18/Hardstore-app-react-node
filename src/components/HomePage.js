@@ -6,6 +6,8 @@ import useAlert from '../hooks/useAlert'
 /* Components -------------------------------- */
 import ProductsGrid from './Products/ProductsGrid'
 import ToastAlert from './Alerts/ToastAlert'
+import ProductsCategories from './Products/ProductsCategories';
+
 
 
 
@@ -17,7 +19,10 @@ const HomePage = ({ products, loading, onAdd }) => {
     return (
         <>
 
-            <div className="main-content-wrapper">
+            <div className="products-wrapper main-content-wrapper">
+                    {/* {
+                        <ProductsCategories />
+                    } */}
                     {
                         <ProductsGrid
                             products={products}
@@ -27,9 +32,9 @@ const HomePage = ({ products, loading, onAdd }) => {
                             setAlertData={setAlertData}
                         />
                     }   
-                    {
+                    {/* {
                         (isShowing) && <ToastAlert alertData={alertData}/>
-                    }             
+                    }   */}           
             </div>
         </>
     )

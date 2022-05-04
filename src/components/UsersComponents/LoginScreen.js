@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types';
-import getAuth from '../../hooks/useAuth'
 
 
 const LoginScreen = ({ onLogin }) => {
 
+    const navigate = useNavigate();
+
     const [userData, setUserData] = useState({
-        uId: '',
-        uPassword: '',
+        uId: null,
+        uPassword: null,
     })
 
     const handleUserInfoChanged = ({ target }) => {
@@ -38,6 +40,10 @@ const LoginScreen = ({ onLogin }) => {
         onLogin(userData);
     }
 
+    const handleRegister = () => {
+        navigate('/api/auth/register', { replace: true })
+    }
+
     return (
         <>
             {
@@ -48,8 +54,14 @@ const LoginScreen = ({ onLogin }) => {
                     <form onSubmit={handleSubmit} autoComplete='off'>
                         <input name='username' type='text' placeholder='Ingrese su usuario' autoFocus className='mb-2' required onChange={handleUserInfoChanged}></input>
                         <input name='password' type='password' placeholder='Ingrese su contraseña' className='mb-2' required onChange={handleUserInfoChanged}></input>
-                        <button type='submit' className='btn login-button' ><p>Iniciar sesión</p></button>
+                        <button type='submit' className='btn login-button'><p>Iniciar sesión</p></button>
+                        <button className='register-btn btn' id='register' onClick={handleRegister}><p>Registrarse</p></button>
+
                     </form>
+                    <div className='login-buttons-container'>
+                        <p>Olvidaste tu contraseña?</p>
+                        <Link to={'api/auth/forgot'} ><p className='password-link'>Reestablecela aquí.</p></Link>
+                    </div>
                 </div>
             }
         </>

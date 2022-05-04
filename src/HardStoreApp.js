@@ -12,14 +12,15 @@ import {
 import useFetchProducts from './hooks/useFetchProducts';
 import useCart from './hooks/useCart';
 import useAuth from './hooks/useAuth';
-import useAlert from './hooks/useAlert'
 
 /* Components -------------------------------- */
 import Header from './components/FixedComponents/PageHeader';
 import HomePage from './components/HomePage';
 import ShoppingCart from './components/ShoppingCartComponents/ShoppingCart';
 import SingleProduct from './components/Products/SingleProduct';
-import LoginScreen from './components/LoginComponents/LoginScreen';
+import LoginScreen from './components/UsersComponents/LoginScreen';
+import RegisterScreen from './components/UsersComponents/RegisterScreen';
+
 import NoMatchPage from './components/NoMatchPage';
 import Footer from './components/FixedComponents/PageFooter';
 
@@ -30,7 +31,7 @@ function App() {
 
   const { data: products, loading } = useFetchProducts();
 
-  const { token, isAuth, onLogin, onLogout } = useAuth();
+  const { token, username, isAuth, onLogin, onLogout } = useAuth();
 
   const { cartItems, onAdd, onDelete, onRemove, onBuy } = useCart()
 
@@ -49,8 +50,9 @@ function App() {
       <Router>
 
         <Header
-          onLogout={onLogout}
           token={token}
+          username={username}
+          onLogout={onLogout}
         />
 
         <Routes>
@@ -78,8 +80,10 @@ function App() {
                   modalContainer={modalContainer}
                 />
                 :
-                <LoginScreen
-                  onLogin={onLogin}
+                <Navigate
+                  to={{
+                    pathname: '/api/auth/login'
+                  }}
                 />
 
             }
@@ -108,6 +112,13 @@ function App() {
                   }}
                 />
             }
+          />
+
+          <Route
+          path='/api/auth/register'
+          element={
+            <RegisterScreen />
+          }
           />
 
           <Route path="*"
