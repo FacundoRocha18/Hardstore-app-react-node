@@ -115,10 +115,10 @@ function App() {
           />
 
           <Route
-          path='/api/auth/register'
-          element={
-            <RegisterScreen />
-          }
+            path='/api/auth/register'
+            element={
+              <RegisterScreen />
+            }
           />
 
           <Route path="*"
@@ -131,6 +131,7 @@ function App() {
 
         <Footer
           onLogout={onLogout}
+          username={username}
           token={token}
         />
 

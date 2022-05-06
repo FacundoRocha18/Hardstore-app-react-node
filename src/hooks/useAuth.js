@@ -12,14 +12,17 @@ const useAuth = () => {
 
 
     const handleLogin = async (userData) => {
-        const { uId, uPassword } = userData;
+        const { uEmail, uPassword } = userData;
 
-        const userInfo = await loginUser({
-            uId,
+        const {token, username} = await loginUser({
+            uEmail,
             uPassword
         })
-        const {token, username} = userInfo;
+
+        console.log(token)
+
         alert('Bienvenido ' + username)
+
         return {
             token: setToken(token),
             userName: setUsername(username)

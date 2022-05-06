@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import newUser from '../../helpers/newUser'
 
 const RegisterScreen = (props) => {
 
     const [userData, setUserData] = useState({
-        uId: null,
+        uEmail: null,
         uName: null,
         uAddress: null,
         uPhone: null,
@@ -14,10 +15,10 @@ const RegisterScreen = (props) => {
 
         switch (target.name) {
 
-            case 'userid':
+            case 'email':
                 setUserData({
                     ...userData,
-                    uId: target.value
+                    uEmail: target.value
                 })
                 break;
 
@@ -56,8 +57,8 @@ const RegisterScreen = (props) => {
 
         e.preventDefault();
 
-/*         onLogin(userData);
- */    }
+        newUser(userData);
+    }
 
     return (
         <>
@@ -66,31 +67,17 @@ const RegisterScreen = (props) => {
                     <div className='register-header'>
                         <h2 className='title-center mb-2 '>Crear una cuenta</h2>
                     </div>
-                    <form onSubmit={handleSubmit} method='POST' autoComplete='off'>
-                        <div className='register-form-group mb-2'>
-                            <label htmlFor='userid'><p>Tu email: </p></label>
-                            <input name='userid' id='userid' type='text' placeholder='email@email.com ' autoFocus  required onChange={handleUserInfoChanged}></input>
-                        </div>
+                    <form onSubmit={handleSubmit} autoComplete='off'>
 
-                        <div className='register-form-group mb-2'>
-                            <label htmlFor='userid'><p>Tu nombre: </p></label>
-                            <input name='username' id='username' type='text' placeholder='nombre'   required onChange={handleUserInfoChanged}></input>
-                        </div>
+                        <input name='email' className='mb-2' id='userEmail' type='text' placeholder='email@email.com ' autoFocus required onChange={handleUserInfoChanged}></input>
 
-                        <div className='register-form-group mb-2'>
-                            <label htmlFor='address'><p>Tu dirección: </p></label>
-                            <input name='address' id='address' type='text' placeholder='dirección'   required onChange={handleUserInfoChanged}></input>
-                        </div>
+                        <input name='username' className='mb-2' id='username' type='text' placeholder='nombre' required onChange={handleUserInfoChanged}></input>
 
-                        <div className='register-form-group mb-2'>
-                            <label htmlFor='phone'><p>Tu teléfono: </p></label>
-                            <input name='phone' id='phone' type='text' placeholder='teléfono'   required onChange={handleUserInfoChanged}></input>
-                        </div>
+                        <input name='address' className='mb-2' id='address' type='text' placeholder='dirección' required onChange={handleUserInfoChanged}></input>
 
-                        <div className='register-form-group mb-2'>
-                        <label htmlFor='password'><p>Tu contraseña: </p></label>
-                        <input name='password' id='password' type='password' placeholder='contraseña'  required onChange={handleUserInfoChanged}></input>
-                        </div>
+                        <input name='phone' className='mb-2' id='phone' type='text' placeholder='teléfono' required onChange={handleUserInfoChanged}></input>
+
+                        <input name='password' className='mb-2' id='password' type='password' placeholder='contraseña' required onChange={handleUserInfoChanged}></input>
 
                         <button type='submit' className='btn register-submit-button'><p>Crear cuenta</p></button>
 

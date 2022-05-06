@@ -8,7 +8,7 @@ const LoginScreen = ({ onLogin }) => {
     const navigate = useNavigate();
 
     const [userData, setUserData] = useState({
-        uId: null,
+        uEmail: null,
         uPassword: null,
     })
 
@@ -16,10 +16,10 @@ const LoginScreen = ({ onLogin }) => {
 
         switch (target.name) {
 
-            case 'username':
+            case 'email':
                 setUserData({
                     ...userData,
-                    uId: target.value
+                    uEmail: target.value
                 })
                 break;
 
@@ -48,17 +48,17 @@ const LoginScreen = ({ onLogin }) => {
         <>
             {
                 <div className='login-form-container'>
-                    <div className='login-header'>
+                    <div className='login-header mb-2'>
                         <h2 className='title-center'>Inicie sesión</h2>
                     </div>
                     <form onSubmit={handleSubmit} autoComplete='off'>
-                        <input name='username' type='text' placeholder='Ingrese su usuario' autoFocus className='mb-2' required onChange={handleUserInfoChanged}></input>
+                        <input name='email' type='text' placeholder='Ingrese su email' className='mb-2' autoFocus required onChange={handleUserInfoChanged}></input>
                         <input name='password' type='password' placeholder='Ingrese su contraseña' className='mb-2' required onChange={handleUserInfoChanged}></input>
                         <button type='submit' className='btn login-button'><p>Iniciar sesión</p></button>
                         <button className='register-btn btn' id='register' onClick={handleRegister}><p>Registrarse</p></button>
 
                     </form>
-                    <div className='login-buttons-container'>
+                    <div className='login-buttons-container mt-2'>
                         <p>Olvidaste tu contraseña?</p>
                         <Link to={'api/auth/forgot'} ><p className='password-link'>Reestablecela aquí.</p></Link>
                     </div>

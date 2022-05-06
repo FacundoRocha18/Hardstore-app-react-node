@@ -1691,7 +1691,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .register-form-container {
-    width: 45%;
+    width: 40%;
 }
 
 .login-form-container form,
@@ -1718,12 +1718,8 @@ input[type=number]::-webkit-outer-spin-button {
     box-shadow: var(--box-shadow-1);
     font-family: 'Questrial', sans-serif;
     font-size: 1.6rem;
-    padding: 1rem 1rem;
+    padding: 1.5rem 1.5rem;
     width: 100%;
-}
-
-.register-form-container form input {
-    width: auto;
 }
 
 .login-form-container form .login-button,
@@ -1738,10 +1734,20 @@ input[type=number]::-webkit-outer-spin-button {
     transition: all .5s;
 }
 
-.login-form-container form .login-button {
-    background-color: #039BE5;
+.login-form-container form .login-button,
+.register-form-container form .register-submit-button {
+    background-color: #0277BD;
     border: none;
+    color: var(--product-item-background);
     margin: 0 auto 1rem;
+    transition: all .5s;
+}
+
+.register-form-container form .register-submit-button {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .login-form-container form .register-btn {
@@ -1754,9 +1760,10 @@ input[type=number]::-webkit-outer-spin-button {
     cursor: pointer;
 }
 
-.login-form-container form button:hover {
-    background-color: #0277BD;
-    color: var(--product-item-background);
+.login-form-container form button:hover,
+.register-form-container form .register-submit-button:hover {
+    background-color: #039BE5;
+    color: var(--text-main-color);
     cursor: pointer;
 }
 

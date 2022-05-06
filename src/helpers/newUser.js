@@ -1,15 +1,35 @@
-const newUser = async ({ uId, uName, uAddress, uPhone, uPassword }) => {
+const newUser = async ({ uEmail, uName, uAddress, uPhone, uPassword }) => {
 
-    const url = `http://localhost:8000/api/auth/login?uid=${uId}&upassword=${uPassword}`;
-    const response = await fetch( url ).catch((error) => console.error(error));
-    const res = await response.json();
-    
-    const { token, username } = res
-        
-    return {
-        token: token,
-        username: username
+    const url = `http://192.168.1.8:8000/api/auth/register/new`;
+
+    const data = {
+        email: uEmail,
+        name: uName,
+        address: uAddress,
+        phone: uPhone,
+        password: uPassword,
     };
+
+    const addParams = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(data)
+    };
+
+
+
+    console.log(data)
+
+    fetch(url, addParams)
+        .then((res) => {
+            console.log(res)
+            alert('Se ha registrado con éxito.')
+        })
+        .catch((error) => console.error(error));
+
+
 }
 
-export default loginUser;
+export default newUser;

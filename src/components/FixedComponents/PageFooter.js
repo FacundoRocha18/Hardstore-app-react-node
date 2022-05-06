@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 
-const Footer = ({ token, onLogout }) => {
+const Footer = ({ token, username, onLogout }) => {
 
     return (
         <>
@@ -19,6 +19,9 @@ const Footer = ({ token, onLogout }) => {
                                 <li><Link to={'/'}>Inicio</Link></li>
                                 {
                                     !token && <li><Link to={'/api/auth/login'}>Login</Link></li>
+                                }
+                                {
+                                    username && <li><Link to={'/api/users/profile'}>{username.replace(/"/g, '')}</Link></li>
                                 }
                                 {
                                     token && <li><button type='submit' className='logout-btn' onClick={onLogout}>Cerrar sesión</button></li>
