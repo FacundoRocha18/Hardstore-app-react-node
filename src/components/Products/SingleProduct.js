@@ -10,7 +10,7 @@ const SingleProduct = (props) => {
     const { id } = useParams();
 
     const { data: products, loading } = useFetchProducts();
-    
+
     const [dataTemplate, setDataTemplate] = useState({
         id: 0,
         name: 'name',
@@ -22,7 +22,7 @@ const SingleProduct = (props) => {
     })
 
     const [quantity, setQuantity] = useState(1)
-    
+
     const { name, image, price, description, stock, category } = checkData(products, dataTemplate, id);
 
     const separatedDescription = splitDescription(description)
@@ -48,7 +48,9 @@ const SingleProduct = (props) => {
                             </div>
                             <div className='single-product-stock mbt-4'>
                                 <div className='qty-input-container'>
-                                    <input className="single-product-quantity-input" value={quantity} type="number" min="1" max={stock} onChange={() => setQuantity(quantity + 1)}></input>
+                                    <button onClick={() => (quantity > 0) ? setQuantity(quantity - 1) : setQuantity(quantity)}><p>-</p></button>
+                                    <input className="single-product-quantity-input" defaultValue={quantity} type="number" min="1" max={stock}></input>
+                                    <button onClick={() => (quantity <= 10) ? setQuantity(quantity + 1) : setQuantity(quantity)}><p>+</p></button>
                                 </div>
                                 <div className='stock-text-container'>
                                     <p>Cantidad disponible: {stock}</p>
@@ -73,54 +75,60 @@ const SingleProduct = (props) => {
                         <div className='description-body mt-4'>
                             <table className='mb-2'>
                                 <caption className='mb-2'><h4>Modelo</h4></caption>
-                                <tr>
-                                    <th><h6>Marca: </h6></th>
-                                    <td>{separatedDescription[0]}</td>
-                                </tr>
-                                <tr>
-                                    <th><h6>Modelo: </h6></th>
-                                    <td>{separatedDescription[1]}</td>
-                                </tr>
-                                <tr>
-                                    <th><h6>Número de modelo: </h6></th>
-                                    <td>{separatedDescription[2]}</td>
-                                </tr>
+                                <tbody>
+                                    <tr>
+                                        <th><h6>Marca: </h6></th>
+                                        <td>{separatedDescription[0]}</td>
+                                    </tr>
+                                    <tr>
+                                        <th><h6>Modelo: </h6></th>
+                                        <td>{separatedDescription[1]}</td>
+                                    </tr>
+                                    <tr>
+                                        <th><h6>Número de modelo: </h6></th>
+                                        <td>{separatedDescription[2]}</td>
+                                    </tr>
+                                </tbody>
 
                             </table>
                             <table className='mb-2'>
                                 <caption className='mb-2'><h4>Procesador</h4></caption>
-                                <tr >
-                                    <th ><h6>Marca: </h6></th>
-                                    <td>{separatedDescription[3]}</td>
-                                </tr>
+                                <tbody>
+                                    <tr >
+                                        <th ><h6>Marca: </h6></th>
+                                        <td>{separatedDescription[3]}</td>
+                                    </tr>
 
-                                <tr >
-                                    <th ><h6>Generación: </h6></th>
-                                    <td>{separatedDescription[4]}</td>
-                                </tr>
-                                <tr >
-                                    <th><h6>Modelo: </h6></th>
-                                    <td>{separatedDescription[5]}</td>
-                                </tr>
-                                <tr >
-                                    <th><h6>Velocidad del reloj: </h6></th>
-                                    <td>{separatedDescription[6]}</td>
-                                </tr>
+                                    <tr >
+                                        <th ><h6>Generación: </h6></th>
+                                        <td>{separatedDescription[4]}</td>
+                                    </tr>
+                                    <tr >
+                                        <th><h6>Modelo: </h6></th>
+                                        <td>{separatedDescription[5]}</td>
+                                    </tr>
+                                    <tr >
+                                        <th><h6>Velocidad del reloj: </h6></th>
+                                        <td>{separatedDescription[6]}</td>
+                                    </tr>
+                                </tbody>
                             </table>
                             <table className='mb-2'>
                                 <caption className='mb-2'><h4>Memoria</h4></caption>
-                                <tr className=''>
-                                    <th><h6>Capacidad: </h6></th>
-                                    <td>{separatedDescription[7]}</td>
-                                </tr>
-                                <tr>
-                                    <th><h6>Formato: </h6></th>
-                                    <td>{separatedDescription[8]}</td>
-                                </tr>
-                                <tr>
-                                    <th><h6>Velocidad del reloj: </h6></th>
-                                    <td>{separatedDescription[9]}</td>
-                                </tr>
+                                <tbody>
+                                    <tr className=''>
+                                        <th><h6>Capacidad: </h6></th>
+                                        <td>{separatedDescription[7]}</td>
+                                    </tr>
+                                    <tr>
+                                        <th><h6>Formato: </h6></th>
+                                        <td>{separatedDescription[8]}</td>
+                                    </tr>
+                                    <tr>
+                                        <th><h6>Velocidad del reloj: </h6></th>
+                                        <td>{separatedDescription[9]}</td>
+                                    </tr>
+                                </tbody>
 
                             </table>
                         </div>

@@ -18,15 +18,8 @@ const newUser = async ({ uEmail, uName, uAddress, uPhone, uPassword }) => {
         body: JSON.stringify(data)
     };
 
-
-
-    console.log(data)
-
     fetch(url, addParams)
-        .then((res) => {
-            console.log(res)
-            alert('Se ha registrado con éxito.')
-        })
+        .then((res) => {alert('Se ha registrado con éxito.')})
         .catch((error) => console.error(error));
 
 

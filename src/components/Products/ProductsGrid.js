@@ -3,10 +3,7 @@ import ProductsGridItem from './ProductsGridItem';
 import AlertToast from '../Alerts/ToastAlert'
 
 const ProductsGrid = ({ products, loading, onAdd, setIsShowing, setAlertData }) => {
-
-    const alertContainer = document.querySelector('.alerts-container');
-
-    
+  
 
     return (
         <>

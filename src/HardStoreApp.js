@@ -37,6 +37,8 @@ function App() {
 
   const modalContainer = document.querySelector('.modal-container');
 
+  const [redirect, setRedirect] = useState(false);
+
   /* if (!token) {
     return <LoginScreen
       onLogin={onLogin}
@@ -117,7 +119,17 @@ function App() {
           <Route
             path='/api/auth/register'
             element={
-              <RegisterScreen />
+              (!redirect)
+                ?
+                <RegisterScreen
+                  setRedirect={setRedirect}
+                />
+                :
+                <Navigate
+                  to={{
+                    pathname: '/api/auth/login'
+                  }}
+                />
             }
           />
 

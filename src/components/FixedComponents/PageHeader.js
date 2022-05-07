@@ -20,7 +20,7 @@ const Header = ({ token, username, onLogout }) => {
                                     !token && <li><Link to={'/api/auth/login'}>Login</Link></li>
                                 }
                                 {
-                                    username && <li><Link to={'/api/users/profile'}>{username.replace(/"/g, '')}</Link></li>
+                                    username && <li><Link to={'/api/users/profile'}>{username}</Link></li>
                                 }
                                 {
                                     token && <li><button type='submit' className='logout-btn' onClick={onLogout}>Cerrar sesión</button></li>

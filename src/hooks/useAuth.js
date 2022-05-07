@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import useToken from './useToken';
 import useName from './useName';
 import loginUser from '../helpers/loginUser';
@@ -11,21 +10,18 @@ const useAuth = () => {
     const  { userName, setUsername }  = useName()
 
 
-    const handleLogin = async (userData) => {
-        const { uEmail, uPassword } = userData;
+    const handleLogin = async ({ uEmail, uPassword }) => {
 
         const {token, username} = await loginUser({
             uEmail,
             uPassword
         })
 
-        console.log(token)
-
         alert('Bienvenido ' + username)
 
         return {
             token: setToken(token),
-            userName: setUsername(username)
+            userName: setUsername(username.replace(/"/g, ''))
         };
     }
 

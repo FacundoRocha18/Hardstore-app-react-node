@@ -11,10 +11,12 @@ const useCart = () => {
         if (exist !== undefined) {
 
             setCartItems(cartItems.map((x) => x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x))
+            alert('Se aumentó correctamente la cantidad')
 
         } else {
 
             setCartItems([...cartItems, { ...product, qty: 1 }])
+            alert('Se agregó correctamente el producto al carrito')
 
         }
     }

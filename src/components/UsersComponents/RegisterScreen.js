@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import newUser from '../../helpers/newUser'
 
-const RegisterScreen = (props) => {
+const RegisterScreen = ({setRedirect}) => {
 
     const [userData, setUserData] = useState({
         uEmail: null,
@@ -10,6 +10,7 @@ const RegisterScreen = (props) => {
         uPhone: null,
         uPassword: null,
     })
+
 
     const handleUserInfoChanged = ({ target }) => {
 
@@ -58,6 +59,7 @@ const RegisterScreen = (props) => {
         e.preventDefault();
 
         newUser(userData);
+        setRedirect(true);
     }
 
     return (

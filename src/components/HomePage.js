@@ -6,7 +6,6 @@ import useAlert from '../hooks/useAlert'
 /* Components -------------------------------- */
 import ProductsGrid from './Products/ProductsGrid'
 import ToastAlert from './Alerts/ToastAlert'
-import ProductsCategories from './Products/ProductsCategories';
 
 
 
