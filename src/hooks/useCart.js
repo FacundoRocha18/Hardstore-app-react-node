@@ -1,8 +1,16 @@
 import { useState } from 'react'
 
+/* Custom hooks */
+
+import useAlert from './useAlert'
+
+
 const useCart = () => {
 
     const [cartItems, setCartItems] = useState([]);
+
+    const { setIsShowing } = useAlert()
+
 
     const onAdd = (product) => {
 
@@ -11,11 +19,13 @@ const useCart = () => {
         if (exist !== undefined) {
 
             setCartItems(cartItems.map((x) => x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x))
+            setIsShowing(true);
             alert('Se aumentó correctamente la cantidad')
 
         } else {
 
             setCartItems([...cartItems, { ...product, qty: 1 }])
+            setIsShowing(true);
             alert('Se agregó correctamente el producto al carrito')
 
         }

@@ -3,37 +3,37 @@ import React, { useState } from 'react';
 /* Custom Hooks -------------------------------- */
 import useAlert from '../hooks/useAlert'
 
+
 /* Components -------------------------------- */
 import ProductsGrid from './Products/ProductsGrid'
 import ToastAlert from './Alerts/ToastAlert'
 
-
+/* Third party components -------------------------------- */
 
 
 const HomePage = ({ products, loading, onAdd }) => {
 
-    const { isShowing, setIsShowing, alertData, setAlertData } = useAlert() 
+    const { isShowing } = useAlert()
 
-    
+    console.log(isShowing)
+
     return (
         <>
 
             <div className="products-wrapper main-content-wrapper">
-                    {/* {
+                {/* {
                         <ProductsCategories />
                     } */}
-                    {
-                        <ProductsGrid
-                            products={products}
-                            loading={loading}
-                            onAdd={onAdd}
-                            setIsShowing={setIsShowing}
-                            setAlertData={setAlertData}
-                        />
-                    }   
-                    {/* {
-                        (isShowing) && <ToastAlert alertData={alertData}/>
-                    }   */}           
+                {
+                    <ProductsGrid
+                        products={products}
+                        loading={loading}
+                        onAdd={onAdd}
+                    />
+                }
+                {
+                    isShowing && <ToastAlert type='success' message='success' />
+                }
             </div>
         </>
     )

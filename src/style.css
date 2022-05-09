@@ -866,55 +866,6 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 2rem auto;
 }
 
-.alert-popup {
-    width: fit-content;
-    height: fit-content;
-    margin: 3rem auto;
-    border-radius: .3rem;
-    box-shadow: var(--box-shadow-1);
-    padding: 1.5rem;
-}
-
-/* Success message */
-.green {
-    background-color: var(--success-btn-bg-color);
-    background: var(--success-btn-gradient);
-}
-
-/* Error message */
-.red {
-    background-color: var(--critical-btn-bg-color);
-    background: var(--error-btn-gradient);
-}
-
-.alert-header {
-    align-items: center;
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(2, auto);
-    width: fit-content;
-    margin: 0 auto;
-}
-
-.alert-header .material-icons-round {
-    font-size: 4rem;
-}
-
-.alert-header .button-container {
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    justify-content: right;
-}
-
-.alert-header .text-container {
-    width: 100%;
-    display: grid;
-    align-items: center;
-    grid-template-columns: repeat(2, auto);
-    column-gap: 2rem;
-}
-
 /* Media query PC */
 
 @media (min-width: 768px) {

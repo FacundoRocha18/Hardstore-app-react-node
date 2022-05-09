@@ -20,9 +20,9 @@ import ShoppingCart from './components/ShoppingCartComponents/ShoppingCart';
 import SingleProduct from './components/Products/SingleProduct';
 import LoginScreen from './components/UsersComponents/LoginScreen';
 import RegisterScreen from './components/UsersComponents/RegisterScreen';
-
 import NoMatchPage from './components/NoMatchPage';
 import Footer from './components/FixedComponents/PageFooter';
+
 
 
 
@@ -38,12 +38,6 @@ function App() {
   const modalContainer = document.querySelector('.modal-container');
 
   const [redirect, setRedirect] = useState(false);
-
-  /* if (!token) {
-    return <LoginScreen
-      onLogin={onLogin}
-    />
-  } */
 
   return (
 

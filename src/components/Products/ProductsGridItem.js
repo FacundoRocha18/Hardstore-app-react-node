@@ -5,17 +5,12 @@ import placeholderImage from '../../public/img/imagepreviewdefault.png';
 const ProductsGridItem = ({ onAdd, product, id, name, image, price, setIsShowing, setAlertData }) => {
 
 
-    const handleAddButtonClicked = () => {
+    const handleAddButtonClicked = (e) => {
         
+        e.preventDefault();
+
         onAdd(product);
 
-        setIsShowing(true)
-
-        setAlertData({
-            success: true,
-            alertColor: 'green',
-            data: 'Producto añadido correctamente'
-        })
     }
 
     return (
@@ -34,7 +29,7 @@ const ProductsGridItem = ({ onAdd, product, id, name, image, price, setIsShowing
                                 <p>USD<span id="item-price"> {price} </span> iva inc.</p>
                             </div>
                             <div className="btn-container">
-                                <button className="add-item btn p-btn addToCart" onClick={handleAddButtonClicked}>
+                                <button className="add-item btn p-btn addToCart" onClick={(e) => handleAddButtonClicked(e)}>
                                     <p>Agregar </p><span className="material-icons">add_shopping_cart</span>
                                 </button>
                             </div>

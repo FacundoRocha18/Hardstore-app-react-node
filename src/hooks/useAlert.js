@@ -1,18 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const useAlert = () => {
 
-    const [isShowing, setIsShowing] = useState(null);
-
-    const [ alertData, setAlertData ] = useState({
-        success: null,
-        alertColor: null,
-        data: null
-    })
+    const [ isShowing, setIsShowing] = useState(false);
 
     useEffect(() => {
-
-        setIsShowing(true)
 
         console.log('mounted');
 
@@ -20,7 +12,7 @@ const useAlert = () => {
 
             setIsShowing(false)
 
-        }, 1500)
+        }, 3000)
 
         return () => {
             console.log('unmounted');
@@ -28,21 +20,18 @@ const useAlert = () => {
         }
     }, [])
 
-    const onClose = () => {
+    const onClose = (e) => {
 
-    
+        e.preventDefault();
+
         setIsShowing(false)
-    
-      }
+    }
 
     return ({
         isShowing: isShowing,
         setIsShowing: setIsShowing,
-        alertData: alertData,
-        setAlertData: setAlertData,
         onClose: onClose
     })
 }
 
 export default useAlert;
-
