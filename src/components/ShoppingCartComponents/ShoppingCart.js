@@ -1,30 +1,20 @@
 import React from 'react'
-import ModalAlert from '../Alerts/ModalAlert'
-import AlertToast from '../Alerts/ToastAlert'
+
+/* Components -------------------------------- */
+
 import ShoppingCartItem from './ShoppingCartItem'
+import ToastAlert from '../Alerts/ToastAlert'
 
 
-const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy }) => {
+/* Custom Hooks -------------------------------- */
+import useAlert from '../../hooks/useAlert'
+
+
+const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy, isShowing, setIsShowing, onClose }) => {
 
   const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
   const shippingPrice = itemPrice > 2000 ? 0 : 50;
   const totalPrice = itemPrice + shippingPrice;
-  
-  const OnClose = () => {
-    
-    const alertContainer = document.querySelector('.alerts-container');
-
-    alertContainer.classList.remove('animate__bounceInDown');
-    alertContainer.classList.add('animate__bounceOutRight');
-
-
-    setTimeout(() => {
-      alertContainer.classList.add('alert-inactive')
-      alertContainer.classList.add('animate__bounceInDown');
-      alertContainer.classList.remove('animate__bounceOutRight');
-    }, 400);
-
-  }
 
   return (
     <>
@@ -64,6 +54,7 @@ const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy }) => {
                   onAdd={onAdd}
                   onRemove={onRemove}
                   onDelete={onDelete}
+                  setIsShowing={setIsShowing}
                   item={item}
                   {...item}
                 />
@@ -97,13 +88,13 @@ const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy }) => {
             {
               <ModalAlert data={modalData} />
             }
-          </div>
+          </div>*/}
 
           <div className="alerts-container animate__animated animate__bounceInDown animate__fast">
             {
-              result.success ? <AlertToast onClose={OnClose} info={result.info} alertClass={result.alertClass} /> : <AlertToast onClose={OnClose} info={result.info} alertClass={result.alertClass} />
+              isShowing && <ToastAlert type='success' message='success' isShowing={isShowing} onClose={onClose} />
             }
-          </div> */}
+          </div>
         </div>
       </div>
 

@@ -11,9 +11,7 @@ import ToastAlert from './Alerts/ToastAlert'
 /* Third party components -------------------------------- */
 
 
-const HomePage = ({ products, loading, onAdd }) => {
-
-    const { isShowing } = useAlert()
+const HomePage = ({ products, loading, onAdd, isShowing, setIsShowing, onClose }) => {
 
     console.log(isShowing)
 
@@ -29,10 +27,11 @@ const HomePage = ({ products, loading, onAdd }) => {
                         products={products}
                         loading={loading}
                         onAdd={onAdd}
+                        setIsShowing={setIsShowing}
                     />
                 }
                 {
-                    isShowing && <ToastAlert type='success' message='success' />
+                    isShowing && <ToastAlert type='success' message='success' isShowing={isShowing} onClose={onClose} />
                 }
             </div>
         </>

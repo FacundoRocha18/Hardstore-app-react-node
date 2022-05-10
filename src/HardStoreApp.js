@@ -12,6 +12,8 @@ import {
 import useFetchProducts from './hooks/useFetchProducts';
 import useCart from './hooks/useCart';
 import useAuth from './hooks/useAuth';
+import useAlert from './hooks/useAlert';
+
 
 /* Components -------------------------------- */
 import Header from './components/FixedComponents/PageHeader';
@@ -24,9 +26,6 @@ import NoMatchPage from './components/NoMatchPage';
 import Footer from './components/FixedComponents/PageFooter';
 
 
-
-
-
 function App() {
 
   const { data: products, loading } = useFetchProducts();
@@ -35,9 +34,11 @@ function App() {
 
   const { cartItems, onAdd, onDelete, onRemove, onBuy } = useCart()
 
-  const modalContainer = document.querySelector('.modal-container');
+  const { isShowing, setIsShowing, onClose } = useAlert()
 
   const [redirect, setRedirect] = useState(false);
+
+  console.log(isShowing)
 
   return (
 
@@ -59,6 +60,9 @@ function App() {
                 products={products}
                 loading={loading}
                 onAdd={onAdd}
+                isShowing={isShowing}
+                setIsShowing={setIsShowing}
+                onClose={onClose}
               />
             }
           />
@@ -73,7 +77,9 @@ function App() {
                   onRemove={onRemove}
                   onDelete={onDelete}
                   onBuy={onBuy}
-                  modalContainer={modalContainer}
+                  isShowing={isShowing}
+                  setIsShowing={setIsShowing}
+                  onClose={onClose}
                 />
                 :
                 <Navigate

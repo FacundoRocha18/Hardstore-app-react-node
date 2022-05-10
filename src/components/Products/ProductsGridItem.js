@@ -2,13 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import placeholderImage from '../../public/img/imagepreviewdefault.png';
 
-const ProductsGridItem = ({ onAdd, product, id, name, image, price, setIsShowing, setAlertData }) => {
+const ProductsGridItem = ({ onAdd, product, id, name, image, price, setIsShowing }) => {
 
 
     const handleAddButtonClicked = (e) => {
         
         e.preventDefault();
 
+        setIsShowing(true)
         onAdd(product);
 
     }

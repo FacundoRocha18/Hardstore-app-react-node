@@ -9,7 +9,7 @@ const useCart = () => {
 
     const [cartItems, setCartItems] = useState([]);
 
-    const { setIsShowing } = useAlert()
+    const { isShowing, setIsShowing } = useAlert()
 
 
     const onAdd = (product) => {
@@ -20,6 +20,7 @@ const useCart = () => {
 
             setCartItems(cartItems.map((x) => x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x))
             setIsShowing(true);
+            console.log(isShowing)
             alert('Se aumentó correctamente la cantidad')
 
         } else {
@@ -86,7 +87,8 @@ const useCart = () => {
         onAdd: onAdd,
         onRemove: onRemove,
         onDelete: onDelete,
-        onBuy: onBuy
+        onBuy: onBuy,
+        isShowing: isShowing
     })
 }
 

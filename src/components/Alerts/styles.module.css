@@ -41,18 +41,14 @@
     margin: 0 auto;
 }
 
-.header .material-icons-round {
-    font-size: 4rem;
-}
-
-.header .button-container {
+.button {
     width: fit-content;
     display: flex;
     align-items: center;
     justify-content: right;
 }
 
-.header .text-container {
+.text {
     width: 100%;
     display: grid;
     align-items: center;
