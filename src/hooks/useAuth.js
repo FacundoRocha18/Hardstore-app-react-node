@@ -1,33 +1,38 @@
+
+/* Custom Hooks -------------------------------- */
+
 import useToken from './useToken';
 import useName from './useName';
 import loginUser from '../helpers/loginUser';
+import useAlert from './useAlert';
 
 
 const useAuth = () => {
 
     const { token, setToken } = useToken()
 
-    const  { userName, setUsername }  = useName()
-
+    const { userName, setUsername } = useName()
 
     const handleLogin = async ({ uEmail, uPassword }) => {
 
-        const {token, username} = await loginUser({
-            uEmail,
-            uPassword
-        })
+        try {
+            const { token, username } = await loginUser({
+                uEmail,
+                uPassword
+            })
 
-        alert('Bienvenido ' + username)
-
-        return {
-            token: setToken(token),
-            userName: setUsername(username.replace(/"/g, ''))
-        };
+            return {
+                token: setToken(token),
+                userName: setUsername(username.replace(/"/g, ''))
+            };
+            
+        } catch (error) {
+            throw alert('token invalido, esto puede deberse a que intentó ingresar con un usuario incorrecto o ingresó mal sus credenciales' + error)
+        }
     }
 
     const handleLogout = () => {
         sessionStorage.clear();
-        alert('Hasta pronto ' + userName)
         window.location.reload(false);
     };
 
@@ -46,7 +51,7 @@ const useAuth = () => {
         username: userName,
         isAuth: isAuthenticated,
         onLogin: handleLogin,
-        onLogout: handleLogout,
+        onLogout: handleLogout
     };
 }
 

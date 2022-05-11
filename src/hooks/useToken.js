@@ -9,7 +9,8 @@ export default function useToken() {
     let tokenString = sessionStorage.getItem('token');
 
     if (tokenString === undefined || tokenString === null) {
-      return tokenString = '';
+      tokenString = '';
+      return console.log('token invalido, esto puede deberse a que intentó ingresar con un usuario incorrecto o ingresó mal sus credenciales');
     }
 
     return tokenString;
@@ -27,6 +28,10 @@ export default function useToken() {
 
   const saveToken = (userToken) => {
     
+    if (userToken === '' || userToken === null || userToken === undefined) {
+      throw alert('token invalido, esto puede deberse a que intentó ingresar con un usuario incorrecto o ingresó mal sus credenciales')
+    }
+
     sessionStorage.setItem('token', JSON.stringify(userToken));
     setToken(userToken.token);
   };

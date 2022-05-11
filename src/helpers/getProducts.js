@@ -14,7 +14,8 @@ const getProducts = async() => {
             description: product.product_description,
             price: product.product_price,
             stock: product.product_stock,
-            category: product.product_category
+            category_id: product.product_category_id,
+            category_name: product.product_category_name
         }
         
     })

@@ -4,16 +4,12 @@ import React, { useEffect } from 'react'
 import style from "../Alerts/styles.module.css";
 import css from "classnames";
 
-/* Custom hooks */
-import useAlert from '../../hooks/useAlert'
 
 const AlertToast = ({ children, type, message, isShowing, onClose }) => {
 
     const renderAlert = function () {
         return React.cloneElement(children);
     };
-
-    console.log(isShowing)
 
     const icon = setIcon(type);
 

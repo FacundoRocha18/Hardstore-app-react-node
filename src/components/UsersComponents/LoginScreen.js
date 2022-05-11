@@ -2,8 +2,14 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types';
 
+/* Custom Hooks -------------------------------- */
+import useAuth from '../../hooks/useAuth';
 
-const LoginScreen = ({ onLogin }) => {
+/* Components -------------------------------- */
+import ToastAlert from '../Alerts/ToastAlert'
+
+
+const LoginScreen = ({ onLogin, isShowing, setIsShowing, message, setMessage, type, setType, onClose }) => {
 
     const navigate = useNavigate();
 
@@ -11,6 +17,8 @@ const LoginScreen = ({ onLogin }) => {
         uEmail: null,
         uPassword: null,
     })
+
+    const { username } = useAuth();
 
     const handleUserInfoChanged = ({ target }) => {
 
@@ -37,7 +45,22 @@ const LoginScreen = ({ onLogin }) => {
 
         e.preventDefault();
 
-        onLogin(userData);
+        try {
+
+            onLogin(userData)
+            setTimeout(() => {
+                setMessage(`Bienvenido ${username}`)
+                setType('success');
+                setIsShowing(true)
+            }, 1000);
+
+        } catch (error) {
+
+            setMessage('Se produjo un error al iniciar sesión ' + error)
+            setType('error');
+            setIsShowing(true)
+        }
+
     }
 
     const handleRegister = () => {
@@ -63,6 +86,9 @@ const LoginScreen = ({ onLogin }) => {
                         <Link to={'api/auth/forgot'} ><p className='password-link'>Reestablecela aquí.</p></Link>
                     </div>
                 </div>
+            }
+            {
+                <ToastAlert type={type} message={message} isShowing={isShowing} onClose={onClose} />
             }
         </>
     )

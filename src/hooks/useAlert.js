@@ -6,6 +6,8 @@ const useAlert = () => {
 
     const [ message, setMessage ] = useState(null);
 
+    const [ type, setType ] = useState(null);
+
     useEffect(() => {
         
         const timer = setTimeout(() => setIsShowing('out'), 3000);
@@ -29,6 +31,8 @@ const useAlert = () => {
         setIsShowing: setIsShowing,
         message: message,
         setMessage: setMessage,
+        type: type,
+        setType: setType,
         onClose: onClose
     })
 }

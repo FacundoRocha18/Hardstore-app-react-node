@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import useFetchProducts from '../../hooks/useFetchProducts'
 import { useParams } from 'react-router-dom';
 
+/* Components -------------------------------- */
+import ToastAlert from '../Alerts/ToastAlert'
 
-const SingleProduct = (props) => {
 
-    const { onAdd, onRemove } = props;
+
+const SingleProduct = ({ onAdd, onRemove, isShowing, setIsShowing, message, setMessage, onClose }) => {
 
     const { id } = useParams();
 
@@ -18,14 +20,52 @@ const SingleProduct = (props) => {
         description: 'description',
         price: 0,
         stock: 0,
-        category: 'category'
+        category_id: 0,
+        category_name: 'category'
     })
 
     const [quantity, setQuantity] = useState(1)
 
-    const { name, image, price, description, stock, category } = checkData(products, dataTemplate, id);
+    const { name, image, price, description, stock, category_id, category_name } = checkData(products, dataTemplate, id);
 
     const separatedDescription = splitDescription(description)
+
+    useEffect(() => {
+        console.log(quantity)
+
+        return () => {
+
+        }
+    }, [quantity])
+
+
+    const handleAdd = (qty) => {
+
+        (qty < 10)
+            ?
+            setQuantity(qty + 1)
+            :
+            setQuantity(qty)
+
+        return console.log(qty);
+    }
+
+    const handleRemove = (qty) => {
+
+        (qty > 0)
+            ?
+            setQuantity(qty - 1)
+            :
+            setQuantity(qty)
+        return console.log(qty);
+    }
+
+    const handleAddToCart = (qty) => {
+
+        onAdd(checkData(products, dataTemplate, id), qty)
+        setMessage('La cantidad fue aumentada exitosamente')
+        setIsShowing(true)
+    }
 
     return (
         <>
@@ -43,14 +83,14 @@ const SingleProduct = (props) => {
                             <div className='single-product-title'>
                                 <h1>{name}</h1>
                             </div>
-                            <div className='single-product-price mbt-4'>
+                            <div className='single-product-price mbt-2'>
                                 <h3 className='mr-2'>USD <span>{price.toFixed(2)} </span></h3><p> iva inc.</p>
                             </div>
-                            <div className='single-product-stock mbt-4'>
+                            <div className='single-product-stock mbt-2'>
                                 <div className='qty-input-container'>
-                                    <button onClick={() => (quantity > 0) ? setQuantity(quantity - 1) : setQuantity(quantity)}><p>-</p></button>
-                                    <input className="single-product-quantity-input" defaultValue={quantity} type="number" min="1" max={stock}></input>
-                                    <button onClick={() => (quantity <= 10) ? setQuantity(quantity + 1) : setQuantity(quantity)}><p>+</p></button>
+                                    <button className='quantity-down-btn' onClick={() => handleRemove(quantity)}><span>-</span></button>
+                                    <input className="single-product-quantity-input" value={quantity} type="number" min="1" max={stock} readOnly></input>
+                                    <button className='quantity-up-btn' onClick={() => { handleAdd(quantity) }}><span>+</span></button>
                                 </div>
                                 <div className='stock-text-container'>
                                     <p>Cantidad disponible: {stock}</p>
@@ -58,16 +98,19 @@ const SingleProduct = (props) => {
                             </div>
                             <div className='single-product-button-wrapper mbt-4'>
                                 <button className='buy-now-button btn'><p>Comprar ahora</p></button>
-                                <button className='add-to-cart-sp btn'><span className="material-icons">add_shopping_cart</span></button>
+                                <button className='add-to-cart-sp btn' onClick={() => { handleAddToCart(quantity) }}><span className="material-icons">add_shopping_cart</span></button>
                             </div>
                             <div className='single-product-category mbt-4'>
-                                <p>Categoría del producto: <a href='#'>{category}</a></p>
+                                <p>Categoría del producto: <a href='#'>{category_name}</a></p>
                             </div>
                             <div className='single-product-description-link-wrapper mbt-4'>
                                 <a href='#description'>Ver descripción del producto</a>
                             </div>
                         </div>
                     </div>
+                    {
+                        <ToastAlert type='success' message='Se añadió correctamente el producto al carrito' isShowing={isShowing} onClose={onClose} />
+                    }
                     <div className='single-product-description-container pd-2 mt-4' id='description'>
                         <div className='description-header mb-2'>
                             <h2 className='title-center'>Descripción del producto</h2>

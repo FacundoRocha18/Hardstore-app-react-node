@@ -28,15 +28,16 @@ import Footer from './components/FixedComponents/PageFooter';
 
 function App() {
 
+  const [redirect, setRedirect] = useState(false);
+
   const { data: products, loading } = useFetchProducts();
 
   const { token, username, isAuth, onLogin, onLogout } = useAuth();
 
   const { cartItems, onAdd, onDelete, onRemove, onBuy } = useCart()
 
-  const { isShowing, setIsShowing, message, setMessage, onClose } = useAlert()
+  const { isShowing, setIsShowing, message, setMessage, type, setType, onClose } = useAlert()
 
-  const [redirect, setRedirect] = useState(false);
 
   return (
 
@@ -62,6 +63,8 @@ function App() {
                 setIsShowing={setIsShowing}
                 message={message}
                 setMessage={setMessage}
+                type={type}
+                setType={setType}
                 onClose={onClose}
               />
             }
@@ -81,6 +84,8 @@ function App() {
                   setIsShowing={setIsShowing}
                   message={message}
                   setMessage={setMessage}
+                  type={type}
+                  setType={setType}
                   onClose={onClose}
                 />
                 :
@@ -98,6 +103,13 @@ function App() {
               <SingleProduct
                 onAdd={onAdd}
                 onRemove={onRemove}
+                isShowing={isShowing}
+                setIsShowing={setIsShowing}
+                message={message}
+                setMessage={setMessage}
+                type={type}
+                setType={setType}
+                onClose={onClose}
               />
             }
           />
@@ -108,6 +120,13 @@ function App() {
                 ?
                 <LoginScreen
                   onLogin={onLogin}
+                  isShowing={isShowing}
+                  setIsShowing={setIsShowing}
+                  message={message}
+                  setMessage={setMessage}
+                  type={type}
+                  setType={setType}
+                  onClose={onClose}
                 />
                 :
                 <Navigate

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import ProductsGridItem from './ProductsGridItem';
 import AlertToast from '../Alerts/ToastAlert'
 
-const ProductsGrid = ({ products, loading, onAdd, setIsShowing }) => {
+const ProductsGrid = ({ products, loading, onAdd, setIsShowing, setMessage, setType }) => {
 
 
     return (
@@ -27,6 +27,8 @@ const ProductsGrid = ({ products, loading, onAdd, setIsShowing }) => {
                                         onAdd={onAdd}
                                         product={product}
                                         setIsShowing={setIsShowing}
+                                        setMessage={setMessage}
+                                        setType={setType}
                                         {...product}
                                     />
                                 ))

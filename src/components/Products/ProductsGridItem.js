@@ -2,15 +2,17 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import placeholderImage from '../../public/img/imagepreviewdefault.png';
 
-const ProductsGridItem = ({ onAdd, product, id, name, image, price, setIsShowing }) => {
+const ProductsGridItem = ({ onAdd, product, id, name, image, price, setIsShowing, setMessage, setType }) => {
 
 
     const handleAddButtonClicked = (e) => {
         
         e.preventDefault();
 
+        setMessage('Se añadió correctamente el producto al carrito')
+        setType('success')
         setIsShowing(true)
-        onAdd(product);
+        onAdd(product, 1);
 
     }
 

@@ -4,9 +4,7 @@ import placeholderImage from '../../public/img/imagepreviewdefault.png';
 
 
 
-const ShoppingCartItem = ({ item, onAdd, onRemove, onDelete, setIsShowing, setMessage }) => {
-
-  console.log(item)
+const ShoppingCartItem = ({ item, onAdd, onRemove, onDelete, setIsShowing, setMessage, setType }) => {
 
   const { id, image, name, price, qty } = item;
 
@@ -14,15 +12,26 @@ const ShoppingCartItem = ({ item, onAdd, onRemove, onDelete, setIsShowing, setMe
 
     e.preventDefault()
     onRemove(item)
-    setMessage('La cantidad fue disminuida exitosamente')
+    setMessage('La cantidad fue disminuida correctamente')
+    setType('success')
     setIsShowing(true)
   }
 
   const handleAdd = (e) => {
 
     e.preventDefault()
-    onAdd(item)
-    setMessage('La cantidad fue aumentada exitosamente')
+    onAdd(item, 1)
+    setMessage('La cantidad fue aumentada correctamente')
+    setType('success')
+    setIsShowing(true)
+  }
+
+  const handleDelete = (e) => {
+
+    e.preventDefault();
+    onDelete(item);
+    setMessage('El producto se eliminó del carrito correctamente')
+    setType('success')
     setIsShowing(true)
   }
 
@@ -54,7 +63,7 @@ const ShoppingCartItem = ({ item, onAdd, onRemove, onDelete, setIsShowing, setMe
               <div className='quantity-up-btn' onClick={(e) => handleAdd(e)}><span>+</span></div>
             </div>
             <div className='remove-cart-item-button-container'>
-              <button className="btn btn-danger remove-item-btn" type="button" onClick={() => onDelete(item)}><span className="material-icons-outlined">close</span></button>
+              <button className="btn btn-danger remove-item-btn" type="button" onClick={(e) => handleDelete(e)}><span className="material-icons-outlined">close</span></button>
             </div>
           </div>
         </div>

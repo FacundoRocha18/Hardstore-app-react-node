@@ -12,18 +12,18 @@ const useCart = () => {
     const { isShowing, setIsShowing } = useAlert()
 
 
-    const onAdd = (product) => {
+    const onAdd = (product, QTY) => {
 
         const exist = cartItems.find((x) => x.id === product.id);
 
         if (exist !== undefined) {
 
-            setCartItems(cartItems.map((x) => x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x))
+            setCartItems(cartItems.map((x) => x.id === product.id ? { ...exist, qty: exist.qty + QTY } : x))
             setIsShowing(true);
 
         } else {
 
-            setCartItems([...cartItems, { ...product, qty: 1 }])
+            setCartItems([...cartItems, { ...product, qty: QTY }])
             setIsShowing(true);
 
         }

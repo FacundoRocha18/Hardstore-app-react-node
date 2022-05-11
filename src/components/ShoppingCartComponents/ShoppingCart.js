@@ -9,14 +9,20 @@ import ToastAlert from '../Alerts/ToastAlert'
 
 
 /* Custom Hooks -------------------------------- */
-import useAlert from '../../hooks/useAlert'
 
 
-const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy, isShowing, setIsShowing,  message, setMessage, onClose }) => {
+const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy, isShowing, setIsShowing, message, setMessage, type, setType, onClose }) => {
 
   const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
   const shippingPrice = itemPrice > 2000 ? 0 : 50;
   const totalPrice = itemPrice + shippingPrice;
+
+  const handleBuy = (price) => {
+    onBuy(totalPrice);
+    setMessage(['Compra realizada por un precio total de: ' + totalPrice + ' ']);
+    setType('info');
+    setIsShowing(true);
+  }
 
   return (
     <>
@@ -58,6 +64,8 @@ const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy, isShowing, 
                   onDelete={onDelete}
                   setIsShowing={setIsShowing}
                   setMessage={setMessage}
+                  type={type}
+                  setType={setType}
                   item={item}
                   {...item}
                 />
@@ -80,22 +88,18 @@ const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy, isShowing, 
                   <p className="shoppingCartShippingText">Envío: USD <span className="shoppingCartShippingSpan" id="cart-total-shipping-price"> {shippingPrice.toFixed(2)}</span></p>
                   <p><span className="shoppingCartTotalText">Total:</span> USD <span className="shoppingCartTotalSpan" id="cart-total-price"> {totalPrice.toFixed(2)}</span></p>
                 </div>
-
                 <button className="btn btn-success comprarButton " type="button" data-toggle="modal"
-                  data-target="#buy-success-alert" onClick={() => onBuy(totalPrice)} ><p>Comprar</p></button>
+                  data-target="#buy-success-alert"
+                  onClick={() => handleBuy(totalPrice)} >
+                  <p>Comprar</p>
+                </button>
               </div>
             }
           </div>
 
-          {/* <div className='modal-container modal-inactive animate__animated animate__fadeIn animate__fast'>
+          <div className="alerts-container">
             {
-              <ModalAlert data={modalData} />
-            }
-          </div>*/}
-
-          <div className="alerts-container animate__animated animate__bounceInDown animate__fast">
-            {
-               <ToastAlert type='success' message={message} isShowing={isShowing} onClose={onClose} />
+              <ToastAlert type={type} message={message} isShowing={isShowing} onClose={onClose} />
             }
           </div>
         </div>
