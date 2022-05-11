@@ -752,6 +752,27 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 1.7rem;
 }
 
+.empty-cart-placeholder {
+    align-items: center;
+    display: flex; 
+    justify-content: space-between;
+    max-width: fit-content;
+    margin: 2rem auto 0;
+}
+
+.empty-cart-placeholder span {
+    margin: 0 0 0 2rem;
+}
+
+.empty-cart-placeholder span a {
+    color: var(--text-secondary-color);
+    transition: all .5s;
+}
+
+.empty-cart-placeholder span a:hover {
+    text-decoration: underline;
+}
+
 /* Modal */
 
 .modal-inactive {

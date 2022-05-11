@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+
 
 /* Components -------------------------------- */
 
@@ -10,7 +12,7 @@ import ToastAlert from '../Alerts/ToastAlert'
 import useAlert from '../../hooks/useAlert'
 
 
-const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy, isShowing, setIsShowing, onClose }) => {
+const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy, isShowing, setIsShowing,  message, setMessage, onClose }) => {
 
   const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
   const shippingPrice = itemPrice > 2000 ? 0 : 50;
@@ -44,7 +46,7 @@ const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy, isShowing, 
           </div>
           <div className="item-rows-container">
             {
-              cartItems.length === 0 && <div><h5 className='title-center mt-2'>El carrito está vacío</h5></div>
+              cartItems.length === 0 && <div className='empty-cart-placeholder'><h5>El carrito está vacío</h5><span><Link to={'/'}>Ir a la tienda</Link></span></div>
             }
 
             {
@@ -55,6 +57,7 @@ const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy, isShowing, 
                   onRemove={onRemove}
                   onDelete={onDelete}
                   setIsShowing={setIsShowing}
+                  setMessage={setMessage}
                   item={item}
                   {...item}
                 />
@@ -92,7 +95,7 @@ const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy, isShowing, 
 
           <div className="alerts-container animate__animated animate__bounceInDown animate__fast">
             {
-              isShowing && <ToastAlert type='success' message='success' isShowing={isShowing} onClose={onClose} />
+               <ToastAlert type='success' message={message} isShowing={isShowing} onClose={onClose} />
             }
           </div>
         </div>

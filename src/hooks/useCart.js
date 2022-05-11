@@ -20,14 +20,11 @@ const useCart = () => {
 
             setCartItems(cartItems.map((x) => x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x))
             setIsShowing(true);
-            console.log(isShowing)
-            alert('Se aumentó correctamente la cantidad')
 
         } else {
 
             setCartItems([...cartItems, { ...product, qty: 1 }])
             setIsShowing(true);
-            alert('Se agregó correctamente el producto al carrito')
 
         }
     }
@@ -69,17 +66,6 @@ const useCart = () => {
         let productsDataList = [];
 
         cartItems.forEach(item => productsDataList.push([item.id, item.name].join(' , ')));
-
-
-       /*  modalContainer.classList.remove('modal-inactive')
-        modalContainer.classList.remove('animate__fadeOut');
-        modalContainer.classList.add('animate__fadeIn');
-
-        setTimeout(() => {
-            modalContainer.classList.remove('animate__fadeIn');
-            modalContainer.classList.add('animate__fadeOut');
-            modalContainer.classList.add('modal-inactive')
-        }, 3000) */
 
     }
     return ({

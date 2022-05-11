@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 
 /* Styles imports */
 import style from "../Alerts/styles.module.css";
@@ -9,20 +9,31 @@ import useAlert from '../../hooks/useAlert'
 
 const AlertToast = ({ children, type, message, isShowing, onClose }) => {
 
-    const renderElAlert = function () {
+    const renderAlert = function () {
         return React.cloneElement(children);
     };
 
+    console.log(isShowing)
+
+    const icon = setIcon(type);
+
+    const handleClose = (e) => {
+
+        e.preventDefault();
+        
+        onClose(e);
+    }
+
     return (
         <>
-            <div className={css(style.alert, style[type], !isShowing && style.hide)}>
+            <div className={css(style.alert, style[type], !isShowing && style.hide, isShowing === 'out' && style.out)}>
                 <div className={style.header}>
                     <div className={style.text}>
-                        <span className="material-icons-round">task_alt</span>
-                        {children ? renderElAlert() : message}
+                        <span className="material-icons-round">{icon}</span>
+                        {children ? renderAlert() : message}
                     </div>
                     <div className={style.button}>
-                        <button type="button" className="close-btn" aria-label="Close" onClick={onClose}>
+                        <button type="button" className="close-btn" aria-label="Close" onClick={(e) => handleClose(e)}>
                             <span className="material-icons-outlined">close</span>
                         </button>
                     </div>
@@ -30,6 +41,34 @@ const AlertToast = ({ children, type, message, isShowing, onClose }) => {
             </div>
         </>
     )
+}
+
+const setIcon = (type) => {
+
+    let icon;
+
+    switch (type) {
+        case 'success':
+            icon = 'check_circle_outline'
+            break;
+
+        case 'error':
+            icon = 'error_outline'
+            break;
+
+        case 'warning':
+            icon = 'warning_amber'
+            break;
+
+        case 'info':
+            icon = 'info'
+            break;
+
+        default:
+            break;
+    }
+
+    return icon;
 }
 
 export default AlertToast;

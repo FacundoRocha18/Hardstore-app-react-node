@@ -34,11 +34,9 @@ function App() {
 
   const { cartItems, onAdd, onDelete, onRemove, onBuy } = useCart()
 
-  const { isShowing, setIsShowing, onClose } = useAlert()
+  const { isShowing, setIsShowing, message, setMessage, onClose } = useAlert()
 
   const [redirect, setRedirect] = useState(false);
-
-  console.log(isShowing)
 
   return (
 
@@ -62,6 +60,8 @@ function App() {
                 onAdd={onAdd}
                 isShowing={isShowing}
                 setIsShowing={setIsShowing}
+                message={message}
+                setMessage={setMessage}
                 onClose={onClose}
               />
             }
@@ -79,6 +79,8 @@ function App() {
                   onBuy={onBuy}
                   isShowing={isShowing}
                   setIsShowing={setIsShowing}
+                  message={message}
+                  setMessage={setMessage}
                   onClose={onClose}
                 />
                 :

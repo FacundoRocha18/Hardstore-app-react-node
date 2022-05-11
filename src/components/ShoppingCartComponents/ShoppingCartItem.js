@@ -4,7 +4,7 @@ import placeholderImage from '../../public/img/imagepreviewdefault.png';
 
 
 
-const ShoppingCartItem = ({ item, onAdd, onRemove, onDelete, setIsShowing }) => {
+const ShoppingCartItem = ({ item, onAdd, onRemove, onDelete, setIsShowing, setMessage }) => {
 
   console.log(item)
 
@@ -14,6 +14,7 @@ const ShoppingCartItem = ({ item, onAdd, onRemove, onDelete, setIsShowing }) => 
 
     e.preventDefault()
     onRemove(item)
+    setMessage('La cantidad fue disminuida exitosamente')
     setIsShowing(true)
   }
 
@@ -21,6 +22,7 @@ const ShoppingCartItem = ({ item, onAdd, onRemove, onDelete, setIsShowing }) => 
 
     e.preventDefault()
     onAdd(item)
+    setMessage('La cantidad fue aumentada exitosamente')
     setIsShowing(true)
   }
 
