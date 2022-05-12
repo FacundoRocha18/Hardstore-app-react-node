@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 /* Components -------------------------------- */
 import ToastAlert from '../Alerts/ToastAlert'
+import DescriptionRow from './DescriptionRow';
 
 
 
@@ -28,16 +29,7 @@ const SingleProduct = ({ onAdd, onRemove, isShowing, setIsShowing, message, setM
 
     const { name, image, price, description, stock, category_id, category_name } = checkData(products, dataTemplate, id);
 
-    const separatedDescription = splitDescription(description)
-
-    useEffect(() => {
-        console.log(quantity)
-
-        return () => {
-
-        }
-    }, [quantity])
-
+    const descriptionArray = splitDescription(description)
 
     const handleAdd = (qty) => {
 
@@ -66,6 +58,10 @@ const SingleProduct = ({ onAdd, onRemove, isShowing, setIsShowing, message, setM
         setMessage('La cantidad fue aumentada exitosamente')
         setIsShowing(true)
     }
+
+    const des = '"Brand":"AMD","Type":"Desktop","Model":"Ryzen 9 5950X","Frecuency": "4.5 Ghz","Architecture": "ZEN 3"'
+
+    console.log(JSON.parse(description))
 
     return (
         <>
@@ -108,9 +104,11 @@ const SingleProduct = ({ onAdd, onRemove, isShowing, setIsShowing, message, setM
                             </div>
                         </div>
                     </div>
+
                     {
                         <ToastAlert type='success' message='Se añadió correctamente el producto al carrito' isShowing={isShowing} onClose={onClose} />
                     }
+
                     <div className='single-product-description-container pd-2 mt-4' id='description'>
                         <div className='description-header mb-2'>
                             <h2 className='title-center'>Descripción del producto</h2>
@@ -121,55 +119,7 @@ const SingleProduct = ({ onAdd, onRemove, isShowing, setIsShowing, message, setM
                                 <tbody>
                                     <tr>
                                         <th><h6>Marca: </h6></th>
-                                        <td>{separatedDescription[0]}</td>
-                                    </tr>
-                                    <tr>
-                                        <th><h6>Modelo: </h6></th>
-                                        <td>{separatedDescription[1]}</td>
-                                    </tr>
-                                    <tr>
-                                        <th><h6>Número de modelo: </h6></th>
-                                        <td>{separatedDescription[2]}</td>
-                                    </tr>
-                                </tbody>
-
-                            </table>
-                            <table className='mb-2'>
-                                <caption className='mb-2'><h4>Procesador</h4></caption>
-                                <tbody>
-                                    <tr >
-                                        <th ><h6>Marca: </h6></th>
-                                        <td>{separatedDescription[3]}</td>
-                                    </tr>
-
-                                    <tr >
-                                        <th ><h6>Generación: </h6></th>
-                                        <td>{separatedDescription[4]}</td>
-                                    </tr>
-                                    <tr >
-                                        <th><h6>Modelo: </h6></th>
-                                        <td>{separatedDescription[5]}</td>
-                                    </tr>
-                                    <tr >
-                                        <th><h6>Velocidad del reloj: </h6></th>
-                                        <td>{separatedDescription[6]}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <table className='mb-2'>
-                                <caption className='mb-2'><h4>Memoria</h4></caption>
-                                <tbody>
-                                    <tr className=''>
-                                        <th><h6>Capacidad: </h6></th>
-                                        <td>{separatedDescription[7]}</td>
-                                    </tr>
-                                    <tr>
-                                        <th><h6>Formato: </h6></th>
-                                        <td>{separatedDescription[8]}</td>
-                                    </tr>
-                                    <tr>
-                                        <th><h6>Velocidad del reloj: </h6></th>
-                                        <td>{separatedDescription[9]}</td>
+                                        <td>{description}</td>
                                     </tr>
                                 </tbody>
 
