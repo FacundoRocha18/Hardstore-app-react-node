@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 
 /* Components -------------------------------- */
 import ToastAlert from '../Alerts/ToastAlert'
-import DescriptionRow from './DescriptionRow';
 
 
 
@@ -29,7 +28,16 @@ const SingleProduct = ({ onAdd, onRemove, isShowing, setIsShowing, message, setM
 
     const { name, image, price, description, stock, category_id, category_name } = checkData(products, dataTemplate, id);
 
-    const descriptionArray = splitDescription(description)
+    const regEx1 = /,/g;
+
+    const splitedDescription = splitDescription(description, regEx1);
+
+    const { titles, content } = getDescription(splitedDescription);
+
+    console.log(titles);
+
+    console.log(content);
+
 
     const handleAdd = (qty) => {
 
@@ -58,10 +66,6 @@ const SingleProduct = ({ onAdd, onRemove, isShowing, setIsShowing, message, setM
         setMessage('La cantidad fue aumentada exitosamente')
         setIsShowing(true)
     }
-
-    const des = '"Brand":"AMD","Type":"Desktop","Model":"Ryzen 9 5950X","Frecuency": "4.5 Ghz","Architecture": "ZEN 3"'
-
-    console.log(JSON.parse(description))
 
     return (
         <>
@@ -114,15 +118,26 @@ const SingleProduct = ({ onAdd, onRemove, isShowing, setIsShowing, message, setM
                             <h2 className='title-center'>Descripción del producto</h2>
                         </div>
                         <div className='description-body mt-4'>
-                            <table className='mb-2'>
-                                <caption className='mb-2'><h4>Modelo</h4></caption>
+                            <table>
                                 <tbody>
-                                    <tr>
-                                        <th><h6>Marca: </h6></th>
-                                        <td>{description}</td>
-                                    </tr>
-                                </tbody>
+                                    <tr >
+                                        {
+                                            titles.map(element =>
 
+                                                <th><p>{element}:</p></th>
+                                            )
+                                        }
+                                    </tr>
+                                    <tr>
+                                        {
+                                            content.map(element =>
+
+                                                <td><p>{element}</p></td>
+                                            )
+                                        }
+                                    </tr>
+
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -156,15 +171,47 @@ const checkData = (products, dataTemplate, id) => {
 
 }
 
-const splitDescription = (description) => {
+const splitDescription = (description, expression) => {
 
     if (description.length === 0) {
 
         throw Error('Descripción vacía');
 
     }
-    return description.split(/,/g);
+    return description.split(expression);
 
+}
+
+const getReference = (description) => {
+
+    let reference = [];
+
+    description.map(element =>
+        reference.push(element.toString().search(/:/g))
+    )
+
+    return reference;
+}
+
+const getDescription = (description) => {
+
+    const reference = getReference(description)
+
+    let titles = [];
+
+    let content = [];
+
+    for (let i = 0; i < description.length; i++) {
+
+        titles.push(description[i].toString().substring(0, reference[i]))
+        content.push(description[i].toString().substring(reference[i] + 1))
+
+    }
+
+    return {
+        titles: titles,
+        content: content
+    };
 }
 
 
