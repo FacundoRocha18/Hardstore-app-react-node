@@ -66,6 +66,7 @@
 .menu nav ul li a:hover,
 .logout:hover {
     background-color: var(--primary-btn-hover-bg-color);
+    color: var(--headers-main-color);
     cursor: pointer;
 }
 
