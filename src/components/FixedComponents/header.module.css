@@ -1,0 +1,138 @@
+/* Header */
+
+.header {
+    background-color: var(--headers-main-color);
+    border-bottom: solid 1px var(--primary-btn-bg-color);
+    position: fixed;
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: all .5s;
+}
+
+.logo {
+    height: 50%;
+    width: 100%;
+}
+
+.menu {
+    width: fit-content;
+    height: fit-content;
+    padding: .5rem;
+    margin: 0 auto;
+}
+
+.menu nav ul {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    column-gap: .5rem;
+}
+
+.menu nav ul li {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu nav ul li a {
+    color: var(--body-bg-main-color);
+    padding: 0.5rem 1rem;
+    letter-spacing: 0pt;
+    border-radius: .5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: var(--light);
+    transition: all .5s;
+}
+
+.logout {
+    background-color: transparent;
+    border: none;
+    border-radius: .5rem;
+    color: var(--body-bg-main-color);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    font-weight: var(--light);
+    letter-spacing: 1pt;
+    padding: 0.5rem 1rem;
+    transition: all .5s;
+}
+
+.menu nav ul li a:hover,
+.logout:hover {
+    background-color: var(--primary-btn-hover-bg-color);
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .header {
+        align-items: stretch;
+        background-color: var(--item-bg-secondary-color);
+        border-bottom: solid 1px var(--primary-btn-bg-color);
+        display: flex;
+        flex-direction: row nowrap;
+        justify-content: space-between;
+        height: 10rem;
+    }
+
+    .logo {
+        height: 100%;
+        width: fit-content;
+        margin: 0 5rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .logo a .website-logo {
+        margin: 1.5rem 0;
+        color: var(--primary-btn-bg-color);
+        font-weight: var(--extra-light);
+        letter-spacing: -1.5pt;
+        text-align: left;
+    }
+
+    .logo a .website-logo span {
+        color: var(--body-bg-main-color);
+        font-weight: var(--medium-h);
+        letter-spacing: -1pt;
+    }
+
+    .menu {
+        width: fit-content;
+        height: 100%;
+        margin: 0 5rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .menu nav ul {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        column-gap: .5rem;
+    }
+
+    .menu nav ul li {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .menu nav ul li a {
+        color: var(--body-bg-main-color);
+        padding: 0.5rem 1rem;
+        letter-spacing: 1pt;
+        border-radius: .5rem;
+        font-family: 'Poppins', sans-serif;
+        font-weight: var(--light);
+
+    }
+
+    .menu nav ul li a:hover {
+        background-color: var(--primary-btn-hover-bg-color);
+        transition: all .5s;
+    }
+}

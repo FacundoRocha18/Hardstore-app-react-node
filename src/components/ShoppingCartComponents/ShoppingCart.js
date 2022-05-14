@@ -10,6 +10,10 @@ import ToastAlert from '../Alerts/ToastAlert'
 
 /* Custom Hooks -------------------------------- */
 
+/* Styles imports -------------------------------- */
+import style from "./cart.module.css";
+import css from "classnames";
+
 
 const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy, isShowing, setIsShowing, message, setMessage, type, setType, onClose }) => {
 
@@ -17,9 +21,14 @@ const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy, isShowing, 
   const shippingPrice = itemPrice > 2000 ? 0 : 50;
   const totalPrice = itemPrice + shippingPrice;
 
-  const handleBuy = (price) => {
-    onBuy(totalPrice);
-    setMessage(['Compra realizada por un precio total de: ' + totalPrice + ' ']);
+  const handleBuy = (price, cartItems) => {
+    onBuy(price);
+    let itemList = [];
+    cartItems.map((item) =>
+      itemList.push(item.name)
+
+    )
+    setMessage(['Compra de: ' + itemList + ' realizada por un precio total de: ' + price + ' ']);
     setType('info');
     setIsShowing(true);
   }
@@ -27,32 +36,34 @@ const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy, isShowing, 
   return (
     <>
       <div className="main-content-wrapper">
-        <div className="shopping-cart-container">
-          {/* <!-- Shopping cart item example --> */}
+        {
+          <ToastAlert type={type} message={message} isShowing={isShowing} onClose={onClose} />
+        }
+        <div className={css(style.container)}>
           <h2 className="title-center">Carrito</h2>
-          <div className="shopping-cart-headers">
+          <div className={style.cartHeaders}>
             <div className="column">
-              <div className="shopping-cart-header">
+              <div className={style.header}>
                 <h4>Producto:</h4>
               </div>
 
             </div>
             <div className="column">
-              <div className="shopping-cart-header">
+              <div className={style.header}>
                 <h4>Precio:</h4>
               </div>
 
             </div>
             <div className="column">
-              <div className="shopping-cart-header">
+              <div className={style.header}>
                 <h4>Cantidad:</h4>
               </div>
 
             </div>
           </div>
-          <div className="item-rows-container">
+          <div className={style.rowsContainer}>
             {
-              cartItems.length === 0 && <div className='empty-cart-placeholder'><h5>El carrito está vacío</h5><span><Link to={'/'}>Ir a la tienda</Link></span></div>
+              cartItems.length === 0 && <div className={style.placeholder}><h5>El carrito está vacío</h5><span><Link to={'/'}>Ir a la tienda</Link></span></div>
             }
 
             {
@@ -73,33 +84,27 @@ const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy, isShowing, 
             }
           </div>
 
-          <div className="shopping-cart-total-container">
+          <div className={style.totalContainer}>
             {
               cartItems.length === 0
               &&
-              <div className="disabled shopping-cart-total">
+              <div className={css(style.total, 'disabled')}>
               </div>
             }
             {
               cartItems.length > 0
               &&
-              <div className="shopping-cart-total animate__animated animate__bounceInDown animate__fast">
-                <div className='shopping-cart-total-price-text'>
-                  <p className="shoppingCartShippingText">Envío: USD <span className="shoppingCartShippingSpan" id="cart-total-shipping-price"> {shippingPrice.toFixed(2)}</span></p>
-                  <p><span className="shoppingCartTotalText">Total:</span> USD <span className="shoppingCartTotalSpan" id="cart-total-price"> {totalPrice.toFixed(2)}</span></p>
+              <div className={css(style.total, "animate__animated animate__bounceInDown animate__fast")}>
+                <div className={style.priceText}>
+                  <p className={style.shoppingCartShippingText}>Envío: USD <span className={style.shoppingCartShippingSpan} id="cart-total-shipping-price"> {shippingPrice.toFixed(2)}</span></p>
+                  <p><span className={style.shoppingCartTotalText}>Total:</span> USD <span className={style.shoppingCartTotalSpan} id="cart-total-price"> {totalPrice.toFixed(2)}</span></p>
                 </div>
                 <button className="btn btn-success comprarButton " type="button" data-toggle="modal"
                   data-target="#buy-success-alert"
-                  onClick={() => handleBuy(totalPrice)} >
+                  onClick={() => handleBuy(totalPrice, cartItems)} >
                   <p>Comprar</p>
                 </button>
               </div>
-            }
-          </div>
-
-          <div className="alerts-container">
-            {
-              <ToastAlert type={type} message={message} isShowing={isShowing} onClose={onClose} />
             }
           </div>
         </div>

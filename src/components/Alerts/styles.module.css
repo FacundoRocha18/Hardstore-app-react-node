@@ -1,8 +1,29 @@
+.container {
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 10rem auto;
+    animation: slideInBottom 500ms ease 0s 1 normal forwards;
+    z-index: 1000;
+}
+
 .alert {
     min-width: 40%;
     width: fit-content;
     height: fit-content;
-    margin: 3rem auto;
+    margin: 0 auto;
     border-radius: .3rem;
     box-shadow: var(--box-shadow-1);
     padding: 1.5rem;

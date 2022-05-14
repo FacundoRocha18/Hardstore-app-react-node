@@ -1,0 +1,129 @@
+/* Website footer */
+
+.footer {
+    background-color: var(--item-bg-secondary-color);
+    border-top: solid 1px var(--primary-btn-bg-color);
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
+    position: relative;
+    bottom: 0;
+}
+
+.logo {
+    height: 50%;
+    width: 100%;
+}
+
+.menu {
+    width: fit-content;
+    height: fit-content;
+    padding: .5rem;
+    margin: 0 auto;
+}
+
+.menu nav ul {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    column-gap: .5rem;
+}
+
+.menu nav ul li {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu nav ul li a {
+    color: var(--body-bg-main-color);
+    padding: 0.5rem 1rem;
+    letter-spacing: 1pt;
+    border-radius: .3rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: var(--light);
+}
+
+.menu nav ul li a:hover {
+    background-color: var(--primary-btn-bg-color);
+    color: var(--headers-main-color);
+    transition: all .5s;
+}
+
+.logout {
+    background-color: transparent;
+    border: none;
+    border-radius: .5rem;
+    color: var(--body-bg-main-color);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    font-weight: var(--light);
+    letter-spacing: 1pt;
+    padding: 0.5rem 1rem;
+    transition: all .5s;
+}
+
+.menu nav ul li a:hover,
+.logout:hover {
+    background-color: var(--primary-btn-hover-bg-color);
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    /* Website footer */
+
+    .footer {
+        height: 10rem;
+        display: flex;
+        flex-direction: row nowrap;
+        align-items: stretch;
+        justify-content: space-between;
+        box-sizing: border-box;
+        border-top: solid 1px var(--primary-btn-bg-color);
+    }
+
+    .logo {
+        height: 100%;
+        width: fit-content;
+        margin: 0 5rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .menu {
+        width: fit-content;
+        height: 100%;
+        padding: .5rem;
+        margin: 0 5rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .menu nav ul {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        column-gap: .5rem;
+    }
+
+    .menu nav ul li {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .menu nav ul li a {
+        color: var(--body-bg-main-color);
+        padding: 0.5rem 1rem;
+        letter-spacing: 1pt;
+        border-radius: .3rem;
+        font-family: 'Poppins', sans-serif;
+        font-weight: var(--light);
+    }
+
+    .menu nav ul li a:hover {
+        background-color: var(--primary-btn-bg-color);
+        color: var(--headers-main-color);
+        transition: all .5s;
+    }
+}

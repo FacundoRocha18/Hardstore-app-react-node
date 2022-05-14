@@ -2,6 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import placeholderImage from '../../public/img/imagepreviewdefault.png';
 
+/* Styles imports -------------------------------- */
+import style from "../Products/gridItem.module.css";
+import css from "classnames";
+
+
 const ProductsGridItem = ({ onAdd, product, id, name, image, price, setIsShowing, setMessage, setType }) => {
 
 
@@ -18,20 +23,20 @@ const ProductsGridItem = ({ onAdd, product, id, name, image, price, setIsShowing
 
     return (
         <>
-            <div className="products-item" id="item">
-                <div className="product-body">
-                    <div className="product-image">
+            <div className={css(style.item)} id="item">
+                <div className={style.body}>
+                    <div className={style.image}>
                         <img src={image} alt={name} id="item-image"></img>
                     </div>
-                    <div className="product-info">
-                        <div className="product-item-title">
+                    <div className={style.info}>
+                        <div className={style.title}>
                             <Link to={`api/products/singleProduct/${id}`}><h3 id="item-title">{name}</h3></Link>
                         </div>
-                        <div className="product-info-flex">
-                            <div className="product-price">
+                        <div className={style.flex}>
+                            <div className={style.price}>
                                 <p>USD<span id="item-price"> {price} </span> iva inc.</p>
                             </div>
-                            <div className="btn-container">
+                            <div className={style.btncontainer}>
                                 <button className="add-item btn p-btn addToCart" onClick={(e) => handleAddButtonClicked(e)}>
                                     <p>Agregar </p><span className="material-icons">add_shopping_cart</span>
                                 </button>
@@ -39,7 +44,6 @@ const ProductsGridItem = ({ onAdd, product, id, name, image, price, setIsShowing
                         </div>
                     </div>
                 </div>
-
             </div>
         </>
     )

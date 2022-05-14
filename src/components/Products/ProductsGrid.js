@@ -1,25 +1,27 @@
 import React, { useState } from 'react'
+
+/* Components -------------------------------- */
 import ProductsGridItem from './ProductsGridItem';
-import AlertToast from '../Alerts/ToastAlert'
+
+/* Styles imports -------------------------------- */
+import style from "../Products/grid.module.css";
+import css from "classnames";
 
 const ProductsGrid = ({ products, loading, onAdd, setIsShowing, setMessage, setType }) => {
 
 
     return (
         <>
-
-
-
             {
                 <div className='animate__animated animate__fast'>
-                    <div className='store-header'>
+                    <div className={css(style.header)}>
                         <h1 className='title-center'>Productos</h1>
                     </div>
                     {
                         loading && <h5 className='title-center animate__animated animate__flash animate__slower animate__infinite'>Cargando...</h5>
                     }
-                    <div className="products-container" id='products-wrapper'>
-                        <div className="products-grid">
+                    <div className={style.container} id='products-wrapper'>
+                        <div className={style.grid}>
                             {
                                 products.map((product) => (
                                     <ProductsGridItem
@@ -36,9 +38,7 @@ const ProductsGrid = ({ products, loading, onAdd, setIsShowing, setMessage, setT
                         </div>
                     </div>
                 </div>
-
             }
-
         </>
     )
 

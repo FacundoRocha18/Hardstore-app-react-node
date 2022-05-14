@@ -11,12 +11,17 @@ import ToastAlert from './Alerts/ToastAlert'
 /* Third party components -------------------------------- */
 
 
+
+
 const HomePage = ({ products, loading, onAdd, isShowing, setIsShowing, message, setMessage, type, setType, onClose }) => {
 
     return (
         <>
 
             <div className="products-wrapper main-content-wrapper">
+                {
+                    <ToastAlert type={type} message={message} isShowing={isShowing} onClose={onClose} />
+                }
                 {
                     <ProductsGrid
                         products={products}
@@ -27,9 +32,7 @@ const HomePage = ({ products, loading, onAdd, isShowing, setIsShowing, message, 
                         setType={setType}
                     />
                 }
-                {
-                    <ToastAlert type={type} message={message} isShowing={isShowing} onClose={onClose} />
-                }
+
             </div>
         </>
     )

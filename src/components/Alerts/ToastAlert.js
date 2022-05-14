@@ -16,22 +16,24 @@ const AlertToast = ({ children, type, message, isShowing, onClose }) => {
     const handleClose = (e) => {
 
         e.preventDefault();
-        
+
         onClose(e);
     }
 
     return (
         <>
-            <div className={css(style.alert, style[type], !isShowing && style.hide, isShowing === 'out' && style.out)}>
-                <div className={style.header}>
-                    <div className={style.text}>
-                        <span className="material-icons-round">{icon}</span>
-                        {children ? renderAlert() : message}
-                    </div>
-                    <div className={style.button}>
-                        <button type="button" className="close-btn" aria-label="Close" onClick={(e) => handleClose(e)}>
-                            <span className="material-icons-outlined">close</span>
-                        </button>
+            <div className={css(style.container, !isShowing && style.hide, isShowing === 'out' && style.out)}>
+                <div className={css(style.alert, style[type])}>
+                    <div className={style.header}>
+                        <div className={style.text}>
+                            <span className="material-icons-round">{icon}</span>
+                            {children ? renderAlert() : message}
+                        </div>
+                        <div className={style.button}>
+                            <button type="button" className="close-btn" aria-label="Close" onClick={(e) => handleClose(e)}>
+                                <span className="material-icons-outlined">close</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

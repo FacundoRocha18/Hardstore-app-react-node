@@ -1,18 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
+/* Styles imports */
+import style from "../FixedComponents/header.module.css";
+import css from "classnames";
+
 
 const Header = ({ token, username, onLogout }) => {
 
     return (
         <>
-            <header className="website-header" id='header'>
+            <header className={css(style.header)} id='header'>
                 <div className="center-object flex-item justify-space-between">
-                    <div className="header-logo">
+                    <div className={style.logo}>
                         <Link to={'/'}><h1 className="website-logo title-center"><span>Hard</span>Store</h1></Link>
 
                     </div>
-                    <div className="header-menu">
+                    <div className={style.menu}>
                         <nav>
                             <ul>
                                 <li><Link to={'/'}>Inicio</Link></li>
@@ -23,7 +27,7 @@ const Header = ({ token, username, onLogout }) => {
                                     username && <li><Link to={'/api/users/profile'}>{username}</Link></li>
                                 }
                                 {
-                                    token && <li><button type='submit' className='logout-btn' onClick={onLogout}>Cerrar sesión</button></li>
+                                    token && <li><button type='submit' className={style.logout} onClick={onLogout}>Cerrar sesión</button></li>
                                 }
                                 <Link to={'api/products/shoppingCart'} className='show-cart btn'><span className="material-icons-outlined">shopping_cart</span></Link>
 

@@ -1,0 +1,84 @@
+.container {
+    margin: 5rem auto;
+}
+
+.container h2 {
+    margin: 0 auto 3rem;
+}
+
+.header {
+    border-bottom: solid 1px var(--borders-main-color);
+    padding: 1rem 0;
+}
+
+.cartHeaders {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2rem;
+}
+
+.rowsContainer {
+    width: 100%;
+    height: fit-content;
+}
+
+.totalContainer {
+    height: fit-content;
+    width: 100%;
+    margin: 2rem auto;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total .comprarButton {
+    margin: 0;
+}
+
+.priceText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.shoppingCartTotalText {
+    font-size: 2.3rem;
+}
+
+.shoppingCartTotalSpan {
+    color: var(--text-secondary-color);
+    font-size: 2.5rem;
+}
+
+.shoppingCartShippingText {
+    margin-bottom: .5rem;
+}
+
+.shoppingCartShippingSpan {
+    font-size: 1.7rem;
+}
+
+.placeholder {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    max-width: fit-content;
+    margin: 2rem auto 0;
+}
+
+.placeholder span {
+    margin: 0 0 0 2rem;
+}
+
+.placeholder span a {
+    color: var(--text-secondary-color);
+    transition: all .5s;
+}
+
+.placeholder span a:hover {
+    text-decoration: underline;
+}

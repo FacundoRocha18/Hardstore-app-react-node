@@ -5,6 +5,10 @@ import { useParams } from 'react-router-dom';
 /* Components -------------------------------- */
 import ToastAlert from '../Alerts/ToastAlert'
 
+/* Styles imports -------------------------------- */
+import style from "../Products/product.module.css";
+import css from "classnames";
+
 
 
 const SingleProduct = ({ onAdd, onRemove, isShowing, setIsShowing, message, setMessage, onClose }) => {
@@ -34,11 +38,6 @@ const SingleProduct = ({ onAdd, onRemove, isShowing, setIsShowing, message, setM
 
     const { titles, content } = getDescription(splitedDescription);
 
-    console.log(titles);
-
-    console.log(content);
-
-
     const handleAdd = (qty) => {
 
         (qty < 10)
@@ -47,7 +46,6 @@ const SingleProduct = ({ onAdd, onRemove, isShowing, setIsShowing, message, setM
             :
             setQuantity(qty)
 
-        return console.log(qty);
     }
 
     const handleRemove = (qty) => {
@@ -57,7 +55,6 @@ const SingleProduct = ({ onAdd, onRemove, isShowing, setIsShowing, message, setM
             setQuantity(qty - 1)
             :
             setQuantity(qty)
-        return console.log(qty);
     }
 
     const handleAddToCart = (qty) => {
@@ -75,19 +72,22 @@ const SingleProduct = ({ onAdd, onRemove, isShowing, setIsShowing, message, setM
 
             {
                 <div className='main-content-wrapper'>
-                    <div className='single-product-container'>
-                        <div className='single-product-image'>
+                    {
+                        <ToastAlert type='success' message='Se añadió correctamente el producto al carrito' isShowing={isShowing} onClose={onClose} />
+                    }
+                    <div className={css(style.container)}>
+                        <div className={style.image}>
                             <img src={image} alt={name}></img>
                         </div>
-                        <div className='single-product-header'>
-                            <div className='single-product-title'>
+                        <div className={style.header}>
+                            <div className={style.title}>
                                 <h1>{name}</h1>
                             </div>
-                            <div className='single-product-price mbt-2'>
+                            <div className={style.price}>
                                 <h3 className='mr-2'>USD <span>{price.toFixed(2)} </span></h3><p> iva inc.</p>
                             </div>
-                            <div className='single-product-stock mbt-2'>
-                                <div className='qty-input-container'>
+                            <div className={style.stock}>
+                                <div className={style.qtycontainer}>
                                     <button className='quantity-down-btn' onClick={() => handleRemove(quantity)}><span>-</span></button>
                                     <input className="single-product-quantity-input" value={quantity} type="number" min="1" max={stock} readOnly></input>
                                     <button className='quantity-up-btn' onClick={() => { handleAdd(quantity) }}><span>+</span></button>
@@ -96,28 +96,24 @@ const SingleProduct = ({ onAdd, onRemove, isShowing, setIsShowing, message, setM
                                     <p>Cantidad disponible: {stock}</p>
                                 </div>
                             </div>
-                            <div className='single-product-button-wrapper mbt-4'>
-                                <button className='buy-now-button btn'><p>Comprar ahora</p></button>
-                                <button className='add-to-cart-sp btn' onClick={() => { handleAddToCart(quantity) }}><span className="material-icons">add_shopping_cart</span></button>
+                            <div className={style.buttoncontainer}>
+                                <button className={css(style.buy, 'btn')}><p>Comprar ahora</p></button>
+                                <button className={css(style.add, 'btn')} onClick={() => { handleAddToCart(quantity) }}><span className="material-icons">add_shopping_cart</span></button>
                             </div>
-                            <div className='single-product-category mbt-4'>
+                            <div className={style.category}>
                                 <p>Categoría del producto: <a href='#'>{category_name}</a></p>
                             </div>
-                            <div className='single-product-description-link-wrapper mbt-4'>
+                            <div className={style.descriptionlink}>
                                 <a href='#description'>Ver descripción del producto</a>
                             </div>
                         </div>
                     </div>
 
-                    {
-                        <ToastAlert type='success' message='Se añadió correctamente el producto al carrito' isShowing={isShowing} onClose={onClose} />
-                    }
-
-                    <div className='single-product-description-container pd-2 mt-4' id='description'>
+                    <div className={style.descriptioncontainer} id='description'>
                         <div className='description-header mb-2'>
                             <h2 className='title-center'>Descripción del producto</h2>
                         </div>
-                        <div className='description-body mt-4'>
+                        <div className={style.description}>
                             <table>
                                 <tbody>
                                     <tr >
