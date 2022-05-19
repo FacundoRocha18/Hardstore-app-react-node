@@ -17,13 +17,13 @@
 @media (min-width: 768px) {
     
     .container {
-        width: 100%;
+        width: 80%;
         height: fit-content;
     }
 
     .grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 3rem;
     }
 

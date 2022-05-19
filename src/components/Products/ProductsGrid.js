@@ -13,14 +13,10 @@ const ProductsGrid = ({ products, loading, onAdd, setIsShowing, setMessage, setT
     return (
         <>
             {
-                <div className='animate__animated animate__fast'>
-                    <div className={css(style.header)}>
-                        <h1 className='title-center'>Productos</h1>
-                    </div>
-                    {
-                        loading && <h5 className='title-center animate__animated animate__flash animate__slower animate__infinite'>Cargando...</h5>
-                    }
-                    <div className={style.container} id='products-wrapper'>
+                <div className={style.container} id='products-wrapper'>
+                        {
+                            loading && <h5 className='title-center animate__animated animate__flash animate__slower animate__infinite'>Cargando...</h5>
+                        }
                         <div className={style.grid}>
                             {
                                 products.map((product) => (
@@ -37,7 +33,6 @@ const ProductsGrid = ({ products, loading, onAdd, setIsShowing, setMessage, setT
                             }
                         </div>
                     </div>
-                </div>
             }
         </>
     )

@@ -6,6 +6,7 @@
     position: fixed;
     width: 100%;
     height: fit-content;
+    max-height: 15rem;
     box-sizing: border-box;
     top: 0;
     left: 0;

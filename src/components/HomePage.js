@@ -19,7 +19,7 @@ const HomePage = ({ products, loading, onAdd, isShowing, setIsShowing, message, 
     return (
         <>
 
-            <div className="products-wrapper main-content-wrapper">
+            <div className="main-content-wrapper">
                 {
                     <ToastAlert
                         type={type}
@@ -28,21 +28,26 @@ const HomePage = ({ products, loading, onAdd, isShowing, setIsShowing, message, 
                         onClose={onClose}
                     />
                 }
-                {
-                    <CategoriesLinks
-                        categories={categories}
-                    />
-                }
-                {
-                    <ProductsGrid
-                        products={products}
-                        loading={loading}
-                        onAdd={onAdd}
-                        setIsShowing={setIsShowing}
-                        setMessage={setMessage}
-                        setType={setType}
-                    />
-                }
+                <div className='mb-2'>
+                    <h1 className='title-center'>Productos</h1>
+                </div>
+                <div className='flex'>
+                    {
+                        <CategoriesLinks
+                            categories={categories}
+                        />
+                    }
+                    {
+                        <ProductsGrid
+                            products={products}
+                            loading={loading}
+                            onAdd={onAdd}
+                            setIsShowing={setIsShowing}
+                            setMessage={setMessage}
+                            setType={setType}
+                        />
+                    }
+                </div>
 
             </div>
         </>
