@@ -1,0 +1,17 @@
+/* Products Categories */
+
+.container {
+    width: fit-content;
+}
+
+.header {
+    padding: 0 .5rem 1rem;
+    width: 100%;
+}
+
+.body {
+    background-color: var(--product-item-background);
+    border-radius: 1rem;
+    width: 100%;
+    padding: 2rem;
+}

@@ -1,11 +1,13 @@
 
 const getProducts = async() => {
 
-    const url = `http://192.168.1.8:8000/`;
+    const url = `http://localhost:8000/`;
     const response = await fetch( url );
     const { data } = await response.json();
-    
-    const productsData = data.map( product => {
+
+    const { products } = data; 
+   
+    const productsData = products.map( product => {
 
         return {
             id: product.product_id,

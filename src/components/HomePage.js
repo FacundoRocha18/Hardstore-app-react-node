@@ -7,20 +7,31 @@ import useAlert from '../hooks/useAlert'
 /* Components -------------------------------- */
 import ProductsGrid from './Products/ProductsGrid'
 import ToastAlert from './Alerts/ToastAlert'
+import CategoriesLinks from './categories/CategoriesLinks';
 
 /* Third party components -------------------------------- */
 
 
 
 
-const HomePage = ({ products, loading, onAdd, isShowing, setIsShowing, message, setMessage, type, setType, onClose }) => {
+const HomePage = ({ products, loading, onAdd, isShowing, setIsShowing, message, setMessage, type, setType, onClose, categories }) => {
 
     return (
         <>
 
             <div className="products-wrapper main-content-wrapper">
                 {
-                    <ToastAlert type={type} message={message} isShowing={isShowing} onClose={onClose} />
+                    <ToastAlert
+                        type={type}
+                        message={message}
+                        isShowing={isShowing}
+                        onClose={onClose}
+                    />
+                }
+                {
+                    <CategoriesLinks
+                        categories={categories}
+                    />
                 }
                 {
                     <ProductsGrid

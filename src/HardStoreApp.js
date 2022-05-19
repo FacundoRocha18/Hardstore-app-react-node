@@ -13,6 +13,7 @@ import useFetchProducts from './hooks/useFetchProducts';
 import useCart from './hooks/useCart';
 import useAuth from './hooks/useAuth';
 import useAlert from './hooks/useAlert';
+import useCats from './hooks/useCats';
 
 
 /* Components -------------------------------- */
@@ -31,6 +32,8 @@ function App() {
   const [redirect, setRedirect] = useState(false);
 
   const { data: products, loading } = useFetchProducts();
+
+  const { data: categories } = useCats()
 
   const { token, username, isAuth, onLogin, onLogout } = useAuth();
 
@@ -66,6 +69,7 @@ function App() {
                 type={type}
                 setType={setType}
                 onClose={onClose}
+                categories={categories}
               />
             }
           />

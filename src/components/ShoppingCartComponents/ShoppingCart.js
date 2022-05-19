@@ -99,11 +99,12 @@ const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy, isShowing, 
                   <p className={style.shoppingCartShippingText}>Envío: USD <span className={style.shoppingCartShippingSpan} id="cart-total-shipping-price"> {shippingPrice.toFixed(2)}</span></p>
                   <p><span className={style.shoppingCartTotalText}>Total:</span> USD <span className={style.shoppingCartTotalSpan} id="cart-total-price"> {totalPrice.toFixed(2)}</span></p>
                 </div>
-                <button className="btn btn-success comprarButton " type="button" data-toggle="modal"
-                  data-target="#buy-success-alert"
-                  onClick={() => handleBuy(totalPrice, cartItems)} >
-                  <p>Comprar</p>
-                </button>
+                <div>
+                  <button className="btn btn-success comprarButton " type="button"
+                    onClick={() => handleBuy(totalPrice, cartItems)} >
+                    <p>Comprar</p>
+                  </button>
+                </div>
               </div>
             }
           </div>
