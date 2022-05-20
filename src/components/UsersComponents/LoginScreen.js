@@ -8,6 +8,10 @@ import useAuth from '../../hooks/useAuth';
 /* Components -------------------------------- */
 import ToastAlert from '../Alerts/ToastAlert'
 
+/* Styles imports -------------------------------- */
+import style from "./login.module.css";
+import css from "classnames";
+
 
 const LoginScreen = ({ onLogin, isShowing, setIsShowing, message, setMessage, type, setType, onClose }) => {
 
@@ -70,20 +74,20 @@ const LoginScreen = ({ onLogin, isShowing, setIsShowing, message, setMessage, ty
     return (
         <>
             {
-                <div className='login-form-container'>
+                <div className={style.container}>
                     <div className='login-header mb-2'>
                         <h2 className='title-center'>Inicie sesión</h2>
                     </div>
                     <form onSubmit={handleSubmit} autoComplete='off'>
                         <input name='email' type='text' placeholder='Ingrese su email' className='mb-2' autoFocus required onChange={handleUserInfoChanged}></input>
                         <input name='password' type='password' placeholder='Ingrese su contraseña' className='mb-2' required onChange={handleUserInfoChanged}></input>
-                        <button type='submit' className='btn login-button'><p>Iniciar sesión</p></button>
-                        <button className='register-btn btn' id='register' onClick={handleRegister}><p>Registrarse</p></button>
+                        <button type='submit' className={css('btn', style.loginBtn)}><p>Iniciar sesión</p></button>
+                        <button className={css('btn', style.registerBtn)} id='register' onClick={handleRegister}><p>Registrarse</p></button>
 
                     </form>
-                    <div className='login-buttons-container mt-2'>
+                    <div className={css(style.btnContainer, 'mt-2')}>
                         <p>Olvidaste tu contraseña?</p>
-                        <Link to={'api/auth/forgot'} ><p className='password-link'>Reestablecela aquí.</p></Link>
+                        <Link to={'api/auth/forgot'} ><p className={style.passwordLink}>Reestablecela aquí.</p></Link>
                     </div>
                 </div>
             }

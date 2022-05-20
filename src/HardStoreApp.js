@@ -25,6 +25,7 @@ import LoginScreen from './components/UsersComponents/LoginScreen';
 import RegisterScreen from './components/UsersComponents/RegisterScreen';
 import NoMatchPage from './components/NoMatchPage';
 import Footer from './components/FixedComponents/PageFooter';
+import ProductsWithCats from './components/Products/ProductsWithCats';
 
 
 function App() {
@@ -102,7 +103,7 @@ function App() {
             }
           />
 
-          <Route exact path='api/products/singleProduct/:id'
+          <Route exact path='api/products/product/:id'
             element={
               <SingleProduct
                 onAdd={onAdd}
@@ -114,6 +115,19 @@ function App() {
                 type={type}
                 setType={setType}
                 onClose={onClose}
+              />
+            }
+          />
+
+          <Route exact path='api/products/categories/:id'
+            element={
+              <ProductsWithCats
+                products={products}
+                loading={loading}
+                onAdd={onAdd}
+                setIsShowing={setIsShowing}
+                setMessage={setMessage}
+                setType={setType}
               />
             }
           />

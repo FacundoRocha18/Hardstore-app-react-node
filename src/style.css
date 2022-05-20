@@ -178,6 +178,14 @@ body {
     padding: 2rem;
 }
 
+.wd-100 {
+    width: 100% !important;
+}
+
+.cl-4 {
+    grid-template-columns: repeat(4, 1fr) !important;
+}
+
 .disabled {
     display: none !important;
 }

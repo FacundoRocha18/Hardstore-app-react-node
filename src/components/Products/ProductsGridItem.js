@@ -30,7 +30,7 @@ const ProductsGridItem = ({ onAdd, product, id, name, image, price, setIsShowing
                     </div>
                     <div className={style.info}>
                         <div className={style.title}>
-                            <Link to={`api/products/singleProduct/${id}`}><h3 id="item-title">{name}</h3></Link>
+                            <Link to={`/api/products/product/${id}`} replace><h3 id="item-title">{name}</h3></Link>
                         </div>
                         <div className={style.flex}>
                             <div className={style.price}>

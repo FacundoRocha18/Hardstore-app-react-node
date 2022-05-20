@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 /* Components -------------------------------- */
 import ProductsGridItem from './ProductsGridItem';
@@ -19,6 +19,7 @@ const ProductsGrid = ({ products, loading, onAdd, setIsShowing, setMessage, setT
                         }
                         <div className={style.grid}>
                             {
+                                
                                 products.map((product) => (
                                     <ProductsGridItem
                                         key={product.id}

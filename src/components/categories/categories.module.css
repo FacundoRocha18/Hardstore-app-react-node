@@ -3,6 +3,7 @@
     background-color: var(--product-item-background);
     border-radius: 1rem;
     width: 100%;
+    height: fit-content;
     padding: 2rem;
     margin: 0 auto 2rem;
 }
@@ -26,13 +27,11 @@
 }
 
 .hide {
-    animation: slideOutTop 1s ease 0s 1 normal forwards;
     display: none;
     transition: all 1s ease;
 }
 
 .show {
-    animation: slideInBottom 1s ease 0s 1 normal forwards;
     transition: all 1s ease;
 }
 
@@ -49,17 +48,26 @@
     transition: all .3s;
 }
 
-@media (min-height: 768px) {
+@media (min-width: 768px) {
+
     .container {
         background-color: var(--product-item-background);
         border-radius: 1rem;
-        width: 20%;
-        padding: 2rem;
+        box-shadow: var(--box-shadow-1);
+        width: 30%;
     }
 
     .header {
-        padding: 0 0 1rem;
         width: 100%;
+        justify-content: center;
+    }
+
+    .hide {
+        display: block;
+    }
+
+    .show {
+        display: block;
     }
 
     .body ol li a:hover {
@@ -73,6 +81,16 @@
         border: none;
         transition: all .3s;
     }
+
+    .hide {
+        display: block;
+        transition: all 1s ease;
+    }
+
+    .button {
+        display: none;
+    }
+
 }
 
 @keyframes slideInBottom {

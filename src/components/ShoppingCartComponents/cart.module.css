@@ -75,10 +75,16 @@
 }
 
 .placeholder span a {
-    color: var(--text-secondary-color);
+    background-color: var(--primary-btn-bg-color);
+    background: var(--primary-btn-gradient);
+    border-radius: .3rem;
+    color: var(--text-main-color);
+    padding: 1rem 2rem;
     transition: all .5s;
 }
 
 .placeholder span a:hover {
-    text-decoration: underline;
+    background-color: var(--primary-btn-bg-color);
+    background: var(--primary-btn-gradient-hover);
+    transition: all .5s;
 }

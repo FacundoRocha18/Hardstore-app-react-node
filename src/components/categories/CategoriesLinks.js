@@ -9,7 +9,7 @@ import { CatItem } from './CatItem';
 
 const CategoriesLinks = ({ categories }) => {
 
-    const [ show, setShow ] = useState(null);
+    const [show, setShow] = useState(null);
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -21,12 +21,14 @@ const CategoriesLinks = ({ categories }) => {
         <>
             <div className={style.container}>
                 <div className={style.header}>
-                    <h4>Categories</h4>
-                    <button className={style.button} onClick={(e) => handleClick(e)}>
-                        <span class="material-icons-round">
-                            menu
-                        </span>
-                    </button>
+                    <h4 className='title-center'>Categorías</h4>
+                    <div className={style.buttonContainer}>
+                        <button className={style.button} onClick={(e) => handleClick(e)}>
+                            <span className="material-icons-round">
+                                menu
+                            </span>
+                        </button>
+                    </div>
                 </div>
                 <div className={css(style.body, !show && style.hide, show && style.show)}>
                     <ol>

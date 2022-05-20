@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
+
+/* Helpers -------------------------------- */
 import newUser from '../../helpers/newUser'
+
+/* Styles imports -------------------------------- */
+import style from "./signIn.module.css";
+import css from "classnames";
 
 const RegisterScreen = ({setRedirect}) => {
 
@@ -65,7 +71,7 @@ const RegisterScreen = ({setRedirect}) => {
     return (
         <>
             <div>
-                <div className='register-form-container pd-4'>
+                <div className={style.container}>
                     <div className='register-header'>
                         <h2 className='title-center mb-2 '>Crear una cuenta</h2>
                     </div>
@@ -81,7 +87,7 @@ const RegisterScreen = ({setRedirect}) => {
 
                         <input name='password' className='mb-2' id='password' type='password' placeholder='contraseña' required onChange={handleUserInfoChanged}></input>
 
-                        <button type='submit' className='btn register-submit-button'><p>Crear cuenta</p></button>
+                        <button type='submit' className={css('btn', style.submitBtn)}><p>Crear cuenta</p></button>
 
                     </form>
                 </div>

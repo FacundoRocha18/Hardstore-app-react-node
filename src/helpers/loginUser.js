@@ -19,7 +19,7 @@ const loginUser = async ({ uEmail, uPassword }) => {
     const response = await fetch(url, addParams).catch(error => { console.error(error) });
     const { ok, message, loginData} = await response.json();
     const { token, username } = loginData;
-    console.log(ok, message, loginData)
+    console.log(ok, message)
 
     return {
         token: token,

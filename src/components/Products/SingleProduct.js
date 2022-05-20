@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+
+/* Custom hooks -------------------------------- */
 import useFetchProducts from '../../hooks/useFetchProducts'
-import { useParams } from 'react-router-dom';
 
 /* Components -------------------------------- */
 import ToastAlert from '../Alerts/ToastAlert'
@@ -11,7 +13,7 @@ import css from "classnames";
 
 
 
-const SingleProduct = ({ onAdd, onRemove, isShowing, setIsShowing, message, setMessage, onClose }) => {
+const SingleProduct = ({ onAdd, isShowing, setIsShowing, message, setMessage, onClose }) => {
 
     const { id } = useParams();
 
@@ -40,7 +42,7 @@ const SingleProduct = ({ onAdd, onRemove, isShowing, setIsShowing, message, setM
 
     const handleAdd = (qty) => {
 
-        (qty < 10)
+        (qty < stock)
             ?
             setQuantity(qty + 1)
             :
@@ -50,7 +52,7 @@ const SingleProduct = ({ onAdd, onRemove, isShowing, setIsShowing, message, setM
 
     const handleRemove = (qty) => {
 
-        (qty > 0)
+        (qty > 1)
             ?
             setQuantity(qty - 1)
             :
@@ -79,29 +81,28 @@ const SingleProduct = ({ onAdd, onRemove, isShowing, setIsShowing, message, setM
                         <div className={style.image}>
                             <img src={image} alt={name}></img>
                         </div>
-                        <div className={style.header}>
+                        <div className={style.body}>
                             <div className={style.title}>
                                 <h1>{name}</h1>
                             </div>
                             <div className={style.price}>
-                                <h3 className='mr-2'>USD <span>{price.toFixed(2)} </span></h3><p> iva inc.</p>
+                                <h3>USD <span>{price.toFixed(2)} </span></h3><p> iva inc.</p>
                             </div>
                             <div className={style.stock}>
-                                <div className={style.qtycontainer}>
-                                    <button className='quantity-down-btn' onClick={() => handleRemove(quantity)}><span>-</span></button>
-                                    <input className="single-product-quantity-input" value={quantity} type="number" min="1" max={stock} readOnly></input>
-                                    <button className='quantity-up-btn' onClick={() => { handleAdd(quantity) }}><span>+</span></button>
+                                <div className={style.quantityContainer}>
+                                    <button className={css(style.quantityBtn, style.down)} onClick={() => handleRemove(quantity)}><span>-</span></button>
+                                    <input className={style.qtyInput} value={quantity} type="number" min="1" max={stock} readOnly></input>
+                                    <button className={css(style.quantityBtn, style.up)} onClick={() => { handleAdd(quantity) }}><span>+</span></button>
                                 </div>
                                 <div className='stock-text-container'>
                                     <p>Cantidad disponible: {stock}</p>
                                 </div>
                             </div>
                             <div className={style.buttoncontainer}>
-                                <button className={css(style.buy, 'btn')}><p>Comprar ahora</p></button>
-                                <button className={css(style.add, 'btn')} onClick={() => { handleAddToCart(quantity) }}><span className="material-icons">add_shopping_cart</span></button>
+                                <button className={css(style.add, 'btn')} onClick={() => { handleAddToCart(quantity) }}><p>Agregar al carrito </p> <span className="material-icons">add_shopping_cart</span></button>
                             </div>
                             <div className={style.category}>
-                                <p>Categoría del producto: <a href='#'>{category_name}</a></p>
+                                <p>Categoría del producto: <Link to={`/api/products/categories/${category_id}`} replace>{category_name}</Link></p>
                             </div>
                             <div className={style.descriptionlink}>
                                 <a href='#description'>Ver descripción del producto</a>
@@ -109,7 +110,7 @@ const SingleProduct = ({ onAdd, onRemove, isShowing, setIsShowing, message, setM
                         </div>
                     </div>
 
-                    <div className={style.descriptioncontainer} id='description'>
+                    <div className={style.descriptionContainer} id='description'>
                         <div className='description-header mb-2'>
                             <h2 className='title-center'>Descripción del producto</h2>
                         </div>
