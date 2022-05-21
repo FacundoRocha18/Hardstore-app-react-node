@@ -1,5 +1,7 @@
 import React from 'react';
 import placeholderImage from '../../public/img/imagepreviewdefault.png';
+import { Link } from 'react-router-dom';
+
 
 /* Styles imports -------------------------------- */
 import style from "./item.module.css";
@@ -48,7 +50,9 @@ const ShoppingCartItem = ({ item, onAdd, onRemove, onDelete, setIsShowing, setMe
                 <img src={image} className="shopping-cart-image"></img>
               </div>
               <div className={style.titleContainer}>
-                <h6 className="shopping-cart-item-title shoppingCartItemTitle title-center">{name}</h6>
+                <Link to={'/'} replace>
+                  <h6 className={css('title-center', style.title)}>{name}</h6>
+                </Link>
               </div>
             </div>
           </div>

@@ -18,7 +18,7 @@
 .image {
     width: 30%;
     height: 100px;
-    padding: 1rem;
+    padding: 0rem;
 }
 
 .image img {
@@ -73,18 +73,17 @@
 
 @media (min-width: 768px) {
     .item {
+        align-items: center;
         background-color: var(--product-item-background);
-        padding: 0;
         border: none;
         border-radius: .5rem;
+        box-shadow: var(--box-shadow-1);
         display: flex;
-        min-width: fit-content;
-        width: 100%;
-        align-items: center;
         justify-content: center;
         margin: 0 auto;
-        box-shadow: var(--box-shadow-1);
-
+        min-width: fit-content;
+        padding: 0;
+        width: 100%;
     }
 
     .body {
@@ -96,12 +95,12 @@
         text-align: left;
         height: 30%;
     }
-    
+
     .title a h3 {
         white-space: nowrap;
         inline-size: 200px;
         overflow: hidden;
-        text-overflow: ellipsis; 
+        text-overflow: ellipsis;
         font-size: 2rem;
     }
 
@@ -137,10 +136,13 @@
     }
 
     .image {
-        border-bottom: solid 1px var(--borders-main-color-blur);
+        border-top-left-radius: .5rem;
+        border-top-right-radius: .5rem;
+        border-bottom-left-radius: 0;
+        background-color: #fff;
         height: 240px;
         margin: 0 auto;
-        padding: 2.5rem;
+        padding: 2rem;
         width: 100%;
     }
 

@@ -93,7 +93,7 @@ ul, ol, li {
 
 
     /* Box shadow */
-    --box-shadow-1: 0px 0px 15px 0px rgba(0, 0, 0, 0.050);
+    --box-shadow-1: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
 
     /* Font weight */
     --extra-light: 200;
@@ -407,9 +407,6 @@ body {
     padding: 2rem;
 }
 
-/* Shopping cart section */
-
-
 /* Alerts */
 
 .alerts-container {
@@ -458,13 +455,7 @@ body {
         justify-content: space-between;
         gap: 2rem;
     }
-
-    
-
-    /* Shopping cart section */
-
-    
-
+  
     /* Modal */
     .modal-item {
         border-radius: .5rem;
@@ -690,120 +681,6 @@ body {
 
 .new-product-quantity-container .quantity-down-btn:hover {
     background-color: var(--critical-btn-hover-bg-color);
-}
-
-
-
-.login-form-container,
-.register-form-container {
-    background-color: var(--product-item-background);
-    border-radius: 1rem;
-    box-shadow: var(--box-shadow-1);
-    height: fit-content;
-    margin: 15rem auto;
-    padding: 4rem;
-    width: fit-content;
-}
-
-.register-form-container {
-    width: 40%;
-}
-
-.login-form-container form,
-.register-form-container form {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    margin: 0 auto;
-    width: 80%;
-}
-
-.register-form-container form {
-    margin: 0;
-    min-width: 35rem;
-    width: auto;
-}
-
-.login-form-container form input,
-.register-form-container form input {
-    background-color: var(--item-bg-main-color);
-    border: none;
-    border-radius: 1rem;
-    box-shadow: var(--box-shadow-1);
-    font-family: 'Questrial', sans-serif;
-    font-size: 1.6rem;
-    padding: 1.5rem 1.5rem;
-    width: 100%;
-}
-
-.login-form-container form .login-button,
-.login-form-container form .register-btn {
-    align-items: center;
-    box-shadow: var(--box-shadow-1);
-    display: flex;
-    justify-content: center;
-    padding: 1rem 2rem;
-    margin: 0;
-    width: 100%;
-    transition: all .5s;
-}
-
-.login-form-container form .login-button,
-.register-form-container form .register-submit-button {
-    background-color: #0277BD;
-    border: none;
-    color: var(--product-item-background);
-    margin: 0 auto 1rem;
-    transition: all .5s;
-}
-
-.register-form-container form .register-submit-button {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.login-form-container form .register-btn {
-    background-color: transparent;
-    border: solid 2px #039BE5;
-}
-
-.login-form-container form .register-btn:hover {
-    border: solid 2px #0277BD;
-    cursor: pointer;
-}
-
-.login-form-container form button:hover,
-.register-form-container form .register-submit-button:hover {
-    background-color: #039BE5;
-    color: var(--text-main-color);
-    cursor: pointer;
-}
-
-.login-buttons-container {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    min-width: 35rem;
-}
-
-.login-buttons-container .password-link {
-    color: #039BE5;
-    transition: all .5s;
-}
-
-.login-buttons-container .password-link:hover {
-    color: #0277BD;
-    text-decoration: underline;
-}
-
-.register-form-container form .register-form-group {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
 }
 
 .no-match {
