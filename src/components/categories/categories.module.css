@@ -41,6 +41,7 @@
 
 .body ol li {
     margin: 0 0 1rem;
+    text-align: center;
 }
 
 .body ol li a {
@@ -54,20 +55,12 @@
         background-color: var(--product-item-background);
         border-radius: 1rem;
         box-shadow: var(--box-shadow-1);
-        width: 30%;
+        width: 100%;
     }
 
     .header {
         width: 100%;
-        justify-content: center;
-    }
-
-    .hide {
-        display: block;
-    }
-
-    .show {
-        display: block;
+        justify-content: space-between;
     }
 
     .body ol li a:hover {
@@ -80,15 +73,6 @@
         background-color: var(--primary-btn-bg-color);
         border: none;
         transition: all .3s;
-    }
-
-    .hide {
-        display: block;
-        transition: all 1s ease;
-    }
-
-    .button {
-        display: none;
     }
 
 }

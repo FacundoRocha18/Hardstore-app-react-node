@@ -27,7 +27,7 @@ const useAuth = () => {
             };
             
         } catch (error) {
-            throw alert('token invalido, esto puede deberse a que intentó ingresar con un usuario incorrecto o ingresó mal sus credenciales' + error)
+            throw console.log('token invalido, esto puede deberse a que intentó ingresar con un usuario incorrecto o ingresó mal sus credenciales' + error)
         }
     }
 

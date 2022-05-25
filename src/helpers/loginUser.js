@@ -17,9 +17,23 @@ const loginUser = async ({ uEmail, uPassword }) => {
     };
 
     const response = await fetch(url, addParams).catch(error => { console.error(error) });
-    const { ok, message, loginData} = await response.json();
-    const { token, username } = loginData;
-    console.log(ok, message)
+    const { ok, message, loginData } = await response.json();
+
+    console.log(ok);
+    let info;
+
+    if (ok && loginData !== undefined) {
+
+        info = loginData;
+        alert(message)
+        return info;
+        
+    } else {
+        alert(message);
+    }
+    
+    const { token, username } = info;
+
 
     return {
         token: token,
