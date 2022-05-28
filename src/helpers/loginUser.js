@@ -16,31 +16,47 @@ const loginUser = async ({ uEmail, uPassword }) => {
         body: JSON.stringify(data)
     };
 
-    const response = await fetch(url, params).catch(error => { console.error(error) });
-    const { ok, message, loginData } = await response.json();
+    const { ok, message, loginData } = fetchData(url, data, params)
 
-    console.log(ok)
+    const { token, username } = loginData;
 
-    let info;
-
-    if (ok && loginData !== undefined) {
-
-        info = loginData;
-        alert(message)
-        return info;
-        
-    } else {
-        alert(message);
+    if (!token && !username) {
+        throw alert('data error')    
     }
     
-    const { token, username } = info;
-
-
     return {
         loginStatus: ok,
+        message: message,
         token: token,
         username: username
     };
+}
+
+const fetchData = async (url, params) => {
+
+    let msg;
+    
+    try {
+        const response = await fetch(url, params);
+
+        const { ok, message, loginData } = await response.json();
+        
+        console.log(ok, message)
+                
+        alert(message)
+
+        msg = message;
+
+        return {
+            ok: ok,
+            message: message,
+            loginData: loginData
+        };
+    
+    } catch (e) {
+    
+        return alert(msg);
+    }
 }
 
 export default loginUser;

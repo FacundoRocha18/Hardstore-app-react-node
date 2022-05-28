@@ -41,7 +41,7 @@
 }
 
 .loginBtn {
-    background-color: #0277BD;
+    background-color: var(--login-btn);
     border: none;
     color: var(--product-item-background);
     margin: 0 auto 1rem;
@@ -50,16 +50,16 @@
 
 .registerBtn {
     background-color: transparent;
-    border: solid 2px #039BE5;
+    border: solid 2px var(--login-btn);
 }
 
 .registerBtn:hover {
-    border: solid 2px #0277BD;
+    border: solid 2px var(--login-btn-hover);
     cursor: pointer;
 }
 
 .container form button:hover {
-    background-color: #039BE5;
+    background-color: var(--login-btn);
     color: var(--text-main-color);
     cursor: pointer;
 }
@@ -72,11 +72,11 @@
 }
 
 .passwordLink {
-    color: #039BE5;
+    color: var(--login-btn-hover);
     transition: all .5s;
 }
 
 .passwordLink:hover {
-    color: #0277BD;
+    color: var(--login-btn-hover);
     text-decoration: underline;
 }

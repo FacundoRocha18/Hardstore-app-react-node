@@ -20,12 +20,10 @@ const useAuth = () => {
     const handleLogin = async ({ uEmail, uPassword }) => {
 
         try {
-            const { loginStatus, token, username } = await loginUser({
+            const { loginStatus, message, token, username } = await loginUser({
                 uEmail,
                 uPassword
             })
-
-            console.log(loginStatus, token, username)
 
             return {
                 loginStatus: setStatus(loginStatus),
@@ -33,8 +31,8 @@ const useAuth = () => {
                 userName: setUsername(username.replace(/"/g, ''))
             };
             
-        } catch (error) {
-            throw alert(error)
+        } catch (e) {
+            throw alert('useAuth: ' + e)
         }
     }
 

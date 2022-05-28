@@ -50,7 +50,7 @@ const ShoppingCartItem = ({ item, onAdd, onRemove, onDelete, setIsShowing, setMe
                 <img src={image} className="shopping-cart-image"></img>
               </div>
               <div className={style.titleContainer}>
-                <Link to={'/'} replace>
+                <Link to={`/api/products/product/${id}`} replace>
                   <h6 className={css('title-center', style.title)}>{name}</h6>
                 </Link>
               </div>

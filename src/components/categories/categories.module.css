@@ -46,12 +46,19 @@
 }
 
 .body ol li {
-    margin: 0 0 1rem;
+    border-bottom: solid 1px var(--borders-main-color-blur);
+    padding: 1rem;
+    margin: 0;
     text-align: center;
+}
+
+.body ol li:last-of-type {
+    border-bottom: solid 1px var(--borders-main-color-blur);
 }
 
 .body ol li a {
     cursor: pointer;
+    text-decoration: none;
     transition: all .3s;
 }
 
@@ -75,9 +82,8 @@
         width: 100%;
     }
 
-    .body ol li a:hover {
-        color: var(--text-secondary-color);
-        text-decoration: underline;
+    .body ol li:hover {
+        background-color: var(--text-secondary-color);
         transition: all .3s;
     }
 

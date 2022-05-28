@@ -24,8 +24,9 @@ import SingleProduct from './components/Products/SingleProduct';
 import LoginScreen from './components/UsersComponents/LoginScreen';
 import RegisterScreen from './components/UsersComponents/RegisterScreen';
 import NoMatchPage from './components/NoMatchPage';
-import Footer from './components/FixedComponents/PageFooter';
 import ProductsWithCats from './components/Products/ProductsWithCats';
+import CategoriesLinks from './components/categories/CategoriesLinks'
+import Footer from './components/FixedComponents/PageFooter';
 
 
 function App() {

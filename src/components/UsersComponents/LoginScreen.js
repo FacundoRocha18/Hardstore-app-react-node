@@ -61,9 +61,9 @@ const LoginScreen = ({ onLogin, isShowing, setIsShowing, message, setMessage, ty
                 setIsShowing(true)
             }, 1000);
 
-        } catch (error) {
+        } catch (err) {
 
-            setMessage('Se produjo un error al iniciar sesión ' + error)
+            setMessage('Se produjo un error al iniciar sesión ' + err)
             setType('error');
             setIsShowing(true)
         }
