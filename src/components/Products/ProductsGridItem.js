@@ -26,7 +26,7 @@ const ProductsGridItem = ({ onAdd, product, id, name, image, price, setIsShowing
             <div className={css(style.item)} id="item">
                 <div className={style.body}>
                     <div className={style.image}>
-                        <img src={image} alt={name} id="item-image"></img>
+                        <img src={`../public/img/${image}`} alt={name} id="item-image"></img>
                     </div>
                     <div className={style.info}>
                         <div className={style.title}>

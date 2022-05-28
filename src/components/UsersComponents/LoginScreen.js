@@ -51,7 +51,10 @@ const LoginScreen = ({ onLogin, isShowing, setIsShowing, message, setMessage, ty
 
         try {
 
-            onLogin(userData)
+            const { status } = await onLogin(userData)
+
+            console.log(status)
+
             setTimeout(() => {
                 setMessage(`Bienvenido ${username}`)
                 setType('success');

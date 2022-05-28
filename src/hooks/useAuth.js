@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 
 /* Custom Hooks -------------------------------- */
 
@@ -13,21 +15,26 @@ const useAuth = () => {
 
     const { userName, setUsername } = useName()
 
+    const [ status, setStatus ] = useState(null);
+
     const handleLogin = async ({ uEmail, uPassword }) => {
 
         try {
-            const { token, username } = await loginUser({
+            const { loginStatus, token, username } = await loginUser({
                 uEmail,
                 uPassword
             })
 
+            console.log(loginStatus, token, username)
+
             return {
+                loginStatus: setStatus(loginStatus),
                 token: setToken(token),
                 userName: setUsername(username.replace(/"/g, ''))
             };
             
         } catch (error) {
-            throw console.log('token invalido, esto puede deberse a que intentó ingresar con un usuario incorrecto o ingresó mal sus credenciales' + error)
+            throw alert(error)
         }
     }
 

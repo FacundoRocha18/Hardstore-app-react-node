@@ -125,9 +125,14 @@ function App() {
                 products={products}
                 loading={loading}
                 onAdd={onAdd}
-                setIsShowing={setIsShowing}
-                setMessage={setMessage}
+                type={type}
                 setType={setType}
+                isShowing={isShowing}
+                setIsShowing={setIsShowing}
+                message={message}
+                setMessage={setMessage}
+                onClose={onClose}
+                categories={categories}
               />
             }
           />

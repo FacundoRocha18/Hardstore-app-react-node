@@ -11,9 +11,11 @@ const CategoriesLinks = ({ categories }) => {
 
     const [show, setShow] = useState(null);
 
+    const [ isClicked, setIsClicked ] = useState(false);
+
     const handleClick = (e) => {
         e.preventDefault();
-
+        setIsClicked(!isClicked);
         return setShow(!show);
     }
 
@@ -21,14 +23,7 @@ const CategoriesLinks = ({ categories }) => {
         <>
             <div className={style.container}>
                 <div className={style.header}>
-                    <h4 className='title-center'>Categorías</h4>
-                    <div className={style.buttonContainer}>
-                        <button className={style.button} onClick={(e) => handleClick(e)}>
-                            <span className="material-icons-round">
-                                menu
-                            </span>
-                        </button>
-                    </div>
+                    <h3 className='title-center'>Categorías</h3>
                 </div>
                 <div className={css(style.body, !show && style.hide, show && style.show)}>
                     <ol>
@@ -43,6 +38,13 @@ const CategoriesLinks = ({ categories }) => {
                             ))
                         }
                     </ol>
+                </div>
+                <div className={style.buttonContainer}>
+                    <button className={style.button} onClick={(e) => handleClick(e)}>
+                        <span className={css("material-icons-round", isClicked && style.rotate)}>
+                            expand_more
+                        </span>
+                    </button>
                 </div>
             </div>
         </>

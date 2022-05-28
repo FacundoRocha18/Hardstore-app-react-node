@@ -8,7 +8,7 @@ const loginUser = async ({ uEmail, uPassword }) => {
         uPassword: uPassword,
     };
 
-    const addParams = {
+    const params = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -16,10 +16,11 @@ const loginUser = async ({ uEmail, uPassword }) => {
         body: JSON.stringify(data)
     };
 
-    const response = await fetch(url, addParams).catch(error => { console.error(error) });
+    const response = await fetch(url, params).catch(error => { console.error(error) });
     const { ok, message, loginData } = await response.json();
 
-    console.log(ok);
+    console.log(ok)
+
     let info;
 
     if (ok && loginData !== undefined) {
@@ -36,6 +37,7 @@ const loginUser = async ({ uEmail, uPassword }) => {
 
 
     return {
+        loginStatus: ok,
         token: token,
         username: username
     };

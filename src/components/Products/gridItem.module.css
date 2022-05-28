@@ -22,6 +22,8 @@
 }
 
 .image img {
+    border-top-left-radius: .5rem;
+    border-bottom-left-radius: .5rem;
     width: 100%;
     height: 100%;
 }
