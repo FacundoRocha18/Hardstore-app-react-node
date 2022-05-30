@@ -6,7 +6,7 @@ export const CatItem = ({ name, cats }) => {
 
     return (
         <>
-            <li><Link to={`/api/products/categories/${ cats.id }`} replace>{name}</Link></li>
+            <Link to={`/api/products/categories/${ cats.id }`} replace title={name}>{name}</Link>
         </>
     )
 }

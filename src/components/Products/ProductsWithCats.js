@@ -13,7 +13,7 @@ import ToastAlert from '../Alerts/ToastAlert'
 import style from "../Products/grid.module.css";
 import css from "classnames";
 
-const ProductsWithCats = ({ onAdd, isShowing, setIsShowing, message, setMessage, type, setType, onClose, categories }) => {
+const ProductsWithCats = ({ onAdd, isShowing, setIsShowing, message, setMessage, type, setType, onClose }) => {
 
     const { id } = useParams();
 
@@ -46,9 +46,6 @@ const ProductsWithCats = ({ onAdd, isShowing, setIsShowing, message, setMessage,
                         onClose={onClose}
                     />
 
-                    <CategoriesLinks
-                        categories={categories}
-                    />
                     <div className={css('wd-100', style.container)} id='products-wrapper'>
                         {
                             loading && <h5 className='title-center animate__animated animate__flash animate__slower animate__infinite'>Cargando...</h5>
@@ -56,7 +53,7 @@ const ProductsWithCats = ({ onAdd, isShowing, setIsShowing, message, setMessage,
                         <div className='mb-2'>
                             <h1 className='title-center'>{productsData[0].category_name}</h1>
                         </div>
-                        <div className={css('wd-100', 'cl-4', style.grid)}>
+                        <div className={css(style.grid)}>
                             {
                                 productsData.map((product) => (
                                     <ProductsGridItem

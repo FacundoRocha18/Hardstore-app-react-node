@@ -1,18 +1,29 @@
 /* Products Categories */
+
 .container {
-    background-color: var(--product-item-background);
-    border-radius: 1rem;
-    width: 100%;
+    align-items: center;
+    background-color: var(--orange);
+    border-bottom: solid 1px var(--borders-main-color-blur);
+    border-radius: none;
+    flex-direction: column;
+    display: flex;
     height: fit-content;
-    padding: 2rem 2rem 0;
-    margin: 0 auto 2rem;
+    position: fixed;
+    top: 15rem;
+    width: 100%;
+    z-index: 1000;
 }
 
-.header {
-    align-items: center;
+.flexWrapper {
     display: flex;
     justify-content: center;
+    height: fit-content;
+    min-width: 200px;
     width: 100%;
+}
+
+.header h3 {
+    font-size: 2rem;
 }
 
 .buttonContainer {
@@ -22,14 +33,21 @@
 }
 
 .button {
+    align-items: center;
     background-color: transparent;
     border: none;
     border-radius: .5rem;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
     height: fit-content;
     padding: 0;
     width: fit-content;
     transition: all .3s;
+}
+
+.button span {
+    font-size: 3rem;
 }
 
 .hide {
@@ -41,48 +59,74 @@
     transition: all 1s ease;
 }
 
-.body {
+.menu {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    overflow-x: visible;
     margin: 2rem auto;
 }
 
-.body ol li {
+.menu li {
     border-bottom: solid 1px var(--borders-main-color-blur);
     padding: 1rem;
     margin: 0;
     text-align: center;
+    transition: all .3s;
+    width: 100%;
 }
 
-.body ol li:last-of-type {
-    border-bottom: solid 1px var(--borders-main-color-blur);
+.menu li {
+    border-bottom: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: auto;
+    height: auto;
+    min-height: 3rem;
 }
 
-.body ol li a {
+.menu a {
+    border-radius: .5rem;
     cursor: pointer;
+    padding: .5rem 1rem;
     text-decoration: none;
+    white-space: nowrap;
+    inline-size: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
     transition: all .3s;
 }
 
 .rotate {
-    transform: rotate(180deg);
+    transform: rotate(180deg) !important;
 }
 
 @media (min-width: 768px) {
 
     .container {
-        background-color: var(--product-item-background);
-        border-radius: 1rem;
-        box-shadow: var(--box-shadow-1);
-        width: 100%;
-        min-width: 30%;
+        align-items: center;
+        border-radius: none;
+        position: fixed;
+        top: 10rem;
+        display: flex;
+        height: fit-content;
     }
 
-    .header {
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
+    .flexWrapper {
+        justify-content: space-between;
+        height: fit-content;
+        min-width: 200px;
+        width: fit-content;
+        padding: .7rem;
     }
 
-    .body ol li:hover {
+    .menu {
+        flex-direction: row;
+    }
+
+    .menu a:hover {
         background-color: var(--text-secondary-color);
         transition: all .3s;
     }

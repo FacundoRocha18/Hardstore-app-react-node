@@ -28,9 +28,9 @@ const HomePage = ({ products, loading, onAdd, isShowing, setIsShowing, message, 
                         onClose={onClose}
                     />
                 }
-                <CategoriesLinks
+                {/* <CategoriesLinks
                     categories={categories}
-                />
+                /> */}
                 <div className='mb-2'>
                     <h1 className='title-center'>Productos</h1>
                 </div>

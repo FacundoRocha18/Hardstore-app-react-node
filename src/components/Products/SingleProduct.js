@@ -22,7 +22,7 @@ const SingleProduct = ({ onAdd, isShowing, setIsShowing, message, setMessage, on
     const [dataTemplate, setDataTemplate] = useState({
         id: 0,
         name: 'name',
-        image: 'image',
+        image: 'defaultIMG',
         description: 'description',
         price: 0,
         stock: 0,

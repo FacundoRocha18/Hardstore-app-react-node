@@ -5,8 +5,11 @@ import { Link } from 'react-router-dom';
 import style from "../FixedComponents/header.module.css";
 import css from "classnames";
 
+/* Components -------------------------------- */
+import CategoriesLinks from '../categories/CategoriesLinks'
 
-const Header = ({ token, username, onLogout }) => {
+
+const Header = ({ token, username, onLogout, categories }) => {
 
     return (
         <>
@@ -24,7 +27,7 @@ const Header = ({ token, username, onLogout }) => {
                                     !token && <li><Link to={'/api/auth/login'}>Login</Link></li>
                                 }
                                 {
-                                    username && <li><Link to={'/api/users/profile'}>{username.replace(/"/g, '')}</Link></li>
+                                    username && <li><Link to={'/api/users/profile'} title={username.replace(/"/g, '')}>{username.replace(/"/g, '')}</Link></li>
                                 }
                                 {
                                     token && <li><button type='submit' className={style.logout} onClick={onLogout}>Cerrar sesión</button></li>
@@ -36,6 +39,9 @@ const Header = ({ token, username, onLogout }) => {
                     </div>
                 </div>
             </header>
+            <CategoriesLinks
+                categories={categories}
+            />
         </>
     )
 }

@@ -16,13 +16,9 @@ const loginUser = async ({ uEmail, uPassword }) => {
         body: JSON.stringify(data)
     };
 
-    const { ok, message, loginData } = fetchData(url, data, params)
+    const { ok, message, loginData } = await fetchData(url, params)
 
     const { token, username } = loginData;
-
-    if (!token && !username) {
-        throw alert('data error')    
-    }
     
     return {
         loginStatus: ok,
@@ -35,28 +31,30 @@ const loginUser = async ({ uEmail, uPassword }) => {
 const fetchData = async (url, params) => {
 
     let msg;
+
+    let data;
     
     try {
         const response = await fetch(url, params);
 
         const { ok, message, loginData } = await response.json();
-        
-        console.log(ok, message)
-                
+                        
         alert(message)
 
         msg = message;
 
-        return {
+        data = {
             ok: ok,
             message: message,
             loginData: loginData
-        };
+        }
     
     } catch (e) {
     
-        return alert(msg);
+        return alert('fetch data: ' + e);
     }
+
+    return data;
 }
 
 export default loginUser;

@@ -131,6 +131,6 @@
 
     100% {
         opacity: 0;
-        transform: translateX(250px);
+        transform: translateX(2000px);
     }
 }

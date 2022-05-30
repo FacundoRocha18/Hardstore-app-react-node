@@ -6,6 +6,7 @@ html {
     margin: 0;
     height: 100%;
     width: 100%;
+    scroll-behavior: smooth;
     overflow-x: hidden;
 }
 
@@ -85,7 +86,7 @@ ul, ol, li {
     --borders-main-color-blur: #2b2b2b;
     --product-item-background: #e0e0e0;
     --blue: #039BE5;
-    --orange: #ff6d00;
+    --orange: #ff6f00dc;
     --orange-hover: #c25705;
 
     /* Gradient backgrounds */
@@ -119,10 +120,6 @@ body {
     padding: 0;
     margin: 0;
     position: absolute;
-}
-
-.App {
-    height: fit-content;
 }
 
 /*  UTILIDADES */
@@ -203,7 +200,10 @@ body {
 /* FIN UTILIDADES */
 
 .App {
-    max-height: fit-content;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
 .website-logo {
@@ -407,8 +407,7 @@ body {
 .main-content-wrapper {
     width: 100%;
     height: fit-content;
-    max-height: fit-content;
-    margin: 15rem auto 0;
+    margin: 20rem auto 0;
     padding: 2rem;
 }
 

@@ -1,5 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+
+/* React Router -------------------------------- */
+import {
+  Link,
+  Navigate
+} from 'react-router-dom';
 
 
 /* Components -------------------------------- */
@@ -22,15 +27,20 @@ const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy, isShowing, 
   const totalPrice = itemPrice + shippingPrice;
 
   const handleBuy = (price, cartItems) => {
+
     onBuy(price);
     let itemList = [];
-    cartItems.map((item) =>
-      itemList.push(item.name)
+    cartItems.map((item) => itemList.push(item.name));
 
-    )
-    setMessage(['Compra de: ' + itemList + ' realizada por un precio total de: ' + price + ' ']);
+    setMessage('Compra de: ' + itemList + ' realizada por un precio total de: ' + price + ' ');
     setType('info');
     setIsShowing(true);
+
+    <Navigate
+      to={{
+        pathname: '/api/users/payment'
+      }}
+    />
   }
 
   return (

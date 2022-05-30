@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from 'react';
+import React, { useState } from 'react';
 
 /* React Router -------------------------------- */
 import {
@@ -10,10 +10,10 @@ import {
 
 /* Custom Hooks -------------------------------- */
 import useFetchProducts from './hooks/useFetchProducts';
+import useFetchCats from './hooks/useFetchCats';
 import useCart from './hooks/useCart';
 import useAuth from './hooks/useAuth';
 import useAlert from './hooks/useAlert';
-import useCats from './hooks/useCats';
 
 
 /* Components -------------------------------- */
@@ -25,7 +25,6 @@ import LoginScreen from './components/UsersComponents/LoginScreen';
 import RegisterScreen from './components/UsersComponents/RegisterScreen';
 import NoMatchPage from './components/NoMatchPage';
 import ProductsWithCats from './components/Products/ProductsWithCats';
-import CategoriesLinks from './components/categories/CategoriesLinks'
 import Footer from './components/FixedComponents/PageFooter';
 
 
@@ -35,7 +34,7 @@ function App() {
 
   const { data: products, loading } = useFetchProducts();
 
-  const { data: categories } = useCats()
+  const { data: categories } = useFetchCats()
 
   const { token, username, isAuth, onLogin, onLogout } = useAuth();
 
@@ -54,6 +53,7 @@ function App() {
           token={token}
           username={username}
           onLogout={onLogout}
+          categories={categories}
         />
 
         <Routes>

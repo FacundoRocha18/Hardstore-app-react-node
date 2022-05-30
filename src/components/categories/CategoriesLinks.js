@@ -11,7 +11,7 @@ const CategoriesLinks = ({ categories }) => {
 
     const [show, setShow] = useState(null);
 
-    const [ isClicked, setIsClicked ] = useState(false);
+    const [isClicked, setIsClicked] = useState(false);
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -22,11 +22,20 @@ const CategoriesLinks = ({ categories }) => {
     return (
         <>
             <div className={style.container}>
-                <div className={style.header}>
-                    <h3 className='title-center'>Categorías</h3>
+                <div className={style.flexWrapper}>
+                    <div className={style.header}>
+                        <h3 className='title-center'>Categorías</h3>
+                    </div>
+                    <div className={style.buttonContainer}>
+                        <button className={style.button} onClick={(e) => handleClick(e)}>
+                            <span className={css("material-icons-round", isClicked && style.rotate)}>
+                                expand_more
+                            </span>
+                        </button>
+                    </div>
                 </div>
                 <div className={css(style.body, !show && style.hide, show && style.show)}>
-                    <ol>
+                    <div className={style.menu}>
                         {
                             categories.map((cats) => (
                                 <CatItem
@@ -37,15 +46,9 @@ const CategoriesLinks = ({ categories }) => {
                                 />
                             ))
                         }
-                    </ol>
+                    </div>
                 </div>
-                <div className={style.buttonContainer}>
-                    <button className={style.button} onClick={(e) => handleClick(e)}>
-                        <span className={css("material-icons-round", isClicked && style.rotate)}>
-                            expand_more
-                        </span>
-                    </button>
-                </div>
+
             </div>
         </>
     )

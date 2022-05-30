@@ -35,6 +35,10 @@
 
 .title h3 {
     font-size: 2rem;
+    white-space: nowrap;
+    inline-size: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .info {
