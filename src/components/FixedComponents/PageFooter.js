@@ -17,7 +17,7 @@ const Footer = ({ token, username, onLogout }) => {
                             <h1 className="website-logo title-center"><span>Hard</span>Store</h1>
                         </a>
                     </div>
-                    <div className={style.menu}>
+                    {/* <div className={style.menu}>
                         <nav>
                             <ul>
                                 <li><Link to={'/'}>Inicio</Link></li>
@@ -34,7 +34,7 @@ const Footer = ({ token, username, onLogout }) => {
 
                             </ul>
                         </nav>
-                    </div>
+                    </div> */}
                 </div>
             </footer>
         </>

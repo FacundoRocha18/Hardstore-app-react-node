@@ -42,9 +42,9 @@ const Header = ({ token, username, onLogout, categories }) => {
                                 {
                                     !token && <li><Link to={'/api/auth/login'}>Login</Link></li>
                                 }
-                                {
+                                {/* {
                                     username && <li><Link to={'/api/users/profile'} title={username.replace(/"/g, '')}>{username.replace(/"/g, '')}</Link></li>
-                                }
+                                } */}
                                 {
                                     token && <li><button type='submit' className={style.logout} onClick={onLogout}>Cerrar sesión</button></li>
                                 }
