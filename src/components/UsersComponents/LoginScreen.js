@@ -63,9 +63,9 @@ const LoginScreen = ({ onLogin, isShowing, setIsShowing, message, setMessage, ty
 
         } catch (err) {
 
-            setMessage('Se produjo un error al iniciar sesión ' + err)
+            setMessage('Se produjo un error al iniciar sesión ' + err);
             setType('error');
-            setIsShowing(true)
+            setIsShowing(true);
         }
 
     }
@@ -82,8 +82,16 @@ const LoginScreen = ({ onLogin, isShowing, setIsShowing, message, setMessage, ty
                         <h2 className='title-center'>Inicie sesión</h2>
                     </div>
                     <form onSubmit={handleSubmit} autoComplete='off'>
-                        <input name='email' type='text' placeholder='Ingrese su email' className='mb-2' autoFocus required onChange={handleUserInfoChanged}></input>
-                        <input name='password' type='password' placeholder='Ingrese su contraseña' className='mb-2' required onChange={handleUserInfoChanged}></input>
+                        <div className={css('mb-2', style.inputWrapper)}>
+                            <label htmlFor='email'>Tu email</label>
+                            <input name='email' id='email' type='text' placeholder='example@email.com' autoFocus required onChange={handleUserInfoChanged}></input>
+
+                        </div>
+                        <div className={css('mb-2', style.inputWrapper)}>
+                            <label htmlFor='password'>Tu contraseña</label>
+                            <input name='password' id='password' type='password' placeholder='contraseña' required onChange={handleUserInfoChanged}></input>
+
+                        </div>
                         <button type='submit' className={css('btn', style.loginBtn)}><p>Iniciar sesión</p></button>
                         <button className={css('btn', style.registerBtn)} id='register' onClick={handleRegister}><p>Registrarse</p></button>
 

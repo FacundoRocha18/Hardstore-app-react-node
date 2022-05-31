@@ -1,9 +1,7 @@
 .container {
-    background-color: var(--product-item-background);
     border-radius: 1rem;
-    box-shadow: var(--box-shadow-1);
     height: fit-content;
-    margin: 15rem auto;
+    margin: 20rem auto;
     padding: 4rem;
     width: fit-content;
 }
@@ -13,19 +11,35 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    height: fit-content;
     margin: 0 auto;
-    width: 80%;
+    width: 100%;
 }
 
 .container form input {
-    background-color: var(--item-bg-main-color);
-    border: none;
-    border-radius: 1rem;
-    box-shadow: var(--box-shadow-1);
+    background-color: transparent;
+    border: solid 1px var(--borders-main-color-blur);
+    border-radius: .5rem;
+    color: var(--text-main-color);
     font-family: 'Questrial', sans-serif;
     font-size: 1.6rem;
     padding: 1.5rem 1.5rem;
     width: 100%;
+}
+
+input::placeholder {
+    color: var(--text-main-color);
+}
+
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: 100%;
+}
+
+label {
+    margin-bottom: 1rem;
 }
 
 .loginBtn,
@@ -53,17 +67,6 @@
     border: solid 2px var(--login-btn);
 }
 
-.registerBtn:hover {
-    border: solid 2px var(--login-btn-hover);
-    cursor: pointer;
-}
-
-.container form button:hover {
-    background-color: var(--login-btn);
-    color: var(--text-main-color);
-    cursor: pointer;
-}
-
 .btnContainer {
     align-items: center;
     display: flex;
@@ -79,4 +82,24 @@
 .passwordLink:hover {
     color: var(--login-btn-hover);
     text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+    .container {
+        background-color: var(--body-bg-main-color);
+        box-shadow: var(--box-shadow-2);
+    }
+
+    .loginBtn:hover {
+        background-color: var(--login-btn-hover);
+        color: var(--text-main-color);
+        cursor: pointer;
+    }
+    
+    .registerBtn:hover {
+        background-color: var(--login-btn-hover);
+        border: solid 2px var(--login-btn-hover);
+        color: var(--text-white);
+        cursor: pointer;
+    }
 }

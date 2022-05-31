@@ -8,8 +8,6 @@
     flex-direction: column;
     display: flex;
     height: fit-content;
-    position: fixed;
-    top: 15rem;
     width: 100%;
     z-index: 1000;
 }
@@ -19,6 +17,7 @@
     justify-content: center;
     height: fit-content;
     min-width: 200px;
+    padding: 1rem;
     width: 100%;
 }
 
@@ -108,8 +107,6 @@
     .container {
         align-items: center;
         border-radius: none;
-        position: fixed;
-        top: 10rem;
         display: flex;
         height: fit-content;
     }
@@ -119,7 +116,7 @@
         height: fit-content;
         min-width: 200px;
         width: fit-content;
-        padding: .7rem;
+        padding: 1rem;
     }
 
     .menu {

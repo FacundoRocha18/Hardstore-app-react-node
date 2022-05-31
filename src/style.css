@@ -65,12 +65,12 @@ ul, ol, li {
 :root {
 
     /* Colors */
-    --body-bg-main-color: #dad6d6;
+    --body-bg-main-color: #ffffff;
     --item-bg-main-color: #d3d3d3;
     --item-bg-main-color-blur: #d3d3d341;
     --item-bg-secondary-color: #0d0d0d;
     --headers-main-color: #0d0d0d;
-    --text-main-color: #13171d;
+    --text-main-color: #111318;
     --text-secondary-color: #ff6d00;
     --text-white: #dad6d6;
     --primary-btn-bg-color: #ff6d00;
@@ -84,7 +84,7 @@ ul, ol, li {
     --login-btn-hover: #0277BD;
     --borders-main-color: #151515;
     --borders-main-color-blur: #2b2b2b;
-    --product-item-background: #e0e0e0;
+    --product-item-background: #dddcdca1;
     --blue: #039BE5;
     --orange: #ff6f00dc;
     --orange-hover: #c25705;
@@ -100,6 +100,8 @@ ul, ol, li {
 
     /* Box shadow */
     --box-shadow-1: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    --box-shadow-2: 0px 0px 15px 5px rgba(0, 0, 0, 0.2);
+
 
     /* Font weight */
     --extra-light: 200;
@@ -195,6 +197,10 @@ body {
 .red-text {
     color: var(--critical-btn-bg-color);
     font-size: 2.2rem;
+}
+
+.align-items-center {
+    align-items: center;
 }
 
 /* FIN UTILIDADES */
@@ -325,30 +331,6 @@ body {
 
 .close-modal-btn:hover {
     background-color: #cfcfcf;
-}
-
-.show-cart {
-    padding: .7rem 1.5rem;
-    color: var(--headers-main-color);
-    background-color: transparent;
-    border: none;
-    border-bottom: solid 3px transparent;
-    border-image: var(--primary-btn-gradient) 1;
-    box-shadow: none;
-    border-radius: 0;
-    box-sizing: border-box;
-}
-
-.show-cart:hover {
-    border-image: none;
-    background-color: var(--primary-btn-hover-bg-color);
-    border-bottom: solid 3px var(--primary-btn-hover-bg-color);
-    transition: all .5s;
-}
-
-.show-cart span {
-    color: var(--body-bg-main-color);
-    font-weight: var(--light);
 }
 
 .add-item {

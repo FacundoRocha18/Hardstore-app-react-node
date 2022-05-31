@@ -26,6 +26,7 @@ import RegisterScreen from './components/UsersComponents/RegisterScreen';
 import NoMatchPage from './components/NoMatchPage';
 import ProductsWithCats from './components/Products/ProductsWithCats';
 import Footer from './components/FixedComponents/PageFooter';
+import { Profile } from './components/UsersComponents/Profile';
 
 
 function App() {
@@ -135,6 +136,21 @@ function App() {
                 onClose={onClose}
                 categories={categories}
               />
+            }
+          />
+
+          <Route exact path='api/users/profile'
+            element={
+              (isAuth(token))
+                ?
+                <Profile />
+                :
+                <Navigate
+                  to={{
+                    pathname: '/api/auth/login'
+                  }}
+                />
+
             }
           />
 

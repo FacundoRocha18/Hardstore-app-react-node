@@ -2,12 +2,11 @@
 
 .header {
     background-color: var(--headers-main-color);
-    border-bottom: solid 1px var(--primary-btn-bg-color);
     position: fixed;
     width: 100%;
     height: fit-content;
-    min-height: 15rem;
-    max-height: 15rem;
+    min-height: 10rem;
+    max-height: fit-content;
     box-sizing: border-box;
     top: 0;
     left: 0;
@@ -18,6 +17,50 @@
 .logo {
     height: 50%;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.toggle {
+    background-color: transparent;
+    border: none;
+    color: var(--text-white);
+    transition: all .5s;
+}
+
+.hidden {
+    display: none;
+}
+
+.show_cart {
+    padding: .7rem 1.5rem;
+    color: var(--headers-main-color);
+    background-color: transparent;
+    border: none;
+    border-right: solid 3px transparent;
+    border-image: var(--primary-btn-gradient) 1;
+    box-shadow: none;
+    border-radius: 0;
+    box-sizing: border-box;
+}
+
+.show_cart:hover {
+    border-image: none;
+    background-color: var(--primary-btn-hover-bg-color);
+    border-bottom: solid 3px var(--primary-btn-hover-bg-color);
+    transition: all .5s;
+}
+
+.show_cart span {
+    color: var(--text-white);
+    font-weight: var(--light);
+}
+
+
+.cartText {
+    color: var(--text-white);
+    margin-right: 1rem;
 }
 
 .menu {
@@ -29,7 +72,7 @@
 
 .menu nav ul {
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(1, auto);
     column-gap: .5rem;
 }
 
@@ -49,7 +92,7 @@
     font-weight: var(--light);
     transition: all .5s;
     white-space: nowrap;
-    inline-size: 100px;
+    inline-size: auto;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -82,12 +125,11 @@
     .header {
         align-items: stretch;
         background-color: var(--item-bg-secondary-color);
-        border-bottom: solid 1px var(--primary-btn-bg-color);
         display: flex;
-        flex-direction: row nowrap;
+        flex-direction: column;
         justify-content: space-between;
         min-height: 10rem;
-        max-height: 10rem;
+        max-height: fit-content;
     }
 
     .logo {
@@ -97,6 +139,18 @@
         display: flex;
         align-items: center;
     }
+
+    .toggle {
+        display: none;
+    }
+
+    .hidden {
+        display: block;
+    }
+
+    /* .cartText {
+        display: none;
+    } */
 
     .logo a .website-logo {
         margin: 1.5rem 0;
