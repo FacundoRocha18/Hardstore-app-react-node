@@ -25,7 +25,7 @@ export default function useToken() {
   const saveToken = (userToken) => {
     
     if (userToken === '' || userToken === null || userToken === undefined) {
-      throw alert('token invalido')
+      return;
     }
 
     sessionStorage.setItem('token', JSON.stringify(userToken));

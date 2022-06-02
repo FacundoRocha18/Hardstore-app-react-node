@@ -51,7 +51,7 @@ const fetchData = async (url, params) => {
     
     } catch (e) {
     
-        return alert('fetch data: ' + e);
+        return alert('fetch data: ' + msg);
     }
 
     return data;

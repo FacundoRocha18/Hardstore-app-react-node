@@ -17,8 +17,9 @@ const Footer = ({ token, username, onLogout }) => {
                             <h1 className="website-logo title-center"><span>Hard</span>Store</h1>
                         </a>
                     </div>
-                    {/* <div className={style.menu}>
-                        <nav>
+                    <div className={style.menu}>
+                        <h6>Designed by <a href="https://github.com/FacundoRocha18" target='_blank' title="Facundo Rocha's GitHub">Facundo Rocha</a></h6>
+                        {/* <nav>
                             <ul>
                                 <li><Link to={'/'}>Inicio</Link></li>
                                 {
@@ -33,8 +34,8 @@ const Footer = ({ token, username, onLogout }) => {
                                 <Link to={'api/products/shoppingCart'} className='show-cart btn'><span className="material-icons-outlined">shopping_cart</span></Link>
 
                             </ul>
-                        </nav>
-                    </div> */}
+                        </nav> */}
+                    </div>
                 </div>
             </footer>
         </>

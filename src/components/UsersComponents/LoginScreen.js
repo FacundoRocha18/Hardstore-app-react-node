@@ -22,7 +22,7 @@ const LoginScreen = ({ onLogin, isShowing, setIsShowing, message, setMessage, ty
         uPassword: null,
     })
 
-    const { username } = useAuth();
+    const { username, status, loginMessage } = useAuth();
 
     const handleUserInfoChanged = ({ target }) => {
 
@@ -49,11 +49,15 @@ const LoginScreen = ({ onLogin, isShowing, setIsShowing, message, setMessage, ty
 
         e.preventDefault();
 
+        let msg;
+
         try {
 
-            const { status } = await onLogin(userData)
+            const { status, message } = await onLogin(userData)
 
-            console.log(status)
+            console.log(status, message)
+
+            msg = message;
 
             setTimeout(() => {
                 setMessage(`Bienvenido ${username}`)
@@ -63,7 +67,7 @@ const LoginScreen = ({ onLogin, isShowing, setIsShowing, message, setMessage, ty
 
         } catch (err) {
 
-            setMessage('Se produjo un error al iniciar sesión ' + err);
+            setMessage('Se produjo un error al iniciar sesión ' + msg);
             setType('error');
             setIsShowing(true);
         }

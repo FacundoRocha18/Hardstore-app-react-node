@@ -17,7 +17,12 @@ const useAuth = () => {
 
     const [ status, setStatus ] = useState(null);
 
+    const [ message, setMessage ] = useState(null);
+
+
     const handleLogin = async ({ uEmail, uPassword }) => {
+        
+        let msg;
 
         try {
             const { loginStatus, message, token, username } = await loginUser({
@@ -25,14 +30,18 @@ const useAuth = () => {
                 uPassword
             })
 
+            msg = message;
+
+
             return {
                 loginStatus: setStatus(loginStatus),
+                message: setMessage(msg),
                 token: setToken(token),
                 userName: setUsername(username.replace(/"/g, ''))
             };
             
         } catch (e) {
-            throw alert('useAuth: ' + e)
+            return console.log(msg);
         }
     }
 
@@ -56,7 +65,9 @@ const useAuth = () => {
         username: userName,
         isAuth: isAuthenticated,
         onLogin: handleLogin,
-        onLogout: handleLogout
+        onLogout: handleLogout,
+        status: status,
+        loginMessage: message
     };
 }
 

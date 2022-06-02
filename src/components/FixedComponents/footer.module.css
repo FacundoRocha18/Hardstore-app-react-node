@@ -21,6 +21,18 @@
     margin: 0 auto;
 }
 
+.menu h6,
+.menu h6 a {
+    color: var(--text-white);
+    transition: all .3s;
+}
+
+.menu h6 a:hover{
+    color: var(--primary-btn-bg-color);
+    text-decoration: underline;
+    transition: all .3s;
+}
+
 .menu nav ul {
     display: grid;
     grid-template-columns: repeat(4, auto);
