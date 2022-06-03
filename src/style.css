@@ -83,11 +83,13 @@ ul, ol, li {
     --login-btn: #039BE5;
     --login-btn-hover: #0277BD;
     --borders-main-color: #151515;
-    --borders-main-color-blur: #2b2b2b;
+    --borders-main-color-blur: #494949;
     --product-item-background: #dddcdca1;
     --blue: #039BE5;
     --orange: #ff6f00dc;
     --orange-hover: #c25705;
+    --black: #0d0d0d;
+    --black-hover: #292929;
 
     /* Gradient backgrounds */
     --primary-btn-gradient: linear-gradient(190deg, rgba(255, 111, 0, 1) 20%, rgba(244, 81, 30, 1) 90%);

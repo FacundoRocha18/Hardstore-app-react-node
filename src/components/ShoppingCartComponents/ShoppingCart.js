@@ -3,7 +3,7 @@ import React from 'react'
 /* React Router -------------------------------- */
 import {
   Link,
-  Navigate
+  useNavigate
 } from 'react-router-dom';
 
 
@@ -22,6 +22,8 @@ import css from "classnames";
 
 const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy, isShowing, setIsShowing, message, setMessage, type, setType, onClose }) => {
 
+  const navigate = useNavigate();
+
   const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
   const shippingPrice = itemPrice > 2000 ? 0 : 50;
   const totalPrice = itemPrice + shippingPrice;
@@ -36,11 +38,7 @@ const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy, isShowing, 
     setType('info');
     setIsShowing(true);
 
-    <Navigate
-      to={{
-        pathname: '/api/users/payment'
-      }}
-    />
+    navigate('/api/users/payment', { replace: true });
   }
 
   return (

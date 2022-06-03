@@ -27,6 +27,7 @@ import NoMatchPage from './components/NoMatchPage';
 import ProductsWithCats from './components/Products/ProductsWithCats';
 import Footer from './components/FixedComponents/PageFooter';
 import { Profile } from './components/UsersComponents/Profile';
+import { PaymentScreen } from './components/ShoppingCartComponents/PaymentScreen';
 
 
 function App() {
@@ -95,6 +96,21 @@ function App() {
                   setType={setType}
                   onClose={onClose}
                 />
+                :
+                <Navigate
+                  to={{
+                    pathname: '/api/auth/login'
+                  }}
+                />
+
+            }
+          />
+
+          <Route exact path='api/users/payment'
+            element={
+              (isAuth(token))
+                ?
+                <PaymentScreen />
                 :
                 <Navigate
                   to={{

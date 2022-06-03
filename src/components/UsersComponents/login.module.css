@@ -27,7 +27,7 @@
     width: 100%;
 }
 
-input::placeholder {
+.container form input::placeholder {
     color: var(--text-main-color);
 }
 
@@ -38,7 +38,7 @@ input::placeholder {
     width: 100%;
 }
 
-label {
+.inputWrapper label {
     margin-bottom: 1rem;
 }
 
@@ -57,7 +57,7 @@ label {
 .loginBtn {
     background-color: var(--login-btn);
     border: none;
-    color: var(--product-item-background);
+    color: var(--text-main-color);
     margin: 0 auto 1rem;
     transition: all .5s;
 }

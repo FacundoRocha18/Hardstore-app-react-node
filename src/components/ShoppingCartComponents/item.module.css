@@ -9,6 +9,11 @@
     margin: 1rem auto;
 }
 
+.column {
+    align-items: center;
+    display: flex;
+}
+
 .container {
     display: flex;
     justify-content: space-between;
