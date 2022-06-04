@@ -18,7 +18,9 @@ export const PaymentScreen = () => {
     console.log(isChecked);
 
     const handleChange = ({target}) => {
-
+        setPaymentData({
+            ...paymentData
+        })
     }
 
     const handleClick = (e) => {
