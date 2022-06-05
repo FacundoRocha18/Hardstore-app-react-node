@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 
-export const CatItem = ({ name, cats }) => {
+const CategoriesItem = ({ name, cats }) => {
 
     return (
         <>
@@ -10,3 +10,5 @@ export const CatItem = ({ name, cats }) => {
         </>
     )
 }
+
+export default CategoriesItem;

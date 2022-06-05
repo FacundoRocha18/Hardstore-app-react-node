@@ -5,15 +5,15 @@ import { useParams, Link } from 'react-router-dom';
 import useFetchProducts from '../../hooks/useFetchProducts'
 
 /* Components -------------------------------- */
-import ToastAlert from '../Alerts/ToastAlert'
+import ToastAlert from '../Alerts/Alert'
 
 /* Styles imports -------------------------------- */
-import style from "../Products/product.module.css";
+import style from "./ProductScreen.module.css";
 import css from "classnames";
 
 
 
-const SingleProduct = ({ onAdd, isShowing, setIsShowing, message, setMessage, onClose }) => {
+const ProductScreen = ({ onAdd, isShowing, setIsShowing, message, setMessage, onClose }) => {
 
     const { id } = useParams();
 
@@ -212,4 +212,4 @@ const getDescription = (description) => {
 }
 
 
-export default SingleProduct;
+export default ProductScreen;

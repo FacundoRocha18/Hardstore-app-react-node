@@ -12,7 +12,7 @@ const getProducts = async() => {
         return {
             id: product.product_id,
             name: product.product_name,
-            image: product.product_image_path,
+            image: product.product_thumbnail,
             description: product.product_description,
             price: product.product_price,
             stock: product.product_stock,

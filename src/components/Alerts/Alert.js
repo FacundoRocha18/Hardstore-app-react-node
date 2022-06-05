@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 
 /* Styles imports */
-import style from "../Alerts/alert.module.css";
+import style from "../Alerts/Alert.module.css";
 import css from "classnames";
 
 
-const AlertToast = ({ children, type, message, isShowing, onClose }) => {
+const Alert = ({ children, type, message, isShowing, onClose }) => {
 
     const renderAlert = function () {
         return React.cloneElement(children);
@@ -69,4 +69,4 @@ const setIcon = (type) => {
     return icon;
 }
 
-export default AlertToast;
+export default Alert;

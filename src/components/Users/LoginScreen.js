@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types';
 
@@ -6,10 +6,10 @@ import PropTypes from 'prop-types';
 import useAuth from '../../hooks/useAuth';
 
 /* Components -------------------------------- */
-import ToastAlert from '../Alerts/ToastAlert'
+import ToastAlert from '../Alerts/Alert'
 
 /* Styles imports -------------------------------- */
-import style from "./login.module.css";
+import style from "./LoginScreen.module.css";
 import css from "classnames";
 
 
@@ -21,6 +21,22 @@ const LoginScreen = ({ onLogin, isShowing, setIsShowing, message, setMessage, ty
         uEmail: null,
         uPassword: null,
     })
+
+    const [isDisabled, setDisabled] = useState(true)
+
+    const { uEmail, uPassword } = userData;
+
+    useEffect(() => {
+
+        if (!uEmail || !uPassword) {
+            return setDisabled(true);
+        }
+        setDisabled(false);
+
+        return () => {
+        }
+    }, [userData])
+
 
     const { username, status, loginMessage } = useAuth();
 
@@ -43,7 +59,10 @@ const LoginScreen = ({ onLogin, isShowing, setIsShowing, message, setMessage, ty
                 })
                 break;
         }
+
     }
+
+
 
     const handleSubmit = async (e) => {
 
@@ -85,7 +104,7 @@ const LoginScreen = ({ onLogin, isShowing, setIsShowing, message, setMessage, ty
                     <div className='login-header mb-2'>
                         <h2 className='title-center'>Inicie sesión</h2>
                     </div>
-                    <form onSubmit={handleSubmit} autoComplete='off'>
+                    <form onSubmit={(e) => handleSubmit(e)} autoComplete='off'>
                         <div className={css('mb-2', style.inputWrapper)}>
                             <label htmlFor='email'>Tu email</label>
                             <input name='email' id='email' type='text' placeholder='example@email.com' autoFocus required onChange={handleUserInfoChanged}></input>
@@ -96,7 +115,7 @@ const LoginScreen = ({ onLogin, isShowing, setIsShowing, message, setMessage, ty
                             <input name='password' id='password' type='password' placeholder='contraseña' required onChange={handleUserInfoChanged}></input>
 
                         </div>
-                        <button type='submit' className={css('btn', style.loginBtn)}><p>Iniciar sesión</p></button>
+                        <button disabled={isDisabled} className={css('btn', style.loginBtn)}><p>Iniciar sesión</p></button>
                         <button className={css('btn', style.registerBtn)} id='register' onClick={handleRegister}><p>Registrarse</p></button>
 
                     </form>

@@ -17,17 +17,17 @@ import useAlert from './hooks/useAlert';
 
 
 /* Components -------------------------------- */
-import Header from './components/FixedComponents/PageHeader';
-import HomePage from './components/HomePage';
-import ShoppingCart from './components/ShoppingCartComponents/ShoppingCart';
-import SingleProduct from './components/Products/SingleProduct';
-import LoginScreen from './components/UsersComponents/LoginScreen';
-import RegisterScreen from './components/UsersComponents/RegisterScreen';
-import NoMatchPage from './components/NoMatchPage';
+import Header from './components/SiteHeader';
+import Home from './components/HomeScreen';
+import Cart from './components/Cart/ShoppingCart';
+import Product from './components/Products/ProductScreen';
+import Login from './components/Users/LoginScreen';
+import Register from './components/Users/RegisterScreen';
+import NoMatch from './components/NoMatchScreen';
 import ProductsWithCats from './components/Products/ProductsWithCats';
-import Footer from './components/FixedComponents/PageFooter';
-import { Profile } from './components/UsersComponents/Profile';
-import { PaymentScreen } from './components/ShoppingCartComponents/PaymentScreen';
+import Profile from './components/Users/ProfileScreen';
+import Payment from './components/Cart/PaymentScreen';
+import Footer from './components/SiteFooter';
 
 
 function App() {
@@ -62,7 +62,7 @@ function App() {
 
           <Route exact path='/'
             element={
-              <HomePage
+              <Home
                 products={products}
                 loading={loading}
                 onAdd={onAdd}
@@ -82,7 +82,7 @@ function App() {
             element={
               (isAuth(token))
                 ?
-                <ShoppingCart
+                <Cart
                   cartItems={cartItems}
                   onAdd={onAdd}
                   onRemove={onRemove}
@@ -110,7 +110,7 @@ function App() {
             element={
               (isAuth(token))
                 ?
-                <PaymentScreen />
+                <Payment />
                 :
                 <Navigate
                   to={{
@@ -123,7 +123,7 @@ function App() {
 
           <Route exact path='api/products/product/:id'
             element={
-              <SingleProduct
+              <Product
                 onAdd={onAdd}
                 onRemove={onRemove}
                 isShowing={isShowing}
@@ -174,7 +174,7 @@ function App() {
             element={
               (!isAuth(token))
                 ?
-                <LoginScreen
+                <Login
                   onLogin={onLogin}
                   isShowing={isShowing}
                   setIsShowing={setIsShowing}
@@ -198,7 +198,7 @@ function App() {
             element={
               (!redirect)
                 ?
-                <RegisterScreen
+                <Register
                   setRedirect={setRedirect}
                 />
                 :
@@ -212,7 +212,7 @@ function App() {
 
           <Route path="*"
             element={
-              <NoMatchPage />
+              <NoMatch />
             }
           />
 

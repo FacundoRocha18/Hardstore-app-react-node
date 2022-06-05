@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import placeholderImage from '../../public/img/imagepreviewdefault.png';
 
 /* Styles imports -------------------------------- */
-import style from "../Products/gridItem.module.css";
+import style from "../Products/ProductsCard.module.css";
 import css from "classnames";
 
 
-const ProductsGridItem = ({ onAdd, product, id, name, image, price, setIsShowing, setMessage, setType }) => {
+const ProductsCard = ({ onAdd, product, id, name, image, price, setIsShowing, setMessage, setType }) => {
 
 
     const handleAddButtonClicked = (e) => {
@@ -49,10 +49,10 @@ const ProductsGridItem = ({ onAdd, product, id, name, image, price, setIsShowing
     )
 }
 
-ProductsGridItem.defaultProps = {
+ProductsCard.defaultProps = {
     name: 'Product name',
     image: placeholderImage,
     price: 0
 }
 
-export default ProductsGridItem;
+export default ProductsCard;

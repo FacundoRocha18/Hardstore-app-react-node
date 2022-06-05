@@ -1,10 +1,10 @@
 import React from 'react'
 
 /* Components -------------------------------- */
-import ProductsGridItem from './ProductsGridItem';
+import ProductsCard from './ProductsCard';
 
 /* Styles imports -------------------------------- */
-import style from "../Products/grid.module.css";
+import style from "./ProductsGrid.module.css";
 import css from "classnames";
 
 const ProductsGrid = ({ products, loading, onAdd, setIsShowing, setMessage, setType }) => {
@@ -21,7 +21,7 @@ const ProductsGrid = ({ products, loading, onAdd, setIsShowing, setMessage, setT
                             {
                                 
                                 products.map((product) => (
-                                    <ProductsGridItem
+                                    <ProductsCard
                                         key={product.id}
                                         onAdd={onAdd}
                                         product={product}

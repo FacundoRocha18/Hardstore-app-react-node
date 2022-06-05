@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
 /* Styles imports */
-import style from "../FixedComponents/header.module.css";
+import style from "./SiteHeader.module.css";
 import css from "classnames";
 
 /* Components -------------------------------- */
-import CategoriesLinks from '../categories/CategoriesLinks'
+import CategoriesLinks from './Categories/CategoriesMenu'
 
 
 const Header = ({ token, username, onLogout, categories }) => {

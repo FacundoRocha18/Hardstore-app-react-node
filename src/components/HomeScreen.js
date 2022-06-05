@@ -6,15 +6,15 @@ import useAlert from '../hooks/useAlert'
 
 /* Components -------------------------------- */
 import ProductsGrid from './Products/ProductsGrid'
-import ToastAlert from './Alerts/ToastAlert'
-import CategoriesLinks from './categories/CategoriesLinks';
+import ToastAlert from './Alerts/Alert'
+import CategoriesMenu from './Categories/CategoriesMenu';
 
 /* Third party components -------------------------------- */
 
 
 
 
-const HomePage = ({ products, loading, onAdd, isShowing, setIsShowing, message, setMessage, type, setType, onClose, categories }) => {
+const HomeScreen = ({ products, loading, onAdd, isShowing, setIsShowing, message, setMessage, type, setType, onClose, categories }) => {
 
     return (
         <>
@@ -52,4 +52,4 @@ const HomePage = ({ products, loading, onAdd, isShowing, setIsShowing, message, 
     )
 }
 
-export default HomePage;
+export default HomeScreen;

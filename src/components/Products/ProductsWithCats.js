@@ -5,12 +5,11 @@ import { useParams } from 'react-router-dom';
 import useFetchProducts from '../../hooks/useFetchProducts';
 
 /* Components -------------------------------- */
-import ProductsGridItem from './ProductsGridItem';
-import CategoriesLinks from '../categories/CategoriesLinks'
-import ToastAlert from '../Alerts/ToastAlert'
+import ProductsCard from './ProductsCard';
+import ToastAlert from '../Alerts/Alert'
 
 /* Styles imports -------------------------------- */
-import style from "../Products/grid.module.css";
+import style from "./ProductsGrid.module.css";
 import css from "classnames";
 
 const ProductsWithCats = ({ onAdd, isShowing, setIsShowing, message, setMessage, type, setType, onClose }) => {
@@ -56,7 +55,7 @@ const ProductsWithCats = ({ onAdd, isShowing, setIsShowing, message, setMessage,
                         <div className={css(style.grid)}>
                             {
                                 productsData.map((product) => (
-                                    <ProductsGridItem
+                                    <ProductsCard
                                         key={product.id}
                                         onAdd={onAdd}
                                         product={product}

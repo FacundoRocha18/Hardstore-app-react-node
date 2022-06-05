@@ -10,13 +10,13 @@ import {
 /* Components -------------------------------- */
 
 import ShoppingCartItem from './ShoppingCartItem'
-import ToastAlert from '../Alerts/ToastAlert'
+import ToastAlert from '../Alerts/Alert'
 
 
 /* Custom Hooks -------------------------------- */
 
 /* Styles imports -------------------------------- */
-import style from "./cart.module.css";
+import style from "./ShoppingCart.module.css";
 import css from "classnames";
 
 

@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 /* Styles imports */
-import style from "../FixedComponents/footer.module.css";
+import style from "./SiteFooter.module.css";
 import css from "classnames";
 
 
-const Footer = ({ token, username, onLogout }) => {
+const Footer = () => {
 
     return (
         <>

@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 
 /* Styles imports -------------------------------- */
-import style from "./categories.module.css";
+import style from "./CategoriesMenu.module.css";
 import css from "classnames";
 
 /* Components -------------------------------- */
-import { CatItem } from './CatItem';
+import CategoriesItem from './CategoriesItem';
 
-const CategoriesLinks = ({ categories }) => {
+const CategoriesMenu = ({ categories }) => {
 
     const [show, setShow] = useState(null);
 
@@ -38,7 +38,7 @@ const CategoriesLinks = ({ categories }) => {
                     <div className={style.menu}>
                         {
                             categories.map((cats) => (
-                                <CatItem
+                                <CategoriesItem
                                     key={cats.id}
                                     name={cats.name}
                                     cats={cats}
@@ -54,4 +54,4 @@ const CategoriesLinks = ({ categories }) => {
     )
 }
 
-export default CategoriesLinks;
+export default CategoriesMenu;

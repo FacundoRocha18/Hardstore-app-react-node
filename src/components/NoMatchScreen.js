@@ -1,10 +1,10 @@
 import React from 'react'
 
-export const NoMatchPage = () => {
+export const NoMatch = () => {
 
   return (
     <div className='no-match'>No Match Page</div>
   )
 }
 
-export default NoMatchPage;
+export default NoMatch;

@@ -1,3 +1,8 @@
+.container {
+    padding: 1rem;
+    width: 100%;
+}
+
 .header {
     margin: 0 auto 4rem;
 }
@@ -6,6 +11,7 @@
     align-items: center;
     display: flex;
     justify-content: space-evenly;
+    padding: 1rem;
 }
 
 .button {
@@ -26,10 +32,10 @@
     transition: all .3s;
 }
 
-.button:hover {
+/* .button:hover {
     background-color: var(--blue);
     transition: all .3s;
-}
+} */
 
 .button img {
     border-radius: .5rem;
@@ -84,7 +90,24 @@
     transition: all .3s;
 }
 
+.confirm:disabled {
+    background-color: var(--black-hover);
+    cursor:not-allowed;
+    transition: all .3s;
+}
+
 .confirm:hover {
     background-color: var(--black-hover);
     transition: all .3s;
+}
+
+@media (min-width: 768px) {
+    .container {
+        margin: 0 auto;
+        width: 60%;
+    }
+
+    .buttons {
+        justify-content: space-between;
+    }
 }
