@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import useAuth from '../../hooks/useAuth';
 
 /* Components -------------------------------- */
-import ToastAlert from '../Alerts/Alert'
+import Alert from '../Alerts/Alert'
 
 /* Styles imports -------------------------------- */
 import style from "./LoginScreen.module.css";
@@ -22,25 +22,13 @@ const LoginScreen = ({ onLogin, isShowing, setIsShowing, message, setMessage, ty
         uPassword: null,
     })
 
-    const [isDisabled, setDisabled] = useState(true)
+    const [disabled, setDisabled] = useState(true)
 
-    const { uEmail, uPassword } = userData;
-
-    useEffect(() => {
-
-        if (!uEmail || !uPassword) {
-            return setDisabled(true);
-        }
-        setDisabled(false);
-
-        return () => {
-        }
-    }, [userData])
-
-
-    const { username, status, loginMessage } = useAuth();
+    const { username } = useAuth();
 
     const handleUserInfoChanged = ({ target }) => {
+
+        (!target.value) ? setDisabled(true) : setDisabled(false);
 
         switch (target.name) {
 
@@ -59,10 +47,7 @@ const LoginScreen = ({ onLogin, isShowing, setIsShowing, message, setMessage, ty
                 })
                 break;
         }
-
     }
-
-
 
     const handleSubmit = async (e) => {
 
@@ -71,18 +56,21 @@ const LoginScreen = ({ onLogin, isShowing, setIsShowing, message, setMessage, ty
         let msg;
 
         try {
+            const data = await onLogin(userData);
 
-            const { status, message } = await onLogin(userData)
-
-            console.log(status, message)
-
+            console.log(data)
+            
             msg = message;
 
             setTimeout(() => {
-                setMessage(`Bienvenido ${username}`)
+
+
+                setMessage(`Bienvenido ${username}`);
                 setType('success');
-                setIsShowing(true)
+                setIsShowing(true);
+
             }, 1000);
+
 
         } catch (err) {
 
@@ -115,7 +103,7 @@ const LoginScreen = ({ onLogin, isShowing, setIsShowing, message, setMessage, ty
                             <input name='password' id='password' type='password' placeholder='contraseña' required onChange={handleUserInfoChanged}></input>
 
                         </div>
-                        <button disabled={isDisabled} className={css('btn', style.loginBtn)}><p>Iniciar sesión</p></button>
+                        <button disabled={disabled} className={css('btn', style.loginBtn)}><p>Iniciar sesión</p></button>
                         <button className={css('btn', style.registerBtn)} id='register' onClick={handleRegister}><p>Registrarse</p></button>
 
                     </form>
@@ -126,7 +114,7 @@ const LoginScreen = ({ onLogin, isShowing, setIsShowing, message, setMessage, ty
                 </div>
             }
             {
-                <ToastAlert type={type} message={message} isShowing={isShowing} onClose={onClose} />
+                <Alert type={type} message={message} isShowing={isShowing} onClose={onClose} />
             }
         </>
     )

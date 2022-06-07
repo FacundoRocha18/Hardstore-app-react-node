@@ -6,7 +6,6 @@ import { useState } from 'react';
 import useToken from './useToken';
 import useName from './useName';
 import loginUser from '../helpers/loginUser';
-import useAlert from './useAlert';
 
 
 const useAuth = () => {
@@ -15,33 +14,33 @@ const useAuth = () => {
 
     const { userName, setUsername } = useName()
 
-    const [ status, setStatus ] = useState(null);
+    const [status, setStatus] = useState(null);
 
-    const [ message, setMessage ] = useState(null);
-
+    const [message, setMessage] = useState(null);
 
     const handleLogin = async ({ uEmail, uPassword }) => {
-        
+
         let msg;
 
         try {
-            const { loginStatus, message, token, username } = await loginUser({
-                uEmail,
-                uPassword
-            })
+            const {
+                loginStatus,
+                message,
+                token,
+                username
+            } = await loginUser(uEmail, uPassword);
 
             msg = message;
-
 
             return {
                 loginStatus: setStatus(loginStatus),
                 message: setMessage(msg),
                 token: setToken(token),
-                userName: setUsername(username.replace(/"/g, ''))
+                userName: setUsername(username)
             };
-            
+
         } catch (e) {
-            return console.log(msg);
+            return console.log(e);
         }
     }
 

@@ -2,39 +2,46 @@ import { useState, useEffect } from "react";
 
 const useAlert = () => {
 
-    const [ isShowing, setIsShowing] = useState(null);
+  const [isShowing, setIsShowing] = useState(null);
 
-    const [ message, setMessage ] = useState(null);
+  const [message, setMessage] = useState(null);
 
-    const [ type, setType ] = useState(null);
+  const [type, setType] = useState(null);
 
-    useEffect(() => {
-        
-        const timer = setTimeout(() => setIsShowing('out'), 3000);
-    
-      return () => {
-        clearTimeout(timer);
-      }
-    })
-    
+  useEffect(() => {
 
-    const onClose = (e) => {
+    const timer = setTimeout(() => setIsShowing('out'), 3000);
 
-        e.preventDefault();
-        
-        setIsShowing('out')
-        
+    return () => {
+      clearTimeout(timer);
     }
+  })
 
-    return ({
-        isShowing: isShowing,
-        setIsShowing: setIsShowing,
-        message: message,
-        setMessage: setMessage,
-        type: type,
-        setType: setType,
-        onClose: onClose
-    })
+  const showAlert = (message, type, state) => {
+
+    setMessage(message);
+    setType(type);
+    setIsShowing(state);
+  };
+
+
+  const onClose = (e) => {
+
+    e.preventDefault();
+
+    setIsShowing('out')
+
+  }
+
+  return ({
+    isShowing: isShowing,
+    setIsShowing: setIsShowing,
+    message: message,
+    setMessage: setMessage,
+    type: type,
+    setType: setType,
+    onClose: onClose
+  })
 }
 
 export default useAlert;

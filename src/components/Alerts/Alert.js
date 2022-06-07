@@ -63,6 +63,8 @@ const setIcon = (type) => {
             break;
 
         default:
+            icon = 'info'
+
             break;
     }
 

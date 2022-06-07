@@ -17,22 +17,12 @@ const RegisterScreen = ({ setRedirect }) => {
         uPassword: null,
     })
 
-    const [isDisabled, setDisabled] = useState(true)
-
-    useEffect(() => {
-
-        console.log(Object.entries(userData));
-        if (1) {
-            return setDisabled(true);
-        }
-        setDisabled(false);
-
-        return () => {
-        }
-    }, [userData])
+    const [disabled, setDisabled] = useState(true)
 
 
     const handleUserInfoChanged = ({ target }) => {
+
+        (!target.value) ? setDisabled(true) : setDisabled(false);
 
         switch (target.name) {
 
@@ -43,7 +33,7 @@ const RegisterScreen = ({ setRedirect }) => {
                 })
                 break;
 
-            case 'username':
+            case 'name':
                 setUserData({
                     ...userData,
                     uName: target.value
@@ -113,7 +103,7 @@ const RegisterScreen = ({ setRedirect }) => {
 
                         </div>
 
-                        <button disabled={isDisabled} type='submit' className={css('btn', style.submitBtn)}><p>Crear cuenta</p></button>
+                        <button disabled={disabled} type='submit' className={css('btn', style.submitBtn)}><p>Crear cuenta</p></button>
 
                     </form>
                 </div>

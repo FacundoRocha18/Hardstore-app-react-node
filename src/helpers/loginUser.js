@@ -1,5 +1,5 @@
 
-const loginUser = async ({ uEmail, uPassword }) => {
+const loginUser = async (uEmail, uPassword) => {
 
     const url = `http://192.168.1.8:8000/api/auth/login`;
 
@@ -16,10 +16,12 @@ const loginUser = async ({ uEmail, uPassword }) => {
         body: JSON.stringify(data)
     };
 
-    const { ok, message, loginData } = await fetchData(url, params)
+    const { ok, message, loginData } = await fetchData(url, params);
+
+    alert(message)
 
     const { token, username } = loginData;
-    
+
     return {
         loginStatus: ok,
         message: message,
@@ -30,31 +32,19 @@ const loginUser = async ({ uEmail, uPassword }) => {
 
 const fetchData = async (url, params) => {
 
-    let msg;
-
     let data;
-    
-    try {
-        const response = await fetch(url, params);
 
-        const { ok, message, loginData } = await response.json();
-                        
-        alert(message)
+    const response = await fetch(url, params);
 
-        msg = message;
+    const { ok, message, loginData } = await response.json();
 
-        data = {
-            ok: ok,
-            message: message,
-            loginData: loginData
-        }
-    
-    } catch (e) {
-    
-        return alert('fetch data: ' + msg);
-    }
+    console.log(ok, message, loginData);
 
-    return data;
+    return data = {
+        ok: ok,
+        message: message,
+        loginData: loginData
+    };
 }
 
 export default loginUser;

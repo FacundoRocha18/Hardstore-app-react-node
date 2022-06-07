@@ -2,19 +2,8 @@ import { useEffect, useState } from 'react';
 
 export default function useName() {
 
-    /* Recupera el token almacenado en el session storage
+    /* Recupera el nombre del usuario almacenado en el session storage
     y lo devuelve como un string */
-
-    const getName = () => {
-        let nameString = sessionStorage.getItem('name');
-
-        if (nameString === undefined || nameString === null) {
-            return nameString = '';
-        }
-
-        return nameString;
-    };
-
     const [sessionUsername, setUsername] = useState(null);
 
     useEffect(() => {
@@ -35,3 +24,13 @@ export default function useName() {
         setUsername: saveName
     }
 }
+
+const getName = () => {
+    let nameString = sessionStorage.getItem('name');
+
+    if (nameString === undefined || nameString === null) {
+        return nameString = '';
+    }
+
+    return nameString;
+};
