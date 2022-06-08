@@ -10,7 +10,7 @@ const useAlert = () => {
 
   useEffect(() => {
 
-    const timer = setTimeout(() => setIsShowing('out'), 3000);
+    const timer = setTimeout(() => setIsShowing(false), 3000);
 
     return () => {
       clearTimeout(timer);
@@ -29,17 +29,14 @@ const useAlert = () => {
 
     e.preventDefault();
 
-    setIsShowing('out')
+    setIsShowing(false)
 
   }
 
   return ({
     isShowing: isShowing,
-    setIsShowing: setIsShowing,
     message: message,
-    setMessage: setMessage,
     type: type,
-    setType: setType,
     showAlert: showAlert,
     onClose: onClose
   })

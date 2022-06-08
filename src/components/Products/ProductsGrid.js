@@ -7,7 +7,7 @@ import ProductsCard from './ProductsCard';
 import style from "./ProductsGrid.module.css";
 import css from "classnames";
 
-const ProductsGrid = ({ products, loading, onAdd, setIsShowing, setMessage, setType }) => {
+const ProductsGrid = ({ products, loading, onAdd, showAlert }) => {
 
 
     return (
@@ -25,9 +25,7 @@ const ProductsGrid = ({ products, loading, onAdd, setIsShowing, setMessage, setT
                                         key={product.id}
                                         onAdd={onAdd}
                                         product={product}
-                                        setIsShowing={setIsShowing}
-                                        setMessage={setMessage}
-                                        setType={setType}
+                                        showAlert={showAlert}
                                         {...product}
                                     />
                                 ))

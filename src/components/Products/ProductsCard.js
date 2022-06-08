@@ -7,16 +7,14 @@ import style from "../Products/ProductsCard.module.css";
 import css from "classnames";
 
 
-const ProductsCard = ({ onAdd, product, id, name, image, price, setIsShowing, setMessage, setType }) => {
+const ProductsCard = ({ onAdd, product, id, name, image, price, showAlert }) => {
 
 
     const handleAddButtonClicked = (e) => {
         
         e.preventDefault();
 
-        setMessage('Se añadió correctamente el producto al carrito')
-        setType('success')
-        setIsShowing(true)
+        showAlert('Se añadió correctamente el producto al carrito', 'success', true);
         onAdd(product, 1);
 
     }

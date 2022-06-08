@@ -6,13 +6,12 @@ import useFetchProducts from '../../hooks/useFetchProducts';
 
 /* Components -------------------------------- */
 import ProductsCard from './ProductsCard';
-import ToastAlert from '../Alerts/Alert'
 
 /* Styles imports -------------------------------- */
 import style from "./ProductsGrid.module.css";
 import css from "classnames";
 
-const ProductsWithCats = ({ onAdd, isShowing, setIsShowing, message, setMessage, type, setType, onClose }) => {
+const ProductsWithCats = ({ onAdd, showAlert }) => {
 
     const { id } = useParams();
 
@@ -37,14 +36,6 @@ const ProductsWithCats = ({ onAdd, isShowing, setIsShowing, message, setMessage,
         <>
             {
                 <div className="main-content-wrapper">
-
-                    <ToastAlert
-                        type={type}
-                        message={message}
-                        isShowing={isShowing}
-                        onClose={onClose}
-                    />
-
                     <div className={css('wd-100', style.container)} id='products-wrapper'>
                         {
                             loading && <h5 className='title-center animate__animated animate__flash animate__slower animate__infinite'>Cargando...</h5>
@@ -59,9 +50,7 @@ const ProductsWithCats = ({ onAdd, isShowing, setIsShowing, message, setMessage,
                                         key={product.id}
                                         onAdd={onAdd}
                                         product={product}
-                                        setIsShowing={setIsShowing}
-                                        setMessage={setMessage}
-                                        setType={setType}
+                                        showAlert={showAlert}
                                         {...product}
                                     />
                                 ))

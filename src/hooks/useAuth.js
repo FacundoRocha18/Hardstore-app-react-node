@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 import useToken from './useToken';
 import useName from './useName';
-import loginUser from '../helpers/loginUser';
+import loginUser from '../helpers/getLogin';
 
 
 const useAuth = () => {
@@ -14,11 +14,7 @@ const useAuth = () => {
 
     const { userName, setUsername } = useName()
 
-    const [status, setStatus] = useState(null);
-
-    const [message, setMessage] = useState(null);
-
-    const handleLogin = async ({ uEmail, uPassword }) => {
+    const handleLogin = async ({ uEmail, uPassword }, showAlert) => {
 
         let msg;
 
@@ -32,15 +28,17 @@ const useAuth = () => {
 
             msg = message;
 
-            return {
-                loginStatus: setStatus(loginStatus),
-                message: setMessage(message),
-                token: setToken(token),
-                userName: setUsername(username)
-            };
+            (loginStatus) ? showAlert(message, 'info', true) : showAlert(message, 'error', true);
+
+            setTimeout(() => {
+                return {
+                    token: setToken(token),
+                    userName: setUsername(username)
+                };
+            }, 1000);
 
         } catch (e) {
-            return console.log(e);
+            return showAlert('Ocurrió un error ' + e, 'info', true);
         }
     }
 
@@ -65,8 +63,6 @@ const useAuth = () => {
         isAuth: isAuthenticated,
         onLogin: handleLogin,
         onLogout: handleLogout,
-        status: status,
-        loginMessage: message
     };
 }
 

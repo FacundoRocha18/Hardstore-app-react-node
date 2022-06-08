@@ -9,7 +9,7 @@ import css from "classnames";
 
 
 
-const ShoppingCartItem = ({ item, onAdd, onRemove, onDelete, setIsShowing, setMessage, setType }) => {
+const ShoppingCartItem = ({ item, onAdd, onRemove, onDelete, showAlert }) => {
 
   const { id, image, name, price, qty } = item;
 
@@ -17,27 +17,23 @@ const ShoppingCartItem = ({ item, onAdd, onRemove, onDelete, setIsShowing, setMe
 
     e.preventDefault()
     onRemove(item)
-    setMessage('La cantidad fue disminuida correctamente')
-    setType('success')
-    setIsShowing(true)
+    showAlert('La cantidad fue disminuida', 'info', true);
   }
 
   const handleAdd = (e) => {
 
     e.preventDefault()
     onAdd(item, 1)
-    setMessage('La cantidad fue aumentada correctamente')
-    setType('success')
-    setIsShowing(true)
+    showAlert('La cantidad fue aumentada', 'info', true);
+
   }
 
   const handleDelete = (e) => {
 
     e.preventDefault();
     onDelete(item);
-    setMessage('El producto se eliminó del carrito correctamente')
-    setType('success')
-    setIsShowing(true)
+    showAlert('El producto se eliminó del carrito', 'info', true);
+
   }
 
   return (

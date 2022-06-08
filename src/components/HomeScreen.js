@@ -14,20 +14,12 @@ import CategoriesMenu from './Categories/CategoriesMenu';
 
 
 
-const HomeScreen = ({ products, loading, onAdd, isShowing, setIsShowing, message, setMessage, type, setType, onClose, categories }) => {
+const HomeScreen = ({ products, loading, onAdd, showAlert, categories }) => {
 
     return (
         <>
 
             <div className="main-content-wrapper">
-                {
-                    <Alert
-                        type={type}
-                        message={message}
-                        isShowing={isShowing}
-                        onClose={onClose}
-                    />
-                }
                 <div className='mb-2'>
                     <h1 className='title-center'>Productos</h1>
                 </div>
@@ -37,12 +29,9 @@ const HomeScreen = ({ products, loading, onAdd, isShowing, setIsShowing, message
                         products={products}
                         loading={loading}
                         onAdd={onAdd}
-                        setIsShowing={setIsShowing}
-                        setMessage={setMessage}
-                        setType={setType}
+                        showAlert={showAlert}
                     />
                 }
-
 
             </div>
         </>

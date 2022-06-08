@@ -1,113 +1,110 @@
-.container {
-    /* From https://css.glass */
-    background: rgba(255, 255, 255, 1);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: fit-content;
+.alert {
+    animation: slideInBottom 500ms ease 0s 1 normal forwards;
+    border-radius: .3rem;
+    box-shadow: var(--box-shadow-2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     height: fit-content;
-    padding: 0;
+    padding: 2rem 1.5rem;
     position: fixed;
-    top: 0;
     right: 0;
     margin: 10rem auto;
-    animation: slideInBottom 500ms ease 0s 1 normal forwards;
-    z-index: 1000;
-}
-
-.alert {
-    min-width: 40%;
+    top: 0;
+    transition: all .3s;
     width: fit-content;
-    height: fit-content;
-    margin: 0 auto;
-    border-radius: .3rem;
-    box-shadow: var(--box-shadow-1);
-    padding: 1.5rem;
-    opacity: 0;
-    animation: slideInBottom 500ms ease 0s 1 normal forwards;
+    z-index: 1000;
 }
 
 /* Success message */
 .success {
     background-color: var(--success-btn-bg-color);
     background: var(--success-btn-gradient);
-    background: rgba(102, 187, 106, 0.75);
+    background: rgba(102, 187, 106, 0.95);
     border-radius: 1rem;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 2px solid rgba(102, 187, 106, 0.52);
+    border: 1px solid rgba(68, 136, 71, 1);
 }
 
 /* Error message */
 .error {
     background-color: var(--critical-btn-bg-color);
     background: var(--critical-btn-gradient);
-    background: rgba(236, 70, 68, 0.75);
+    background: rgba(247, 81, 78, 0.95);
     border-radius: 16px;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 2px solid rgba(236, 70, 68, 0.52);
+    border: 1px solid rgba(190, 33, 31, 1);
 }
 
 /* Warning message */
 .warning {
     background-color: var(--critical-btn-bg-color);
     background: var(--error-btn-gradient);
-    background: rgba(255, 179, 0, 0.75);
+    background: rgba(255, 186, 23, 0.95);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 179, 0, 0.5);
+    border: 1px solid rgba(150, 105, 0, 1);
 }
 
 /* info message */
 .info {
     background-color: var(--critical-btn-bg-color);
     background: var(--error-btn-gradient);
-    background: rgba(2, 119, 189, 0.5);
+    background: rgba(0, 162, 255, 0.95);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(2, 119, 189, 0.5);
+    border: 1px solid rgba(2, 119, 189, 1);
 }
 
 .header {
     align-items: center;
-    display: grid;
+    display: flex;
+    justify-content: space-evenly;
     gap: 2rem;
-    grid-template-columns: repeat(2, auto);
     width: 100%;
     margin: 0 auto;
 }
 
-.button {
-    width: fit-content;
+.icon {
     display: flex;
     align-items: center;
-    justify-content: right;
+    justify-content: center;
 }
 
 .text {
-    width: 100%;
-    display: grid;
     align-items: center;
-    grid-template-columns: repeat(2, auto);
-    justify-content: space-between;
-    column-gap: 2rem;
+    display: flex;
+    justify-content: center;
+    max-width: 80%;
+    margin: 0 auto;
 }
 
-.hide {
-    display: none;
+.button {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.close_btn {
+    align-items: center;
+    background-color: var(--body-bg-main-color);
+    border: none;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow-1);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    padding: .7rem;
+    transition: all .3s;
 }
 
 .out {
-    animation: slideOutRight 500ms ease 0s 1 normal forwards;
+    animation: slideOutRight 500ms ease 2500ms 1 normal forwards;
 }
 
 

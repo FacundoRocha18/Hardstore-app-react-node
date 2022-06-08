@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
 /* Helpers -------------------------------- */
-import newUser from '../../helpers/newUser'
+import newUser from '../../helpers/getSignup'
 
 /* Styles imports -------------------------------- */
 import style from "./RegisterScreen.module.css";
 import css from "classnames";
 
-const RegisterScreen = ({ setRedirect }) => {
+const RegisterScreen = ({ setRedirect, showAlert }) => {
 
     const [userData, setUserData] = useState({
         uEmail: null,
@@ -68,8 +68,15 @@ const RegisterScreen = ({ setRedirect }) => {
 
         e.preventDefault();
 
-        newUser(userData);
-        setRedirect(true);
+        try {
+            const { ok, message } = await newUser(userData);
+
+            (ok) ? showAlert(message, 'info', true) : showAlert(message, 'error', true);
+        } catch (error) {
+            return showAlert('Ocurrió un error ' + error, 'error', true)
+        }
+
+        setTimeout(() => setRedirect(true), 500);
     }
 
     return (

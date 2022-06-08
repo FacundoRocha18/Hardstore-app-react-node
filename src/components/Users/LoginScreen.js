@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
-import PropTypes from 'prop-types';
 
 /* Custom Hooks -------------------------------- */
-import useAuth from '../../hooks/useAuth';
 
 /* Components -------------------------------- */
-import Alert from '../Alerts/Alert'
 
 /* Styles imports -------------------------------- */
 import style from "./LoginScreen.module.css";
 import css from "classnames";
 
 
-const LoginScreen = ({ onLogin, status, loginMessage, isShowing, setIsShowing, message, setMessage, type, setType, showAlert, onClose }) => {
+const LoginScreen = ({ onLogin, status, loginMessage, showAlert }) => {
 
     const navigate = useNavigate();
 
@@ -23,8 +20,6 @@ const LoginScreen = ({ onLogin, status, loginMessage, isShowing, setIsShowing, m
     })
 
     const [disabled, setDisabled] = useState(true)
-
-    const { username } = useAuth();
 
     const handleUserInfoChanged = ({ target }) => {
 
@@ -54,13 +49,11 @@ const LoginScreen = ({ onLogin, status, loginMessage, isShowing, setIsShowing, m
         e.preventDefault();
 
         try {
-            onLogin(userData);
+            onLogin(userData, showAlert);
 
-            if (status === false) { return showAlert(loginMessage, 'error', true); };
-
-            setTimeout(() => { return showAlert(loginMessage, 'success', true); }, 1000);
             
         } catch (error) {
+            console.log(error);
             return showAlert(loginMessage, 'error', true);
         }
 
@@ -97,9 +90,6 @@ const LoginScreen = ({ onLogin, status, loginMessage, isShowing, setIsShowing, m
                         <Link to={'api/auth/forgot'} ><p className={style.passwordLink}>Reestablecela aquí.</p></Link>
                     </div>
                 </div>
-            }
-            {
-                <Alert type={type} message={message} isShowing={isShowing} onClose={onClose} />
             }
         </>
     )

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 /* React Router -------------------------------- */
 import {
@@ -8,10 +8,7 @@ import {
 
 
 /* Components -------------------------------- */
-
 import ShoppingCartItem from './ShoppingCartItem'
-import ToastAlert from '../Alerts/Alert'
-
 
 /* Custom Hooks -------------------------------- */
 
@@ -20,9 +17,9 @@ import style from "./ShoppingCart.module.css";
 import css from "classnames";
 
 
-const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy, isShowing, setIsShowing, message, setMessage, type, setType, onClose }) => {
+const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy, showAlert }) => {
 
-  const navigate = useNavigate();
+  const navigate = useNavigate();  
 
   const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
   const shippingPrice = itemPrice > 2000 ? 0 : 50;
@@ -34,19 +31,15 @@ const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy, isShowing, 
     let itemList = [];
     cartItems.map((item) => itemList.push(item.name));
 
-    setMessage('Compra de: ' + itemList + ' realizada por un precio total de: ' + price + ' ');
-    setType('info');
-    setIsShowing(true);
+    showAlert('Se lo rediccionará a la página para ingresar información de pago y envío', 'info', true);
 
-    navigate('/api/users/payment', { replace: true });
+    
+    setTimeout(() => navigate('/api/users/payment', { replace: true }), 1000);
   }
 
   return (
     <>
       <div className="main-content-wrapper">
-        {
-          <ToastAlert type={type} message={message} isShowing={isShowing} onClose={onClose} />
-        }
         <div className={css(style.container)}>
           <h2 className="title-center">Carrito</h2>
           <div className={style.cartHeaders}>
@@ -81,10 +74,7 @@ const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy, isShowing, 
                   onAdd={onAdd}
                   onRemove={onRemove}
                   onDelete={onDelete}
-                  setIsShowing={setIsShowing}
-                  setMessage={setMessage}
-                  type={type}
-                  setType={setType}
+                  showAlert={showAlert}
                   item={item}
                   {...item}
                 />

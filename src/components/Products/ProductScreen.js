@@ -13,7 +13,7 @@ import css from "classnames";
 
 
 
-const ProductScreen = ({ onAdd, isShowing, setIsShowing, message, setMessage, onClose }) => {
+const ProductScreen = ({ onAdd, showAlert }) => {
 
     const { id } = useParams();
 
@@ -61,9 +61,8 @@ const ProductScreen = ({ onAdd, isShowing, setIsShowing, message, setMessage, on
 
     const handleAddToCart = (qty) => {
 
-        onAdd(checkData(products, dataTemplate, id), qty)
-        setMessage('La cantidad fue aumentada exitosamente')
-        setIsShowing(true)
+        onAdd(checkData(products, dataTemplate, id), qty);
+        showAlert('La cantidad fue aumentada exitosamente', 'success', true);
     }
 
     return (
@@ -74,9 +73,6 @@ const ProductScreen = ({ onAdd, isShowing, setIsShowing, message, setMessage, on
 
             {
                 <div className='main-content-wrapper'>
-                    {
-                        <ToastAlert type='success' message='Se añadió correctamente el producto al carrito' isShowing={isShowing} onClose={onClose} />
-                    }
                     <div className={css(style.container)}>
                         <div className={style.image}>
                             <img src={image} alt={name}></img>

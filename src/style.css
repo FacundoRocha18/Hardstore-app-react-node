@@ -316,18 +316,6 @@ body {
     transition: all .3s;
 }
 
-.close-btn {
-    background-color: var(--body-bg-main-color);
-    border: none;
-    border-radius: .5rem;
-    padding: 0.5rem 1rem;
-    box-shadow: var(--box-shadow-1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all .3s;
-}
-
 .close-modal-btn {
     background-color: var(--body-bg-main-color);
 }

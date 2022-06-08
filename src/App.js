@@ -18,6 +18,7 @@ import useAlert from './hooks/useAlert';
 
 /* Components -------------------------------- */
 import Header from './components/SiteHeader';
+import Alert from './components/Alerts/Alert'
 import Home from './components/HomeScreen';
 import Cart from './components/Cart/ShoppingCart';
 import Product from './components/Products/ProductScreen';
@@ -38,11 +39,11 @@ function App() {
 
   const { data: categories } = useFetchCats()
 
-  const { token, username, isAuth, onLogin, onLogout, status, loginMessage } = useAuth();
+  const { token, username, isAuth, onLogin, onLogout } = useAuth();
 
-  const { cartItems, onAdd, onDelete, onRemove, onBuy } = useCart()
+  const { setCartItems, cartItems, onAdd, onDelete, onRemove, onBuy } = useCart()
 
-  const { isShowing, setIsShowing, message, setMessage, type, setType, showAlert, onClose } = useAlert()
+  const { isShowing, message, type, showAlert, onClose } = useAlert()
 
 
   return (
@@ -58,6 +59,10 @@ function App() {
           categories={categories}
         />
 
+        {
+          isShowing && <Alert type={type} message={message} isShowing={isShowing} onClose={onClose} />
+        }
+
         <Routes>
 
           <Route exact path='/'
@@ -66,13 +71,7 @@ function App() {
                 products={products}
                 loading={loading}
                 onAdd={onAdd}
-                isShowing={isShowing}
-                setIsShowing={setIsShowing}
-                message={message}
-                setMessage={setMessage}
-                type={type}
-                setType={setType}
-                onClose={onClose}
+                showAlert={showAlert}
                 categories={categories}
               />
             }
@@ -83,18 +82,13 @@ function App() {
               (isAuth(token))
                 ?
                 <Cart
+                  setCartItems={setCartItems}
                   cartItems={cartItems}
                   onAdd={onAdd}
                   onRemove={onRemove}
                   onDelete={onDelete}
                   onBuy={onBuy}
-                  isShowing={isShowing}
-                  setIsShowing={setIsShowing}
-                  message={message}
-                  setMessage={setMessage}
-                  type={type}
-                  setType={setType}
-                  onClose={onClose}
+                  showAlert={showAlert}
                 />
                 :
                 <Navigate
@@ -126,13 +120,7 @@ function App() {
               <Product
                 onAdd={onAdd}
                 onRemove={onRemove}
-                isShowing={isShowing}
-                setIsShowing={setIsShowing}
-                message={message}
-                setMessage={setMessage}
-                type={type}
-                setType={setType}
-                onClose={onClose}
+                showAlert={showAlert}
               />
             }
           />
@@ -143,13 +131,7 @@ function App() {
                 products={products}
                 loading={loading}
                 onAdd={onAdd}
-                type={type}
-                setType={setType}
-                isShowing={isShowing}
-                setIsShowing={setIsShowing}
-                message={message}
-                setMessage={setMessage}
-                onClose={onClose}
+                showAlert={showAlert}
                 categories={categories}
               />
             }
@@ -176,13 +158,7 @@ function App() {
                 ?
                 <Login
                   onLogin={onLogin}
-                  status={status}
-                  loginMessage={loginMessage}
-                  isShowing={isShowing}
-                  message={message}
-                  type={type}
                   showAlert={showAlert}
-                  onClose={onClose}
                 />
                 :
                 <Navigate
@@ -200,6 +176,7 @@ function App() {
                 ?
                 <Register
                   setRedirect={setRedirect}
+                  showAlert={showAlert}
                 />
                 :
                 <Navigate
@@ -219,9 +196,6 @@ function App() {
         </Routes>
 
         <Footer
-          onLogout={onLogout}
-          username={username}
-          token={token}
         />
 
       </Router>

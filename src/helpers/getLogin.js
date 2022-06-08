@@ -30,13 +30,13 @@ const loginUser = async (uEmail, uPassword) => {
 
 const fetchData = async (url, params) => {
 
-    let data;
+    const response = await fetch(url, params)
+        .catch((error) => console.error(error));
 
-    const response = await fetch(url, params);
+    const { ok, message, loginData } = await response.json()
+        .catch((error) => console.error(error));
 
-    const { ok, message, loginData } = await response.json();
-
-    return data = {
+    return {
         ok: ok,
         message: message,
         loginData: loginData

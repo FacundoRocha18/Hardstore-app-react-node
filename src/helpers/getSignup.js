@@ -10,7 +10,7 @@ const newUser = async ({ uEmail, uName, uAddress, uPhone, uPassword }) => {
         password: uPassword,
     };
 
-    const addParams = {
+    const params = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -18,11 +18,24 @@ const newUser = async ({ uEmail, uName, uAddress, uPhone, uPassword }) => {
         body: JSON.stringify(data)
     };
 
-    fetch(url, addParams)
-        .then((res) => {alert('Se ha registrado con éxito.')})
+    const { ok, message } = await fetchNewUser(url, params)
+
+    return { ok, message };
+}
+
+const fetchNewUser = async (url, params) => {
+
+    const response = await fetch(url, params)
+        .catch((error) => console.error(error));
+
+    const { ok, message } = await response.json()
         .catch((error) => console.error(error));
 
 
+    return {
+        ok: ok,
+        message: message
+    };
 }
 
 export default newUser;

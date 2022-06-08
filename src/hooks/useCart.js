@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 /* Custom hooks */
 
@@ -9,8 +9,7 @@ const useCart = () => {
 
     const [cartItems, setCartItems] = useState([]);
 
-    const { isShowing, setIsShowing } = useAlert()
-
+    const { isShowing, setIsShowing } = useAlert();
 
     const onAdd = (product, QTY) => {
 

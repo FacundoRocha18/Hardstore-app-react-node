@@ -22,21 +22,22 @@ const Alert = ({ children, type, message, isShowing, onClose }) => {
 
     return (
         <>
-            <div className={css(style.container, !isShowing && style.hide, isShowing === 'out' && style.out)}>
-                <div className={css(style.alert, style[type])}>
+                <div className={css(style.alert, style[type], style.out)}>
                     <div className={style.header}>
+                        <div className={style.icon}>
+                        <span className="material-icons-round">{icon}</span>
+
+                        </div>
                         <div className={style.text}>
-                            <span className="material-icons-round">{icon}</span>
                             {children ? renderAlert() : message}
                         </div>
                         <div className={style.button}>
-                            <button type="button" className="close-btn" aria-label="Close" onClick={(e) => handleClose(e)}>
+                            <button type="button" className={style.close_btn} aria-label="Close" onClick={(e) => handleClose(e)}>
                                 <span className="material-icons-outlined">close</span>
                             </button>
                         </div>
                     </div>
                 </div>
-            </div>
         </>
     )
 }
