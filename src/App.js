@@ -38,11 +38,11 @@ function App() {
 
   const { data: categories } = useFetchCats()
 
-  const { token, username, isAuth, onLogin, onLogout } = useAuth();
+  const { token, username, isAuth, onLogin, onLogout, status, loginMessage } = useAuth();
 
   const { cartItems, onAdd, onDelete, onRemove, onBuy } = useCart()
 
-  const { isShowing, setIsShowing, message, setMessage, type, setType, onClose } = useAlert()
+  const { isShowing, setIsShowing, message, setMessage, type, setType, showAlert, onClose } = useAlert()
 
 
   return (
@@ -176,12 +176,12 @@ function App() {
                 ?
                 <Login
                   onLogin={onLogin}
+                  status={status}
+                  loginMessage={loginMessage}
                   isShowing={isShowing}
-                  setIsShowing={setIsShowing}
                   message={message}
-                  setMessage={setMessage}
                   type={type}
-                  setType={setType}
+                  showAlert={showAlert}
                   onClose={onClose}
                 />
                 :

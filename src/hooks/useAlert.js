@@ -40,6 +40,7 @@ const useAlert = () => {
     setMessage: setMessage,
     type: type,
     setType: setType,
+    showAlert: showAlert,
     onClose: onClose
   })
 }

@@ -18,8 +18,6 @@ const loginUser = async (uEmail, uPassword) => {
 
     const { ok, message, loginData } = await fetchData(url, params);
 
-    alert(message)
-
     const { token, username } = loginData;
 
     return {
@@ -37,8 +35,6 @@ const fetchData = async (url, params) => {
     const response = await fetch(url, params);
 
     const { ok, message, loginData } = await response.json();
-
-    console.log(ok, message, loginData);
 
     return data = {
         ok: ok,

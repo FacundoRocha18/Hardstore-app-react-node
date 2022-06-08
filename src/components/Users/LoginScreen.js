@@ -13,7 +13,7 @@ import style from "./LoginScreen.module.css";
 import css from "classnames";
 
 
-const LoginScreen = ({ onLogin, isShowing, setIsShowing, message, setMessage, type, setType, onClose }) => {
+const LoginScreen = ({ onLogin, status, loginMessage, isShowing, setIsShowing, message, setMessage, type, setType, showAlert, onClose }) => {
 
     const navigate = useNavigate();
 
@@ -53,30 +53,15 @@ const LoginScreen = ({ onLogin, isShowing, setIsShowing, message, setMessage, ty
 
         e.preventDefault();
 
-        let msg;
-
         try {
-            const data = await onLogin(userData);
+            onLogin(userData);
 
-            console.log(data)
+            if (status === false) { return showAlert(loginMessage, 'error', true); };
+
+            setTimeout(() => { return showAlert(loginMessage, 'success', true); }, 1000);
             
-            msg = message;
-
-            setTimeout(() => {
-
-
-                setMessage(`Bienvenido ${username}`);
-                setType('success');
-                setIsShowing(true);
-
-            }, 1000);
-
-
-        } catch (err) {
-
-            setMessage('Se produjo un error al iniciar sesión ' + msg);
-            setType('error');
-            setIsShowing(true);
+        } catch (error) {
+            return showAlert(loginMessage, 'error', true);
         }
 
     }

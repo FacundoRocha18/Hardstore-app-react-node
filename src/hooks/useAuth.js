@@ -34,7 +34,7 @@ const useAuth = () => {
 
             return {
                 loginStatus: setStatus(loginStatus),
-                message: setMessage(msg),
+                message: setMessage(message),
                 token: setToken(token),
                 userName: setUsername(username)
             };
