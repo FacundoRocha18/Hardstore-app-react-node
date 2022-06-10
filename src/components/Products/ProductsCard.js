@@ -28,7 +28,7 @@ const ProductsCard = ({ onAdd, product, id, name, image, price, showAlert }) => 
                     </div>
                     <div className={style.info}>
                         <div className={style.title}>
-                            <Link to={`/api/products/product/${id}`} replace><h3 id="item-title">{name}</h3></Link>
+                            <Link to={`/api/products/product/${id}`} replace><h3 id="item-title" title={name}>{name}</h3></Link>
                         </div>
                         <div className={style.flex}>
                             <div className={style.price}>

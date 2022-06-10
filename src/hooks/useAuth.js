@@ -2,21 +2,22 @@ import { useState } from 'react';
 
 
 /* Custom Hooks -------------------------------- */
-
 import useToken from './useToken';
 import useName from './useName';
+
+/* Helpers -------------------------------- */
 import loginUser from '../helpers/getLogin';
 
 
 const useAuth = () => {
+
+    const [loading, setLoading] = useState(true);
 
     const { token, setToken } = useToken()
 
     const { userName, setUsername } = useName()
 
     const handleLogin = async ({ uEmail, uPassword }, showAlert) => {
-
-        let msg;
 
         try {
             const {
@@ -26,16 +27,22 @@ const useAuth = () => {
                 username
             } = await loginUser(uEmail, uPassword);
 
-            msg = message;
+            if (!loginStatus) {
+                return showAlert(message, 'error', true)
+            }
 
-            (loginStatus) ? showAlert(message, 'info', true) : showAlert(message, 'error', true);
+            showAlert(message, 'info', true);
+            setLoading(true);
 
             setTimeout(() => {
                 return {
                     token: setToken(token),
                     userName: setUsername(username)
                 };
-            }, 1000);
+            }, 2000);
+
+            return loading;
+
 
         } catch (e) {
             return showAlert('Ocurrió un error ' + e, 'info', true);

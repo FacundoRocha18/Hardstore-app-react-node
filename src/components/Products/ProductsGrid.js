@@ -6,35 +6,42 @@ import ProductsCard from './ProductsCard';
 /* Styles imports -------------------------------- */
 import style from "./ProductsGrid.module.css";
 import css from "classnames";
+import LoadingScreen from '../LoadingScreen';
 
 const ProductsGrid = ({ products, loading, onAdd, showAlert }) => {
 
+    if(loading){
+        return (
+            <>
+                <LoadingScreen />
+            </>
+        )
+    }
 
-    return (
-        <>
-            {
-                <div className={style.container} id='products-wrapper'>
-                        {
-                            loading && <h5 className='title-center animate__animated animate__flash animate__slower animate__infinite'>Cargando...</h5>
-                        }
-                        <div className={style.grid}>
-                            {
-                                
-                                products.map((product) => (
-                                    <ProductsCard
-                                        key={product.id}
-                                        onAdd={onAdd}
-                                        product={product}
-                                        showAlert={showAlert}
-                                        {...product}
-                                    />
-                                ))
-                            }
+    if(!loading) {
+        return (
+            <>
+                {
+                    <div className={style.container} id='products-wrapper'>
+                            <div className={style.grid}>
+                                {
+                                    
+                                    products.map((product) => (
+                                        <ProductsCard
+                                            key={product.id}
+                                            onAdd={onAdd}
+                                            product={product}
+                                            showAlert={showAlert}
+                                            {...product}
+                                        />
+                                    ))
+                                }
+                            </div>
                         </div>
-                    </div>
-            }
-        </>
-    )
+                }
+            </>
+        )
+    }
 
 }
 

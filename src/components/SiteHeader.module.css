@@ -73,7 +73,7 @@
 .menu nav ul {
     display: grid;
     grid-template-columns: repeat(1, auto);
-    column-gap: .5rem;
+    gap: 1rem;
 }
 
 .menu nav ul li {

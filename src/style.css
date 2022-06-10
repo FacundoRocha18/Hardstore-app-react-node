@@ -65,32 +65,44 @@ ul, ol, li {
 :root {
 
     /* Colors */
-    --body-bg-main-color: #ffffff;
-    --item-bg-main-color: #d3d3d3;
-    --item-bg-main-color-blur: #d3d3d341;
-    --item-bg-secondary-color: #0d0d0d;
-    --headers-main-color: #0d0d0d;
-    --text-main-color: #111318;
-    --text-secondary-color: #ff6d00;
-    --text-white: #dad6d6;
-    --primary-btn-bg-color: #ff6d00;
-    --primary-btn-hover-bg-color: #c25705;
-    --outline-btn-bg-color: #c4c5cd;
-    --success-btn-bg-color: #66BB6A;
-    --success-btn-hover-bg-color: #58a55c;
-    --critical-btn-bg-color: #ec4644;
-    --critical-btn-hover-bg-color: #c43230;
-    --login-btn: #039BE5;
-    --login-btn-hover: #0277BD;
-    --borders-main-color: #151515;
-    --borders-main-color-blur: #494949;
-    --product-item-background: #dddcdca1;
     --blue: #039BE5;
     --blue-hover: #0277BD;
     --orange: #ff6f00dc;
     --orange-hover: #c25705;
     --black: #0d0d0d;
     --black-hover: #292929;
+
+    /* General */
+    --body-bg-main-color: #ffffff;
+    --item-bg-main-color: #d3d3d3;
+    --item-bg-main-color-blur: #d3d3d341;
+    --item-bg-secondary-color: #0d0d0d;
+    --product-item-background: #dddcdca1;
+    
+    /* Buttons */
+    --primary-btn-bg-color: #ff6d00;
+    --outline-btn-bg-color: #c4c5cd;
+    --success-btn-bg-color: #66BB6A;
+    --critical-btn-bg-color: #ec4644;
+    --login-btn: #039BE5;
+    
+    /* Buttons hover states */
+    --primary-btn-hover-bg-color: #c25705;
+    --success-btn-hover-bg-color: #58a55c;
+    --critical-btn-hover-bg-color: #c43230;
+    --login-btn-hover: #0277BD;
+    
+    /* Borders */
+    --borders-main-color: #151515;
+    --borders-main-color-blur: #494949;
+    --border-grey-color: #6e6e6e;
+
+    
+    /* Fonts */
+    --headers-main-color: #0d0d0d;
+    --text-main-color: #111318;
+    --text-secondary-color: #ff6d00;
+    --text-white: #dad6d6;
 
     /* Gradient backgrounds */
     --primary-btn-gradient: linear-gradient(190deg, rgba(255, 111, 0, 1) 20%, rgba(244, 81, 30, 1) 90%);

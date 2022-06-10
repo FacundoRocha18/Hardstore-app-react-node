@@ -2,8 +2,8 @@
 
 .container {
     align-items: center;
-    background-color: var(--orange);
-    border-bottom: solid 1px var(--borders-main-color-blur);
+    background-color: var(--item-bg-main-color);
+    border-bottom: solid 1px var(--border-grey-color);
     border-radius: none;
     flex-direction: column;
     display: flex;
