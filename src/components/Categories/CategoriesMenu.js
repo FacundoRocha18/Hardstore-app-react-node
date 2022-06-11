@@ -23,11 +23,12 @@ const CategoriesMenu = ({ categories }) => {
         <>
             <div className={style.container}>
                 <div className={style.flexWrapper}>
-                    <div className={style.header}>
-                        <h3 className='title-center'>Categorías</h3>
-                    </div>
+
                     <div className={style.buttonContainer}>
                         <button className={style.button} onClick={(e) => handleClick(e)}>
+                            <div className={style.header}>
+                                <p className='title-center'>Categorías</p>
+                            </div>
                             <span className={css("material-icons-round", isClicked && style.rotate)}>
                                 expand_more
                             </span>

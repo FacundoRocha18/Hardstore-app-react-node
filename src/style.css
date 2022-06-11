@@ -390,10 +390,10 @@ body {
 /* Products grid */
 
 .main-content-wrapper {
-    width: 100%;
+    width: 90%;
     height: fit-content;
     margin: 20rem auto 0;
-    padding: 2rem;
+    padding: 2rem 0;
 }
 
 /* Alerts */

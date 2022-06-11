@@ -2,8 +2,7 @@
 
 .container {
     align-items: center;
-    background-color: var(--item-bg-main-color);
-    border-bottom: solid 1px var(--border-grey-color);
+    background-color: transparent;
     border-radius: none;
     flex-direction: column;
     display: flex;
@@ -17,18 +16,21 @@
     justify-content: center;
     height: fit-content;
     min-width: 200px;
-    padding: 1rem;
     width: 100%;
 }
 
-.header h3 {
-    font-size: 2rem;
+.header p {
+    font-size: 1.7rem;
+    font-family: 'Poppins';
+    font-weight: var(--medium);
+    color: var(--text-white);
 }
 
 .buttonContainer {
-    align-items: center;
+    align-items: flex-start;
     display: flex;
-    justify-content: center;
+    justify-content: start;
+    width: 100%;
 }
 
 .button {
@@ -38,14 +40,15 @@
     border-radius: .5rem;
     cursor: pointer;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     height: fit-content;
-    padding: 0;
-    width: fit-content;
+    padding: .5rem 1rem;
+    width: 100%;
     transition: all .3s;
 }
 
 .button span {
+    color: var(--text-white);
     font-size: 3rem;
 }
 
@@ -59,18 +62,19 @@
 }
 
 .menu {
-    align-items: center;
+    align-items: flex-start;
     display: flex;
     flex-direction: column;
     overflow-x: visible;
-    margin: 2rem auto;
+    margin: 2rem 0;
+    width: 100%;
 }
 
 .menu li {
     border-bottom: solid 1px var(--borders-main-color-blur);
     padding: 1rem;
     margin: 0;
-    text-align: center;
+    text-align: left;
     transition: all .3s;
     width: 100%;
 }
@@ -79,9 +83,7 @@
     border-bottom: none;
     margin: 0;
     padding: 0;
-    text-align: center;
-    width: auto;
-    height: auto;
+    text-align: left;
     min-height: 3rem;
 }
 
@@ -94,7 +96,7 @@
     inline-size: auto;
     overflow: hidden;
     text-overflow: ellipsis;
-    text-align: center;
+    text-align: left;
     transition: all .3s;
 }
 
@@ -108,6 +110,7 @@
         align-items: center;
         border-radius: none;
         display: flex;
+        flex-direction: column;
         height: fit-content;
     }
 
@@ -120,7 +123,7 @@
     }
 
     .menu {
-        flex-direction: row;
+        flex-direction: column;
     }
 
     .menu a:hover {

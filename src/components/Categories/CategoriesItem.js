@@ -6,7 +6,7 @@ const CategoriesItem = ({ name, cats }) => {
 
     return (
         <>
-            <Link to={`/api/products/categories/${ cats.id }`} replace title={name}>{name}</Link>
+            <li><Link to={`/api/products/categories/${cats.id}`} replace title={name}>{name}</Link></li>
         </>
     )
 }

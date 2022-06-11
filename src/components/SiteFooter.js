@@ -11,7 +11,7 @@ const Footer = () => {
     return (
         <>
             <footer className={css(style.footer)}>
-                <div className="center-object flex-item justify-space-between">
+                <div className={style.footer_container}>
                     <div className={style.logo}>
                         <a href="#">
                             <h1 className="website-logo title-center"><span>Hard</span>Store</h1>

@@ -2,6 +2,7 @@
 
 .header {
     background-color: var(--headers-main-color);
+    border-bottom: solid 1px var(--primary-btn-bg-color);
     position: fixed;
     width: 100%;
     height: fit-content;
@@ -14,12 +15,16 @@
     transition: all .5s;
 }
 
+.header_container {
+    width: 90%;
+    margin: 0 auto;
+}
+
 .logo {
     height: 50%;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
 }
 
 .toggle {
@@ -42,17 +47,20 @@
     border-radius: 0;
     box-sizing: border-box;
     transition: all .3s;
+    padding: .5rem 1rem;
+    inline-size: 100%;
+    margin: 0;
+    justify-content: start;
 }
 
 .show_cart:hover {
     border-image: none;
-    border-bottom: solid 3px var(--primary-btn-hover-bg-color);
+    border-right: solid 3px var(--primary-btn-hover-bg-color);
     transition: all .3s;
 }
 
 .show_cart span {
-    background-color: var(--primary-btn-bg-color);
-    border-radius: .5rem;
+    color: var(--text-white);
     font-weight: var(--light);
     padding: .7rem;
 }
@@ -64,7 +72,7 @@
 }
 
 .menu {
-    width: fit-content;
+    width: 100%;
     height: fit-content;
     padding: .5rem;
     margin: 0 auto;
@@ -77,10 +85,12 @@
 }
 
 .menu nav ul li {
-    text-align: center;
+    text-align: left;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: start;
+    width: 100%;
+    border-bottom: solid 1px var(--border-grey-color);
 }
 
 .menu nav ul li a {
@@ -92,52 +102,53 @@
     font-weight: var(--light);
     transition: all .5s;
     white-space: nowrap;
-    inline-size: auto;
+    inline-size: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-align: left;
 }
 
 .logout {
     background-color: transparent;
     border: none;
-    border-radius: .5rem;
     color: var(--body-bg-main-color);
+    cursor: pointer;
     font-family: 'Poppins', sans-serif;
     font-size: 1.6rem;
     font-weight: var(--light);
     letter-spacing: 1pt;
     padding: 0.5rem 1rem;
     white-space: nowrap;
-    inline-size: auto;
+    inline-size: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-align: left;
     transition: all .5s;
-}
-
-.menu nav ul li a:hover,
-.logout:hover {
-    background-color: var(--primary-btn-hover-bg-color);
-    color: var(--headers-main-color);
-    cursor: pointer;
 }
 
 @media (min-width: 768px) {
     .header {
-        align-items: stretch;
         background-color: var(--item-bg-secondary-color);
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
         min-height: 10rem;
         max-height: fit-content;
+    }
+
+    .header_container {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        width: 90%;
     }
 
     .logo {
         height: 100%;
         width: fit-content;
-        margin: 0 5rem;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
     }
 
     .toggle {
@@ -156,10 +167,6 @@
         padding: 0;
     }
 
-    /* .cartText {
-        display: none;
-    } */
-
     .logo a .website-logo {
         margin: 1.5rem 0;
         color: var(--primary-btn-bg-color);
@@ -174,12 +181,6 @@
         letter-spacing: -1pt;
     }
 
-    /* .show_cart {
-        border: none;
-        border-right: solid 3px transparent;
-        border-image: var(--primary-btn-gradient) 1;
-    } */
-
     .cartText {
         color: var(--text-white);
     }
@@ -187,9 +188,8 @@
     .menu {
         width: fit-content;
         height: 100%;
-        margin: 0 5rem;
         display: flex;
-        align-items: center;
+        margin: 0;
     }
 
     .menu nav ul {

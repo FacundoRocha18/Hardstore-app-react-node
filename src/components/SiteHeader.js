@@ -6,7 +6,7 @@ import style from "./SiteHeader.module.css";
 import css from "classnames";
 
 /* Components -------------------------------- */
-import CategoriesLinks from './Categories/CategoriesMenu'
+import CategoriesMenu from './Categories/CategoriesMenu';
 
 
 const Header = ({ token, username, onLogout, categories }) => {
@@ -26,7 +26,7 @@ const Header = ({ token, username, onLogout, categories }) => {
     return (
         <>
             <header className={css(style.header)} id='header'>
-                <div className="center-object flex-item justify-space-between align-items-center">
+                <div className={style.header_container}>
                     <div className={style.logo}>
                         <Link to={'/'}><h1 className="website-logo title-center"><span>Hard</span>Store</h1></Link>
                         <button className={style.toggle} onClick={(e) => handleClick(e)}>
@@ -39,6 +39,11 @@ const Header = ({ token, username, onLogout, categories }) => {
                         <nav>
                             <ul>
                                 <li><Link to={'/'}>Inicio</Link></li>
+                                <li>
+                                    <CategoriesMenu
+                                        categories={categories}
+                                    />
+                                </li>
                                 {
                                     !token && <li><Link to={'/api/auth/login'}>Login</Link></li>
                                 }
@@ -54,9 +59,6 @@ const Header = ({ token, username, onLogout, categories }) => {
                         </nav>
                     </div>
                 </div>
-                    <CategoriesLinks
-                        categories={categories}
-                    />
             </header>
 
         </>
