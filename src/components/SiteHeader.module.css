@@ -123,9 +123,7 @@
     padding: 1rem .5rem;
 }
 
-.menu nav ul li a,
-.menu nav ul li button,
-button {
+.menu nav ul li a {
     border-radius: .5rem;
     color: var(--text-white);
     cursor: pointer;
@@ -140,15 +138,14 @@ button {
     white-space: nowrap;
 }
 
-.logout {
+.logout,
+.categories_btn {
     background-color: transparent;
     border: none;
     color: var(--text-white);
+    cursor: pointer;
     font-family: 'Poppins', sans-serif;
     font-size: 1.6rem;
-    font-weight: var(--light);
-    letter-spacing: 1pt;
-    padding: 0.5rem 1rem;
     white-space: nowrap;
     inline-size: 100%;
     overflow: hidden;
@@ -159,16 +156,8 @@ button {
 
 .categories_btn {
     align-items: center;
-    background-color: transparent;
-    border: none;
-    border-radius: .5rem;
-    cursor: pointer;
     display: flex;
     justify-content: space-between;
-    height: fit-content;
-    width: 100%;
-    inline-size: 100%;
-    transition: all .3s;
 }
 
 .categories_btn span {
@@ -189,8 +178,11 @@ button {
 }
 
 .menu nav ul li a:hover,
-button:hover,
-.show_cart:hover a {
+.show_cart:hover p,
+.show_cart:hover span,
+.logout:hover,
+.categories_btn:hover,
+.categories_btn:hover span {
     color: var(--orange);
     transition: all .3s;
 }

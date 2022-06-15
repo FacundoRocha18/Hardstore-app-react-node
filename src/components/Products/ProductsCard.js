@@ -1,6 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import placeholderImage from '../../public/img/imagepreviewdefault.png';
+
+/* Cloudinary -------------------------------- */
+import { AdvancedImage } from '@cloudinary/react';
+import { Cloudinary } from "@cloudinary/url-gen";
+import { fill } from "@cloudinary/url-gen/actions/resize";
 
 /* Styles imports -------------------------------- */
 import style from "../Products/ProductsCard.module.css";
@@ -9,6 +13,15 @@ import css from "classnames";
 
 const ProductsCard = ({ onAdd, product, id, name, image, price, showAlert }) => {
 
+    const cld = new Cloudinary({
+        cloud: {
+            cloudName: 'dhqgqznbw'
+        }
+    });
+
+    const myThumbnail = cld.image(`e-commerce/${image}`);
+
+    myThumbnail.resize(fill().width(1000).height(1000));
 
     const handleAddButtonClicked = (e) => {
 
@@ -24,7 +37,7 @@ const ProductsCard = ({ onAdd, product, id, name, image, price, showAlert }) => 
             <div className={css(style.item)} id="item">
                 <div className={style.body}>
                     <div className={style.image}>
-                        <img src={image} alt={name} id="item-image"></img>
+                        <AdvancedImage cldImg={myThumbnail} />
                     </div>
                     <div className={style.info}>
                         <div className={style.title}>
@@ -47,10 +60,10 @@ const ProductsCard = ({ onAdd, product, id, name, image, price, showAlert }) => 
     )
 }
 
-ProductsCard.defaultProps = {
+/* ProductsCard.defaultProps = {
     name: 'Product name',
     image: placeholderImage,
     price: 0
-}
+} */
 
 export default ProductsCard;
