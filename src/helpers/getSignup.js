@@ -1,6 +1,6 @@
 const newUser = async ({ uEmail, uName, uAddress, uPhone, uPassword }) => {
 
-    const url = `http://192.168.1.8:8000/api/auth/register/new`;
+    const url = `http://localhost:8000/api/auth/register/new`;
 
     const data = {
         email: uEmail,

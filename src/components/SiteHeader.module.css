@@ -7,7 +7,6 @@
     width: 100%;
     height: fit-content;
     min-height: 10rem;
-    max-height: fit-content;
     box-sizing: border-box;
     top: 0;
     left: 0;
@@ -21,6 +20,7 @@
 }
 
 .logo {
+    align-items: center;
     height: 50%;
     width: 100%;
     display: flex;
@@ -31,7 +31,10 @@
     background-color: transparent;
     border: none;
     color: var(--text-white);
+    cursor: pointer;
     transition: all .5s;
+    padding: 0;
+    width: fit-content;
 }
 
 .hidden {
@@ -46,16 +49,10 @@
     box-shadow: none;
     border-radius: 0;
     box-sizing: border-box;
-    transition: all .3s;
-    padding: .5rem 1rem;
+    gap: 1rem;
     inline-size: 100%;
+    justify-content: flex-start;
     margin: 0;
-    justify-content: start;
-}
-
-.show_cart:hover {
-    border-image: none;
-    border-right: solid 3px var(--primary-btn-hover-bg-color);
     transition: all .3s;
 }
 
@@ -65,54 +62,88 @@
     padding: .7rem;
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: fit-content;
+}
 
-.cartText {
-    color: var(--text-white);
-    margin-right: 1rem;
+.dropdown_body {
+    box-shadow: var(--shadow-box-2);
+    display: none;
+    min-width: 160px;
+    width: 100%;
+    height: fit-content;
+    margin-top: 1rem;
+    z-index: 1;
+}
+
+.dropdown_menu {
+    align-items: flex-start;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.dropdown_menu li {
+    text-align: left;
+    width: 100%;
+    border-bottom: solid 1px var(--border-grey-color);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1rem .5rem;
+}
+
+.dropdown_menu li button {
+    inline-size: 100%;
 }
 
 .menu {
     width: 100%;
     height: fit-content;
-    padding: .5rem;
-    margin: 0 auto;
 }
 
 .menu nav ul {
-    display: grid;
-    grid-template-columns: repeat(1, auto);
-    gap: 1rem;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .menu nav ul li {
-    text-align: left;
-    display: flex;
-    align-items: flex-start;
-    justify-content: start;
-    width: 100%;
     border-bottom: solid 1px var(--border-grey-color);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1rem .5rem;
 }
 
-.menu nav ul li a {
-    color: var(--body-bg-main-color);
-    padding: 0.5rem 1rem;
-    letter-spacing: 0pt;
+.menu nav ul li a,
+.menu nav ul li button,
+button {
     border-radius: .5rem;
+    color: var(--text-white);
+    cursor: pointer;
     font-family: 'Poppins', sans-serif;
-    font-weight: var(--light);
-    transition: all .5s;
-    white-space: nowrap;
+    font-weight: var(--medium);
+    font-size: 1.6rem;
     inline-size: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: left;
+    transition: all .5s;
+    white-space: nowrap;
 }
 
 .logout {
     background-color: transparent;
     border: none;
-    color: var(--body-bg-main-color);
-    cursor: pointer;
+    color: var(--text-white);
     font-family: 'Poppins', sans-serif;
     font-size: 1.6rem;
     font-weight: var(--light);
@@ -124,6 +155,44 @@
     text-overflow: ellipsis;
     text-align: left;
     transition: all .5s;
+}
+
+.categories_btn {
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+    width: 100%;
+    inline-size: 100%;
+    transition: all .3s;
+}
+
+.categories_btn span {
+    color: var(--text-white);
+    font-size: 2rem;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.menu nav ul li a:hover,
+button:hover,
+.show_cart:hover a {
+    color: var(--orange);
+    transition: all .3s;
 }
 
 @media (min-width: 768px) {
@@ -144,11 +213,45 @@
         width: 90%;
     }
 
+    .rotate {
+        transform: rotate(0deg);
+    }
+
     .logo {
         height: 100%;
         width: fit-content;
         display: flex;
         align-items: flex-start;
+    }
+
+    .dropdown_body {
+        box-shadow: var(--shadow-box-2);
+        display: none;
+        position: absolute;
+        margin-top: 0;
+        min-width: 160px;
+        width: fit-content;
+        z-index: 1;
+        
+    }
+    
+    .dropdown_menu {
+        background-color: var(--black);
+    }
+
+    .dropdown_menu div li {
+        text-align: left;
+        width: 100%;
+        float: left;
+    }
+
+    .dropdown_menu li a {
+        inline-size: 100%;
+        text-align: left;
+    }
+
+    .dropdown:hover .dropdown_body {
+        display: block;
     }
 
     .toggle {
@@ -157,6 +260,11 @@
 
     .hidden {
         display: block;
+    }
+
+    .show_cart {
+        justify-content: space-between;
+
     }
 
     .show_cart span {
@@ -188,36 +296,39 @@
     .menu {
         width: fit-content;
         height: 100%;
-        display: flex;
         margin: 0;
     }
 
     .menu nav ul {
-        display: grid;
-        grid-template-columns: repeat(4, auto);
-        column-gap: .5rem;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 1rem;
     }
 
-    .menu nav ul li {
-        text-align: center;
+    .menu nav ul li,
+    .menu nav ul div li {
+        align-items: flex-start;
+        border-bottom: none;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+        text-align: center;
     }
 
     .menu nav ul li a {
         color: var(--body-bg-main-color);
-        padding: 0.5rem 1rem;
-        letter-spacing: 1pt;
-        border-radius: .5rem;
-        font-family: 'Poppins', sans-serif;
-        font-weight: var(--light);
-        inline-size: auto;
+        inline-size: 100%;
     }
 
-    .menu nav ul li a:hover {
+    /* .menu nav ul li a:hover {
         background-color: var(--primary-btn-hover-bg-color);
         color: var(--headers-main-color);
         transition: all .5s;
     }
+
+    .menu nav ul li a:hover span {
+        color: var(--headers-main-color);
+        transition: all .5s;
+    } */
 }

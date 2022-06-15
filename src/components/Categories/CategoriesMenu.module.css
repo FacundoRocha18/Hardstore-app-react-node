@@ -1,8 +1,7 @@
 /* Products Categories */
 
 .container {
-    align-items: center;
-    background-color: transparent;
+    background-color: var(--black);
     border-radius: none;
     flex-direction: column;
     display: flex;
@@ -11,67 +10,17 @@
     z-index: 1000;
 }
 
-.flexWrapper {
-    display: flex;
-    justify-content: center;
-    height: fit-content;
-    min-width: 200px;
-    width: 100%;
-}
-
-.header p {
-    font-size: 1.7rem;
-    font-family: 'Poppins';
-    font-weight: var(--medium);
-    color: var(--text-white);
-}
-
-.buttonContainer {
-    align-items: flex-start;
-    display: flex;
-    justify-content: start;
-    width: 100%;
-}
-
-.button {
-    align-items: center;
-    background-color: transparent;
-    border: none;
-    border-radius: .5rem;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    height: fit-content;
-    padding: .5rem 1rem;
-    width: 100%;
-    transition: all .3s;
-}
-
-.button span {
-    color: var(--text-white);
-    font-size: 3rem;
-}
-
-.hide {
-    display: none;
-    transition: all 1s ease;
-}
-
-.show {
-    transition: all 1s ease;
-}
-
 .menu {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
-    overflow-x: visible;
-    margin: 2rem 0;
+    overflow-x: hidden;
+    margin: 0;
     width: 100%;
 }
 
 .menu li {
-    border-bottom: solid 1px var(--borders-main-color-blur);
+    border-bottom: solid 1px var(--text-white);
     padding: 1rem;
     margin: 0;
     text-align: left;
@@ -79,63 +28,36 @@
     width: 100%;
 }
 
-.menu li {
-    border-bottom: none;
-    margin: 0;
-    padding: 0;
-    text-align: left;
-    min-height: 3rem;
-}
-
 .menu a {
-    border-radius: .5rem;
+    border-radius: 0rem;
     cursor: pointer;
-    padding: .5rem 1rem;
     text-decoration: none;
     white-space: nowrap;
     inline-size: auto;
     overflow: hidden;
+    padding: 1rem 2rem;
     text-overflow: ellipsis;
     text-align: left;
     transition: all .3s;
 }
 
-.rotate {
-    transform: rotate(180deg) !important;
-}
+
 
 @media (min-width: 768px) {
 
     .container {
         align-items: center;
+        border: solid 1px var(--text-white);
         border-radius: none;
         display: flex;
         flex-direction: column;
         height: fit-content;
     }
 
-    .flexWrapper {
-        justify-content: space-between;
-        height: fit-content;
-        min-width: 200px;
-        width: fit-content;
-        padding: 1rem;
-    }
-
     .menu {
         flex-direction: column;
+        padding: 1rem;
     }
-
-    .menu a:hover {
-        background-color: var(--text-secondary-color);
-        transition: all .3s;
-    }
-
-    /* .button:hover {
-        background-color: var(--primary-btn-bg-color);
-        border: none;
-        transition: all .3s;
-    } */
 
 }
 

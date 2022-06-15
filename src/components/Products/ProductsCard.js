@@ -11,7 +11,7 @@ const ProductsCard = ({ onAdd, product, id, name, image, price, showAlert }) => 
 
 
     const handleAddButtonClicked = (e) => {
-        
+
         e.preventDefault();
 
         showAlert('Se añadió correctamente el producto al carrito', 'success', true);

@@ -6,8 +6,7 @@ import style from "./SiteHeader.module.css";
 import css from "classnames";
 
 /* Components -------------------------------- */
-import CategoriesMenu from './Categories/CategoriesMenu';
-
+import CategoriesMenu from './Categories/CategoriesMenu'
 
 const Header = ({ token, username, onLogout, categories }) => {
 
@@ -21,6 +20,16 @@ const Header = ({ token, username, onLogout, categories }) => {
 
         setToggle(!toggle);
         (!toggle) ? setIcon('close') : setIcon('menu');
+    }
+
+    const [show, setShow] = useState(null);
+
+    const [isClicked, setIsClicked] = useState(false);
+
+    const handleToggle = (e) => {
+        e.preventDefault();
+        setIsClicked(!isClicked);
+        return setShow(!show);
     }
 
     return (
@@ -39,11 +48,22 @@ const Header = ({ token, username, onLogout, categories }) => {
                         <nav>
                             <ul>
                                 <li><Link to={'/'}>Inicio</Link></li>
-                                <li>
-                                    <CategoriesMenu
-                                        categories={categories}
-                                    />
-                                </li>
+                                <div className={style.dropdown}>
+                                    <li>
+                                        <button className={style.categories_btn} onClick={(e) => handleToggle(e)}>
+
+                                            <div >
+                                                <p className='title-center'>Categorías</p>
+                                            </div>
+                                            <span className={css("material-icons-round", isClicked && style.rotate)}>
+                                                expand_more
+                                            </span>
+                                        </button>
+                                    </li>
+                                    <div className={css(style.dropdown_body, !show && style.hide, show && style.show)}>
+                                        <CategoriesMenu categories={categories} />
+                                    </div>
+                                </div>
                                 {
                                     !token && <li><Link to={'/api/auth/login'}>Login</Link></li>
                                 }
@@ -53,8 +73,8 @@ const Header = ({ token, username, onLogout, categories }) => {
                                 {
                                     token && <li><button type='submit' className={style.logout} onClick={onLogout}>Cerrar sesión</button></li>
                                 }
-                                <Link to={'api/products/shoppingCart'} className={css('btn', style.show_cart)}><p className={style.cartText}>Carrito</p><span className="material-icons-outlined">shopping_cart</span></Link>
-
+                                
+                                <li><Link to={'api/products/shoppingCart'} className={css('btn', style.show_cart)}><p className={style.cartText}>Carrito</p><span className="material-icons-outlined">shopping_cart</span></Link></li>
                             </ul>
                         </nav>
                     </div>
