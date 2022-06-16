@@ -1,18 +1,8 @@
 import React, { useState } from 'react';
 
-/* Custom Hooks -------------------------------- */
-import useAlert from '../hooks/useAlert'
-
-
 /* Components -------------------------------- */
 import ProductsGrid from './Products/ProductsGrid'
-import Alert from './Alerts/Alert'
-import CategoriesMenu from './Categories/CategoriesMenu';
-
-/* Third party components -------------------------------- */
-
-
-
+import Carousel from './Carousel/Carousel.jsx'
 
 const HomeScreen = ({ products, loading, onAdd, showAlert, categories }) => {
 
@@ -20,6 +10,9 @@ const HomeScreen = ({ products, loading, onAdd, showAlert, categories }) => {
         <>
 
             <div className="main-content-wrapper">
+                {
+                    <Carousel />
+                }
                 <div className='mb-2'>
                     <h1 className='title-center'>Productos</h1>
                 </div>
