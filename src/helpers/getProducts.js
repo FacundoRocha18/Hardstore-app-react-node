@@ -12,12 +12,15 @@ const getProducts = async() => {
         return {
             id: product.product_id,
             name: product.product_name,
-            image: product.product_thumbnail,
-            description: product.product_description,
+            image: product.product_image,
+            thumbnail: product.product_thumbnail,
+            banner: product.product_banner,
             price: product.product_price,
+            description: product.product_description,
             stock: product.product_stock,
             category_id: product.product_category_id,
-            category_name: product.product_category_name
+            category_name: product.product_category_name,
+            carousel: product.product_carousel
         }
         
     })

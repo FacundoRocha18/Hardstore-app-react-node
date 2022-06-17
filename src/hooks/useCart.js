@@ -1,15 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 /* Custom hooks */
-
-import useAlert from './useAlert'
 
 
 const useCart = () => {
 
     const [cartItems, setCartItems] = useState([]);
-
-    const { isShowing, setIsShowing } = useAlert();
 
     const onAdd = (product, QTY) => {
 
@@ -18,12 +14,10 @@ const useCart = () => {
         if (exist !== undefined) {
 
             setCartItems(cartItems.map((x) => x.id === product.id ? { ...exist, qty: exist.qty + QTY } : x))
-            setIsShowing(true);
 
         } else {
 
             setCartItems([...cartItems, { ...product, qty: QTY }])
-            setIsShowing(true);
 
         }
     }
@@ -73,7 +67,6 @@ const useCart = () => {
         onRemove: onRemove,
         onDelete: onDelete,
         onBuy: onBuy,
-        isShowing: isShowing
     })
 }
 

@@ -11,6 +11,11 @@ import ToastAlert from '../Alerts/Alert'
 import style from "./ProductScreen.module.css";
 import css from "classnames";
 
+/* Cloudinary -------------------------------- */
+import { AdvancedImage } from '@cloudinary/react';
+import { Cloudinary } from "@cloudinary/url-gen";
+import { fill, thumbnail } from "@cloudinary/url-gen/actions/resize";
+
 
 
 const ProductScreen = ({ onAdd, showAlert }) => {
@@ -40,6 +45,12 @@ const ProductScreen = ({ onAdd, showAlert }) => {
 
     const { titles, content } = getDescription(splitedDescription);
 
+    const cld = new Cloudinary({
+        cloud: {
+            cloudName: 'dhqgqznbw'
+        }
+    });
+
     const handleAdd = (qty) => {
 
         (qty < stock)
@@ -62,7 +73,7 @@ const ProductScreen = ({ onAdd, showAlert }) => {
     const handleAddToCart = (qty) => {
 
         onAdd(checkData(products, dataTemplate, id), qty);
-        showAlert('La cantidad fue aumentada exitosamente', 'success', true);
+        showAlert('La cantidad fue aumentada exitosamente', 'info', true);
     }
 
     return (
@@ -75,7 +86,7 @@ const ProductScreen = ({ onAdd, showAlert }) => {
                 <div className='main-content-wrapper'>
                     <div className={css(style.container)}>
                         <div className={style.image}>
-                            <img src={image} alt={name}></img>
+                            <AdvancedImage cldImg={cld.image(`e-commerce/images/${image}`)} />
                         </div>
                         <div className={style.body}>
                             <div className={style.title}>
@@ -115,17 +126,17 @@ const ProductScreen = ({ onAdd, showAlert }) => {
                                 <tbody>
                                     <tr >
                                         {
-                                            titles.map(element =>
+                                            titles.map((element, index) =>
 
-                                                <th><p>{element}:</p></th>
+                                                <th key={index}><p key={index}>{element}:</p></th>
                                             )
                                         }
                                     </tr>
                                     <tr>
                                         {
-                                            content.map(element =>
+                                            content.map((element, index) =>
 
-                                                <td><p>{element}</p></td>
+                                                <td key={index}><p key={index}>{element}</p></td>
                                             )
                                         }
                                     </tr>

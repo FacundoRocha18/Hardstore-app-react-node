@@ -7,11 +7,22 @@ import { Link } from 'react-router-dom';
 import style from "./ShoppingCartItem.module.css";
 import css from "classnames";
 
+/* Cloudinary -------------------------------- */
+import { AdvancedImage } from '@cloudinary/react';
+import { Cloudinary } from "@cloudinary/url-gen";
+import { fill } from "@cloudinary/url-gen/actions/resize";
+
 
 
 const ShoppingCartItem = ({ item, onAdd, onRemove, onDelete, showAlert }) => {
 
-  const { id, image, name, price, qty } = item;
+  const { id, thumbnail, name, price, qty } = item;
+
+  const cld = new Cloudinary({
+    cloud: {
+      cloudName: 'dhqgqznbw'
+    }
+  });
 
   const handleRemove = (e) => {
 
@@ -43,7 +54,7 @@ const ShoppingCartItem = ({ item, onAdd, onRemove, onDelete, showAlert }) => {
           <div className={style.column}>
             <div className={css(style.container, style.info)}>
               <div className={style.imageContainer}>
-                <img src={image} className="shopping-cart-image"></img>
+                <AdvancedImage cldImg={cld.image(`e-commerce/thumbnails/${thumbnail}`).resize(fill().width(500).height(500))} />
               </div>
               <div className={style.titleContainer}>
                 <Link to={`/api/products/product/${id}`} replace>

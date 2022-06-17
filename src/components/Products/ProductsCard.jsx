@@ -4,24 +4,20 @@ import { Link } from 'react-router-dom';
 /* Cloudinary -------------------------------- */
 import { AdvancedImage } from '@cloudinary/react';
 import { Cloudinary } from "@cloudinary/url-gen";
-import { fill } from "@cloudinary/url-gen/actions/resize";
+import { fill, thumbnail } from "@cloudinary/url-gen/actions/resize";
 
 /* Styles imports -------------------------------- */
 import style from "../Products/ProductsCard.module.css";
 import css from "classnames";
 
 
-const ProductsCard = ({ onAdd, product, id, name, image, price, showAlert }) => {
+const ProductsCard = ({ onAdd, product, id, name, thumbnail, price, showAlert }) => {
 
     const cld = new Cloudinary({
         cloud: {
             cloudName: 'dhqgqznbw'
         }
     });
-
-    const myThumbnail = cld.image(`e-commerce/${image}`);
-
-    myThumbnail.resize(fill().width(1000).height(1000));
 
     const handleAddButtonClicked = (e) => {
 
@@ -37,7 +33,7 @@ const ProductsCard = ({ onAdd, product, id, name, image, price, showAlert }) => 
             <div className={css(style.item)} id="item">
                 <div className={style.body}>
                     <div className={style.image}>
-                        <AdvancedImage cldImg={myThumbnail} />
+                        <AdvancedImage cldImg={cld.image(`e-commerce/thumbnails/${thumbnail}`).resize(fill().width(500).height(500))} />
                     </div>
                     <div className={style.info}>
                         <div className={style.title}>

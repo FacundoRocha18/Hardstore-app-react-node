@@ -1,23 +1,20 @@
-.carousel_container {
+.carousel{
     display: none;
 }
 
 @media (min-width: 768px) {
-
-    .carousel_container {
-        display: block;
-        margin-bottom: 5rem;
-        padding: 2rem;
-        width: 100%;
-    }
-
+    
     .carousel {
+        align-items: center;
+        border: solid 1px var(--black);
+        display: block;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         gap: 2rem;
-        height: 100%;
-        width: fit-content;
-        margin: 0 auto;
+        height: 550px;
+        position: relative;
+        width: 100%;
+        margin: 0 auto 5rem;
     }
 
     .carousel_button {
@@ -25,7 +22,8 @@
         display: flex;
         justify-content: center;
     }
-
+    
+    
     .carousel_button button {
         align-items: center;
         background: rgba(0, 0, 0, 0.30);
@@ -38,15 +36,37 @@
         display: flex;
         justify-content: center;
         padding: .7rem;
+        z-index: 10;
+        user-select: none;
+    }
+
+    .carousel_button button span {
+        font-size: 2.5rem;
+    }
+    
+    .prev_btn {
+        position: absolute;
+        top: 50;
+        left: 35px;
+    }
+
+    .next_btn {
+        position: absolute;
+        top: 50;
+        right: 35px;
     }
 
     .carousel_images {
-        border: solid 1px var(--black);
-        display: flex;
+        width: 1000px;
         overflow-x: hidden;
-        justify-content: space-between;
+    }
+    
+    .carousel_images ul {
+        display: flex;
         width: fit-content;
-        max-width: 2000px;
+        height: fit-content;
+        max-width: 4000px;
+        overflow-x: hidden;
     }
 
     .carousel_thumbnails {
@@ -60,6 +80,17 @@
     .carousel_thumbnails button {
         border: solid 1px var(--black);
         cursor: pointer;
+    }
+
+    .slide {
+        opacity: 0;
+        transition-duration: 1s ease;
+    }
+
+    .slide.active {
+        opacity: 1;
+        transition-duration: 1s;
+        transform: scale(1);
     }
 
 }

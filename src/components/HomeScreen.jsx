@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 /* Components -------------------------------- */
 import ProductsGrid from './Products/ProductsGrid'
@@ -11,7 +11,7 @@ const HomeScreen = ({ products, loading, onAdd, showAlert, categories }) => {
 
             <div className="main-content-wrapper">
                 {
-                    <Carousel />
+                    <Carousel items={products}/>
                 }
                 <div className='mb-2'>
                     <h1 className='title-center'>Productos</h1>
