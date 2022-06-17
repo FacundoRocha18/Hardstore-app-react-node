@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
 
@@ -18,9 +18,9 @@ const Carousel = ({ items }) => {
 
   const [current, setCurrent] = useState(0);
 
-  const validatedItems = filterItems(items);
+  const slider_data = filterItems(items);
 
-  const totalItems = validatedItems.length;
+  const items_lenght = slider_data.length;
 
   const cld = new Cloudinary({
     cloud: {
@@ -28,23 +28,50 @@ const Carousel = ({ items }) => {
     }
   });
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNextSlide()
+    }, 5000)
+  
+    return () => {
+      clearInterval(interval);
+    }
+  })
+
+  // Si el índice del elemento actual del slider es igual a 0, le resta 1 al largo de la lista de items,
+  // sino le resta 1 al índice del elemento actual para mostrar la imagen anterior
+
   const handlePrevSlide = () => {
 
-    setCurrent(current === 0 ? totalItems - 1 : current - 1)
+    setCurrent(current === 0 ? items_lenght - 1 : current - 1)
 
   }
+
+  // Si el índice de la imagen actual del slider es igual al largo de la lista de imagenes -1
+  // la siguiente imagen va a ser la que tiene valor 0,
+  // sino le suma 1 al índice del elemento actual para mostrar la siguiente imagen 
 
   const handleNextSlide = () => {
 
-    setCurrent(current === totalItems - 1 ? 0 : current + 1)
+    setCurrent(current === items_lenght - 1 ? 0 : current + 1)
 
   }
 
-  if (!Array.isArray(validatedItems) || validatedItems.length <= 0) {
+  // Asigna el valor del índice del elemento actual de la lista de indicadores del slider
+  // a el índice de imagenes del slider  
+
+  const handleIndicatorClick = (index) => {
+    setCurrent(index);
+  }
+
+  // Si la lista de imagenes que devuelve la función filterItems()
+  // no es un array o la lista está vacía, devuelve el componente LoadingScreen
+  // hasta que la lista deje de estar vacía 
+
+  if (!Array.isArray(slider_data) || slider_data.length <= 0) {
     return (
       <>
         <LoadingScreen />
-        <div className='title-center'>No items</div>
       </>
     )
   }
@@ -63,12 +90,12 @@ const Carousel = ({ items }) => {
         <div className={style.carousel_images}>
           <ul>
             {
-              validatedItems.map((item, index) => (
+              slider_data.map((item, index) => (
                 <li className={index === current ? css(style.slide, style.active) : style.slide} key={index}>
                   {
                     index === current && (
                       <Link to={`api/products/product/${item.id}`}>
-                        <AdvancedImage cldImg={cld.image(`e-commerce/banners/${item.banner}`).resize(fill().width(1000).height(500))} />                      
+                        <AdvancedImage cldImg={cld.image(`e-commerce/banners/${item.banner}`).resize(fill().width(1000).height(500))} />
                       </Link>
                     )
                   }
@@ -84,10 +111,23 @@ const Carousel = ({ items }) => {
             </span>
           </button>
         </div>
+        <div className={style.carousel_indicator}>
+          {
+            slider_data.map((item, index) => (
+              <button onClick={() => handleIndicatorClick(index)} className={index === current ? css(style.indicator, style.active) : style.indicator} key={index}></button>
+            ))
+          }
+        </div>
       </section>
     </>
   )
 }
+
+// Filtra los productos para saber cuales van al slider y cuales no,
+// si el valor "carousel" del producto es igual a 1 significa que es verdadero
+// y asigna ese producto al arreglo "carouselItems"
+// si el valor "carousel" es igual a 0 no agrega ese producto a la lista
+// y lo retorna para poder usarlo en una variable
 
 const filterItems = (items) => {
   let carouselItems = [];
