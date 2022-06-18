@@ -14,13 +14,13 @@ import { AdvancedImage } from '@cloudinary/react';
 import { Cloudinary } from "@cloudinary/url-gen";
 import { fill } from "@cloudinary/url-gen/actions/resize";
 
-const Carousel = ({ items }) => {
+const Carousel = ({ items, image_path, image_width, image_height }) => {
 
   const [current, setCurrent] = useState(0);
 
   const slider_data = filterItems(items);
 
-  const items_lenght = slider_data.length;
+  const slider_lenght = slider_data.length;
 
   const cld = new Cloudinary({
     cloud: {
@@ -43,7 +43,7 @@ const Carousel = ({ items }) => {
 
   const handlePrevSlide = () => {
 
-    setCurrent(current === 0 ? items_lenght - 1 : current - 1)
+    setCurrent(current === 0 ? slider_lenght - 1 : current - 1)
 
   }
 
@@ -53,7 +53,7 @@ const Carousel = ({ items }) => {
 
   const handleNextSlide = () => {
 
-    setCurrent(current === items_lenght - 1 ? 0 : current + 1)
+    setCurrent(current === slider_lenght - 1 ? 0 : current + 1)
 
   }
 
@@ -95,7 +95,7 @@ const Carousel = ({ items }) => {
                   {
                     index === current && (
                       <Link to={`api/products/product/${item.id}`}>
-                        <AdvancedImage cldImg={cld.image(`e-commerce/banners/${item.banner}`).resize(fill().width(1000).height(500))} />
+                        <AdvancedImage cldImg={cld.image(`${image_path}${item.banner}`).resize(fill().width(image_width).height(image_height))} />
                       </Link>
                     )
                   }

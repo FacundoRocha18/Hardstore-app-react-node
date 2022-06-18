@@ -110,8 +110,8 @@
         background-color: var(--black);
         border: solid 1px var(--black);
         cursor: pointer;
-        width: 8px;
-        height: 8px;
+        width: 10px;
+        height: 10px;
         border-radius: 5rem;
         transition: all .3s;
     }
@@ -119,8 +119,8 @@
     .indicator.active {
         background-color: var(--orange);
         border: solid 1px var(--black);
-        width: 10px;
-        height: 10px;
+        width: 13px;
+        height: 13px;
         transition: all .3s;
     }
 

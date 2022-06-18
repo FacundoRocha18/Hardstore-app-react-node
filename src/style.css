@@ -131,7 +131,7 @@ body {
     font-family: 'Questrial', sans-serif;
     background-color: var(--body-bg-main-color);
     width: 100%;
-    height: fit-content;
+    height: 100%;
     color: var(--text-main-color);
     font-size: 1.6rem;
     padding: 0;
@@ -225,6 +225,9 @@ body {
     top: 0;
     left: 0;
     width: 100%;
+    height: fit-content;
+    min-height: 100%;
+
 }
 
 .website-logo {

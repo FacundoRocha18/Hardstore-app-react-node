@@ -5,7 +5,7 @@ import { useParams, Link } from 'react-router-dom';
 import useFetchProducts from '../../hooks/useFetchProducts'
 
 /* Components -------------------------------- */
-import ToastAlert from '../Alerts/Alert'
+import Slider from '../Carousel/Carousel'
 
 /* Styles imports -------------------------------- */
 import style from "./ProductScreen.module.css";
@@ -86,7 +86,8 @@ const ProductScreen = ({ onAdd, showAlert }) => {
                 <div className='main-content-wrapper'>
                     <div className={css(style.container)}>
                         <div className={style.image}>
-                            <AdvancedImage cldImg={cld.image(`e-commerce/images/${image}`)} />
+{/*                             <Slider  images={image} image_path={'e-commerce/images/'} image_height={500} image_width={500} />
+ */}                            <AdvancedImage cldImg={cld.image(`e-commerce/images/${image}`)} />
                         </div>
                         <div className={style.body}>
                             <div className={style.title}>
