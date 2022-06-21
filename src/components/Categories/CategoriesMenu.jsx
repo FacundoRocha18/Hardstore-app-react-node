@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 /* Styles imports -------------------------------- */
 import style from "./CategoriesMenu.css";
-import css from "classnames";
 
 /* Components -------------------------------- */
 import CategoriesItem from './CategoriesItem';

@@ -2,11 +2,10 @@ import React from 'react'
 
 /* Components -------------------------------- */
 import ProductsCard from './ProductsCard';
+import LoadingScreen from '../LoadingScreen';
 
 /* Styles imports -------------------------------- */
 import style from "./ProductsGrid.css";
-import css from "classnames";
-import LoadingScreen from '../LoadingScreen';
 
 const ProductsGrid = ({ products, loading, onAdd, showAlert }) => {
 

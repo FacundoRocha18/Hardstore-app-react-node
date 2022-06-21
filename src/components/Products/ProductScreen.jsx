@@ -5,7 +5,6 @@ import { useParams, Link } from 'react-router-dom';
 import useFetchProducts from '../../hooks/useFetchProducts'
 
 /* Components -------------------------------- */
-import Slider from '../Carousel/Carousel'
 
 /* Styles imports -------------------------------- */
 import style from "./ProductScreen.css";
@@ -14,9 +13,6 @@ import css from "classnames";
 /* Cloudinary -------------------------------- */
 import { AdvancedImage } from '@cloudinary/react';
 import { Cloudinary } from "@cloudinary/url-gen";
-import { fill, thumbnail } from "@cloudinary/url-gen/actions/resize";
-
-
 
 const ProductScreen = ({ onAdd, showAlert }) => {
 
@@ -86,8 +82,7 @@ const ProductScreen = ({ onAdd, showAlert }) => {
                 <div className='main-content-wrapper'>
                     <div className={css(style.container)}>
                         <div className={style.image}>
-{/*                             <Slider  images={image} image_path={'e-commerce/images/'} image_height={500} image_width={500} />
- */}                            <AdvancedImage cldImg={cld.image(`e-commerce/images/${image}`)} />
+                            <AdvancedImage cldImg={cld.image(`e-commerce/images/${image}`)} />
                         </div>
                         <div className={style.body}>
                             <div className={style.title}>

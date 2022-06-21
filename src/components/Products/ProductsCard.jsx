@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 /* Cloudinary -------------------------------- */
 import { AdvancedImage } from '@cloudinary/react';
 import { Cloudinary } from "@cloudinary/url-gen";
-import { fill, thumbnail } from "@cloudinary/url-gen/actions/resize";
+import { fill } from "@cloudinary/url-gen/actions/resize";
 
 /* Styles imports -------------------------------- */
 import style from "./ProductsCard.css";

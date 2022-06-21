@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 /* Styles imports */
 import style from "./Alert.css";
 import css from "classnames";
 
 
-const Alert = ({ children, type, message, isShowing, onClose }) => {
+const Alert = ({ children, type, message, onClose }) => {
 
     const renderAlert = function () {
         return React.cloneElement(children);
