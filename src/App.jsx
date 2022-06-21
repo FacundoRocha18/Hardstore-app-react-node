@@ -15,7 +15,6 @@ import useCart from './hooks/useCart';
 import useAuth from './hooks/useAuth';
 import useAlert from './hooks/useAlert';
 
-
 /* Components -------------------------------- */
 import Header from './components/SiteHeader';
 import Alert from './components/Alerts/Alert'

@@ -1,6 +1,9 @@
 const newUser = async ({ uEmail, uName, uAddress, uPhone, uPassword }) => {
 
-    const url = `http://206.246.74.221:8080/auth/register/new`;
+
+    const HOST = '206.246.74.221' || 'localhost'
+
+    const url = `http://${HOST}:8080/auth/register/new`;
 
     const data = {
         email: uEmail,
