@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 /* Styles imports -------------------------------- */
-import style from "./CategoriesMenu.module.css";
+import style from "./CategoriesMenu.css";
 import css from "classnames";
 
 /* Components -------------------------------- */

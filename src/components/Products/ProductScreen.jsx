@@ -8,7 +8,7 @@ import useFetchProducts from '../../hooks/useFetchProducts'
 import Slider from '../Carousel/Carousel'
 
 /* Styles imports -------------------------------- */
-import style from "./ProductScreen.module.css";
+import style from "./ProductScreen.css";
 import css from "classnames";
 
 /* Cloudinary -------------------------------- */

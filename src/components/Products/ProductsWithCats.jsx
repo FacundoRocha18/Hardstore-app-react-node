@@ -8,7 +8,7 @@ import useFetchProducts from '../../hooks/useFetchProducts';
 import ProductsCard from './ProductsCard';
 
 /* Styles imports -------------------------------- */
-import style from "./ProductsGrid.module.css";
+import style from "./ProductsGrid.css";
 import css from "classnames";
 
 const ProductsWithCats = ({ onAdd, showAlert }) => {

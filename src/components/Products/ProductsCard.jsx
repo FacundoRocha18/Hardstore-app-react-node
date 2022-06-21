@@ -7,7 +7,7 @@ import { Cloudinary } from "@cloudinary/url-gen";
 import { fill, thumbnail } from "@cloudinary/url-gen/actions/resize";
 
 /* Styles imports -------------------------------- */
-import style from "./ProductsCard.module.css";
+import style from "./ProductsCard.css";
 import css from "classnames";
 
 

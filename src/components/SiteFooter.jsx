@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 /* Styles imports */
-import style from "./SiteFooter.module.css";
+import style from "./SiteFooter.css";
 import css from "classnames";
 
 

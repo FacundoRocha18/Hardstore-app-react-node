@@ -4,7 +4,7 @@ import React from 'react'
 import ProductsCard from './ProductsCard';
 
 /* Styles imports -------------------------------- */
-import style from "./ProductsGrid.module.css";
+import style from "./ProductsGrid.css";
 import css from "classnames";
 import LoadingScreen from '../LoadingScreen';
 

@@ -13,7 +13,7 @@ import ShoppingCartItem from './ShoppingCartItem'
 /* Custom Hooks -------------------------------- */
 
 /* Styles imports -------------------------------- */
-import style from "./ShoppingCart.module.css";
+import style from "./ShoppingCart.css";
 import css from "classnames";
 
 

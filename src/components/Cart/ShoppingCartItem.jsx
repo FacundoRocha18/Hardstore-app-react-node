@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 /* Styles imports -------------------------------- */
-import style from "./ShoppingCartItem.module.css";
+import style from "./ShoppingCartItem.css";
 import css from "classnames";
 
 /* Cloudinary -------------------------------- */

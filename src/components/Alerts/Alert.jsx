@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 
 /* Styles imports */
-import style from "./Alert.module.css";
+import style from "./Alert.css";
 import css from "classnames";
 
 

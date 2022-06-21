@@ -1,7 +1,7 @@
 import React from 'react'
 
 /* Styles imports -------------------------------- */
-import style from "./LoadingScreen.module.css";
+import style from "./LoadingScreen.css";
 
 const LoadingScreen = () => {
     return (
