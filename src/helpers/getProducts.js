@@ -1,7 +1,7 @@
 
 const getProducts = async() => {
 
-    const url = `http://localhost:8000/`;
+    const url = `http://206.246.74.221:8080/`;
     const response = await fetch( url );
     const { data } = await response.json();
 

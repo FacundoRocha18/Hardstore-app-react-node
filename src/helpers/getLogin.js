@@ -1,7 +1,7 @@
 
 const loginUser = async (uEmail, uPassword) => {
 
-    const url = `http://localhost:8000/api/auth/login`;
+    const url = `http://206.246.74.221:8080/api/auth/login`;
 
     const data = {
         uEmail: uEmail,
