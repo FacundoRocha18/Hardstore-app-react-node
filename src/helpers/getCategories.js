@@ -1,9 +1,7 @@
 
 const getCategories = async() => {
 
-    const HOST = 'api.hardstore.store'
-
-    const url = `https://${HOST}/`;
+    const url = `https://api.hardstore.store/`;
 
     const response = await fetch( url );
     const { data } = await response.json();

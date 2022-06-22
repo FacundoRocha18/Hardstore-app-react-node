@@ -1,9 +1,7 @@
 
 const loginUser = async (uEmail, uPassword) => {
 
-    const HOST = 'api.hardstore.store';
-
-    const url = `https://${HOST}/api/auth/login`;
+    const url = `https://api.hardstore.store/api/auth/login`;
 
     const data = {
         uEmail: uEmail,
