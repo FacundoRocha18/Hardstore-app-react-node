@@ -18,7 +18,7 @@ const Carousel = ({ items, image_path, image_width, image_height, showAlert }) =
 
   const [current, setCurrent] = useState(0);
 
-  const slider_data = filterItems(items);
+  const slider_data = filterItems(items, showAlert);
 
   const slider_lenght = slider_data.length;
 
@@ -129,7 +129,7 @@ const Carousel = ({ items, image_path, image_width, image_height, showAlert }) =
 // si el valor "carousel" es igual a 0 no agrega ese producto a la lista
 // y lo retorna para poder usarlo en una variable
 
-const filterItems = (items) => {
+const filterItems = (items, alert) => {
   let carouselItems = [];
 
   if (items.lenght === 0) {
