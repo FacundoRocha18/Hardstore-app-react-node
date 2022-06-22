@@ -12,7 +12,7 @@ const HomeScreen = ({ products, loading, onAdd, showAlert, categories }) => {
 
             <div className="main-content-wrapper">
                 {
-                    <Carousel items={products} image_path={'e-commerce/banners/'} image_height={500} image_width={1000} />
+                    <Carousel items={products} image_path={'e-commerce/banners/'} image_height={500} image_width={1000} showAlert={showAlert} />
                 }
                 <div className='mb-2'>
                     <h1 className='title-center'>Productos</h1>

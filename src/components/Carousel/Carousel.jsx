@@ -14,7 +14,7 @@ import { AdvancedImage } from '@cloudinary/react';
 import { Cloudinary } from "@cloudinary/url-gen";
 import { fill } from "@cloudinary/url-gen/actions/resize";
 
-const Carousel = ({ items, image_path, image_width, image_height }) => {
+const Carousel = ({ items, image_path, image_width, image_height, showAlert }) => {
 
   const [current, setCurrent] = useState(0);
 
@@ -32,7 +32,7 @@ const Carousel = ({ items, image_path, image_width, image_height }) => {
     const interval = setInterval(() => {
       handleNextSlide()
     }, 5000)
-  
+
     return () => {
       clearInterval(interval);
     }
@@ -132,12 +132,15 @@ const Carousel = ({ items, image_path, image_width, image_height }) => {
 const filterItems = (items) => {
   let carouselItems = [];
 
+  if (items.lenght === 0) {
+    return showAlert('No hay items', 'error', true);
+  }
+  
   items.map((item) => {
     if (item.carousel === 1) {
       return carouselItems.push(item);
     }
   })
-
   return carouselItems;
 }
 
