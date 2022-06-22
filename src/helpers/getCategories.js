@@ -1,11 +1,10 @@
 
 const getCategories = async() => {
 
-    const HOST = 'api.hardstore.store' || 'localhost'
+    const HOST = 'api.hardstore.store'
 
-    const PROTOCOL = 'https' || 'http';
+    const url = `https://${HOST}/`;
 
-    const url = `${PROTOCOL}://${HOST}/`;
     const response = await fetch( url );
     const { data } = await response.json();
 

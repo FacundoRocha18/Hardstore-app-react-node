@@ -3,9 +3,7 @@ const getProducts = async() => {
 
     const HOST = 'api.hardstore.store';
 
-    const PROTOCOL = 'https';
-
-    const url = `${PROTOCOL}://${HOST}/`;
+    const url = `https://${HOST}/`;
 
     const response = await fetch( url );
     const { data } = await response.json();
