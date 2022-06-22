@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import LoadingScreen from '../LoadingScreen';
 
 /* Styles imports -------------------------------- */
-import style from "./Carousel.css";
+import style from "./Carousel.module.css";
 import css from "classnames";
 
 /* Cloudinary -------------------------------- */

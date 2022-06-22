@@ -1,7 +1,7 @@
 import React from "react";
 
 /* Styles imports */
-import style from "./SiteFooter.css";
+import style from "./SiteFooter.module.css";
 import css from "classnames";
 
 

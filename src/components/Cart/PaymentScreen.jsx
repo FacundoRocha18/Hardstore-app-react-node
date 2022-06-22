@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 /* Styles imports */
-import style from "./PaymentScreen.css";
+import style from "./PaymentScreen.module.css";
 import css from "classnames";
 
 const PaymentScreen = () => {

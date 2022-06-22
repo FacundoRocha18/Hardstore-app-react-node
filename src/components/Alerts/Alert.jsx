@@ -1,7 +1,7 @@
 import React from 'react'
 
 /* Styles imports */
-import style from "./Alert.css";
+import style from "./Alert.module.css";
 import css from "classnames";
 
 

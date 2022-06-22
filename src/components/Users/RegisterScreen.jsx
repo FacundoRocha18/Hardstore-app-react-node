@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import newUser from '../../helpers/getSignup'
 
 /* Styles imports -------------------------------- */
-import style from "./RegisterScreen.css";
+import style from "./RegisterScreen.module.css";
 import css from "classnames";
 
 const RegisterScreen = ({ setRedirect, showAlert }) => {

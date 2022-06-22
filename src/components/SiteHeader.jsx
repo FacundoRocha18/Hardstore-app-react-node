@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
 /* Styles imports */
-import style from "./SiteHeader.css";
+import style from "./SiteHeader.module.css";
 import css from "classnames";
 
 /* Components -------------------------------- */

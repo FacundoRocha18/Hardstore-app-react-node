@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import LoadingScreen from '../LoadingScreen';
 
 /* Styles imports -------------------------------- */
-import style from "./LoginScreen.css";
+import style from "./LoginScreen.module.css";
 import css from "classnames";
 
 

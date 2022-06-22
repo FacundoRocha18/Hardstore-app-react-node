@@ -1,7 +1,7 @@
 import React from 'react'
 
 /* Styles imports -------------------------------- */
-import style from "./CategoriesMenu.css";
+import style from "./CategoriesMenu.module.css";
 
 /* Components -------------------------------- */
 import CategoriesItem from './CategoriesItem';

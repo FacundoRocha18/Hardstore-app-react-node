@@ -7,7 +7,7 @@ import useFetchProducts from '../../hooks/useFetchProducts'
 /* Components -------------------------------- */
 
 /* Styles imports -------------------------------- */
-import style from "./ProductScreen.css";
+import style from "./ProductScreen.module.css";
 import css from "classnames";
 
 /* Cloudinary -------------------------------- */
