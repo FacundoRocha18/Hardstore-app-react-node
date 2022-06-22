@@ -133,7 +133,7 @@ const filterItems = (items, alert) => {
   let carouselItems = [];
 
   if (items.lenght === 0) {
-    return showAlert('No hay items', 'error', true);
+    return alert('No hay items', 'error', true);
   }
   
   items.map((item) => {
