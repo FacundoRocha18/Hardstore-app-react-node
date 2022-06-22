@@ -1,9 +1,11 @@
 
 const loginUser = async (uEmail, uPassword) => {
 
-    const HOST = '206.246.74.221' || 'localhost'
+    const HOST = 'api.hardstore.store' || 'localhost'
 
-    const url = `http://${HOST}:8080/api/auth/login`;
+    const PROTOCOL = 'https' || 'http';
+
+    const url = `${PROTOCOL}://${HOST}/api/auth/login`;
 
     const data = {
         uEmail: uEmail,
