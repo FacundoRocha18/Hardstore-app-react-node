@@ -3,9 +3,18 @@ import React from 'react';
 /* Components -------------------------------- */
 import ProductsGrid from './Products/ProductsGrid'
 import Carousel from './Carousel/Carousel.jsx'
+import Loading from './LoadingScreen'
 
 
-const HomeScreen = ({ products, loading, onAdd, showAlert, categories }) => {
+const HomeScreen = ({ products, loading, onAdd, showAlert }) => {
+
+    if (loading) {
+        return (
+            <>
+                <Loading />
+            </>
+        )
+    }
 
     return (
         <>

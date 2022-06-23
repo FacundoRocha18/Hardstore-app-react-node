@@ -9,7 +9,7 @@
     position: fixed;
     margin: 10rem auto;
     transition: all .3s;
-    width: fit-content;
+    width: 100%;
     z-index: 1000;
 }
 
@@ -109,6 +109,7 @@
     .alert {
         right: 20px;
         top: 20px;
+        width: fit-content;
     }
 }
 

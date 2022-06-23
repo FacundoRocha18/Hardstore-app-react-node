@@ -4,6 +4,7 @@
     margin: 20rem auto;
     padding: 4rem;
     width: fit-content;
+    max-width: 100%;
 }
 
 .container form {
@@ -78,7 +79,7 @@
     align-items: center;
     display: flex;
     justify-content: space-between;
-    min-width: 35rem;
+    width: fit-content;
 }
 
 .passwordLink {

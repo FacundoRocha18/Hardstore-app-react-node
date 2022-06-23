@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
-
 /* Components -------------------------------- */
-import LoadingScreen from '../LoadingScreen';
 
 /* Styles imports -------------------------------- */
 import style from "./Carousel.module.css";
@@ -68,14 +66,14 @@ const Carousel = ({ items, image_path, image_width, image_height, showAlert }) =
   // no es un array o la lista está vacía, devuelve el componente LoadingScreen
   // hasta que la lista deje de estar vacía 
 
-  if (!Array.isArray(slider_data) || slider_data.length <= 0) {
+  /* if (!Array.isArray(slider_data) || slider_data.length <= 0) {
     return (
       <>
         <LoadingScreen />
       </>
     )
   }
-
+ */
 
   return (
     <>

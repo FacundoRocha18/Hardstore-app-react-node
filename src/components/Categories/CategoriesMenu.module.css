@@ -22,7 +22,7 @@
 
 .menu li {
     border-bottom: solid 1px var(--text-white);
-    padding: 1rem;
+    padding: .5rem;
     margin: 0;
     text-align: left;
     transition: all .3s;
@@ -36,7 +36,7 @@
     white-space: nowrap;
     inline-size: auto;
     overflow: hidden;
-    padding: 1rem 2rem;
+    padding: 0rem 1rem;
     text-overflow: ellipsis;
     text-align: left;
     transition: all .3s;

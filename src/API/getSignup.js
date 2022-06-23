@@ -1,7 +1,7 @@
 const newUser = async ({ uEmail, uName, uAddress, uPhone, uPassword }) => {
 
 
-    const url = `https://api.hardstore.store/auth/register/new`;
+    const url = `https://api.hardstore.store/api/auth/register/new`;
 
     const data = {
         email: uEmail,

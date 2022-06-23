@@ -1,9 +1,9 @@
-.carousel{
+.carousel {
     display: none;
 }
 
 @media (min-width: 768px) {
-    
+
     .carousel {
         align-items: center;
         display: block;
@@ -21,8 +21,8 @@
         display: flex;
         justify-content: center;
     }
-    
-    
+
+
     .carousel_button button {
         align-items: center;
         background: rgba(0, 0, 0, 0.30);
@@ -35,14 +35,20 @@
         display: flex;
         justify-content: center;
         padding: .7rem;
-        z-index: 10;
         user-select: none;
+        transition-duration: .5s;
+        z-index: 10;
+    }
+
+    .carousel_button button:hover {
+        padding: 1rem;
+        transition-duration: .5s;
     }
 
     .carousel_button button span {
         font-size: 2.5rem;
     }
-    
+
     .prev_btn {
         position: absolute;
         top: 50;
@@ -59,26 +65,14 @@
         overflow-x: hidden;
         width: 1000px;
     }
-    
+
     .carousel_images ul {
         display: flex;
         width: fit-content;
         height: fit-content;
         max-width: 4000px;
         overflow-x: hidden;
-    }
-
-    .carousel_thumbnails {
-        display: flex;
-        justify-content: space-between;
-        gap: 2rem;
-        width: 1000px;
-        margin: 2rem auto 0;
-    }
-
-    .carousel_thumbnails button {
-        border: solid 1px var(--black);
-        cursor: pointer;
+        overflow: hidden;
     }
 
     .slide {
@@ -88,8 +82,13 @@
 
     .slide.active {
         opacity: 1;
-        transition-duration: 1s;
         transform: scale(1);
+        transition-duration: 1s;
+    }
+
+    .slide.active:hover {
+        transform: scale(1.05);
+        transition-duration: 1s;
     }
 
     .carousel_indicator {

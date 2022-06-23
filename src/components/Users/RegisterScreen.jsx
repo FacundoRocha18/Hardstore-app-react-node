@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-/* Helpers -------------------------------- */
-import newUser from '../../helpers/getSignup'
+/* Fetch API -------------------------------- */
+import newUser from '../../API/getSignup'
 
 /* Styles imports -------------------------------- */
 import style from "./RegisterScreen.module.css";
@@ -68,12 +68,16 @@ const RegisterScreen = ({ setRedirect, showAlert }) => {
 
         e.preventDefault();
 
+        /* if (validateEmail(userData.uEmail)) {
+            return showAlert('El email tiene caracteres inválidos', 'error', true);
+        } */
+
         try {
             const { ok, message } = await newUser(userData);
 
             (ok) ? showAlert(message, 'info', true) : showAlert(message, 'error', true);
         } catch (error) {
-            return showAlert('Ocurrió un error ' + error, 'error', true)
+            return showAlert('Ocurrió un error', 'error', true)
         }
 
         setTimeout(() => setRedirect(true), 500);
@@ -118,5 +122,19 @@ const RegisterScreen = ({ setRedirect, showAlert }) => {
         </>
     )
 }
+
+/* const validateEmail = (email) => {
+
+    const validChars = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+
+    for (let i = 0; i <= email.length; i++) {
+        if (validChars.test(email)) {
+            console.log(validChars.test(email))
+            return true
+        }
+    }
+
+    return false
+} */
 
 export default RegisterScreen;

@@ -71,9 +71,9 @@ const ShoppingCartItem = ({ item, onAdd, onRemove, onDelete, showAlert }) => {
           <div className={style.column}>
             <div className={style.container}>
               <div className={style.quantityContainer}>
-                <div className={css(style.quantityBtn, style.down)} onClick={(e) => handleRemove(e)}><span>-</span></div>
+                <button className={css(style.quantityBtn, style.down)} onClick={(e) => handleRemove(e)}><p>-</p></button>
                 <input className={style.qtyInput} type="number" value={qty} min="1" max="101" onChange={() => qty}></input>
-                <div className={css(style.quantityBtn, style.up)} onClick={(e) => handleAdd(e)}><span>+</span></div>
+                <button className={css(style.quantityBtn, style.up)} onClick={(e) => handleAdd(e)}><p>+</p></button>
               </div>
               <div className={style.removeButtonContainer}>
                 <button className="btn btn-danger remove-item-btn" type="button" onClick={(e) => handleDelete(e)}><span className="material-icons-outlined">close</span></button>

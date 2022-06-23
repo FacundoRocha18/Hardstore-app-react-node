@@ -4,12 +4,13 @@
     background-color: var(--headers-main-color);
     border-bottom: solid 1px var(--primary-btn-bg-color);
     position: fixed;
-    width: 100%;
     height: fit-content;
-    min-height: 10rem;
+    left: 0;
+    min-height: fit-content;
     box-sizing: border-box;
     top: 0;
-    left: 0;
+    max-width: 100%;
+    width: 100%;
     z-index: 1000;
     transition: all .5s;
 }
@@ -95,7 +96,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 1rem .5rem;
+    padding: .5rem;
 }
 
 .dropdown_menu li button {
