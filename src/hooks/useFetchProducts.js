@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import getProducts from '../helpers/getProducts';
+import getProducts from '../API/getProducts';
 
 const useFetchProducts = () => {
     

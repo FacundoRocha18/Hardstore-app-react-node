@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import getCategories from '../helpers/getCategories';
+import getCategories from '../API/getCategories';
 
 const useCats = () => {
     

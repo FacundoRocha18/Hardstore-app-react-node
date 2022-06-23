@@ -6,7 +6,7 @@ import useToken from './useToken';
 import useName from './useName';
 
 /* Helpers -------------------------------- */
-import loginUser from '../helpers/getLogin';
+import loginUser from '../API/getLogin';
 
 
 const useAuth = () => {
