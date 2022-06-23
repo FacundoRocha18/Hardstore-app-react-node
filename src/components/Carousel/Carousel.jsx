@@ -93,7 +93,7 @@ const Carousel = ({ items, image_path, image_width, image_height, showAlert }) =
                   {
                     index === current && (
                       <Link to={`api/products/product/${item.id}`}>
-                        <AdvancedImage cldImg={cld.image(`${image_path}${item.banner}`).resize(fill().width(image_width).height(image_height))} />
+                        <AdvancedImage cldImg={cld.image(`${image_path}${item.banner || 'banner_placeholder'}`).resize(fill().width(image_width).height(image_height))} />
                       </Link>
                     )
                   }

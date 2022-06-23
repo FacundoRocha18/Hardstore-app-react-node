@@ -47,6 +47,13 @@
     flex-direction: column;
 }
 
+.buttons_container {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    width: 100%;
+}
+
 
 .qtyInput {
     width: 50%;

@@ -34,15 +34,15 @@
         cursor: pointer;
         display: flex;
         justify-content: center;
-        padding: .7rem;
+        padding: 1rem;
         user-select: none;
-        transition-duration: .5s;
+        transition-duration: .3s;
         z-index: 10;
     }
 
     .carousel_button button:hover {
-        padding: 1rem;
-        transition-duration: .5s;
+        transform: scale(1.5);
+        transition-duration: .3s;
     }
 
     .carousel_button button span {
@@ -82,12 +82,12 @@
 
     .slide.active {
         opacity: 1;
-        transform: scale(1);
+        transform: scale(0.9);
         transition-duration: 1s;
     }
 
     .slide.active:hover {
-        transform: scale(1.05);
+        transform: scale(1);
         transition-duration: 1s;
     }
 

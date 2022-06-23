@@ -5,6 +5,7 @@ import { useParams, Link } from 'react-router-dom';
 import useFetchProducts from '../../hooks/useFetchProducts'
 
 /* Components -------------------------------- */
+import Loading from '../LoadingScreen'
 
 /* Styles imports -------------------------------- */
 import style from "./ProductScreen.module.css";
@@ -23,7 +24,7 @@ const ProductScreen = ({ onAdd, showAlert }) => {
     const [dataTemplate, setDataTemplate] = useState({
         id: 0,
         name: 'name',
-        image: 'defaultIMG',
+        image: 'image_placeholder',
         description: 'description',
         price: 0,
         stock: 0,
@@ -72,17 +73,21 @@ const ProductScreen = ({ onAdd, showAlert }) => {
         showAlert('La cantidad fue aumentada exitosamente', 'info', true);
     }
 
+    if (loading) {
+        return (
+            <>
+                <Loading />
+            </>
+        )
+    }
+
     return (
         <>
-            {
-                loading && <h5 className='title-center animate__animated animate__flash animate__slower animate__infinite'>Cargando...</h5>
-            }
-
             {
                 <div className='main-content-wrapper'>
                     <div className={css(style.container)}>
                         <div className={style.image}>
-                            <AdvancedImage cldImg={cld.image(`e-commerce/images/${image}`)} />
+                            <AdvancedImage cldImg={cld.image(`e-commerce/images/${image || 'image_placeholder'}`)} />
                         </div>
                         <div className={style.body}>
                             <div className={style.title}>
