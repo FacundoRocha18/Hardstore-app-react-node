@@ -16,9 +16,12 @@
 }
 
 .image {
-    width: 30%;
+    background-color: #fff;
+    border-top-left-radius: .5rem;
+    border-bottom-left-radius: .5rem;
     height: 100px;
-    padding: 0rem;
+    padding: 1rem;
+    width: 30%;
 }
 
 .image img {

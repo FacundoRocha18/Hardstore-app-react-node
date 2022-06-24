@@ -7,6 +7,7 @@
     display: flex;
     height: fit-content;
     max-height: 200px;
+    min-width: fit-content;
     width: 100%;
     z-index: 1000;
 }
@@ -21,7 +22,6 @@
 }
 
 .menu li {
-    border-bottom: solid 1px var(--text-white);
     padding: .5rem;
     margin: 0;
     text-align: left;
@@ -48,7 +48,6 @@
 
     .container {
         align-items: center;
-        border: solid 1px var(--text-white);
         border-radius: none;
         display: flex;
         flex-direction: column;
