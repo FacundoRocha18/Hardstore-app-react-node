@@ -52,7 +52,7 @@ const Header = ({ token, onLogout, categories }) => {
                                     <li>
                                         <button className={style.categories_btn} onClick={(e) => handleToggle(e)}>
 
-                                            <div >
+                                            <div>
                                                 <p className='title-center'>Categorías</p>
                                             </div>
                                             <span className={css("material-icons-round", isClicked && style.rotate)}>
@@ -60,7 +60,7 @@ const Header = ({ token, onLogout, categories }) => {
                                             </span>
                                         </button>
                                     </li>
-                                    <div className={css(style.dropdown_body, !show && style.hide, show && style.show)}>
+                                    <div className={css(style.dropdown_body, !show && style.dropdown_hidden, show && style.show)}>
                                         <CategoriesMenu categories={categories} />
                                     </div>
                                 </div>

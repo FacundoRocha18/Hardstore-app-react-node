@@ -68,15 +68,16 @@
     display: inline-block;
     width: 100%;
     height: fit-content;
+    transition: height 1s ease 0s;
 }
 
 .dropdown_body {
     box-shadow: var(--shadow-box-2);
     height: fit-content;
+    height: 0px;
     margin-top: 1rem;
     min-width: 160px;
     width: 100%;
-    opacity: 0;
     z-index: 1;
 }
 
@@ -101,6 +102,10 @@
 
 .dropdown_menu li button {
     inline-size: 100%;
+}
+
+.dropdown_hidden {
+    display: none;
 }
 
 .menu {
@@ -172,14 +177,8 @@
     transition-duration: .5s;
 }
 
-.hide {
-    display: none;
-}
-
 .show {
     display: block;
-    height: fit-content;
-    opacity: 1;
 }
 
 .menu nav ul li a:hover,
@@ -223,7 +222,6 @@
         margin-top: 0;
         min-width: 160px;
         height: 0px;
-        opacity: 0;
         z-index: 1;
         transition: height 1s ease 0s;
     }
@@ -243,13 +241,11 @@
         text-align: left;
     }
 
-    .dropdown:hover .dropdown_body {
+    .dropdown:hover .dropdown_hidden {
         display: block;
-        height: fit-content;
-        opacity: 1;
     }
 
-    .dropdown:hover span {
+    .categories_btn:hover span {
         transform: rotate(180deg);
     }
 
