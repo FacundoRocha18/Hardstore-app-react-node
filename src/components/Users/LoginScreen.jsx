@@ -52,7 +52,6 @@ const LoginScreen = ({ onLogin, showAlert }) => {
         e.preventDefault();
 
         const loading = await onLogin(userData, showAlert);
-        console.log(loading)
 
         return setLoading(loading);
     }

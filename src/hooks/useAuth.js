@@ -57,11 +57,13 @@ const useAuth = () => {
     const isAuthenticated = (token) => {
         let isAuthenticated;
 
-        return (token)
+        (token)
             ?
             (isAuthenticated = true)
             :
             (isAuthenticated = false)
+
+        return isAuthenticated;
     }
 
     return {

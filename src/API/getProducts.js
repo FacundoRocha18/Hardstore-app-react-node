@@ -3,7 +3,9 @@ const getProducts = async() => {
 
     const url = `https://api.hardstore.store/`;
 
-    const response = await fetch( url );
+    const devUrl = `http://localhost:8000/`
+
+    const response = await fetch( devUrl );
     const { data } = await response.json();
 
     const { products } = data; 
@@ -14,8 +16,8 @@ const getProducts = async() => {
             id: product.product_id,
             name: product.product_name,
             image: product.product_image,
-            thumbnail: product.product_thumbnail,
-            banner: product.product_banner,
+            thumbnail: product.product_image,
+            banner: product.product_image,
             price: product.product_price,
             description: product.product_description,
             stock: product.product_stock,

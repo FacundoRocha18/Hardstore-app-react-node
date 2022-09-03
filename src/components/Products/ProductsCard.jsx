@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
 /* Cloudinary -------------------------------- */
@@ -12,7 +12,7 @@ import css from "classnames";
 
 
 const ProductsCard = ({ onAdd, product, id, name, thumbnail, price, showAlert }) => {
-
+ 
     const cld = new Cloudinary({
         cloud: {
             cloudName: 'dhqgqznbw'
@@ -33,7 +33,7 @@ const ProductsCard = ({ onAdd, product, id, name, thumbnail, price, showAlert })
             <div className={css(style.item)} id="item">
                 <div className={style.body}>
                     <div className={style.image}>
-                        <AdvancedImage cldImg={cld.image(`e-commerce/thumbnails/${thumbnail || 'thumbnail_placeholder'}`).resize(fill().width(500).height(500))} />
+                        <AdvancedImage cldImg={cld.image(`e-commerce/images/${thumbnail || 'thumbnail_placeholder'}`).resize(fill().width(500).height(500))} />
                     </div>
                     <div className={style.info}>
                         <div className={style.title}>
