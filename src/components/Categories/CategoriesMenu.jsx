@@ -13,12 +13,10 @@ const CategoriesMenu = ({ categories }) => {
             <div className={style.container}>
                 <div className={style.menu}>
                     {
-                        categories.map((cats) => (
+                        categories.map((cats, index) => (
                             <CategoriesItem
-                                key={cats.id}
+                                key={index}
                                 name={cats.name}
-                                cats={cats}
-                                {...cats}
                             />
                         ))
                     }

@@ -24,7 +24,7 @@ import Product from './components/Products/ProductScreen';
 import Login from './components/Users/LoginScreen';
 import Register from './components/Users/RegisterScreen';
 import NoMatch from './components/NoMatchScreen';
-import ProductsWithCats from './components/Products/ProductsWithCats';
+import CategorizedProducts from './components/Products/CategorizedProducts';
 import Profile from './components/Users/ProfileScreen';
 import Payment from './components/Cart/PaymentScreen';
 import Footer from './components/SiteFooter';
@@ -117,6 +117,8 @@ function App() {
           <Route exact path='api/products/product/:id'
             element={
               <Product
+                products={products}
+                loading={loading}
                 onAdd={onAdd}
                 onRemove={onRemove}
                 showAlert={showAlert}
@@ -124,9 +126,9 @@ function App() {
             }
           />
 
-          <Route exact path='api/products/categories/:id'
+          <Route exact path='api/products/categories/:cat_name'
             element={
-              <ProductsWithCats
+              <CategorizedProducts
                 products={products}
                 loading={loading}
                 onAdd={onAdd}
@@ -191,6 +193,8 @@ function App() {
               <NoMatch />
             }
           />
+
+          
 
         </Routes>
 

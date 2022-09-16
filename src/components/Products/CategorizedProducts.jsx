@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 
 /* Custom Hooks -------------------------------- */
@@ -11,26 +11,11 @@ import ProductsCard from './ProductsCard';
 import style from "./ProductsGrid.module.css";
 import css from "classnames";
 
-const ProductsWithCats = ({ onAdd, showAlert }) => {
+const CategorizedProducts = ({ products, loading, onAdd, showAlert }) => {
 
-    const { id } = useParams();
+    const { cat_name } = useParams();
 
-    const { data: products, loading } = useFetchProducts();
-
-    const [dataTemplate, setDataTemplate] = useState(
-        [{
-            id: 0,
-            name: 'name',
-            image: 'image',
-            description: 'description',
-            price: 0,
-            stock: 0,
-            category_id: 0,
-            category_name: 'category'
-        }]
-    )
-
-    const productsData = checkData(products, dataTemplate, id);
+    const productsData = checkData(products, cat_name);
 
     return (
         <>
@@ -65,28 +50,14 @@ const ProductsWithCats = ({ onAdd, showAlert }) => {
 
 }
 
-const giveProduct = (products, id) => {
+const checkData = (products, cat_name) => {
 
-    const matchingProd = products.filter((prod) => {
-
-        const cats = prod.category_id.toString();
-
-        return cats === id;
-
-    });
-
-    return matchingProd;
-}
-
-const checkData = (products, dataTemplate, id) => {
-
-    if (products.length === 0) {
-        return dataTemplate;
-    } else {
-        const productData = giveProduct(products, id);
-        return productData;
+    if (!products) {
+        return;
     }
 
+    return products.filter(product => product.category_name === cat_name);
+
 }
 
-export default ProductsWithCats;
+export default CategorizedProducts;

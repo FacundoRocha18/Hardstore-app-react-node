@@ -3,20 +3,24 @@ const getCategories = async() => {
 
     const url = `https://api.hardstore.store/`;
 
-    const response = await fetch( url );
+    const devUrl = `http://localhost:8000/api/categories/`;
+
+
+    const response = await fetch( devUrl );
     const { data } = await response.json();
 
-    const { categories } = data; 
+    data.sort((a, b) => {
+        return a.cat_id - b.cat_id
+    })
         
-    const categoriesData = categories.map( cats => {
+    const categories = data.map( cats => {
 
         return {
-            id: cats.cat_id,
             name: cats.cat_name
         }
         
     })
-    return categoriesData;
+    return categories;
 
 }
 

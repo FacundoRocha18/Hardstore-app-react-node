@@ -15,30 +15,21 @@ import css from "classnames";
 import { AdvancedImage } from '@cloudinary/react';
 import { Cloudinary } from "@cloudinary/url-gen";
 
-const ProductScreen = ({ onAdd, showAlert }) => {
+const ProductScreen = ({ products, loading, onAdd, showAlert }) => {
+
+    console.log(products)
 
     const { id } = useParams();
 
-    const { data: products, loading } = useFetchProducts();
-
-    const [dataTemplate, setDataTemplate] = useState({
-        id: 0,
-        name: 'name',
-        image: 'image_placeholder',
-        description: 'description',
-        price: 0,
-        stock: 0,
-        category_id: 0,
-        category_name: 'category'
-    })
-
     const [quantity, setQuantity] = useState(1)
 
-    const { name, image, price, description, stock, category_id, category_name } = checkData(products, dataTemplate, id);
+    const [product] = checkData(products, id);
 
-    const regEx1 = /,/g;
+    console.log(product)
 
-    const splitedDescription = splitDescription(description, regEx1);
+    const { name, image, price, description, stock, category_name } = product;
+
+    const splitedDescription = splitDescription(description, /,/g);
 
     const { titles, content } = getDescription(splitedDescription);
 
@@ -69,7 +60,7 @@ const ProductScreen = ({ onAdd, showAlert }) => {
 
     const handleAddToCart = (qty) => {
 
-        onAdd(checkData(products, dataTemplate, id), qty);
+        onAdd(checkData(products, id), qty);
         showAlert('La cantidad fue aumentada exitosamente', 'info', true);
     }
 
@@ -110,7 +101,7 @@ const ProductScreen = ({ onAdd, showAlert }) => {
                                 <button className={css(style.add, 'btn')} onClick={() => { handleAddToCart(quantity) }}><p>Agregar al carrito </p> <span className="material-icons">add_shopping_cart</span></button>
                             </div>
                             <div className={style.category}>
-                                <p>Categoría del producto: <Link to={`/api/products/categories/${category_id}`} replace>{category_name}</Link></p>
+                                <p>Categoría del producto: <Link to={`/api/products/categories/${category_name}`} replace>{category_name}</Link></p>
                             </div>
                             <div className={style.descriptionlink}>
                                 <a href='#description'>Ver descripción del producto</a>
@@ -152,28 +143,14 @@ const ProductScreen = ({ onAdd, showAlert }) => {
     )
 }
 
-const giveProduct = (products, id) => {
+const checkData = (products, id) => {
 
-    const matchingProd = products.filter((prod) => {
-
-        const idToMatch = prod.id.toString();
-
-        return idToMatch === id;
-
-    });
-
-    return matchingProd;
-}
-
-const checkData = (products, dataTemplate, id) => {
-
-    if (products.length === 0) {
-        return dataTemplate;
-    } else {
-        const [productData] = giveProduct(products, id);
-        return productData;
+    if (!products) {
+        return console.log('no hay productos');
     }
+    console.log(products.filter(product => product.id.toString() === id.toString()))
 
+    return products.filter(product => product.id === id);
 }
 
 const splitDescription = (description, expression) => {
@@ -217,6 +194,10 @@ const getDescription = (description) => {
         titles: titles,
         content: content
     };
+}
+
+ProductScreen.defaultProps = {
+    description: 'des'
 }
 
 

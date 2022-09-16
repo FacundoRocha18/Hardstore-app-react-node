@@ -17,13 +17,10 @@ const getProducts = async() => {
             name: product.product_name,
             image: product.product_image,
             thumbnail: product.product_image,
-            banner: product.product_image,
             price: product.product_price,
             description: product.product_description,
             stock: product.product_stock,
-            category_id: product.product_category_id,
             category_name: product.product_category_name,
-            carousel: product.product_carousel
         }
         
     })
