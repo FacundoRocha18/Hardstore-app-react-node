@@ -30,11 +30,11 @@ import Payment from './components/Cart/PaymentScreen';
 import Footer from './components/SiteFooter';
 
 
-function App() {
+const App = () => {
 
   const [redirect, setRedirect] = useState(false);
 
-  const { data: products, loading } = useFetchProducts();
+  const { products, loading } = useFetchProducts();
 
   const { data: categories } = useFetchCats()
 

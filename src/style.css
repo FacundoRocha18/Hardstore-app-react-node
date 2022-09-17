@@ -271,10 +271,12 @@ body {
     display: flex;
     font-size: 1.7rem;
     font-weight: var(--semi-bold);
-    justify-content: space-between;
+    justify-content: center;
+    gap: 2rem;
     height: fit-content;
     margin: 0 auto;
     padding: 1rem 2rem;
+    min-width: fit-content;
     width: fit-content;
 }
 

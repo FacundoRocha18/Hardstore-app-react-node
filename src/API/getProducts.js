@@ -10,21 +10,21 @@ const getProducts = async() => {
 
     const { products } = data; 
    
-    const productsData = products.map( product => {
+    const product = products.map( prod => {
 
         return {
-            id: product.product_id,
-            name: product.product_name,
-            image: product.product_image,
-            thumbnail: product.product_image,
-            price: product.product_price,
-            description: product.product_description,
-            stock: product.product_stock,
-            category_name: product.product_category_name,
+            id: prod.product_id,
+            name: prod.product_name,
+            image: prod.product_image,
+            thumbnail: prod.product_image,
+            price: prod.product_price,
+            description: prod.product_description,
+            stock: prod.product_stock,
+            category_name: prod.product_category_name,
         }
         
     })
-    return productsData;
+    return product;
 
 }
 

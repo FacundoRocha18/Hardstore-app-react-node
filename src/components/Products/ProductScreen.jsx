@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 /* Custom hooks -------------------------------- */
 import useFetchProducts from '../../hooks/useFetchProducts'
+import { useProductStorage } from '../../hooks/useProductStorage';
 
 /* Components -------------------------------- */
 import Loading from '../LoadingScreen'
@@ -17,17 +19,21 @@ import { Cloudinary } from "@cloudinary/url-gen";
 
 const ProductScreen = ({ products, loading, onAdd, showAlert }) => {
 
-    console.log(products)
-
     const { id } = useParams();
+
+    const dataTemplate = {
+        id: 0,
+        name: 'name',
+        image: 'image',
+        description: 'description',
+        price: 0,
+        stock: 0,
+        category_name: 'category'
+    };
 
     const [quantity, setQuantity] = useState(1)
 
-    const [product] = checkData(products, id);
-
-    console.log(product)
-
-    const { name, image, price, description, stock, category_name } = product;
+    const { name, image, thumbnail, price, description, stock, category_name } = checkData(products, dataTemplate, id);
 
     const splitedDescription = splitDescription(description, /,/g);
 
@@ -143,22 +149,20 @@ const ProductScreen = ({ products, loading, onAdd, showAlert }) => {
     )
 }
 
-const checkData = (products, id) => {
+const checkData = (products, dataTemplate, id) => {
 
-    if (!products) {
-        return console.log('no hay productos');
+    if (products.length === 0 ) {
+        return dataTemplate;
     }
-    console.log(products.filter(product => product.id.toString() === id.toString()))
 
-    return products.filter(product => product.id === id);
+    const [product] = products.filter(product => parseInt(product.id) === parseInt(id));
+    return product;
 }
 
 const splitDescription = (description, expression) => {
 
-    if (description.length === 0) {
-
-        throw Error('Descripción vacía');
-
+    if (!description) {
+        return;
     }
     return description.split(expression);
 
@@ -168,6 +172,10 @@ const getReference = (description) => {
 
     let reference = [];
 
+    if (!description) {
+        return;
+    }
+
     description.map(element =>
         reference.push(element.toString().search(/:/g))
     )
@@ -176,6 +184,10 @@ const getReference = (description) => {
 }
 
 const getDescription = (description) => {
+
+    if (!description) {
+        return;
+    }
 
     const reference = getReference(description)
 
@@ -196,8 +208,12 @@ const getDescription = (description) => {
     };
 }
 
-ProductScreen.defaultProps = {
-    description: 'des'
+ProductScreen.propTypes = {
+    products: PropTypes.array.isRequired,
+    loading: PropTypes.bool.isRequired,
+    onAdd: PropTypes.func.isRequired,
+    showAlert: PropTypes.func.isRequired,
+
 }
 
 

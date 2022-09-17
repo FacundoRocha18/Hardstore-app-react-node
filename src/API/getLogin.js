@@ -3,6 +3,9 @@ const loginUser = async (uEmail, uPassword) => {
 
     const url = `https://api.hardstore.store/api/auth/login`;
 
+    const devUrl = `http://localhost:8000/api/auth/login`;
+
+
     const data = {
         uEmail: uEmail,
         uPassword: uPassword,
@@ -16,7 +19,7 @@ const loginUser = async (uEmail, uPassword) => {
         body: JSON.stringify(data)
     };
 
-    const { ok, message, loginData } = await fetchData(url, params);
+    const { ok, message, loginData } = await fetchData(devUrl, params);
 
     const { token, username } = loginData;
 

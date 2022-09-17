@@ -19,7 +19,7 @@
     background-color: #fff;
     border-top-left-radius: .5rem;
     border-bottom-left-radius: .5rem;
-    height: 100px;
+    max-height: 100px;
     padding: 1rem;
     width: 30%;
 }
@@ -154,9 +154,8 @@
     .image {
         border-radius: 1rem;
         background-color: #fff;
-        height: 240px;
+        max-height: 240px;
         margin: 0 auto;
-        padding: 2rem;
         width: 100%;
     }
 

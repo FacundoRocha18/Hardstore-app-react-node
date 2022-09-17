@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 export default function useToken() {
 
-  const [sessionToken, setToken] = useState(null);
+  const [sessionToken, setSessionToken] = useState(null);
 
   /* Recupera el token almacenado en el session storage
   y lo devuelve como un string */
@@ -16,7 +16,7 @@ export default function useToken() {
 
   useEffect(() => {
 
-    setToken(getToken());
+    setSessionToken(getToken());
 
     return () => {
     }
@@ -29,7 +29,7 @@ export default function useToken() {
     }
 
     sessionStorage.setItem('token', JSON.stringify(userToken));
-    setToken(userToken.token);
+    setSessionToken(userToken.token);
   };
 
   return {

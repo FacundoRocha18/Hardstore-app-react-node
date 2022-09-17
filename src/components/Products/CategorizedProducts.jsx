@@ -15,7 +15,21 @@ const CategorizedProducts = ({ products, loading, onAdd, showAlert }) => {
 
     const { cat_name } = useParams();
 
-    const productsData = checkData(products, cat_name);
+    const [matchingProducts, setMatchingProducts] = useState([{
+        id: 0,
+        name: 'name',
+        image: 'image_placeholder',
+        thumbnail: 'thumbnail_placeholder',
+        description: 'description',
+        price: 0,
+        stock: 0,
+        category_name: 'category'
+    }])
+
+    useEffect(() => {
+        checkData(products, matchingProducts, setMatchingProducts, cat_name);
+    })
+    
 
     return (
         <>
@@ -26,11 +40,11 @@ const CategorizedProducts = ({ products, loading, onAdd, showAlert }) => {
                             loading && <h5 className='title-center animate__animated animate__flash animate__slower animate__infinite'>Cargando...</h5>
                         }
                         <div className='mb-2'>
-                            <h1 className='title-center'>{productsData[0].category_name}</h1>
+                            <h1 className='title-center'>{matchingProducts[0].category_name}</h1>
                         </div>
                         <div className={css(style.grid)}>
                             {
-                                productsData.map((product) => (
+                                matchingProducts.map((product) => (
                                     <ProductsCard
                                         key={product.id}
                                         onAdd={onAdd}
@@ -50,13 +64,13 @@ const CategorizedProducts = ({ products, loading, onAdd, showAlert }) => {
 
 }
 
-const checkData = (products, cat_name) => {
+const checkData = (products, matchingProducts, setMatchingProducts, cat_name) => {
 
-    if (!products) {
-        return;
+    if (products.length === 0) {
+        return matchingProducts;
     }
 
-    return products.filter(product => product.category_name === cat_name);
+    return setMatchingProducts(products.filter(product => product.category_name.toString() === cat_name.toString()));
 
 }
 

@@ -2,27 +2,28 @@ import { useState, useEffect } from 'react';
 import getProducts from '../API/getProducts';
 
 const useFetchProducts = () => {
-    
-    const [state, setState] = useState({
-        data: [],
-        loading: true
-    })
 
-    useEffect( () => {
+    const [products, setProducts] = useState([]);
+
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
 
         getProducts()
-            .then( products => {
-                
-                setState({
-                    data: products,
-                    loading: false
-                });
-
+            .then(products => {
+                if (!products) {
+                    return loading;
+                };
+                setLoading(false);
+                setProducts(products)
             })
 
     }, []);
 
-    return state; 
+    return {
+        products,
+        loading
+    };
 
 }
 
