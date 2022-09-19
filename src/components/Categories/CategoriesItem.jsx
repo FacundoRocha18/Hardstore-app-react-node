@@ -2,10 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 
-const CategoriesItem = ({ name }) => {
+const CategoriesItem = ({ id, name }) => {
 
     return (
-            <li><Link to={`/api/products/categories/${name}`} replace title={name}>{name}</Link></li>
+            <li><Link to={`/api/products/categories/${id}`} replace title={name}>{name}</Link></li>
     )
 }
 

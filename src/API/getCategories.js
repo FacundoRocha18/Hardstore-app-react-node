@@ -16,6 +16,7 @@ const getCategories = async() => {
     const categories = data.map( cats => {
 
         return {
+            id: cats.cat_id,
             name: cats.cat_name
         }
         

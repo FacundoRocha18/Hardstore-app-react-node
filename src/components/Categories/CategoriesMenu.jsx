@@ -16,6 +16,7 @@ const CategoriesMenu = ({ categories }) => {
                         categories.map((cats, index) => (
                             <CategoriesItem
                                 key={index}
+                                id={cats.id}
                                 name={cats.name}
                             />
                         ))

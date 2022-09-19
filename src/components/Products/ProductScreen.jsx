@@ -33,7 +33,7 @@ const ProductScreen = ({ products, loading, onAdd, showAlert }) => {
 
     const [quantity, setQuantity] = useState(1)
 
-    const { name, image, thumbnail, price, description, stock, category_name } = checkData(products, dataTemplate, id);
+    const { name, image, thumbnail, price, description, stock, category_id, category_name } = checkData(products, dataTemplate, id);
 
     const splitedDescription = splitDescription(description, /,/g);
 
@@ -107,7 +107,7 @@ const ProductScreen = ({ products, loading, onAdd, showAlert }) => {
                                 <button className={css(style.add, 'btn')} onClick={() => { handleAddToCart(quantity) }}><p>Agregar al carrito </p> <span className="material-icons">add_shopping_cart</span></button>
                             </div>
                             <div className={style.category}>
-                                <p>Categoría del producto: <Link to={`/api/products/categories/${category_name}`} replace>{category_name}</Link></p>
+                                <p>Categoría del producto: <Link to={`/api/products/categories/${category_id}`} replace>{category_name}</Link></p>
                             </div>
                             <div className={style.descriptionlink}>
                                 <a href='#description'>Ver descripción del producto</a>

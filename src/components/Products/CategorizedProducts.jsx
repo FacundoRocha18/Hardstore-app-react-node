@@ -13,7 +13,7 @@ import css from "classnames";
 
 const CategorizedProducts = ({ products, loading, onAdd, showAlert }) => {
 
-    const { cat_name } = useParams();
+    const { cat_id } = useParams();
 
     const [matchingProducts, setMatchingProducts] = useState([{
         id: 0,
@@ -23,12 +23,14 @@ const CategorizedProducts = ({ products, loading, onAdd, showAlert }) => {
         description: 'description',
         price: 0,
         stock: 0,
+        category_id: 0,
+        category_ref: 'category',
         category_name: 'category'
     }])
 
     useEffect(() => {
-        checkData(products, matchingProducts, setMatchingProducts, cat_name);
-    })
+        checkData(products, matchingProducts, setMatchingProducts, cat_id);
+    }, [])
     
 
     return (
@@ -40,7 +42,7 @@ const CategorizedProducts = ({ products, loading, onAdd, showAlert }) => {
                             loading && <h5 className='title-center animate__animated animate__flash animate__slower animate__infinite'>Cargando...</h5>
                         }
                         <div className='mb-2'>
-                            <h1 className='title-center'>{matchingProducts[0].category_name}</h1>
+                            <h1 className='title-center'>{matchingProducts.category_name}</h1>
                         </div>
                         <div className={css(style.grid)}>
                             {
@@ -64,13 +66,15 @@ const CategorizedProducts = ({ products, loading, onAdd, showAlert }) => {
 
 }
 
-const checkData = (products, matchingProducts, setMatchingProducts, cat_name) => {
+const checkData = (products, matchingProducts, setMatchingProducts, cat_id) => {
+
+    console.log(products)
 
     if (products.length === 0) {
         return matchingProducts;
     }
 
-    return setMatchingProducts(products.filter(product => product.category_name.toString() === cat_name.toString()));
+    return setMatchingProducts(products.filter(product => product.category_id == cat_id));
 
 }
 
