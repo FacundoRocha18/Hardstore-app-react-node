@@ -1,10 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 /* Styles imports -------------------------------- */
 import style from "./CategoriesMenu.module.css";
-
-/* Components -------------------------------- */
-import CategoriesItem from './CategoriesItem';
 
 const CategoriesMenu = ({ categories }) => {
 
@@ -13,12 +11,8 @@ const CategoriesMenu = ({ categories }) => {
             <div className={style.container}>
                 <div className={style.menu}>
                     {
-                        categories.map((cats, index) => (
-                            <CategoriesItem
-                                key={index}
-                                id={cats.id}
-                                name={cats.name}
-                            />
+                        categories.map(({id, name}, index) => (
+                            <li key={index}><Link to={`/api/products/categories/${id}`} replace title={name}>{name}</Link></li>
                         ))
                     }
                 </div>

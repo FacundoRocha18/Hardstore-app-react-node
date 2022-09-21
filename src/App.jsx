@@ -126,11 +126,9 @@ const App = () => {
             }
           />
 
-          <Route exact path='api/products/categories/:cat_name'
+          <Route exact path='api/products/categories/:cat_id'
             element={
               <CategorizedProducts
-                products={products}
-                loading={loading}
                 onAdd={onAdd}
                 showAlert={showAlert}
                 categories={categories}

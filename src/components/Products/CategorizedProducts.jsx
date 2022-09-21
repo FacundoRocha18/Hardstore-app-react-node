@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
 /* Custom Hooks -------------------------------- */
@@ -6,76 +7,76 @@ import useFetchProducts from '../../hooks/useFetchProducts';
 
 /* Components -------------------------------- */
 import ProductsCard from './ProductsCard';
+import { LoadingScreen } from '../';
 
 /* Styles imports -------------------------------- */
 import style from "./ProductsGrid.module.css";
 import css from "classnames";
 
-const CategorizedProducts = ({ products, loading, onAdd, showAlert }) => {
+const CategorizedProducts = ({ onAdd, showAlert }) => {
 
     const { cat_id } = useParams();
 
-    const [matchingProducts, setMatchingProducts] = useState([{
-        id: 0,
-        name: 'name',
-        image: 'image_placeholder',
-        thumbnail: 'thumbnail_placeholder',
-        description: 'description',
-        price: 0,
-        stock: 0,
-        category_id: 0,
-        category_ref: 'category',
-        category_name: 'category'
-    }])
+    const { products, loading } = useFetchProducts();
 
-    useEffect(() => {
-        checkData(products, matchingProducts, setMatchingProducts, cat_id);
-    }, [])
-    
+    const matchProducts = checkData(products, cat_id);
 
-    return (
-        <>
-            {
-                <div className="main-content-wrapper">
-                    <div className={css('wd-100', style.container)} id='products-wrapper'>
-                        {
-                            loading && <h5 className='title-center animate__animated animate__flash animate__slower animate__infinite'>Cargando...</h5>
-                        }
-                        <div className='mb-2'>
-                            <h1 className='title-center'>{matchingProducts.category_name}</h1>
-                        </div>
-                        <div className={css(style.grid)}>
-                            {
-                                matchingProducts.map((product) => (
-                                    <ProductsCard
-                                        key={product.id}
-                                        onAdd={onAdd}
-                                        product={product}
-                                        showAlert={showAlert}
-                                        {...product}
-                                    />
-                                ))
-                            }
+    if (loading) {
+        return (
+            <>
+                <LoadingScreen />
+            </>
+        )
+    }
+
+    if (matchProducts.length === 0) {
+        return (
+            <>
+                <div className='main-content-wrapper'>
+                    <h1 className='title-center'>Ups! Parece que no se encontraron productos.</h1>
+                    <Link className='btn p-btn' to={`/`} replace title='Inicio'>Volver al inicio</Link>                </div>
+            </>
+        )
+    }
+
+    if (products) {
+        return (
+            <>
+                {
+                    <div className="main-content-wrapper">
+                        <div className={css('wd-100', style.container)} id='products-wrapper'>
+                            <div className='mb-2'>
+                                <h1 className='title-center'>{matchProducts[0].category_name}</h1>
+                            </div>
+                            <div className={css(style.grid)}>
+                                {
+                                    matchProducts.map((product) => (
+                                        <ProductsCard
+                                            key={product.id}
+                                            onAdd={onAdd}
+                                            product={product}
+                                            showAlert={showAlert}
+                                            {...product}
+                                        />
+                                    ))
+                                }
+                            </div>
                         </div>
                     </div>
-                </div>
-
-            }
-        </>
-    )
+                }
+            </>
+        )
+    }
 
 }
 
-const checkData = (products, matchingProducts, setMatchingProducts, cat_id) => {
-
-    console.log(products)
+const checkData = (products, cat_id) => {
 
     if (products.length === 0) {
-        return matchingProducts;
+        return console.log('no hay productos')
     }
 
-    return setMatchingProducts(products.filter(product => product.category_id == cat_id));
-
+    return products.filter(product => product.category_id.toString() === cat_id.toString());
 }
 
 export default CategorizedProducts;

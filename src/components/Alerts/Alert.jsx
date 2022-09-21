@@ -5,9 +5,9 @@ import style from "./Alert.module.css";
 import css from "classnames";
 
 
-const Alert = ({ children, type, message, onClose }) => {
+export const Alert = ({ children, type, message, onClose }) => {
 
-    const renderAlert = function () {
+    const renderAlert = () => {
         return React.cloneElement(children);
     };
 

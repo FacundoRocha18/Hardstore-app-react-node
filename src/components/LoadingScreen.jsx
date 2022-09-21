@@ -3,7 +3,7 @@ import React from 'react'
 /* Styles imports -------------------------------- */
 import style from "./LoadingScreen.module.css";
 
-const LoadingScreen = () => {
+export const LoadingScreen = () => {
     return (
         <>
             <div className={style.container}>

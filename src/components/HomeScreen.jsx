@@ -6,7 +6,7 @@ import Carousel from './Carousel/Carousel.jsx'
 import Loading from './LoadingScreen'
 
 
-const HomeScreen = ({ products, loading, onAdd, showAlert }) => {
+export const HomeScreen = ({ products, loading, onAdd, showAlert }) => {
 
     if (loading) {
         return (

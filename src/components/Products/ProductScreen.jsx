@@ -24,7 +24,7 @@ const ProductScreen = ({ products, loading, onAdd, showAlert }) => {
     const dataTemplate = {
         id: 0,
         name: 'name',
-        image: 'image',
+        image: 'image_placeholder',
         description: 'description',
         price: 0,
         stock: 0,
