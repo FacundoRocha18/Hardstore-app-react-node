@@ -82,7 +82,7 @@ const ProductScreen = ({ products, loading, onAdd, showAlert }) => {
         <>
             {
                 <div className='main-content-wrapper'>
-                    <div className={css(style.container)}>
+                    <div className={css(style.container, style.information_container)}>
                         <div className={style.image}>
                             <AdvancedImage cldImg={cld.image(`e-commerce/images/${image || 'image_placeholder'}`)} />
                         </div>
@@ -115,7 +115,7 @@ const ProductScreen = ({ products, loading, onAdd, showAlert }) => {
                         </div>
                     </div>
 
-                    <div className={style.descriptionContainer} id='description'>
+                    <div className={css(style.container, style.description_container)} id='description'>
                         <div className='description-header mb-2'>
                             <h2 className='title-center'>Descripción del producto</h2>
                         </div>

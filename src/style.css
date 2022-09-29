@@ -416,6 +416,9 @@ body {
         animation: slideInBottom 500ms ease 0s 1 normal forwards;
         background-color: var(--body-bg-main-color);
         min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
         margin: 10rem auto;
         width: 90%;
     }

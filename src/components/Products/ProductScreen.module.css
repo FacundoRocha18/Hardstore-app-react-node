@@ -2,12 +2,16 @@
     background-color: var(--product-item-background);
     box-shadow: var(--box-shadow-1);
     border-radius: 1rem;
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(1, 1fr);
+    
     height: 100%;
     margin: 0 auto;
     width: 100%;
+}
+
+.information {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(1, 1fr);
 }
 
 .image {
@@ -270,13 +274,22 @@ input[type=number]::-webkit-outer-spin-button {
         background-color: var(--product-item-background);
         box-shadow: var(--box-shadow-1);
         border-radius: 1rem;
-        display: grid;
-        gap: 2rem;
-        grid-template-columns: repeat(2, 1fr);
         height: 100%;
         margin: 0 auto;
         width: 100%;
     }
+
+
+    .container.information_container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 20px;
+    }   
+
+    .container.description_container {
+        padding: 20px;
+    }
+
 
     .image {
         background-color: #fff;
