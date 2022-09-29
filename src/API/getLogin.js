@@ -19,7 +19,7 @@ const loginUser = async (uEmail, uPassword) => {
         body: JSON.stringify(data)
     };
 
-    const { ok, message, loginData } = await fetchData(devUrl, params);
+    const { ok, message, loginData } = await fetchData(url, params);
 
     const { token, username } = loginData;
 
