@@ -7,7 +7,7 @@ import useFetchProducts from '../../hooks/useFetchProducts';
 
 /* Components -------------------------------- */
 import ProductsCard from './ProductsCard';
-import { LoadingScreen } from '../';
+import { LoadingScreen } from '..';
 
 /* Styles imports -------------------------------- */
 import style from "./ProductsGrid.module.css";
