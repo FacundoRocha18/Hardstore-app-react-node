@@ -6,35 +6,30 @@ import {
   useNavigate
 } from 'react-router-dom';
 
-
 /* Components -------------------------------- */
-import ShoppingCartItem from './ShoppingCartItem'
+import ShoppingCartItem from './shopping-cart-item'
 
 /* Custom Hooks -------------------------------- */
 
 /* Styles imports -------------------------------- */
-import style from "./ShoppingCart.module.css";
-import css from "classnames";
-
+import style from './shopping-cart.module.css';
+import css from 'classnames';
 
 const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy, showAlert }) => {
-
-  const navigate = useNavigate();  
+  const navigate = useNavigate();
 
   const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
   const shippingPrice = itemPrice > 2000 ? 0 : 50;
   const totalPrice = itemPrice + shippingPrice;
 
   const handleBuy = (price, cartItems) => {
-
     onBuy(price);
-    let itemList = [];
+    const itemList = [];
     cartItems.map((item) => itemList.push(item.name));
 
     showAlert('Se lo rediccionará a la página para ingresar información de pago y envío', 'info', true);
 
-    
-    setTimeout(() => navigate('/api/users/payment', { replace: true }), 1000);
+    setTimeout(() => { navigate('/api/users/payment', { replace: true }); }, 1000);
   }
 
   return (
@@ -84,22 +79,20 @@ const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy, showAlert }
 
           <div className={style.totalContainer}>
             {
-              cartItems.length === 0
-              &&
+              cartItems.length === 0 &&
               <div className={css(style.total, 'disabled')}>
               </div>
             }
             {
-              cartItems.length > 0
-              &&
-              <div className={css(style.total, "animate__animated animate__bounceInDown animate__fast")}>
+              cartItems.length > 0 &&
+              <div className={css(style.total, 'animate__animated animate__bounceInDown animate__fast')}>
                 <div className={style.priceText}>
                   <p className={style.shoppingCartShippingText}>Envío: USD <span className={style.shoppingCartShippingSpan} id="cart-total-shipping-price"> {shippingPrice.toFixed(2)}</span></p>
                   <p><span className={style.shoppingCartTotalText}>Total:</span> USD <span className={style.shoppingCartTotalSpan} id="cart-total-price"> {totalPrice.toFixed(2)}</span></p>
                 </div>
                 <div>
                   <button className="btn btn-success comprarButton " type="button"
-                    onClick={() => handleBuy(totalPrice, cartItems)} >
+                    onClick={() => { handleBuy(totalPrice, cartItems); }} >
                     <p>Comprar</p>
                   </button>
                 </div>
@@ -108,7 +101,6 @@ const ShoppingCart = ({ cartItems, onAdd, onRemove, onDelete, onBuy, showAlert }
           </div>
         </div>
       </div>
-
 
     </>
   )

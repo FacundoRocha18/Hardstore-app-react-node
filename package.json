@@ -5,11 +5,14 @@
   "dependencies": {
     "@cloudinary/react": "1.4.1",
     "@cloudinary/url-gen": "1.8.0",
+    "@nextui-org/react": "^2.1.13",
+    "@tabler/icons-react": "^2.40.0",
     "@testing-library/jest-dom": "5.16.3",
     "@testing-library/react": "12.1.4",
     "@testing-library/user-event": "13.5.0",
     "body-parser": "1.20.0",
     "classnames": "2.3.1",
+    "framer-motion": "^10.16.4",
     "netlify-cli": "^10.18.0",
     "prop-types": "15.8.1",
     "react": "18.0.0",
@@ -24,7 +27,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "vite serve src",
-    "preview": "vite preview src"
+    "preview": "vite preview src",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -46,7 +51,17 @@
   },
   "type": "module",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.9.1",
     "@vitejs/plugin-react": "^4.0.0",
+    "eslint": "^8.52.0",
+    "eslint-config-standard-with-typescript": "^39.1.1",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^16.2.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.33.2",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
+    "typescript": "^5.2.2",
     "vite": "^4.3.9"
   }
 }

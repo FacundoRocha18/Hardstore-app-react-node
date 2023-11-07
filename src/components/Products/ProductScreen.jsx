@@ -10,81 +10,61 @@ import { useProductStorage } from '../../hooks/useProductStorage';
 import Loading from '../LoadingScreen'
 
 /* Styles imports -------------------------------- */
-import style from "./ProductScreen.module.css";
-import css from "classnames";
-
-/* Cloudinary -------------------------------- */
-import { AdvancedImage } from '@cloudinary/react';
-import { Cloudinary } from "@cloudinary/url-gen";
+import style from './ProductScreen.module.css';
+import css from 'classnames';
 
 const ProductScreen = ({ products, loading, onAdd, showAlert }) => {
+  const { id } = useParams();
 
-    const { id } = useParams();
+  const dataTemplate = {
+    id: 0,
+    name: 'name',
+    image: 'image_placeholder',
+    description: 'description',
+    price: 0,
+    stock: 0,
+    category_name: 'category'
+  };
 
-    const dataTemplate = {
-        id: 0,
-        name: 'name',
-        image: 'image_placeholder',
-        description: 'description',
-        price: 0,
-        stock: 0,
-        category_name: 'category'
-    };
+  const [quantity, setQuantity] = useState(1)
 
-    const [quantity, setQuantity] = useState(1)
+  const { name, image, thumbnail, price, description, stock, category_id, category_name } = checkData(products, dataTemplate, id);
 
-    const { name, image, thumbnail, price, description, stock, category_id, category_name } = checkData(products, dataTemplate, id);
+  const splitedDescription = splitDescription(description, /,/g);
 
-    const splitedDescription = splitDescription(description, /,/g);
+  const { titles, content } = getDescription(splitedDescription);
 
-    const { titles, content } = getDescription(splitedDescription);
+  const handleAdd = (qty) => {
+    (qty < stock)
+      ? setQuantity(qty + 1)
+      : setQuantity(qty)
+  }
 
-    const cld = new Cloudinary({
-        cloud: {
-            cloudName: 'dhqgqznbw'
-        }
-    });
+  const handleRemove = (qty) => {
+    (qty > 1)
+      ? setQuantity(qty - 1)
+      : setQuantity(qty)
+  }
 
-    const handleAdd = (qty) => {
+  const handleAddToCart = (qty) => {
+    onAdd(checkData(products, id), qty);
+    showAlert('La cantidad fue aumentada exitosamente', 'info', true);
+  }
 
-        (qty < stock)
-            ?
-            setQuantity(qty + 1)
-            :
-            setQuantity(qty)
-
-    }
-
-    const handleRemove = (qty) => {
-
-        (qty > 1)
-            ?
-            setQuantity(qty - 1)
-            :
-            setQuantity(qty)
-    }
-
-    const handleAddToCart = (qty) => {
-
-        onAdd(checkData(products, id), qty);
-        showAlert('La cantidad fue aumentada exitosamente', 'info', true);
-    }
-
-    if (loading) {
-        return (
+  if (loading) {
+    return (
             <>
                 <Loading />
             </>
-        )
-    }
+    )
+  }
 
-    return (
+  return (
         <>
             {
                 <div className='main-content-wrapper'>
                     <div className={css(style.container, style.information_container)}>
                         <div className={style.image}>
-                            <AdvancedImage cldImg={cld.image(`e-commerce/images/${image || 'image_placeholder'}`)} />
                         </div>
                         <div className={style.body}>
                             <div className={style.title}>
@@ -95,7 +75,7 @@ const ProductScreen = ({ products, loading, onAdd, showAlert }) => {
                             </div>
                             <div className={style.stock}>
                                 <div className={style.quantityContainer}>
-                                    <button className={css(style.quantityBtn, style.down)} onClick={() => handleRemove(quantity)}><span>-</span></button>
+                                    <button className={css(style.quantityBtn, style.down)} onClick={() => { handleRemove(quantity); }}><span>-</span></button>
                                     <input className={style.qtyInput} value={quantity} type="number" min="1" max={stock} readOnly></input>
                                     <button className={css(style.quantityBtn, style.up)} onClick={() => { handleAdd(quantity) }}><span>+</span></button>
                                 </div>
@@ -146,75 +126,67 @@ const ProductScreen = ({ products, loading, onAdd, showAlert }) => {
                 </div>
             }
         </>
-    )
+  )
 }
 
 const checkData = (products, dataTemplate, id) => {
+  if (products.length === 0) {
+    return dataTemplate;
+  }
 
-    if (products.length === 0 ) {
-        return dataTemplate;
-    }
-
-    const [product] = products.filter(product => parseInt(product.id) === parseInt(id));
-    return product;
+  const [product] = products.filter(product => parseInt(product.id) === parseInt(id));
+  return product;
 }
 
 const splitDescription = (description, expression) => {
-
-    if (!description) {
-        return;
-    }
-    return description.split(expression);
-
+  if (!description) {
+    return;
+  }
+  return description.split(expression);
 }
 
 const getReference = (description) => {
+  const reference = [];
 
-    let reference = [];
+  if (!description) {
+    return;
+  }
 
-    if (!description) {
-        return;
-    }
+  description.map(element =>
+    reference.push(element.toString().search(/:/g))
+  )
 
-    description.map(element =>
-        reference.push(element.toString().search(/:/g))
-    )
-
-    return reference;
+  return reference;
 }
 
 const getDescription = (description) => {
+  if (!description) {
+    return;
+  }
 
-    if (!description) {
-        return;
-    }
+  const reference = getReference(description)
 
-    const reference = getReference(description)
+  const titles = [];
 
-    let titles = [];
+  const content = [];
 
-    let content = [];
+  for (let i = 0; i < description.length; i++) {
+    titles.push(description[i].toString().substring(0, reference[i]))
+    content.push(description[i].toString().substring(reference[i] + 1))
+  }
 
-    for (let i = 0; i < description.length; i++) {
-
-        titles.push(description[i].toString().substring(0, reference[i]))
-        content.push(description[i].toString().substring(reference[i] + 1))
-
-    }
-
-    return {
-        titles: titles,
-        content: content
-    };
+  return {
+    titles,
+    content
+  };
 }
 
 ProductScreen.propTypes = {
-    products: PropTypes.array.isRequired,
-    loading: PropTypes.bool.isRequired,
-    onAdd: PropTypes.func.isRequired,
-    showAlert: PropTypes.func.isRequired,
+  products: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
+  onAdd: PropTypes.func.isRequired,
+  showAlert: PropTypes.func.isRequired
 
 }
-
 
 export default ProductScreen;

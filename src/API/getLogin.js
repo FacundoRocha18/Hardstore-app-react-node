@@ -1,49 +1,43 @@
+import { LOGIN_URL_DEV, LOGIN_URL_PROD } from '../common/constants';
 
 const loginUser = async (uEmail, uPassword) => {
+  const data = {
+    uEmail,
+    uPassword
+  };
 
-    const url = `https://api.hardstore.store/api/auth/login`;
+  const params = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8'
+    },
+    body: JSON.stringify(data)
+  };
 
-    const devUrl = `http://localhost:8000/api/auth/login`;
+  const { ok, message, loginData } = await fetchData(url, params);
 
+  const { token, username } = loginData;
 
-    const data = {
-        uEmail: uEmail,
-        uPassword: uPassword,
-    };
-
-    const params = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify(data)
-    };
-
-    const { ok, message, loginData } = await fetchData(url, params);
-
-    const { token, username } = loginData;
-
-    return {
-        loginStatus: ok,
-        message: message,
-        token: token,
-        username: username
-    };
+  return {
+    loginStatus: ok,
+    message,
+    token,
+    username
+  };
 }
 
 const fetchData = async (url, params) => {
+  const response = await fetch(LOGIN_URL_DEV, params)
+    .catch((error) => { console.error(error); });
 
-    const response = await fetch(url, params)
-        .catch((error) => console.error(error));
+  const { ok, message, loginData } = await response.json()
+    .catch((error) => { console.error(error); });
 
-    const { ok, message, loginData } = await response.json()
-        .catch((error) => console.error(error));
-
-    return {
-        ok: ok,
-        message: message,
-        loginData: loginData
-    };
+  return {
+    ok,
+    message,
+    loginData
+  };
 }
 
 export default loginUser;

@@ -1,9 +1,9 @@
 
-const getCategories = async() => {
+const get_categories = async() => {
 
     const url = `https://api.hardstore.store/`;
 
-    const devUrl = `http://localhost:8000/api/categories/`;
+    const dev_url = `http://localhost:8000/api/categories/`;
 
 
     const response = await fetch( url );
@@ -15,18 +15,16 @@ const getCategories = async() => {
         return a.cat_id - b.cat_id
     })
 
-    console.log(categories)
-
-    const categoriesList = categories.map( cats => {
+    const categories_list = categories.map( category => {
 
         return {
-            id: cats.cat_id,
-            name: cats.cat_name
+            id: category.cat_id,
+            name: category.cat_name
         }
         
     })
-    return categoriesList;
+    return categories_list;
 
 }
 
-export default getCategories;
+export default get_categories;
