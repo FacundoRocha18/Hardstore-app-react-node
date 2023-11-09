@@ -5,16 +5,18 @@ import { Link } from 'react-router-dom'
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle } from '@nextui-org/react'
 import { IconChevronDown } from '@tabler/icons-react'
 import { Dropdown } from './dropdown'
-import { Menu } from './Menu'
+import { Menu } from './menu'
 
 /* Common */
-import { CATEGORIES_ITEMS, MOBILE_MAIN_MENU_ITEMS } from '../../common/constants'
+import { MOBILE_MAIN_MENU_ITEMS } from '../../common/constants'
 import { CartButton } from '../Cart/cart-button'
 import { useCartContext } from '../../contexts/cart-context'
+import { useCategories } from '../../hooks/useCategories'
 
 export const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const { cart_items } = useCartContext()
+	const [categories] = useCategories()
 
 	return (
 		<Navbar
@@ -35,7 +37,7 @@ export const Header = () => {
 					<Link className='text-base' to={'/'}>Inicio</Link>
 				</NavbarItem>
 				<NavbarItem>
-					<Dropdown items={CATEGORIES_ITEMS}>
+					<Dropdown items={categories}>
 						<div className='flex items-center justify-between gap-1 cursor-pointer'>
 							<p>Catálogo</p>
 							<IconChevronDown size={16} />

@@ -1,30 +1,18 @@
+import { GET_CATEGORIES_DEV_URL } from '../common/constants';
+import { type ICategory } from '../common/interfaces';
+import { data } from '../data/categories.json'
 
-const get_categories = async() => {
+export const fetch_categories = async () => {
+	/* const response = await fetch(GET_CATEGORIES_DEV_URL);
+	const { data } = await response.json(); */
 
-    const url = `https://api.hardstore.store/`;
+	const categories = data.map((category: ICategory) => {
+		return {
+			id: category.id,
+			name: category.name,
+			products: category.products
+		}
+	})
 
-    const dev_url = `http://localhost:8000/api/categories/`;
-
-
-    const response = await fetch( url );
-    const { data } = await response.json();
-
-    const { categories } = data; 
-
-    categories.sort((a, b) => {
-        return a.cat_id - b.cat_id
-    })
-
-    const categories_list = categories.map( category => {
-
-        return {
-            id: category.cat_id,
-            name: category.cat_name
-        }
-        
-    })
-    return categories_list;
-
+	return categories;
 }
-
-export default get_categories;

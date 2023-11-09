@@ -1,29 +1,36 @@
-import { useState, useEffect } from 'react';
-import getCategories from '../services/fetchCategories';
+import { useState, useEffect, useRef } from 'react';
+import { fetch_categories } from '../services/fetchCategories';
+import { type ICategory } from '../common/interfaces';
 
-const useCategories = () => {
+export const useCategories = () => {
+	const [categories, setCategories] = useState<ICategory[]>([]);
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState('Sin errores');
+	const should_fetch = useRef(true);
 
-	const [state, setState] = useState({
-		data: [],
-		loading: true
-	})
+	const get_categories = async () => {
+		try {
+			setLoading(true);
+			const data = await fetch_categories();
+			setCategories(data);
+		} catch (error: any) {
+			setError(error.message)
+		} finally {
+			setLoading(false);
+		}
+	}
 
 	useEffect(() => {
-
-		getCategories()
-			.then(cats => {
-
-				setState({
-					data: cats,
-					loading: false
-				});
-
-			})
-
+		if (should_fetch.current) {
+			get_categories()
+		}
 	}, []);
 
-	return state;
+	console.log(categories);
 
+	categories.sort((a, b) => {
+		return a.id - b.id
+	})
+
+	return [categories, loading, error] as const;
 }
-
-export default useCategories;

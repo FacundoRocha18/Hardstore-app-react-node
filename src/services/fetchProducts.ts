@@ -1,7 +1,7 @@
 import { GET_PRODUCTS_DEV_URL } from '../common/constants';
 import { type IProduct } from '../common/interfaces';
 
-export const fetchProducts = async () => {
+export const fetch_products = async () => {
     const response = await fetch(GET_PRODUCTS_DEV_URL);
     const { data } = await response.json();
 

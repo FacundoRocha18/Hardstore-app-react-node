@@ -1,16 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
-import { fetchProducts } from '../services/fetchProducts';
+import { fetch_products } from '../services/fetchProducts';
 
 export const useProducts = () => {
 	const [products, setProducts] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState('Sin errores');
-	const should_call = useRef(true);
+	const should_fetch = useRef(true);
 
-	const getProducts = async () => {
+	const get_products = async () => {
 		try {
 			setLoading(true);
-			const data = await fetchProducts();
+			const data = await fetch_products();
 			setProducts(data);
 		} catch (error: any) {
 			setError(error.message);
@@ -20,8 +20,8 @@ export const useProducts = () => {
 	}
 
 	useEffect(() => {
-		if (should_call.current) {
-			getProducts()
+		if (should_fetch.current) {
+			get_products()
 		}
 	}, []);
 

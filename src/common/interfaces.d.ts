@@ -63,3 +63,9 @@ export interface IAlertsContext {
 	show_alert: (message: string, type: alert_type, state: boolean) => void
 	close_alert: (e: Event) => void
 }
+
+export interface ICategory {
+	id: UUID
+	name: string
+	products: IProduct[]
+}

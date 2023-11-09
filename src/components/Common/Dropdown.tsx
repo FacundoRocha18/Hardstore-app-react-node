@@ -1,9 +1,9 @@
 import { type ReactNode } from 'react'
 import { DropdownItem, DropdownMenu, DropdownTrigger, Dropdown as NextUIDropdown } from '@nextui-org/react'
-import { type Item } from '../../common/interfaces'
+import { type ICategory } from '../../common/interfaces'
 
-export const Dropdown = ({ children, items }: { children: ReactNode, items: Item[] }) => {
-  return (
+export const Dropdown = ({ children, items }: { children: ReactNode, items: ICategory[] }) => {
+	return (
 		<NextUIDropdown>
 			<DropdownTrigger>
 				{
@@ -15,13 +15,12 @@ export const Dropdown = ({ children, items }: { children: ReactNode, items: Item
 					items.map(item => (
 						<DropdownItem
 							key={item.id}
-							color={item.color}
 						>
-							{item.label}
+							{item.name}
 						</DropdownItem>
 					))
 				}
 			</DropdownMenu>
 		</NextUIDropdown>
-  )
+	)
 }
