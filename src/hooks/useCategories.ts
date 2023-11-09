@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import getCategories from '../API/getCategories';
+import getCategories from '../services/fetchCategories';
 
 const useCategories = () => {
 

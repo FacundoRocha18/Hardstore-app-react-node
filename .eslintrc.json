@@ -29,6 +29,7 @@
 		"@typescript-eslint/naming-convention": "off",
 		"no-mixed-spaces-and-tabs": "off",
 		"operator-linebreak": "off",
-		"@typescript-eslint/indent": "off"
+		"@typescript-eslint/indent": "off",
+		"@typescript-eslint/no-floating-promises": "off"
 	}
 }

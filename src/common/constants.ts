@@ -22,5 +22,5 @@ export const MOBILE_MAIN_MENU_ITEMS = [
 	}
 ];
 
-export const LOGIN_URL_DEV = 'http://localhost:8000/api/auth/login';
-export const LOGIN_URL_PROD = 'https://api.hardstore.store/api/auth/login';
+export const GET_PRODUCTS_DEV_URL = 'http://localhost:3000/products/listAll'
+export const GET_PRODUCTS_PROD_URL = 'https://api.hardstore.store/'
