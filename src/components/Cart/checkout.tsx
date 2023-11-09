@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import style from './payment-page.module.css';
 import css from 'classnames';
 
-const PaymentScreen = () => {
+export const Checkout = () => {
   const [paymentData, setPaymentData] = useState({
     type: null,
     email: null,
@@ -90,7 +90,7 @@ const PaymentScreen = () => {
 
   return (
         <>
-            <div className='main-content-wrapper'>
+            <section className='main-content-wrapper'>
                 <div className={style.container}>
                     <div className={style.header}>
                         <h2 className='title-center'>Payment options</h2>
@@ -144,9 +144,9 @@ const PaymentScreen = () => {
                         </div>
                     </div>
                 </div>
-            </div >
+            </section >
         </>
   )
 }
 
-export default PaymentScreen;
+export default Checkout;

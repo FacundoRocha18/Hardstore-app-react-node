@@ -4,20 +4,22 @@ import { Link } from 'react-router-dom'
 /* Components */
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle } from '@nextui-org/react'
 import { IconChevronDown } from '@tabler/icons-react'
-import { Dropdown } from '../Common/Dropdown'
+import { Dropdown } from './dropdown'
 import { Menu } from './Menu'
 
 /* Common */
 import { CATEGORIES_ITEMS, MOBILE_MAIN_MENU_ITEMS } from '../../common/constants'
 import { CartButton } from '../Cart/cart-button'
+import { useCartContext } from '../../contexts/cart-context'
 
-const Header = () => {
+export const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const { cart_items } = useCartContext()
 
 	return (
 		<Navbar
 			height='7rem'
-			maxWidth='xl'
+			maxWidth='2xl'
 			shouldHideOnScroll
 			isBordered
 			onMenuOpenChange={setIsMenuOpen}
@@ -50,12 +52,10 @@ const Header = () => {
 					</Link>
 				</NavbarItem>
 				<NavbarItem>
-					<CartButton products_quantity={5}/>
+					<CartButton products_quantity={cart_items.length}/>
 				</NavbarItem>
 			</NavbarContent>
 			<Menu items={MOBILE_MAIN_MENU_ITEMS} />
 		</Navbar >
 	)
 }
-
-export default Header

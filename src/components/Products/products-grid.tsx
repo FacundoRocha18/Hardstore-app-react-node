@@ -1,20 +1,19 @@
 /* Components -------------------------------- */
-import ProductsCard from './product-card'
+import { useProductsContext } from '../../contexts/products-context'
+import { ProductsCard } from './product-card'
 
 /* Styles imports -------------------------------- */
-import style from './ProductsGrid.module.css'
+const ProductsGrid = () => {
+	const { products } = useProductsContext()
 
-const ProductsGrid = ({ products, onAdd, showAlert }) => {
 	return (
-		<section className={style.container} id='products-wrapper' >
-			<div className={style.grid}>
+		<section className="w-10/12 my-8 mx-auto" id='products-wrapper' >
+			<div className="grid">
 				{
 					products.map((product) => (
 						<ProductsCard
 							key={product.id}
-							onAdd={onAdd}
 							product={product}
-							showAlert={showAlert}
 							{...product}
 						/>
 					))

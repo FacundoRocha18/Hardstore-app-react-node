@@ -131,3 +131,44 @@ body {
 	margin: 0;
 	position: absolute;
 }
+
+.grid {
+	list-style: none;
+	display: grid;
+	gap: 30px;
+	width: 100%;
+	grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+}
+
+.footer {
+	background-color: var(--item-bg-secondary-color);
+	border-top: solid 1px var(--primary-btn-bg-color);
+	width: 100%;
+	height: fit-content;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 50px;
+}
+
+@media (min-width: 768px) {
+	/* Website footer */
+
+	.footer {
+		align-items: center;
+		border-top: solid 1px var(--primary-btn-bg-color);
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: row nowrap;
+		height: 10rem;
+		justify-content: space-between;
+	}
+
+	.logo {
+		height: 100%;
+		width: fit-content;
+		margin: 0;
+		display: flex;
+		align-items: center;
+	}
+}
