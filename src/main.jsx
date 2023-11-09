@@ -2,15 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { NextUIProvider } from '@nextui-org/react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import './styles/index.css'
 import { Root } from './routes/root'
 import { Home } from './routes/home';
 import { ShoppingCart } from './components/Cart/shopping-cart'
 import NoMatch from './routes/no-match';
-import Checkout from './components/Cart/checkout';
+import Checkout from './routes/checkout';
 import Product from './components/Products/product';
 import CategorizedProducts from './components/Products/categorized-products';
-import { Loading } from './components/Common/loading';
+import './styles/index.css'
 
 const router = createBrowserRouter([
 	{
@@ -19,7 +18,7 @@ const router = createBrowserRouter([
 		children: [
 			{
 				path: '/',
-				element: <Home />,
+				element: <Home />
 			},
 			{
 				path: '/products/shoppingCart',

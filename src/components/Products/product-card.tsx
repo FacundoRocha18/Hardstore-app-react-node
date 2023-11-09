@@ -4,7 +4,7 @@ import { useCartContext } from '../../contexts/cart-context';
 
 /* Styles imports -------------------------------- */
 import { type IProduct } from '../../common/interfaces';
-import { Card, CardBody, CardHeader, Image, Button, CardFooter } from '@nextui-org/react';
+import { Card, CardBody, Image, Button, CardFooter } from '@nextui-org/react';
 import { IconShoppingBagPlus } from '@tabler/icons-react';
 
 interface Props {
@@ -25,9 +25,6 @@ export const ProductsCard = ({ product }: Props) => {
 
 	return (
 		<Card isFooterBlurred>
-			<CardHeader className='absolute z-20 top-1 flex-col !items-start'>
-
-			</CardHeader>
 			<CardBody className='justify-center'>
 				<Image
 					removeWrapper
@@ -43,7 +40,10 @@ export const ProductsCard = ({ product }: Props) => {
 					<h5 className='font-semibold text-lg'>USD <span className='text-orange-500'>{price}</span> iva inc.</h5>
 				</section>
 				<section className='w-1/4 flex place-content-center'>
-					<Button className="p-0 gap-0 min-w-0 w-14 h-14 rounded-full hover:bg-orange-500" onClick={(e) => { handle_add_clicked(e); }}>
+					<Button
+						className="p-0 gap-0 min-w-0 w-14 h-14 rounded-full hover:bg-orange-500"
+						onClick={(e) => { handle_add_clicked(e); }}
+					>
 						<IconShoppingBagPlus />
 					</Button>
 				</section>

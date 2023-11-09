@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 /* Styles imports */
-import style from './payment-page.module.css';
+import style from './checkout.module.css';
 import css from 'classnames';
 
 export const Checkout = () => {
