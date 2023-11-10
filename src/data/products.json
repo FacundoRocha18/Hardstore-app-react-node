@@ -1,0 +1,144 @@
+{
+	"data": [
+		{
+			"id": "e86c721c-18a7-4119-be06-097539000d4b",
+			"name": "Asus TUF DASH FX516PM-HN023T I7-11370h/16Gb/512Gb/RTX3060/W10",
+			"stock": 15,
+			"price": 1550,
+			"created_by": null,
+			"created_at": "2023-06-01T17:49:05.637Z",
+			"updated_at": "2023-06-01T17:49:05.637Z",
+			"deleted_at": null
+		},
+		{
+			"id": "58513112-6514-4929-ac21-bdb5beb8e6a7",
+			"name": "Motherboard Asus ROG Strix B650E-F Gaming WiFi",
+			"stock": 15,
+			"price": 474.99,
+			"created_by": null,
+			"created_at": "2023-06-01T17:57:46.121Z",
+			"updated_at": "2023-06-01T17:57:46.121Z",
+			"deleted_at": null
+		},
+		{
+			"id": "da26b176-df5f-41f7-afd3-36866d3383a3",
+			"name": "Motherboard Asus TUF Gaming X670E-Plus WiFi AM5",
+			"stock": 15,
+			"price": 550,
+			"created_by": null,
+			"created_at": "2023-06-01T18:03:16.954Z",
+			"updated_at": "2023-06-01T18:03:16.954Z",
+			"deleted_at": null
+		},
+		{
+			"id": "09bffd97-adc9-47f1-982b-6bed98bfaa7b",
+			"name": "CPU AMD Ryzen 7 5800X AM4",
+			"stock": 15,
+			"price": 370,
+			"created_by": null,
+			"created_at": "2023-06-01T18:05:16.285Z",
+			"updated_at": "2023-06-01T18:05:16.285Z",
+			"deleted_at": null
+		},
+		{
+			"id": "e5c7eab2-03a6-4c4c-a03e-b82ae2e3e9eb",
+			"name": "CPU AMD Ryzen 7 7800X3D AM5",
+			"stock": 15,
+			"price": 729,
+			"created_by": null,
+			"created_at": "2023-06-01T18:07:41.086Z",
+			"updated_at": "2023-06-01T18:07:41.086Z",
+			"deleted_at": null
+		},
+		{
+			"id": "1257c3d1-fb2c-49e1-9ccc-9de90715a676",
+			"name": "Memoria RAM Kingston Fury Beast RGB 16gb DDR5 6000Mhz White Edition",
+			"stock": 15,
+			"price": 110,
+			"created_by": null,
+			"created_at": "2023-06-01T18:08:36.927Z",
+			"updated_at": "2023-06-01T18:08:36.927Z",
+			"deleted_at": null
+		},
+		{
+			"id": "14cfb647-5ab5-474a-ba1a-61002b0ce3b3",
+			"name": "Memoria RAM Patriot Venom Kit 16gb ddr5 5600mhz (2x8Gb)",
+			"stock": 15,
+			"price": 140,
+			"created_by": null,
+			"created_at": "2023-06-01T18:09:16.666Z",
+			"updated_at": "2023-06-01T18:09:16.666Z",
+			"deleted_at": null
+		},
+		{
+			"id": "f872a106-abbc-4789-9bc8-f85a34e6c95b",
+			"name": "Fuente Cooler Master V1300 80 Plus Platinum Full Modular – 30 Aniversario",
+			"stock": 15,
+			"price": 450,
+			"created_by": null,
+			"created_at": "2023-06-01T18:13:07.776Z",
+			"updated_at": "2023-06-01T18:13:07.776Z",
+			"deleted_at": null
+		},
+		{
+			"id": "7f3bf335-ca4a-4dbd-af90-6e8121a0427b",
+			"name": "Fuente ASUS ROG STRIX 850G Gold",
+			"stock": 15,
+			"price": 250,
+			"created_by": null,
+			"created_at": "2023-06-01T18:13:31.335Z",
+			"updated_at": "2023-06-01T18:13:31.335Z",
+			"deleted_at": null
+		},
+		{
+			"id": "9ddc569a-c1f8-438c-8637-febc8dbdbfb9",
+			"name": "Fuente ASUS TUF Gaming 750W Bronze",
+			"stock": 15,
+			"price": 169.99,
+			"created_by": null,
+			"created_at": "2023-06-01T18:13:55.724Z",
+			"updated_at": "2023-06-01T18:13:55.724Z",
+			"deleted_at": null
+		},
+		{
+			"id": "15ab3aef-178d-442d-90fd-c78609ca1dcf",
+			"name": "GPU Gigabyte GeForce RTX 3070 EAGLE OC 8Gb",
+			"stock": 15,
+			"price": 860,
+			"created_by": null,
+			"created_at": "2023-06-01T18:14:42.829Z",
+			"updated_at": "2023-06-01T18:14:42.829Z",
+			"deleted_at": null
+		},
+		{
+			"id": "0ac8f57b-ad46-4b5f-acdb-8dc17fd2d908",
+			"name": "GPU Gigabyte GeForce RTX 3060 Ti Windforce OC 8Gb",
+			"stock": 15,
+			"price": 744.99,
+			"created_by": null,
+			"created_at": "2023-06-01T18:15:07.162Z",
+			"updated_at": "2023-06-01T18:15:07.162Z",
+			"deleted_at": null
+		},
+		{
+			"id": "6542c25f-2d98-46ad-b9a1-8ba98c6d33b6",
+			"name": "GPU Gigabyte GeForce RTX 4070Ti Eagle OC 12Gb",
+			"stock": 15,
+			"price": 1370,
+			"created_by": null,
+			"created_at": "2023-06-01T18:15:45.552Z",
+			"updated_at": "2023-06-01T18:15:45.552Z",
+			"deleted_at": null
+		},
+		{
+			"id": "0b9a771d-2a98-4562-ae8b-d993cb7cfe91",
+			"name": "GPU Gigabyte GeForce RTX 4090 Gaming OC 24Gb",
+			"stock": 15,
+			"price": 2675,
+			"created_by": null,
+			"created_at": "2023-06-01T18:16:17.879Z",
+			"updated_at": "2023-06-01T18:16:17.879Z",
+			"deleted_at": null
+		}
+	]
+}
