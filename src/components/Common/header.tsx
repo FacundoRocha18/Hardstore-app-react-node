@@ -12,6 +12,7 @@ import { MOBILE_MAIN_MENU_ITEMS } from '../../common/constants'
 import { CartButton } from '../Cart/cart-button'
 import { useCartContext } from '../../contexts/cart-context'
 import { useCategories } from '../../hooks/useCategories'
+import { Logo } from './logo'
 
 export const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,7 +30,7 @@ export const Header = () => {
 			<NavbarContent justify='start'>
 				<NavbarMenuToggle aria-label={isMenuOpen ? 'Close menu' : 'Open menu'} className='sm:hidden' />
 				<NavbarBrand>
-					<Link to={'/'}><h1>Techie Store</h1></Link>
+					<Logo text_color='black' />
 				</NavbarBrand>
 			</NavbarContent>
 			<NavbarContent className="hidden items-center justify-between sm:flex gap-6" justify='end'>
@@ -54,7 +55,7 @@ export const Header = () => {
 					</Link>
 				</NavbarItem>
 				<NavbarItem>
-					<CartButton products_quantity={cart_items.length}/>
+					<CartButton products_quantity={cart_items.length} />
 				</NavbarItem>
 			</NavbarContent>
 			<Menu items={MOBILE_MAIN_MENU_ITEMS} />
