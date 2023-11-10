@@ -11,10 +11,10 @@ export interface IProduct {
 	name: string
 	stock: number
 	price: number
-	created_by: string
-	created_at: Date
-	updated_at: Date
-	deleted_at: Date
+	created_by: string | null
+	created_at: string | null
+	updated_at: string | null
+	deleted_at: string | null
 }
 
 export interface IProductsContext {
