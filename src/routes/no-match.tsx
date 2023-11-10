@@ -1,5 +1,4 @@
 export const NoMatch = () => {
-
   return (
     <div className='no-match'>No Match Page</div>
   )

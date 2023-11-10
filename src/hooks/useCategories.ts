@@ -26,8 +26,6 @@ export const useCategories = () => {
 		}
 	}, []);
 
-	console.log(categories);
-
 	categories.sort((a, b) => {
 		return a.id - b.id
 	})

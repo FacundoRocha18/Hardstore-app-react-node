@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { fetch_products } from '../services/fetchProducts';
+import { type IProduct } from '../common/interfaces';
 
 export const useProducts = () => {
-	const [products, setProducts] = useState([]);
+	const [products, setProducts] = useState<IProduct[]>([]);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState('Sin errores');
 	const should_fetch = useRef(true);
@@ -24,8 +25,6 @@ export const useProducts = () => {
 			get_products()
 		}
 	}, []);
-
-	console.log(products)
 
 	return [products, loading, error] as const
 }

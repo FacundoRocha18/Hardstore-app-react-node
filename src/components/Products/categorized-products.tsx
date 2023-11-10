@@ -13,9 +13,7 @@ import css from 'classnames'
 
 const CategorizedProducts = ({ onAdd, showAlert }) => {
 	const { cat_id } = useParams()
-
 	const { products, loading } = useProducts()
-
 	const matchProducts = checkData(products, cat_id)
 
 	if (loading) {
