@@ -2,9 +2,11 @@ import { type ReactNode } from 'react'
 import { DropdownItem, DropdownMenu, DropdownTrigger, Dropdown as NextUIDropdown } from '@nextui-org/react'
 import { type ICategory } from '../../common/interfaces'
 
-export const Dropdown = ({ children, items }: { children: ReactNode, items: ICategory[] }) => {
+interface Props { children: ReactNode, items: ICategory[] }
+
+export const Dropdown = ({ children, items }: Props) => {
 	return (
-		<NextUIDropdown>
+		<NextUIDropdown closeOnSelect={false} type='listbox'>
 			<DropdownTrigger>
 				{
 					children
@@ -13,9 +15,7 @@ export const Dropdown = ({ children, items }: { children: ReactNode, items: ICat
 			<DropdownMenu aria-label='Dynamic Actions' items={items}>
 				{
 					items.map(item => (
-						<DropdownItem
-							key={item.id}
-						>
+						<DropdownItem key={item.id}>
 							{item.name}
 						</DropdownItem>
 					))
