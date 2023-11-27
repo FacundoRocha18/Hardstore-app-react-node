@@ -4,16 +4,30 @@ import { createContextCustom } from '../hooks/useContextCustom'
 
 export const [useCartContext, ContextProvider] = createContextCustom<ICartContext>()
 
-export const Cart_Provider = ({ children }: IChildrenProps) => {
-  const [cart_items, on_add, on_remove, on_delete, on_buy] = useCart()
-
-  const providerValue: ICartContext = {
-    cart_items,
-    on_add,
+export const CartProvider = ({ children }: IChildrenProps) => {
+	const [
+		total,
+		shipping_cost,
+		subtotal,
+		is_cart_empty,
+		cart_items,
+		on_add,
 		on_remove,
 		on_delete,
 		on_buy
-  }
+	] = useCart()
 
-  return <ContextProvider value={providerValue}>{children}</ContextProvider>
+	const provider_value: ICartContext = {
+		total,
+		shipping_cost,
+		subtotal,
+		is_cart_empty,
+		cart_items,
+		on_add,
+		on_remove,
+		on_delete,
+		on_buy
+	}
+
+	return <ContextProvider value={provider_value}>{children}</ContextProvider>
 }

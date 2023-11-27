@@ -23,23 +23,23 @@ export interface IProductsContext {
 }
 
 export interface IChildrenProps {
-  children: React.ReactNode
+	children: React.ReactNode
 }
 
 export interface IShoppingCartItem {
-  id: UUID
-  quantity: number
-  unit_price: number
-  subtotal: number
-  product: Product
+	id: UUID
+	quantity: number
+	unit_price: number
+	subtotal: number
+	product: Product
 }
 
 export interface ICart {
 	id: UUID
-  shopping_cart_items: IShoppingCartItem[]
-  created_at: Date
-  updated_at: Date
-  deleted_at: Date
+	shopping_cart_items: IShoppingCartItem[]
+	created_at: Date
+	updated_at: Date
+	deleted_at: Date
 }
 
 export interface ICartItem extends IProduct {
@@ -47,6 +47,10 @@ export interface ICartItem extends IProduct {
 }
 
 export interface ICartContext {
+	total: number
+	shipping_cost: number
+	subtotal: number
+	is_cart_empty: boolean
 	cart_items: IProduct[]
 	on_add: (product: IProduct, QTY: number) => void
 	on_remove: (product: IProduct) => void

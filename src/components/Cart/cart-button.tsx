@@ -11,7 +11,7 @@ export const CartButton = ({ products_quantity }: Props) => {
 		<Badge content={products_quantity} color='primary'>
 			<Link
 				className='flex items-center justify-between gap-2'
-				to={'/products/shoppingCart'}
+				to={'/checkout/cart'}
 				title='Carrito de compras'
 			>
 				<IconShoppingBag size={30} />

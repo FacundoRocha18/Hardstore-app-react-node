@@ -48,7 +48,7 @@ export const Header = () => {
 				<NavbarItem>
 					<Link
 						className='flex items-center justify-between gap-2'
-						to={'/products/shoppingCart'}
+						to={'/checkout/cart'}
 						title='Carrito de compras'
 					>
 						Carrito

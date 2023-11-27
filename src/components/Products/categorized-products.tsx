@@ -8,7 +8,6 @@ import { ProductsCard } from './product-card'
 import { Loading } from '../Common/loading'
 
 /* Styles imports -------------------------------- */
-import style from './ProductsGrid.module.css'
 import css from 'classnames'
 
 const CategorizedProducts = ({ onAdd, showAlert }) => {

@@ -11,8 +11,8 @@ interface Props {
 	item: ICartItem
 }
 
-const ShoppingCartItem = ({ item }: Props) => {
-	const { id, thumbnail, name, price, quantity } = item;
+export const ShoppingCartItem = ({ item }: Props) => {
+	const { id, name, price, quantity } = item;
 	const { on_add, on_remove, on_delete } = useCartContext()
 	const { show_alert } = useAlertsContext()
 
@@ -37,13 +37,13 @@ const ShoppingCartItem = ({ item }: Props) => {
 	return (
 		<>
 			{
-				<div key={id} className={css(style.cartItem, 'row animate__animated animate__bounceInDown animate__fast')}>
+				<div key={id} className={css(style.cartItem)}>
 					<div className={style.column}>
 						<div className={css(style.container, style.info)}>
 							<div className={style.imageContainer}>
 							</div>
 							<div className={style.titleContainer}>
-								<Link to={`/api/products/product/${id}`} replace>
+								<Link to={`/products/product/${id}`} replace>
 									<h6 className={css('title-center', style.title)}>{name}</h6>
 								</Link>
 							</div>
@@ -73,5 +73,3 @@ const ShoppingCartItem = ({ item }: Props) => {
 		</>
 	)
 }
-
-export default ShoppingCartItem;

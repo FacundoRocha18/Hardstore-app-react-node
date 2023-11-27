@@ -35,7 +35,7 @@ export const ProductsCard = ({ product }: Props) => {
 			<CardFooter className='flex justify-between items-center gap-2 p-4'>
 				<section className='w-3/4'>
 					<Link to={`/api/products/product/${id}`} replace>
-						<h6 className='max-w-full overflow-hidden text-ellipsis' title={name}>{name}</h6>
+						<h6 className='line-clamp-2 text-ellipsis' title={name}>{name}</h6>
 					</Link>
 					<h5 className='font-semibold text-lg'>USD <span className='text-orange-500'>{price}</span> iva inc.</h5>
 				</section>
