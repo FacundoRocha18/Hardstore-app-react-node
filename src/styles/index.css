@@ -4,6 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
+#main-container {
+	height: fit-content;
+}
 
 html {
     box-sizing: border-box;
@@ -141,14 +144,14 @@ body {
 }
 
 .footer {
+	align-items: center;
 	background-color: var(--item-bg-secondary-color);
 	border-top: solid 1px var(--primary-btn-bg-color);
-	width: 100%;
-	height: fit-content;
 	display: flex;
-	align-items: center;
+	height: fit-content;
 	justify-content: space-between;
 	padding: 0 50px;
+	width: 100%;
 }
 
 @media (min-width: 768px) {

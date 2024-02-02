@@ -22,7 +22,7 @@ export const CartOrderDetails = () => {
 	}
 
 	return (
-		<Card className='flex items-center justify-between p-3 rounded' >
+		<Card className='flex items-center justify-between p-3 rounded w-full col-span-1 row-span-2'>
 			<CardHeader>
 				<h4>Resumen del pedido</h4>
 			</CardHeader>
@@ -33,7 +33,8 @@ export const CartOrderDetails = () => {
 			</CardBody>
 			<CardFooter>
 				<Button
-					className="btn btn-success comprarButton"
+					className="w-full cursor-pointer"
+					color={is_cart_empty ? 'default' : 'primary'}
 					type="button"
 					onClick={() => { handle_buy(subtotal, cart_items); }}
 					disabled={is_cart_empty}

@@ -19,6 +19,7 @@ const ProductsGrid = () => {
 					))
 				}
 			</div>
+			<title>App</title>
 		</section>
 	)
 }

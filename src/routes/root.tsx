@@ -1,9 +1,7 @@
-import { Outlet } from 'react-router-dom'
-import { Header } from '../components/Common/header'
-import { Footer } from '../components/Common/footer'
 import { Products_Provider } from '../contexts/products-context'
 import { CartProvider } from '../contexts/cart-context'
 import { Alerts_Provider } from '../contexts/alerts-context'
+import { Layout } from '../components/Common/layout'
 
 export const Root = () => {
 	return (
@@ -11,9 +9,7 @@ export const Root = () => {
 			<CartProvider>
 				<Products_Provider>
 					<Alerts_Provider>
-						<Header />
-						<Outlet />
-						<Footer />
+						<Layout />
 					</Alerts_Provider>
 				</Products_Provider>
 			</CartProvider>
