@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.items-header {
+	grid-template-columns: repeat(4, 1fr) !important;
+}
+
 #main-container {
 	height: fit-content;
 }

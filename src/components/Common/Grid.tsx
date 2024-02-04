@@ -1,8 +1,10 @@
 import type React from 'react';
 
 interface Props {
-	columns?: number
-	rows?: number
+	autoCols?: string
+	columns?: number | string
+	autoRows?: string
+	rows?: number | string
 	gap?: number
 	colSpan?: number
 	colStart?: number
@@ -10,13 +12,14 @@ interface Props {
 	rowStart?: number
 	height?: number
 	width?: number
+	itemsAlignment?: string
 	children: React.ReactNode
 }
 
-const Grid = ({ columns, rows, gap, colSpan, colStart, rowSpan, rowStart, height, width, children }: Props) => {
+const Grid = ({ autoCols, autoRows, itemsAlignment, columns, rows, gap, colSpan, colStart, rowSpan, rowStart, height, width, children }: Props) => {
 	return (
 		<>
-			<section className={`grid grid-cols-${columns} grid-rows-${rows} gap-${gap} col-span-${colSpan} col-start-${colStart} row-span-${rowSpan} row-start-${rowStart} h-${height} w-${width}`}>
+			<section className={`grid items-${itemsAlignment} auto-cols-${autoCols} grid-cols-${columns} auto-rows-${autoRows} grid-rows-${rows} gap-${gap} col-span-${colSpan} col-start-${colStart} row-span-${rowSpan} row-start-${rowStart} h-${height} w-${width}`}>
 				{
 					children
 				}

@@ -5,7 +5,7 @@ import { CartOrderDetails } from './cart-order-details';
 
 export const ShoppingCartLayout = () => {
 	return (
-		<Grid columns={3} rows={3} height={20}>
+		<Grid columns={3} rows={2} height={20}>
 			<CartItemsListHeader />
 			<CartItemsList />
 			<CartOrderDetails />

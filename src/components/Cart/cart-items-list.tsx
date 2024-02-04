@@ -6,7 +6,7 @@ export const CartItemsList = () => {
 	const { cart_items } = useCartContext();
 
 	return (
-		<Grid columns={1} gap={4} colSpan={2} rowStart={2}>
+		<Grid columns={1} gap={4} autoRows={'fr'} colStart={1} colSpan={2} rowStart={2} rowSpan={1}>
 			{
 				cart_items.map((item) => (
 					<CartItem

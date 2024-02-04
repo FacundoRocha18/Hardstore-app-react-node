@@ -22,7 +22,7 @@ export const CartOrderDetails = () => {
 	}
 
 	return (
-		<Card className='flex items-center justify-between p-3 rounded w-full col-span-1 row-span-2'>
+		<Card className='flex items-center justify-between p-3 rounded w-full col-span-1 row-span-1 row-start-2'>
 			<CardHeader>
 				<h4>Resumen del pedido</h4>
 			</CardHeader>

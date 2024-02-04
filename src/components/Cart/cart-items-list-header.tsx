@@ -2,11 +2,11 @@ import Grid from '../Common/Grid';
 
 export const CartItemsListHeader = () => {
 	return (
-		<Grid columns={2} rows={1} gap={4} colSpan={2} colStart={1} rowSpan={1} rowStart={1}>
-			<p>Producto</p>
-			<p >Precio</p>
-			<p >Cantidad</p>
-			<p >Subtotal</p>
-		</Grid>
+		<div className='grid items-header col-span-2 text-center'>
+			<h4>Producto</h4>
+			<h4>Precio</h4>
+			<h4>Cantidad</h4>
+			<h4>Subtotal</h4>
+		</div>
 	);
 };
