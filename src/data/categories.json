@@ -1,24 +1,24 @@
 {
-	"data": [
-		{
-			"id": "e73fced4-7362-4648-983f-b133f8d9518b",
-			"name": "Notebooks",
-			"products": []
-		},
-		{
-			"id": "e72fced4-7362-4648-983f-b133f8d9518b",
-			"name": "Periféricos",
-			"products": []
-		},
-		{
-			"id": "e74fced4-7362-4648-983f-b133f8d9518b",
-			"name": "Componentes",
-			"products": []
-		},
-		{
-			"id": "e74fced4-7362-4648-933f-b133f8d9518b",
-			"name": "Monitores",
-			"products": []
-		}
-	]
+  "data": [
+    {
+      "id": "e73fced4-7362-4648-983f-b133f8d9518b",
+      "name": "Notebooks",
+      "products": []
+    },
+    {
+      "id": "e72fced4-7362-4648-983f-b133f8d9518b",
+      "name": "Periféricos",
+      "products": []
+    },
+    {
+      "id": "e74fced4-7362-4648-983f-b133f8d9518b",
+      "name": "Componentes",
+      "products": []
+    },
+    {
+      "id": "e74fced4-7362-4648-933f-b133f8d9518b",
+      "name": "Monitores",
+      "products": []
+    }
+  ]
 }

@@ -1,373 +1,366 @@
 .container {
-    background-color: var(--product-item-background);
-    box-shadow: var(--box-shadow-1);
-    border-radius: 1rem;
-    
-    height: 100%;
-    margin: 0 auto;
-    width: 100%;
+  background-color: var(--product-item-background);
+  box-shadow: var(--box-shadow-1);
+  border-radius: 1rem;
+  height: 100%;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .information {
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(1, 1fr);
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(1, 1fr);
 }
 
 .image {
-    align-items: center;
-    background-color: #fff;
-    border-top-left-radius: .5rem;
-    border-top-right-radius: .5rem;
-    border-bottom-left-radius: 0;
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    min-height: 300px;
-    width: 100%;
-    padding: 0rem;
+  align-items: center;
+  background-color: #fff;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-left-radius: 0;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  min-height: 300px;
+  width: 100%;
+  padding: 0rem;
 }
 
 .image img {
-    max-height: 200px;
-    max-width: 200px;
-    height: 100%;
+  max-height: 200px;
+  max-width: 200px;
+  height: 100%;
 }
 
 .title h1 {
-    font-size: 2.8rem;
-    text-align: center;
+  font-size: 2.8rem;
+  text-align: center;
 }
 
 .body {
-    padding: 2rem;
+  padding: 2rem;
 }
 
 .price {
-    align-items: center;
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin: 2rem 0;
-    width: 100%;
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+  width: 100%;
 }
 
 .price h3 span {
-    color: var(--text-secondary-color);
-    font-size: 2.5rem;
+  color: var(--text-secondary-color);
+  font-size: 2.5rem;
 }
 
 .stock {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    margin: 2rem 0;
-    width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
+  width: 100%;
 }
 
 .quantityContainer {
-    display: flex;
-    justify-content: center;
-    margin: 2rem 0;
-    width: 80%;
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  width: 80%;
 }
 
 .qtyInput {
-    width: 100%;
-    padding: 1rem 0rem;
-    border: none;
-    text-align: center;
-    box-shadow: var(--box-shadow-1);
-    margin: 0;
+  width: 100%;
+  padding: 1rem 0rem;
+  border: none;
+  text-align: center;
+  box-shadow: var(--box-shadow-1);
+  margin: 0;
 }
 
 .quantityBtn {
-    align-items: center;
-    box-sizing: border-box;
-    box-shadow: var(--box-shadow-1);
-    border: none;
-    font-size: 2.3rem;
-    display: flex;
-    justify-content: center;
-    min-width: 3.5rem;
-    margin: 0;
-    min-height: 100%;
+  align-items: center;
+  box-sizing: border-box;
+  box-shadow: var(--box-shadow-1);
+  border: none;
+  font-size: 2.3rem;
+  display: flex;
+  justify-content: center;
+  min-width: 3.5rem;
+  margin: 0;
+  min-height: 100%;
 }
 
 .quantityBtn:first-child {
-    border-top-left-radius: .3rem;
-    border-bottom-left-radius: .3rem;
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
 }
 
 .quantityBtn:last-child {
-    border-top-right-radius: .3rem;
-    border-bottom-right-radius: .3rem;
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
 }
 
 .quantityBtn span {
-    height: fit-content;
-    width: fit-content;
+  height: fit-content;
+  width: fit-content;
 }
 
 .quantityBtn:hover {
-    cursor: pointer;
-    transition: all .3s;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .up {
-    background-color: var(--success-btn-bg-color);
-    background: var(--success-btn-gradient);
+  background-color: var(--success-btn-bg-color);
+  background: var(--success-btn-gradient);
 }
 
 .down {
-    background-color: var(--critical-btn-bg-color);
-    background: var(--critical-btn-gradient);
+  background-color: var(--critical-btn-bg-color);
+  background: var(--critical-btn-gradient);
 }
 
 .up:hover {
-    background-color: var(--success-btn-bg-color);
-    background: var(--success-btn-gradient-hover);
-    transition: all .5s;
+  background-color: var(--success-btn-bg-color);
+  background: var(--success-btn-gradient-hover);
+  transition: all 0.5s;
 }
 
 .down:hover {
-    background-color: var(--critical-btn-bg-color);
-    background: var(--critical-btn-gradient-hover);
-    transition: all .5s;
+  background-color: var(--critical-btn-bg-color);
+  background: var(--critical-btn-gradient-hover);
+  transition: all 0.5s;
 }
 
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    display: none;
-    margin: 0;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  display: none;
+  margin: 0;
 }
 
 .buttoncontainer {
-    align-items: center;
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    margin: 4rem 0;
-    width: 100%;
+  align-items: center;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin: 4rem 0;
+  width: 100%;
 }
 
 .add {
-    background-color: var(--primary-btn-bg-color);
-    background: var(--primary-btn-gradient);
-    border: none;
-    margin: 0;
-    width: 80%;
-    transition: all .5s;
+  background-color: var(--primary-btn-bg-color);
+  background: var(--primary-btn-gradient);
+  border: none;
+  margin: 0;
+  width: 80%;
+  transition: all 0.5s;
 }
 
 .add:hover {
-    background-color: var(--primary-btn-hover-bg-color);
-    background: var(--primary-btn-gradient-hover);
-    cursor: pointer;
+  background-color: var(--primary-btn-hover-bg-color);
+  background: var(--primary-btn-gradient-hover);
+  cursor: pointer;
 }
 
 .descriptionlink {
-    margin: 4rem 0;
-    text-align: center;
+  margin: 4rem 0;
+  text-align: center;
 }
 
 .descriptionlink a {
-    color: var(--text-secondary-color);
-    transition: all .5s;
+  color: var(--text-secondary-color);
+  transition: all 0.5s;
 }
 
 .category p {
-    text-align: center;
+  text-align: center;
 }
 
 .category p a {
-    color: var(--text-secondary-color);
-    transition: all .5s;
+  color: var(--text-secondary-color);
+  transition: all 0.5s;
 }
 
 .descriptionContainer {
-    background-color: var(--product-item-background);
-    margin: 4rem 0;
-    padding: 2rem;
-    border-radius: 1rem;
+  background-color: var(--product-item-background);
+  margin: 4rem 0;
+  padding: 2rem;
+  border-radius: 1rem;
 }
 
 .description {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .description table {
-    background-color: var(--body-bg-main-color);
-    border-radius: 1rem;
-    padding: 1rem;
-    width: 100%;
+  background-color: var(--body-bg-main-color);
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 100%;
 }
 
 .description table tbody {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .description table caption {
-    text-align: left;
+  text-align: left;
 }
 
 .description table tr {
-    align-items: center;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    justify-content: space-between;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  justify-content: space-between;
 }
 
 .description table th:last-of-type,
 .description table td:last-of-type {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .description table tr th {
-    background-color: var(--outline-btn-bg-color);
-    border-bottom: 1px solid var(--borders-main-color);
-    padding: 1rem;
-    text-align: left;
-    width: 100%;
+  background-color: var(--outline-btn-bg-color);
+  border-bottom: 1px solid var(--borders-main-color);
+  padding: 1rem;
+  text-align: left;
+  width: 100%;
 }
 
 .description table tr th:first-of-type {
-    border-top-left-radius: 1rem;
+  border-top-left-radius: 1rem;
 }
 
 .description table tr th:last-of-type {
-    border-bottom-left-radius: 1rem;
-
+  border-bottom-left-radius: 1rem;
 }
 
 .description table tr th p {
-    font-family: 'Poppins', sans-serif;
-    font-weight: var(--medium);
+  font-family: "Poppins", sans-serif;
+  font-weight: var(--medium);
 }
 
 .description table tr td {
-    border-bottom: 1px solid var(--borders-main-color);
-    padding: 1rem;
-    text-align: left;
-    width: 100%;
+  border-bottom: 1px solid var(--borders-main-color);
+  padding: 1rem;
+  text-align: left;
+  width: 100%;
 }
 
 .description table tr th,
 .description table tr td {
-    align-items: center;
-    display: flex;
-    height: 79px;
-    justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 79px;
+  justify-content: center;
 }
 
 .description table tr th p,
 .description table tr td p {
-    width: 100%;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
-    .container {
-        background-color: var(--product-item-background);
-        box-shadow: var(--box-shadow-1);
-        border-radius: 1rem;
-        height: 100%;
-        margin: 0 auto;
-        width: 100%;
-    }
+  .container {
+    background-color: var(--product-item-background);
+    box-shadow: var(--box-shadow-1);
+    border-radius: 1rem;
+    height: 100%;
+    margin: 0 auto;
+    width: 100%;
+  }
 
+  .container.information_container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 20px;
+  }
 
-    .container.information_container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        padding: 20px;
-    }   
+  .container.description_container {
+    padding: 20px;
+  }
 
-    .container.description_container {
-        padding: 20px;
-    }
+  .image {
+    background-color: #fff;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    border-top-right-radius: 0;
+  }
 
+  .image img {
+    max-height: 400px;
+    max-width: 500px;
+    height: 100%;
+    width: 100%;
+  }
 
-    .image {
-        background-color: #fff;
-        border-top-left-radius: .5rem;
-        border-bottom-left-radius: .5rem;
-        border-top-right-radius: 0;
-    }
+  .title {
+    margin: 0 auto 2rem;
+    text-align: left;
+    width: 100%;
+  }
 
-    .image img {
-        max-height: 400px;
-        max-width: 500px;
-        height: 100%;
-        width: 100%;
-    }
+  .title h1 {
+    font-size: 3.3rem;
+    text-align: left;
+  }
 
-    .title {
-        margin: 0 auto 2rem;
-        text-align: left;
-        width: 100%;
-    }
+  .price {
+    justify-content: flex-start;
+  }
 
-    .title h1 {
-        font-size: 3.3rem;
-        text-align: left;
-    }
+  .quantityContainer {
+    justify-content: flex-start;
+  }
 
-    .price {
-        justify-content: flex-start;
-    }
+  .qtyInput {
+    width: 30%;
+  }
 
-    .quantityContainer {
-        justify-content: flex-start;
-    }
+  .buttoncontainer {
+    justify-content: flex-start;
+    width: 50%;
+  }
 
-    .qtyInput {
-        width: 30%;
-    }
+  .category p {
+    text-align: left;
+  }
 
-    .buttoncontainer {
-        justify-content: flex-start;
-        width: 50%;
-    }
+  .descriptionlink {
+    margin: 4rem 0;
+    text-align: left;
+  }
 
+  .descriptionlink a:hover {
+    text-decoration: underline var(--text-secondary-color) 1px;
+  }
 
-    .category p {
-        text-align: left;
-    }
+  .stock {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
-    .descriptionlink {
-        margin: 4rem 0;
-        text-align: left;
-    }
+  .add:hover {
+    background-color: var(--primary-btn-bg-color);
+    cursor: pointer;
+  }
 
-    .descriptionlink a:hover {
-        text-decoration: underline var(--text-secondary-color) 1px;
-    }
+  .category p a {
+    color: var(--text-secondary-color);
+    transition: all 0.5s;
+  }
 
-    .stock {
-        align-items: flex-start;
-        flex-direction: column;
-        justify-content: space-between;
-    }
+  .category p a:hover {
+    text-decoration: underline var(--text-secondary-color) 1px;
+  }
 
-    .add:hover {
-        background-color: var(--primary-btn-bg-color);
-        cursor: pointer;
-    }
-
-    .category p a {
-        color: var(--text-secondary-color);
-        transition: all .5s;
-    }
-
-    .category p a:hover {
-        text-decoration: underline var(--text-secondary-color) 1px;
-    }
-
-    .description table {
-        padding: 2rem;
-    }
+  .description table {
+    padding: 2rem;
+  }
 }
