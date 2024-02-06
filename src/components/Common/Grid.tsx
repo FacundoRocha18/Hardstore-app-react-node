@@ -27,7 +27,7 @@ const Grid = ({
 	return (
 		<>
 			<div
-				className={classNames(`grid items-${itemsAlignment} auto-cols-${autoCols} grid-cols-${columns} auto-rows-${autoRows} grid-rows-${rows} gap-${gap} h-${height} w-${width}`)}
+				className={classNames(`grid items-${itemsAlignment} auto-cols-fr grid-cols-${columns} auto-rows-${autoRows} grid-rows-${rows} gap-${gap} h-${height} w-${width} relative`)}
 			>
 				{children}
 			</div>

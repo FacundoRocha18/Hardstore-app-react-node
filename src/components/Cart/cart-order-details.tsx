@@ -4,6 +4,8 @@ import {
   CardBody,
   CardFooter,
   CardHeader,
+	Radio,
+	RadioGroup,
 } from "@nextui-org/react";
 import { useNavigate } from "react-router-dom";
 import { useCartContext } from "../../contexts/cart-context";
@@ -22,19 +24,21 @@ export const CartOrderDetails = () => {
   };
 
   return (
-    <Card className="flex items-center justify-between p-3 rounded w-full col-span-1 row-span-1 row-start-2">
+    <Card className="flex items-center justify-between p-3 rounded w-full col-span-1 row-span-1 row-start-2 cart-details">
       <CardHeader>
         <h4>Resumen del pedido</h4>
       </CardHeader>
-      <CardBody>
+      <CardBody className='gap-2'>
         <p>
           Producto/s: USD{" "}
           <span id="cart-total-shipping-price">{total.toFixed(2)}</span>
         </p>
-        <p>
-          Envío: USD{" "}
-          <span id="cart-total-shipping-price">{shipping_cost.toFixed(2)}</span>
-        </p>
+        <RadioGroup label="Envío" defaultValue="retiro-en-local">
+					<Radio value="retiro-en-local">Retira en el local</Radio>
+					<Radio value="envio-montevideo">Montevideo - US$5</Radio>
+					<Radio value="envio-canelones">Canelones - US$5</Radio>
+					<Radio value="despacho-al-interior">Despacho para el interior</Radio>
+				</RadioGroup>
         <p>
           <span>Subtotal: </span> USD{" "}
           <span id="cart-total-price">{subtotal.toFixed(2)}</span>

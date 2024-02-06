@@ -20,28 +20,30 @@ export const CartItem = ({ item }: Props) => {
 	const { id, name, price, quantity, image } = item;
 
 	return (
-		<GridItem colSpan={2}>
-			<Card className="rounded p-4">
-				<Grid columns={3} rows={2} autoCols='fr' gap={2}>
-					<GridItem colStart={1} colEnd={2} colSpan={1} rowStart={1} rowSpan={2} alignSelf='center' justifySelf='center'>
-						<Image width={100} height={100} src={`data:image/jpeg;base64,${image}`} />
-					</GridItem>
-					<GridItem colStart={2} colEnd={3} colSpan={1} rowStart={1} rowEnd={2} rowSpan={1}>
+		<Card className="rounded flex-row col-span-2 min-w-full" fullWidth>
+			<CardHeader className='w-fit'>
+				<Image width={100} height={100} src={`data:image/jpeg;base64,${image}`} />
+			</CardHeader>
+			<CardBody className='p-3'>
+				<div className='grid grid-cols-6 grid-rows-2'>
+					<GridItem colStart={1} colEnd={3} colSpan={2} rowStart={1} rowEnd={2} rowSpan={1} alignSelf='center' justifySelf='start'>
 						<Link to={`/products/product/${id}`} replace>
-							<h6>{name}</h6>
+							<h6 className='line-clamp-1 text-ellipsis'>{name}</h6>
 						</Link>
 					</GridItem>
-					<GridItem colStart={3} colEnd={4} colSpan={1} rowStart={1} rowEnd={3} rowSpan={2} alignSelf='center' justifySelf='center'>
+					<GridItem colStart={3} colEnd={4} colSpan={1} rowStart={1} rowEnd={2} rowSpan={1} alignSelf='center' justifySelf='start'>
 						<p>
 							USD <span>{price}</span>
 						</p>
 					</GridItem>
-					<GridItem flex itemsAlignment='center' itemsJustification='between' colStart={2} colEnd={3} colSpan={2}>
+					<div className='col-start-1 col-end-2 self-center'>
 						<NumericUpDown quantity={quantity} />
+					</div>
+					<div className='col-start-3 col-end-4 row-start-2 row-end-3 self-center justify-self-center'>
 						<RemoveButton />
-					</GridItem>
-				</Grid>
-			</Card>
-		</GridItem>
+					</div>
+				</div>
+			</CardBody>
+		</Card>
 	);
 };

@@ -1,0 +1,15 @@
+.cart-items {
+	grid-area: items;
+}
+
+.cart-details {
+	grid-area: details;
+}
+
+.cart-layout {
+	display: grid;
+	gap: 20px;
+	grid-template-columns: 2fr 1fr;
+	grid-template-areas: 
+		"items items details"
+}

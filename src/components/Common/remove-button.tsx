@@ -9,7 +9,7 @@ export const RemoveButton = () => {
 
 	return (
 		<Button
-			className="btn btn-danger remove-item-btn"
+			className="min-w-0 p-2 bg-transparent h-50 w-50"
 			type="button"
 			onClick={(e) => {
 				handleDelete(e);

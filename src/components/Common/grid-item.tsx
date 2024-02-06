@@ -30,11 +30,10 @@ export const GridItem = ({
 	justifySelf,
 	children
 }: Props) => {
-	// Component logic here
+	const styles = classNames(`${(flex === true) ? 'flex' : ''} items-${itemsAlignment} justify-${itemsJustification} col-span-${colSpan} col-start-${colStart} col-end-${colEnd} row-span-${rowSpan} row-start-${rowStart} row-end-${rowEnd} self-${alignSelf} justify-self-${justifySelf} w-fit relative`);
 
 	return (
-		// JSX code here
-		<div className={classNames(`${(flex === true) ? 'flex' : ''} items-${itemsAlignment} justify-${itemsJustification} col-span-${colSpan} col-start-${colStart} col-end-${colEnd} row-span-${rowSpan} row-start-${rowStart} row-end-${rowEnd} self-${alignSelf} justify-self-${justifySelf}`)}>
+		<div className={styles}>
 			{children}
 		</div>
 	);

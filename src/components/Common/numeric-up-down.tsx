@@ -15,7 +15,7 @@ export const NumericUpDown = ({ quantity }: Props) => {
 	};
 
 	return (
-		<div className='flex'>
+		<div className='flex w-fit'>
 			<Button className='border-1 rounded-l rounded-r-none min-w-0 w-10 hover:text-primary' variant='bordered' onClick={(e) => { handleRemove(e) }}>
 				-
 			</Button>
