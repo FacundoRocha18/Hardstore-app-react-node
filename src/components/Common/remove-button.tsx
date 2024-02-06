@@ -1,5 +1,4 @@
 import { Button } from '@nextui-org/react';
-import { IconX } from '@tabler/icons-react';
 
 export const RemoveButton = () => {
 	const handleDelete = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -9,12 +8,12 @@ export const RemoveButton = () => {
 
 	return (
 		<Button
-			className="min-w-0 p-2 bg-transparent h-50 w-50"
+			className="bg-danger-50 p-2 text-black rounded lg:bg-transparent lg:p-0 lg:text-primary"
 			type="button"
 			onClick={(e) => {
 				handleDelete(e);
 			}}>
-			<IconX />
+			Eliminar del carrito
 		</Button>
 	);
 };

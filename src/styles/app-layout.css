@@ -20,7 +20,6 @@
 
 .layout {
 	display: grid;
-	gap: 20px;
 	grid-template-areas: 
 		"header"
 		"content"

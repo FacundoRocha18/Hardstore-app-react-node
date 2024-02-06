@@ -1,0 +1,35 @@
+.cart-item-image {
+	grid-area: image;
+}
+
+.cart-item-title {
+	grid-area: title;
+}
+
+.cart-item-price-tag {
+	grid-area: price;
+}
+
+.cart-item-controls {
+	grid-area: controls;
+}
+
+.cart-item-layout {
+	display: grid;
+	gap: 10px;
+	grid-template-areas: 
+	"image"
+	"title"
+	"price"
+	"controls";
+}
+
+@media (min-width: 1080px) {
+	.cart-item-layout {
+		grid-template-areas: 
+			"image title price"
+			"image controls empty";
+		grid-template-columns: 150px 3fr 150px;
+		grid-template-rows: 1fr 1fr;
+	}
+}

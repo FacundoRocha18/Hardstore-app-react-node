@@ -7,9 +7,7 @@ interface Props {
 export const Logo = ({ text_color }: Props) => {
   return (
     <Link to={"/"}>
-      <h1 className={`text-${text_color} text-center`}>
-        Techie <span className="font-medium text-orange-500">UY</span>
-      </h1>
+      <h1 className={`text-${text_color} text-center`}>Techie</h1>
     </Link>
   );
 };

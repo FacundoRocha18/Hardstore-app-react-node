@@ -11,7 +11,8 @@ import Product from "./components/Products/product";
 import CategorizedProducts from "./components/Products/categorized-products";
 import "./styles/index.css";
 import "./styles/app-layout.css";
-import "./styles/cart-layout.css"
+import "./styles/cart-layout.css";
+import "./styles/cart-item-layout.css";
 
 const router = createBrowserRouter([
   {
