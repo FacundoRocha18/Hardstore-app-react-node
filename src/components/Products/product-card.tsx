@@ -19,12 +19,12 @@ export const ProductsCard = ({ product }: Props) => {
   const handle_add_clicked = (e: any) => {
     e.preventDefault();
 
+		on_add(product, 1);
     show_alert(
       "Se añadió correctamente el producto al carrito",
       "success",
       true,
     );
-    on_add(product, 1);
   };
 
   return (

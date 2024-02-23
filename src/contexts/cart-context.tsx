@@ -6,28 +6,36 @@ export const [useCartContext, ContextProvider] =
   createContextCustom<ICartContext>();
 
 export const CartProvider = ({ children }: IChildrenProps) => {
-  const [
-    total,
+	const [
+		cart_data,
+		cart_products,
+		loading,
+		error,
+		total,
     shipping_cost,
     subtotal,
     is_cart_empty,
-    cart_items,
     on_add,
     on_remove,
     on_delete,
     on_buy,
-  ] = useCart();
+		on_select_shipping
+	] = useCart();
 
   const provider_value: ICartContext = {
     total,
     shipping_cost,
     subtotal,
     is_cart_empty,
-    cart_items,
+		cart_data,
+    cart_products,
     on_add,
     on_remove,
     on_delete,
     on_buy,
+		on_select_shipping,
+		loading,
+		error
   };
 
   return <ContextProvider value={provider_value}>{children}</ContextProvider>;

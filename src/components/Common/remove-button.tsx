@@ -1,9 +1,17 @@
 import { Button } from '@nextui-org/react';
+import { useCartContext } from '../../contexts/cart-context';
+import { type ICartProduct } from '../../common/interfaces';
 
-export const RemoveButton = () => {
+interface Props {
+	product: ICartProduct;
+}
+
+export const RemoveButton = ({ product }: Props) => {
+	const { on_delete } = useCartContext();
+
 	const handleDelete = (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault();
-		console.log('Delete button clicked');
+		on_delete(product);
 	};
 
 	return (

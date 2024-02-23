@@ -22,7 +22,7 @@ import { Logo } from "./logo";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { cart_items } = useCartContext();
+  const { cart_products } = useCartContext();
   const [categories] = useCategories();
 
   return (
@@ -69,7 +69,7 @@ export const Header = () => {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <CartButton products_quantity={cart_items.length} />
+          <CartButton products_quantity={cart_products.length} />
         </NavbarItem>
       </NavbarContent>
       <Menu items={MOBILE_MAIN_MENU_ITEMS} />

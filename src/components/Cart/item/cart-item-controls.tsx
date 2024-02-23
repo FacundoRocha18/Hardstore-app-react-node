@@ -1,19 +1,21 @@
 import { Divider } from '@nextui-org/react';
 import { NumericUpDown } from '../../Common/numeric-up-down';
 import { RemoveButton } from '../../Common/remove-button';
+import { type ICartProduct } from '../../../common/interfaces';
 
 interface Props {
+	product: ICartProduct;
 	quantity: number;
 }
 
 const styles = 'cart-item-controls flex items-center gap-2 col-start-1 col-end-4 self-center'
 
-export const CartItemControls = ({ quantity }: Props) => {
+export const CartItemControls = ({ product, quantity }: Props) => {
 	return (
 		<div className={styles}>
-			<NumericUpDown quantity={quantity} />
+			<NumericUpDown product={product} quantity={quantity} />
 			<Divider orientation='vertical' />
-			<RemoveButton />
+			<RemoveButton product={product} />
 		</div>
 	);
 };

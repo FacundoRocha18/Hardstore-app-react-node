@@ -5,10 +5,10 @@ import style from "./shopping-cart-item.module.css";
 import css from "classnames";
 import { useCartContext } from "../../contexts/cart-context";
 import { useAlertsContext } from "../../contexts/alerts-context";
-import { type ICartItem } from "../../common/interfaces";
+import { type ICartProduct } from "../../common/interfaces";
 
 interface Props {
-  item: ICartItem;
+  item: ICartProduct;
 }
 
 export const ShoppingCartItem = ({ item }: Props) => {

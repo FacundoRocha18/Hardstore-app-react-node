@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { fetch_products } from "../services/fetchProducts";
+import { get_products as fetch_products } from "../services/fetchProducts";
 import { type IProduct } from "../common/interfaces";
 
 export const useProducts = () => {
