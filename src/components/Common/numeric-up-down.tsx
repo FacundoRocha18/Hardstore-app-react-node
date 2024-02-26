@@ -20,6 +20,8 @@ export const NumericUpDown = ({ product, quantity }: Props) => {
 		on_remove(product, 1);
 	};
 
+	console.log(quantity)
+
 	return (
 		<div className='flex w-fit'>
 			<Button className='border-1 rounded-l rounded-r-none min-w-0 w-10 hover:text-primary' variant='bordered' onClick={(e) => { handleRemove(e) }}>

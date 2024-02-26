@@ -129,6 +129,8 @@ export const useCart = () => {
 		return previous_total + product.price * product.quantity
 	}, 0)
 
+	console.log(cart_items)
+
 	return [
 		cart_data,
 		cart_items,

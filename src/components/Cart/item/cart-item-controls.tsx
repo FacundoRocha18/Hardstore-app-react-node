@@ -11,6 +11,7 @@ interface Props {
 const styles = 'cart-item-controls flex items-center gap-2 col-start-1 col-end-4 self-center'
 
 export const CartItemControls = ({ product, quantity }: Props) => {
+	console.log(quantity)
 	return (
 		<div className={styles}>
 			<NumericUpDown product={product} quantity={quantity} />

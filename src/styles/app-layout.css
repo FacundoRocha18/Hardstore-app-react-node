@@ -4,6 +4,7 @@
 
 .main-content {
 	grid-area: content;
+	padding: 0px 20px 20px 20px;
 }
 
 .footer {
@@ -38,12 +39,17 @@
 }
 
 @media (min-width: 1024px) {
+	.main-content {
+		grid-area: content;
+		padding: 0px;
+	}
+
 	.layout {
 		grid-template-columns: 1fr 4fr 1fr;
+		gap: 20px;
 		grid-template-areas: 
 			"header header header"
 			"side content ad"
 			"footer footer footer";
 	}
-	
 }

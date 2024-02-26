@@ -8,7 +8,7 @@ export const CartItemsList = () => {
 			<div className='cart-items'>
 			{
 				cart_products.map((product) => (
-					<CartItem key={product.id} product={product} {...product} />
+					<CartItem key={product.id} product={product} />
 				))
 			}
 		</div>

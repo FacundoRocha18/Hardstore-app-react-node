@@ -14,6 +14,8 @@ interface Props {
 export const CartItem = ({ product }: Props) => {
 	const { id, name, price, quantity, image } = product;
 
+	console.log(id, name, price, quantity, image)
+
 	return (
 		<Card className="rounded p-4 min-w-full lg:max-h-40 cart-item-layout">
 			<CartItemImage image={image} />
